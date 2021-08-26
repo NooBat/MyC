@@ -45,12 +45,10 @@ public:
         
         ListNode* i = head;
         ListNode* j = head->next;
-        bool removable = false;
         
-        while (i != nullptr && j != nullptr) {
+        while (i != nullptr || j != nullptr) {
             if (i->val == j->val) {
                 j = j->next;
-                removable = true;
             }
             else if (i->val != j->val || j == nullptr) {
                 ListNode* p = i->next;
@@ -82,13 +80,8 @@ void printList(ListNode* p) {
 int main() {  
     ListNode* head = nullptr;
 
-    int n;
-    cin >> n;
-    int arr[n];
-
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
+    int n = 5;
+    int arr[] = {1, 1, 2, 3, 3};
 
     head = createList(head, arr, n);
 
