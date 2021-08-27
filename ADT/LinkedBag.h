@@ -141,6 +141,7 @@ bool LinkedBag<ItemType>::remove(const ItemType& anEntry) {
         delete curr;
         curr = nullptr;
 
+        itemCount--;
         return true;
     }
 
