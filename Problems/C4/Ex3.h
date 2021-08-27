@@ -100,6 +100,7 @@ void Pile<ItemType>::clear() {
     bookCount = 0;
 }
 
+template<class ItemType>
 int Pile<ItemType>::getCurrentSize() const {
     return bookCount;
 }
