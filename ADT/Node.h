@@ -1,6 +1,8 @@
 #ifndef _NODE
 #define _NODE
 
+#include<iostream>
+
 template<class ItemType>
 class Node {
 private:
@@ -24,7 +26,7 @@ public:
 };
 
 template<class ItemType>
-Node<ItemType>::Node(): next(nullptr) {
+Node<ItemType>::Node(): next(NULL) {
 
 }
 
