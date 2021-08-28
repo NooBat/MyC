@@ -17,14 +17,14 @@ public:
 
     DoublyNode(const ItemType& item);
 
-    DoublyNode(const ItemType& item, const DoublyNode<ItemType>* next, 
-               const DoublyNode<ItemType>* previous);
+    DoublyNode(const ItemType& item, DoublyNode<ItemType>* next, 
+               DoublyNode<ItemType>* previous);
 
     void setItem(const ItemType& item);
 
-    void setNext(const DoublyNode<ItemType>* next);
+    void setNext(DoublyNode<ItemType>* next);
 
-    void setPrevious(const DoublyNode<ItemType>* previous);
+    void setPrevious(DoublyNode<ItemType>* previous);
 
     ItemType getItem() const;
 
@@ -45,8 +45,8 @@ DoublyNode<ItemType>::DoublyNode(const ItemType& item): item(item), next(nullptr
 
 template<class ItemType>
 DoublyNode<ItemType>::DoublyNode(const ItemType& item, 
-                      const DoublyNode<ItemType>* next, 
-                      const DoublyNode<ItemType>* previous) 
+                      DoublyNode<ItemType>* next, 
+                      DoublyNode<ItemType>* previous) 
 {
     this->setItem(item);
     this->setNext(next);
@@ -59,12 +59,12 @@ void DoublyNode<ItemType>::setItem(const ItemType& item) {
 }
 
 template<class ItemType>
-void DoublyNode<ItemType>::setNext(const DoublyNode<ItemType>* next) {
+void DoublyNode<ItemType>::setNext(DoublyNode<ItemType>* next) {
     this->next = next;
 }
 
 template<class ItemType>
-void DoublyNode<ItemType>::setPrevious(const DoublyNode<ItemType>* previous) {
+void DoublyNode<ItemType>::setPrevious(DoublyNode<ItemType>* previous) {
     this->prev = previous;
 }
 

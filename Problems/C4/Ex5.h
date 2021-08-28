@@ -169,7 +169,7 @@ int DoublyLinkedBag<ItemType>::getFrequencyOf(const ItemType& entry) const {
 
 template<class ItemType>
 bool DoublyLinkedBag<ItemType>::contains(const ItemType& entry) const {
-    return getPtrTo() != nullptr;
+    return getPtrTo(entry) != nullptr;
 }
 
 template<class ItemType>
