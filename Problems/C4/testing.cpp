@@ -51,6 +51,7 @@ void bagTester(DoublyLinkedBag<string>& bag) {
          << "; should be 0 (false)" << endl;
     cout << "remove(\"null\"): returns " << bag.remove("null")
          << "; should be 0 (false)" << endl;
+    display(bag);
     cout << endl << endl;
 
     cout << "Clear bag!" << endl;

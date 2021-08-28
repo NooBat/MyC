@@ -117,6 +117,8 @@ bool DoublyLinkedBag<ItemType>::remove(const ItemType& entry) {
 
         delete curr;
         curr = nullptr;
+
+        headPtr->setPrevious(nullptr);
         itemCount--;
 
         return true;
@@ -126,7 +128,7 @@ bool DoublyLinkedBag<ItemType>::remove(const ItemType& entry) {
     DoublyNode<ItemType>* next = curr->getNext();
 
     prev->setNext(next);
-    next->setPrevious(prev);
+    if (next != nullptr) next->setPrevious(prev);
 
     delete curr;
     curr = nullptr;
