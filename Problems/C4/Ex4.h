@@ -141,6 +141,15 @@ Polynomial::Polynomial(const vector<vector<int> >& v) {
 Polynomial::Polynomial(const Polynomial& other) {
     PolyNode* curr = other.headPtr;
 
+    if (curr == nullptr) {
+        headPtr = nullptr;
+        degree = 0;
+        return;
+    }
+
+    headPtr = new PolyNode(curr->getCoefficient(), curr->getPower());
+    curr = curr->getNext();
+
     while (curr != nullptr) {
         this->changeCoefficient(curr->getCoefficient(), curr->getPower());
         curr = curr->getNext();

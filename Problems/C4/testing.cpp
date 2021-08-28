@@ -18,7 +18,7 @@ void display(const Polynomial& polynomial) {
                 if (v[i][0] > 0) cout << "+ " << v[i][0] << "x ";
                 else cout << "- " << -v[i][0] << "x ";
             }
-            if (v[i][1] == 0) {
+            else if (v[i][1] == 0) {
                 if (v[i][0] > 0) cout << "+ " << v[i][0] << " ";
                 else cout << "- " << -v[i][0] << " ";
             }
