@@ -87,6 +87,8 @@ public:
 
     Polynomial(const vector<vector<int> >& v);
 
+    Polynomial(const Polynomial& other);
+
     virtual ~Polynomial();
 
     void changeCoefficient(const int& newCoefficient, const int& power);
@@ -96,6 +98,8 @@ public:
     void clear();
 
     vector<vector<int> > toVector() const;
+
+    Polynomial sumOfPolynomial(const Polynomial& other) const;
 };
 
 PolyNode* Polynomial::getPtrTo(const int& targetPower) const {
@@ -131,6 +135,15 @@ Polynomial::Polynomial(const vector<vector<int> >& v) {
         }
 
         p->setNext(temp);
+    }
+}
+
+Polynomial::Polynomial(const Polynomial& other) {
+    PolyNode* curr = other.headPtr;
+
+    while (curr != nullptr) {
+        this->changeCoefficient(curr->getCoefficient(), curr->getPower());
+        curr = curr->getNext();
     }
 }
 
@@ -237,6 +250,44 @@ vector<vector<int> > Polynomial::toVector() const {
         result.push_back(v);
 
         p = p->getNext();
+    }
+
+    return result;
+}
+
+Polynomial Polynomial::sumOfPolynomial(const Polynomial& other) const {
+    PolyNode* i = this->headPtr;
+    PolyNode* j = other.headPtr;
+
+    if (i == nullptr) return other;
+    if (j == nullptr) return *this;
+
+    Polynomial result;
+
+    while (i != nullptr && j != nullptr) {
+        if (i->getPower() > j->getPower()) {
+            result.changeCoefficient(i->getCoefficient(), i->getPower());
+            i = i->getNext();
+        }
+        else if (i->getPower() < j->getPower()) {
+            result.changeCoefficient(j->getCoefficient(), j->getPower());
+            j = j->getNext();
+        }
+        else {
+            result.changeCoefficient(i->getCoefficient() + j->getCoefficient(), i->getPower());
+            i = i->getNext();
+            j = j->getNext();
+        }
+    }
+
+    while (i != nullptr) {
+        result.changeCoefficient(i->getCoefficient(), i->getPower());
+        i = i->getNext();
+    }
+
+    while (j != nullptr) {
+        result.changeCoefficient(j->getCoefficient(), j->getPower());
+        j = j->getNext();
     }
 
     return result;
