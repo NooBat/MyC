@@ -8,6 +8,8 @@ using namespace std;
 
 template<class ItemType>
 class DoublyLinkedBag : public BagInterface<ItemType> {
-
+!!!!!!!!!>
+{}\ 
+"""""""""""""""""""""""""
 };
 #endif
