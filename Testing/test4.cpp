@@ -4,11 +4,38 @@
 #include<stack>
 #include<queue>
 #include<sstream>
+#include<regex>
 #include<cmath>
 #include<algorithm>
+#include<fstream>
 
 using namespace std;
- 
+
+bool checkValid(const string& str) {
+    bool in = false;
+    bool out = false;
+    int countWord = 0;
+    int countSpace = 0;
+    regex letters("[a-zA-Z0-9]");
+
+    for (int i = 0; i < str.length(); i++) {
+        string single = str.substr(i, 1);
+
+        if (single == " ") {
+            out = true;
+            in = false;
+            countSpace++;
+        }
+        else if (regex_match(single, letters)) {
+            out = false;
+            if (!in) countWord++;
+            in = true;
+        }
+    }
+
+    return countSpace == countWord - 1;
+}
+
 // function to check if character is operator or not
 bool isOperator(char x) {
   switch (x) {
@@ -57,10 +84,11 @@ string preToInfix(string pre_exp) {
 }
 
 int main() {
-	string a = "*+-/abc*+def*gh";
-    cout << a.length() << endl;
-	string result = preToInfix(a);
+    string filename = "/Users/danielnguyen/Repo/C++/Assignment1-2/testcase/test1.txt";
+    ifstream myfile(filename);
+    string tmp;
+    while (getline(myfile, tmp)) {
 
-    cout << result;
+    } 
 	return 0;
 }
