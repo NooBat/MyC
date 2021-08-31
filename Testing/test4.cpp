@@ -36,6 +36,29 @@ bool checkValid(const string& str) {
     return (countSpace == countWord - 1) && (countWord >= 1 && countWord <= 3);
 }
 
+bool checkValidType(const string& type, const string& item) {
+    if (type == "number") {
+        if (item[0] != 'n') return false;
+        regex digit("[0-9]");
+
+        for (int i = 1; i < item.length(); i++) {
+            string temp = item.substr(i, 1);
+            if (!regex_match(temp, digit)) return false;
+        }
+    }
+    else if (type == "string") {
+        if (item[0] != '\'' || item[item.length() - 1] != '\'') return false;
+        regex letter("[a-zA-Z0-9 ]");
+
+        for (int i = 1; i < item.length() - 1; i++) {
+            string temp = item.substr(i, 1);
+            if (!regex_match(temp, letter)) return false;
+        }
+    }
+
+    return true;
+}
+
 // function to check if character is operator or not
 bool isOperator(char x) {
   switch (x) {
@@ -84,13 +107,17 @@ string preToInfix(string pre_exp) {
 }
 
 int main() {
-    string filename = "/Users/danielnguyen/Repo/C++/Assignment1-2/testcase/test1.txt";
-    ifstream myfile(filename);
-    string tmp;
-    if (myfile.is_open()) {
-        while (getline(myfile, tmp)) {
-            cout << checkValid(tmp) << " ";
-        } 
-    }
+    // string filename = "/Users/danielnguyen/Repo/C++/Assignment1-2/testcase/test1.txt";
+    // ifstream myfile(filename);
+    // string tmp;
+    // if (myfile.is_open()) {
+    //     while (getline(myfile, tmp)) {
+    //         cout << checkValid(tmp) << " ";
+    //     } 
+    // }
+    string type = "string";
+    string item = "\'A123 32 33\'";
+
+    cout << checkValidType(type, item);
 	return 0;
 }

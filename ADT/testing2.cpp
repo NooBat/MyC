@@ -39,6 +39,8 @@ void bagTester(BagInterface<string>* bagPtr) {
          << "; should be 6" << endl;
     cout << "Try to add another entry: add(\"extra\") returns "
          << bagPtr->add("extra") << endl;
+    
+    displayBag(bagPtr);
     cout << endl << endl;
 }
 

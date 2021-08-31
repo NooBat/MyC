@@ -4,23 +4,28 @@
 
 class Node {
 private:
-    string variable;
+    string type;
+    string id;
     string item;
     Node* next;
-
 public:
+    static int scope;
     Node() {
         this->setNext(nullptr);
     }
 
-    Node(const string& variable, const string& item) {
-        this->setVariable(variable);
-        this->setItem(item);
+    Node(const string& type, const string& id) {
+        this->setType(type);
+        this->setId(id);
         this->setNext(nullptr);
     }
 
-    void setVariable(const string& variable) {
-        this->variable = variable;
+    void setType(const string& type) {
+        this->type = type;
+    }
+
+    void setId(const string& id) {
+        this->id = id;
     }
 
     void setItem(const string& item) {
@@ -31,8 +36,12 @@ public:
         this->next = nullptr;
     }
 
-    string getVariable() const {
-        return this->variable;
+    string getType() const {
+        return this->type;
+    }
+
+    string getId() const {
+        return this->id;
     }
 
     string getItem() const {

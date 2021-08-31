@@ -120,11 +120,20 @@ template<class ItemType>
 bool LinkedBag<ItemType>::add(const ItemType& newEntry) {
     itemCount++;
 
-    Node<ItemType>* newNode = new Node<ItemType>();
+    if (head_ptr == nullptr) {
+        head_ptr = new Node<ItemType>(newEntry);
+        return true;
+    }
 
-    newNode->setItem(newEntry);
-    newNode->setNext(head_ptr);
-    head_ptr = newNode;
+    Node<ItemType>* p = head_ptr;
+
+    while (p->getNext() != nullptr) {
+        p = p->getNext();
+    }
+
+    Node<ItemType>* temp = new Node<ItemType>(newEntry);
+
+    p->setNext(temp);
 
     return true;
 }
