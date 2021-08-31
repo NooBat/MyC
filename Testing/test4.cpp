@@ -33,7 +33,7 @@ bool checkValid(const string& str) {
         }
     }
 
-    return countSpace == countWord - 1;
+    return (countSpace == countWord - 1) && (countWord >= 1 && countWord <= 3);
 }
 
 // function to check if character is operator or not
@@ -87,8 +87,10 @@ int main() {
     string filename = "/Users/danielnguyen/Repo/C++/Assignment1-2/testcase/test1.txt";
     ifstream myfile(filename);
     string tmp;
-    while (getline(myfile, tmp)) {
-
-    } 
+    if (myfile.is_open()) {
+        while (getline(myfile, tmp)) {
+            cout << checkValid(tmp) << " ";
+        } 
+    }
 	return 0;
 }

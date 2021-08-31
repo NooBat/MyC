@@ -33,9 +33,7 @@ vector<string> tokenize(string str, string del = " ") {
     while (end != -1) {
         result.push_back(str.substr(start, end - start));
         start = (int)end + 1;
-        int temp = end;
         end = (int)str.find(del, start);
-        if (end == temp + 1) throw InvalidInstruction(str);
     }
 
     return result;
@@ -58,8 +56,8 @@ void SymbolTable::run(string filename) {
     ifstream myfile(filename); 
     if (myfile.is_open()){
         string tmp;
-        while (getline(myfile, temp)) {
-
+        while (getline(myfile, tmp)) {
+            if (!checkValid(tmp)) throw InvalidInstruction(tmp);
         }
 
 
