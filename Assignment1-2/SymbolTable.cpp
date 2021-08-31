@@ -13,7 +13,7 @@ Node* SymbolTable::getPtrTo(const string& target_variable) const {
     return nullptr;
 }
 
-vector<string> SymbolTable::tokenize(string str, string del = " ") const {
+vector<string> tokenize(string str, string del = " ") {
     vector<string> result;
     int start = 0;
     int end = (int)str.find(del);

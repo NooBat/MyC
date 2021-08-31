@@ -51,7 +51,6 @@ private:
     Node* headPtr;
 
     Node* getPtrTo(const string& target_variable) const;
-    vector<string> tokenize(string str, string del = " ") const;
 public:
     SymbolTable() {}
     void run(string filename);
