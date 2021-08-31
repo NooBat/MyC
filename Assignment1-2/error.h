@@ -11,6 +11,9 @@ class InvalidInstruction : public exception
     string mess;
 
 public:
+    virtual ~InvalidInstruction() throw() {
+        return ;
+    }
     InvalidInstruction(string instruction)
     {
         mess = "Invalid: " + instruction;
@@ -25,6 +28,9 @@ class TypeMismatch : public exception
     string mess;
 
 public:
+    virtual ~TypeMismatch() throw() {
+        return ;
+    }
     TypeMismatch(string instruction)
     {
         mess = "TypeMismatch: " + instruction;
@@ -39,6 +45,9 @@ class Undeclared : public exception
     string mess;
 
 public:
+    virtual ~Undeclared() throw() {
+        return ;
+    }
     Undeclared(string instruction)
     {
         mess = "Undeclared: " + instruction;
@@ -53,6 +62,9 @@ class Redeclared : public exception
     string mess;
 
 public:
+    virtual ~Redeclared() throw() {
+        return ;
+    }
     Redeclared(string instruction)
     {
         mess = "Redeclared: " + instruction;
@@ -67,6 +79,9 @@ class UnclosedBlock : public exception
     string mess;
 
 public:
+    virtual ~UnclosedBlock() throw() {
+        return ;
+    }
     UnclosedBlock(int level)
     {
         mess = "UnclosedBlock: " + to_string(level);
@@ -81,6 +96,9 @@ class UnknownBlock : public exception
     string mess;
 
 public:
+    virtual ~UnknownBlock() throw() {
+        return ;
+    }
     UnknownBlock()
     {
         mess = "UnknownBlock";

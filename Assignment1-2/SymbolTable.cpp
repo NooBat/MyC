@@ -1,18 +1,5 @@
 #include "SymbolTable.h"
 
-Node* SymbolTable::getPtrTo(const string& target_variable) const {
-    if (headPtr == nullptr) return nullptr;
-
-    Node* p = headPtr;
-
-    while (p != nullptr) {
-        if (p->getVariable() == target_variable) return p;
-        p = p->getNext();
-    }
-
-    return nullptr;
-}
-
 vector<string> tokenize(string str, string del = " ") {
     vector<string> result;
     int start = 0;
@@ -27,6 +14,19 @@ vector<string> tokenize(string str, string del = " ") {
     }
 
     return result;
+}
+
+Node* SymbolTable::getPtrTo(const string& target_variable) const {
+    if (headPtr == nullptr) return nullptr;
+
+    Node* p = headPtr;
+
+    while (p != nullptr) {
+        if (p->getVariable() == target_variable) return p;
+        p = p->getNext();
+    }
+
+    return nullptr;
 }
 
 void SymbolTable::run(string filename) {
