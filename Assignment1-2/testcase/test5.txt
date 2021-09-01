@@ -1,15 +1,19 @@
-INSERT lZv number
-INSERT ub_Ai4 string
-INSERT p string
-INSERT vm string
-INSERT n1AgW string
-INSERT l number
-RPRINT
-INSERT yqZbH number
-INSERT fCQr number
-RPRINT
-INSERT k string
-INSERT eRrau string
-RPRINT
-ASSIGN yqZbH p
+INSERT mbBfr number
+INSERT fv string
+BEGIN
+INSERT iE number
+INSERT zg number
 END
+INSERT jfbxhB number
+LOOKUP mbBfr
+ASSIGN jfbxhB zg
+BEGIN
+PRINT
+INSERT mS number
+nw h26Yu
+INSERT yI7M number
+INSERT nusky4 number
+INSERT lW number
+p uZ5J
+INSERT rC string
+INSERT bqNe number

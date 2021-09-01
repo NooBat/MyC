@@ -167,24 +167,26 @@ void SymbolTable::run(string filename) {
                     if (done) break;
                 }
 
-                if (curr == nullptr) {
+                if (curr == nullptr && checkValidId(item)) throw Undeclared(instruction);
+                else if (curr == nullptr && !checkValidId(item)) {
                     for (int i = 0; i <= scope; i++) {
                         p = getPtrTo(id, scope - i);
+                        if (p != nullptr) break;
+                    }
 
-                        if (p != nullptr) {
-                            if (!checkValidItem(p->getType(), item)) throw TypeMismatch(instruction);
+                    if (p != nullptr) {
+                        if (!checkValidItem(p->getType(), item)) throw TypeMismatch(instruction);
 
-                            if (p->getType() == "number") {
-                                p->setItem(item);
-                                cout << "success" << endl;
-                            }
-                            else if (p->getType() == "string") {
-                                string temp = item.substr(1, item.length() - 2);
-                                p->setItem(temp);
-                                cout << "success" << endl;
-                            }
-                            break;
+                        if (p->getType() == "number") {
+                            p->setItem(item);
+                            cout << "success" << endl;
                         }
+                        else if (p->getType() == "string") {
+                            string temp = item.substr(1, item.length() - 2);
+                            p->setItem(temp);
+                            cout << "success" << endl;
+                        }
+                        break;
                     }
                     if (p == nullptr) throw Undeclared(instruction);
                 }
