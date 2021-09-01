@@ -221,7 +221,7 @@ void SymbolTable::run(string filename) {
                             else break;
                         }
 
-                        prev->setNext(curr);
+                        if (prev != nullptr) prev->setNext(curr);
                     }
                 }
                 scope--;
