@@ -35,7 +35,20 @@ bool checkValid(const string& str) {
 
     return (countSpace == countWord - 1) && (countWord >= 1 && countWord <= 3);
 }
+bool checkValidId(const string& id) {
+    regex letter("[a-zA-Z_0-9]");
+    regex digit("[0-9_]*");
 
+    if (regex_match(id, digit)) return false;
+
+    for (int i = 0; i < id.length(); i++) {
+        string temp = id.substr(i, 1);
+
+        if (!regex_match(temp, letter)) return false;
+    }
+
+    return true;
+}
 bool checkValidType(const string& type, const string& item) {
     if (type == "number") {
         if (item[0] != 'n') return false;
@@ -115,17 +128,20 @@ int main() {
     //         cout << checkValid(tmp) << " ";
     //     } 
     // }
-    string a = "\'\'";
-    int start = 0;
-    int end = (int)a.find(" ");
+    // string a = " \'a b c\'";
+    // int start = 0;
+    // int end = (int)a.find(" ");
 
-    while (end != -1) {
-        start = (int)end + 1;
-        if (a[start] != '\'') end = (int)a.find(" ", start);
-        else {
-            end = (int)a.find("\'", start);
-            cout << start << " " << end;
-        }
-    }
+    // while (end != -1) {
+    //     start = (int)end + 1;
+    //     if (a[start] != '\'') end = (int)a.find(" ", start);
+    //     else {
+    //         end = (int)a.find("\'", start + 1);
+    //         cout << start << " " << end;
+    //     }
+    // }
+    int a = 0;
+    string id = "__";
+    cout << checkValidId(id);
 	return 0;
 }

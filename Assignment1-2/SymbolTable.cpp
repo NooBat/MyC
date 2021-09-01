@@ -15,6 +15,12 @@ bool checkValidInstruction(const string& str) {
             in = false;
             countSpace++;
         }
+        else if (single == "\'") {
+            if (i + 1 >= str.length()) return false;
+            int end = (int)str.find("\'", i + 1);
+            if (end == -1) return false;
+            else i = end;
+        }
         else if (regex_match(single, letters)) {
             out = false;
             if (!in) countWord++;
@@ -25,7 +31,22 @@ bool checkValidInstruction(const string& str) {
     return countSpace == countWord - 1;
 }
 
-bool checkValidType(const string& type, const string& item) {
+bool checkValidId(const string& id) {
+    regex letter("[a-zA-Z0-9_]");
+    regex digit("[0-9]");
+    
+    string a = id.substr(0, 1);
+    if (regex_match(a, digit)) return false;
+    
+    for (int i = 0; i < id.length(); i++) {
+        string temp = id.substr(i, 1);
+        if (!regex_match(temp, letter)) return false;
+    }
+
+    return true;
+}
+
+bool checkValidItem(const string& type, const string& item) {
     if (type == "number") {
         if (item[0] != 'n') return false;
         regex digit("[0-9]");
@@ -58,7 +79,8 @@ vector<string> tokenize(string str, string del = " ") {
         start = (int)end + 1;
         if (str[start] != '\'') end = (int)str.find(del, start);
         else {
-            end = (int)str.find("\'", start);
+            end = (int)str.find("\'", start + 1);
+
         }
     }
 
@@ -93,6 +115,8 @@ void SymbolTable::run(string filename) {
             if (token[0] == "INSERT") {
                 string id = token[1];
                 string type = token[2];
+                if (type != "number" && type != "string") throw InvalidInstruction(instruction);
+                if (!checkValidId(id)) throw InvalidInstruction(instruction);
 
                 if (headPtr == nullptr) {
                     headPtr = new Node(type, id, scope);
@@ -124,7 +148,7 @@ void SymbolTable::run(string filename) {
                     throw Undeclared(instruction);
                 }
                 else {
-                    if (!checkValidType(p->getType(), item)) throw TypeMismatch(instruction);
+                    if (!checkValidItem(p->getType(), item)) throw TypeMismatch(instruction);
 
                     if (p->getType() == "number") {
                         string temp = item.substr(1, item.length() - 1);

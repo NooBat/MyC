@@ -1,4 +1,4 @@
-INSERT x number
+INSERT __ number
 INSERT y string
 BEGIN
 INSERT x string
