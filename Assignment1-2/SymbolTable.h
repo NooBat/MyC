@@ -14,7 +14,6 @@ private:
 
 public:
     Node() {
-        this->setNext(nullptr);
     }
 
     Node(const string& type, const string& id, const int& scope) {
@@ -74,6 +73,7 @@ private:
     Node* getPtrTo(const string& target_variable, const int& scope) const;
 public:
     SymbolTable() {
+        headPtr = new Node();
         headPtr = nullptr;
     }
     virtual ~SymbolTable() {

@@ -1,39 +1,31 @@
-INSERT ds string
-PRINT
-INSERT uW9 string
-INSERT cS3P_r number
-INSERT qunU2 number
-LOOKUP qunU2
 RPRINT
 BEGIN
-INSERT ty4WT string
-ASSIGN uW9 qunU2
-LOOKUP cS3P_r
-BEGIN
-INSERT kNwARa number
-INSERT v number
-INSERT z number
+INSERT q string
+INSERT y number
 PRINT
-BEGIN
-INSERT s0kudD string
-INSERT o number
-END
-INSERT gSQ number
-d3SK5 dH8it
-INSERT sl9p string
-INSERT u number
-INSERT vcz string
-INSERT tK7 number
-LOOKUP o
-END
-INSERT gFYjp number
-INSERT pXP string
-INSERT pnt number
-LOOKUP pXP
-INSERT vlSC5b number
-BEGIN
-INSERT iEtGM string
+INSERT cPY string
+INSERT lJE number
+INSERT fV string
+INSERT l number
+INSERT d3x6zf string
+ASSIGN lJE 491
+INSERT wE2 string
 PRINT
-INSERT pz string
-INSERT zf string
-INSERT c number
+INSERT m number
+INSERT aJw3 number
+INSERT s string
+PRINT
+INSERT g_QN string
+INSERT yG9m string
+END
+INSERT ch8ZO string
+ASSIGN fV 1090
+INSERT j9y0 number
+INSERT i number
+INSERT mHqbG number
+INSERT jP0_ur number
+BEGIN
+INSERT pScUd string
+INSERT wqPZ number
+INSERT d7c number
+END
