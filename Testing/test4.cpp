@@ -115,9 +115,17 @@ int main() {
     //         cout << checkValid(tmp) << " ";
     //     } 
     // }
-    string type = "string";
-    string item = "\'A123 32 33\'";
+    string a = "\'\'";
+    int start = 0;
+    int end = (int)a.find(" ");
 
-    cout << checkValidType(type, item);
+    while (end != -1) {
+        start = (int)end + 1;
+        if (a[start] != '\'') end = (int)a.find(" ", start);
+        else {
+            end = (int)a.find("\'", start);
+            cout << start << " " << end;
+        }
+    }
 	return 0;
 }

@@ -1,4 +1,9 @@
 INSERT x number
 INSERT y string
+BEGIN
+INSERT x string
+ASSIGN x 'a b c d e'
+END
 ASSIGN x n15
 ASSIGN y n76
+BEGIN

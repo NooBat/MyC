@@ -7,16 +7,18 @@ private:
     string type;
     string id;
     string item;
+    int scope;
     Node* next;
+
 public:
-    static int scope;
     Node() {
         this->setNext(nullptr);
     }
 
-    Node(const string& type, const string& id) {
+    Node(const string& type, const string& id, const int& scope) {
         this->setType(type);
         this->setId(id);
+        this->setScope(scope);
         this->setNext(nullptr);
     }
 
@@ -32,8 +34,12 @@ public:
         this->item = item;
     }
 
+    void setScope(const int& scope) {
+        this->scope = scope;
+    }
+
     void setNext(Node* next) {
-        this->next = nullptr;
+        this->next = next;
     }
 
     string getType() const {
@@ -46,6 +52,10 @@ public:
 
     string getItem() const {
         return this->item;
+    }   
+
+    int getScope() const {
+        return scope;
     }
 
     Node* getNext() const {
@@ -59,7 +69,7 @@ class SymbolTable {
 private:
     Node* headPtr;
 
-    Node* getPtrTo(const string& target_variable) const;
+    Node* getPtrTo(const string& target_variable, const int& scope) const;
 public:
     SymbolTable() {}
     void run(string filename);

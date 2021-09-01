@@ -1,5 +1,4 @@
 #include "SymbolTable.h"
-int Node::scope = 0;
 
 bool checkValidInstruction(const string& str) {
     bool in = false;
@@ -57,19 +56,23 @@ vector<string> tokenize(string str, string del = " ") {
     while (end != -1) {
         result.push_back(str.substr(start, end - start));
         start = (int)end + 1;
-        end = (int)str.find(del, start);
+        if (str[start] != '\'') end = (int)str.find(del, start);
+        else {
+            end = (int)str.find("\'", start);
+        }
     }
+
     result.push_back(str.substr(start, end - start));
     return result;
 }
 
-Node* SymbolTable::getPtrTo(const string& target_id) const {
+Node* SymbolTable::getPtrTo(const string& target_id, const int& scope) const {
     if (headPtr == nullptr) return nullptr;
 
     Node* p = headPtr;
 
     while (p != nullptr) {
-        if (p->getId() == target_id) return p;
+        if (p->getId() == target_id && p->getScope() == scope) return p;
         p = p->getNext();
     }
 
@@ -79,30 +82,34 @@ Node* SymbolTable::getPtrTo(const string& target_id) const {
 void SymbolTable::run(string filename) {
     ifstream myfile(filename); 
     if (myfile.is_open()){
-        string temp;
-        while (getline(myfile, temp)) {
-            if (!checkValidInstruction(temp)) throw InvalidInstruction(temp);
-            vector<string> token = tokenize(temp);
+        string instruction;
+        int scope = 0;
+
+        while (getline(myfile, instruction)) {
+            if (!checkValidInstruction(instruction)) throw InvalidInstruction(instruction);
+            vector<string> token = tokenize(instruction);
+            if (token.size() > 3) throw InvalidInstruction(instruction);
 
             if (token[0] == "INSERT") {
                 string id = token[1];
                 string type = token[2];
 
                 if (headPtr == nullptr) {
-                    headPtr = new Node(type, id);
+                    headPtr = new Node(type, id, scope);
                     cout << "success" << endl;
                 }
                 else {
                     Node* p = headPtr;
 
                     while (p->getNext() != nullptr) {
-                        if (p->getId() == id && p) throw Redeclared(temp);
+                        if (p->getId() == id && p->getScope() == scope) throw Redeclared(instruction);
                         p = p->getNext(); 
                     }
-                    if (p->getId() == id) throw Redeclared(temp);
+
+                    if (p->getId() == id && p->getScope() == scope) throw Redeclared(instruction);
                     else {
-                        Node* a = new Node(type, id);
-                        p->setNext(a);
+                        Node* temp = new Node(type, id, scope);
+                        p->setNext(temp);
                         cout << "success" << endl; 
                     }
                 }
@@ -111,13 +118,13 @@ void SymbolTable::run(string filename) {
                 string id = token[1];
                 string item = token[2];
 
-                Node* p = getPtrTo(id);
+                Node* p = getPtrTo(id, scope);
 
                 if (p == nullptr) {
-                    throw Undeclared(temp);
+                    throw Undeclared(instruction);
                 }
                 else {
-                    if (!checkValidType(p->getType(), item)) throw TypeMismatch(temp);
+                    if (!checkValidType(p->getType(), item)) throw TypeMismatch(instruction);
 
                     if (p->getType() == "number") {
                         string temp = item.substr(1, item.length() - 1);
@@ -132,9 +139,14 @@ void SymbolTable::run(string filename) {
                 }
             }
             else if (token[0] == "BEGIN") {
-                
+                scope++;
+            }
+            else if (token[0] == "END") {
+                if (scope == 0) throw UnknownBlock();
+                else scope--;
             }
         }
+        if (scope > 0) throw UnclosedBlock(scope);
     }
     cout << "success";
 }
