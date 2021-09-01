@@ -73,7 +73,9 @@ private:
 
     Node* getPtrTo(const string& target_variable, const int& scope) const;
 public:
-    SymbolTable() {}
+    SymbolTable() {
+        headPtr = nullptr;
+    }
     virtual ~SymbolTable() {
         clear();
     }
