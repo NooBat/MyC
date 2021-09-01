@@ -187,7 +187,6 @@ void SymbolTable::run(string filename) {
                             p->setItem(temp);
                             cout << "success" << endl;
                         }
-                        break;
                     }
                     if (p == nullptr) throw Undeclared(instruction);
                 }
