@@ -275,5 +275,4 @@ void SymbolTable::run(string filename) {
         }
         if (scope > 0) throw UnclosedBlock(scope);
     }
-    cout << "success";
 }
