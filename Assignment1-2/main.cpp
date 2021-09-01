@@ -18,9 +18,8 @@ void test(string filename)
 
 int main(int argc, char **argv)
 {
-    string filename = "/Users/danielnguyen/Repo/C++/Assignment1-2/testcase/test1.txt";
+    string filename = "/Users/danielnguyen/Repo/C++/Assignment1-2/testcase/test5.txt";
 
     test(filename);
-
     return 0;
 }

@@ -1,9 +1,11 @@
-INSERT __ number
+INSERT x string
 INSERT y string
 BEGIN
 INSERT x string
+BEGIN
 ASSIGN x 'a b c d e'
+PRINT
+END
 END
 ASSIGN x n15
-ASSIGN y n76
-BEGIN
+ASSIGN y 'a bbb c'

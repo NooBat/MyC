@@ -72,6 +72,23 @@ private:
     Node* getPtrTo(const string& target_variable, const int& scope) const;
 public:
     SymbolTable() {}
+    virtual ~SymbolTable() {
+        clear();
+    }
     void run(string filename);
+
+    void clear() {
+        Node* curr = headPtr;
+
+        while (curr != nullptr) {
+            Node *next = curr->getNext();
+
+            delete curr;
+
+            curr = next;
+        }
+
+        headPtr = nullptr;
+    }
 };
 #endif

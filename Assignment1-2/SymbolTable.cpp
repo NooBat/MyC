@@ -5,7 +5,7 @@ bool checkValidInstruction(const string& str) {
     bool out = false;
     int countWord = 0;
     int countSpace = 0;
-    regex letters("[a-zA-Z0-9]");
+    regex letters("[a-zA-Z0-9_]");
 
     for (int i = 0; i < str.length(); i++) {
         string single = str.substr(i, 1);
@@ -20,6 +20,7 @@ bool checkValidInstruction(const string& str) {
             int end = (int)str.find("\'", i + 1);
             if (end == -1) return false;
             else i = end;
+            countWord++;
         }
         else if (regex_match(single, letters)) {
             out = false;
@@ -74,13 +75,12 @@ vector<string> tokenize(string str, string del = " ") {
     int start = 0;
     int end = (int)str.find(del);
 
-    while (end != -1) {
+    while (end != -1 && end < str.length()) {
         result.push_back(str.substr(start, end - start));
         start = (int)end + 1;
         if (str[start] != '\'') end = (int)str.find(del, start);
         else {
-            end = (int)str.find("\'", start + 1);
-
+            end = str.length();
         }
     }
 
@@ -115,6 +115,8 @@ void SymbolTable::run(string filename) {
             if (token[0] == "INSERT") {
                 string id = token[1];
                 string type = token[2];
+
+
                 if (type != "number" && type != "string") throw InvalidInstruction(instruction);
                 if (!checkValidId(id)) throw InvalidInstruction(instruction);
 
@@ -141,36 +143,109 @@ void SymbolTable::run(string filename) {
             else if (token[0] == "ASSIGN") {
                 string id = token[1];
                 string item = token[2];
+                Node* p;
 
-                Node* p = getPtrTo(id, scope);
+                for (int i = 0; i <= scope; i++) {
+                    p = getPtrTo(id, scope - i);
 
-                if (p == nullptr) {
-                    throw Undeclared(instruction);
-                }
-                else {
-                    if (!checkValidItem(p->getType(), item)) throw TypeMismatch(instruction);
+                    if (p != nullptr) {
+                        if (!checkValidItem(p->getType(), item)) throw TypeMismatch(instruction);
 
-                    if (p->getType() == "number") {
-                        string temp = item.substr(1, item.length() - 1);
-                        p->setItem(temp);
-                        cout << "success" << endl;
+                        if (p->getType() == "number") {
+                            string temp = item.substr(1, item.length() - 1);
+                            p->setItem(temp);
+                            cout << "success" << endl;
+                        }
+                        else if (p->getType() == "string") {
+                            string temp = item.substr(1, item.length() - 2);
+                            p->setItem(temp);
+                            cout << "success" << endl;
+                        }
+                        break;
                     }
-                    else if (p->getType() == "string") {
-                        string temp = item.substr(1, item.length() - 2);
-                        p->setItem(temp);
-                        cout << "success" << endl;
-                    }
                 }
+
+                if (p == nullptr) throw Undeclared(instruction);
             }
             else if (token[0] == "BEGIN") {
                 scope++;
             }
             else if (token[0] == "END") {
                 if (scope == 0) throw UnknownBlock();
-                else scope--;
+
+                Node *p = headPtr;
+                Node *prev = nullptr;
+
+                while (p != nullptr) {
+                    if (p->getScope() < scope) {
+                        prev = p;
+                        p = p->getNext();
+                    }
+                    else break;
+                }
+
+                if (p != nullptr && p->getScope() == scope) {
+                    Node *curr = p;
+                    while (curr != nullptr) {
+                        if (curr->getScope() == scope) {
+                            Node *next = curr->getNext();
+
+                            delete curr;
+
+                            curr = next;
+                        }
+                        else break;
+                    }
+
+                    prev->setNext(curr);
+                }
+
+                scope--;
+            }            
+            else if (token[0] == "PRINT") {
+                string result;
+
+                Node* p = headPtr;
+
+                while (p != nullptr) {
+                    Node* curr = nullptr;
+                    for (int i = p->getScope() + 1; i <= scope; i++) {
+                        curr = getPtrTo(p->getId(), i);
+                        if (curr != nullptr) {
+                            break;
+                        }
+                    }
+                    if (curr == nullptr) {
+                        result += p->getId() + "//" + to_string(p->getScope()) + " ";
+                    }
+                    p = p->getNext();
+                }
+                result.erase(result.begin() + result.length() - 1);
+                cout << result << endl;
             }
+            else if (token[0] == "RPRINT") {
+                string result;
+
+                Node* p = headPtr;
+
+                while (p != nullptr) {
+                    Node* curr = nullptr;
+                    for (int i = p->getScope() + 1; i <= scope; i++) {
+                        curr = getPtrTo(p->getId(), i);
+                        if (curr != nullptr) {
+                            break;
+                        }
+                    }
+                    if (curr == nullptr) {
+                        result = p->getId() + "//" + to_string(p->getScope()) + " " + result;
+                    }
+                    p = p->getNext();
+                }
+                result.erase(result.begin() + result.length() - 1);
+                cout << result << endl;
+            }
+            else throw InvalidInstruction(instruction);
         }
         if (scope > 0) throw UnclosedBlock(scope);
     }
-    cout << "success";
 }
