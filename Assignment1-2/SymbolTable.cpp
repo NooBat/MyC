@@ -210,6 +210,7 @@ void SymbolTable::run(string filename) {
 
                     if (curr == headPtr) {
                         clear();
+                        curr = nullptr;
                     }
                     else if (curr != nullptr && curr->getScope() == scope) {
                         while (curr != nullptr) {
