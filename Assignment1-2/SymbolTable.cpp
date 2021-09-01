@@ -214,7 +214,21 @@ void SymbolTable::run(string filename) {
                 }
 
                 scope--;
-            }            
+            }           
+            else if (token[0] == "LOOKUP") {
+                string id = token[1];
+
+                Node *curr = nullptr;
+                for (int i = 0; i <= scope; i++) {
+                    curr = getPtrTo(id, scope - i);
+                    if (curr != nullptr) {
+                        cout << curr->getScope() << endl;
+                        break;
+                    }
+                }
+
+                if (curr == nullptr) throw Undeclared(instruction);            
+            } 
             else if (token[0] == "PRINT") {
                 string result;
 
