@@ -2,6 +2,8 @@
 #define SYMBOLTABLE_H
 #include "main.h"
 
+using namespace std;
+
 class Node {
 private:
     string type;

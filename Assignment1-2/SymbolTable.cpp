@@ -1,5 +1,7 @@
 #include "SymbolTable.h"
 
+using namespace std;
+
 bool checkValidInstruction(const string& str) {
     bool in = false;
     bool out = false;
