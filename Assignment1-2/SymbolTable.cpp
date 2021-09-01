@@ -196,33 +196,34 @@ void SymbolTable::run(string filename) {
             else if (token[0] == "END") {
                 if (scope == 0) throw UnknownBlock();
 
-                Node *p = headPtr;
-                Node *prev = nullptr;
+                if (headPtr != nullptr) {
+                    Node *p = headPtr;
+                    Node *prev = nullptr;
 
-                while (p != nullptr) {
-                    if (p->getScope() < scope) {
-                        prev = p;
-                        p = p->getNext();
-                    }
-                    else break;
-                }
-
-                if (p != nullptr && p->getScope() == scope) {
-                    Node *curr = p;
-                    while (curr != nullptr) {
-                        if (curr->getScope() == scope) {
-                            Node *next = curr->getNext();
-
-                            delete curr;
-
-                            curr = next;
+                    while (p != nullptr) {
+                        if (p->getScope() < scope) {
+                            prev = p;
+                            p = p->getNext();
                         }
                         else break;
                     }
 
-                    prev->setNext(curr);
-                }
+                    if (p != nullptr && p->getScope() == scope) {
+                        Node *curr = p;
+                        while (curr != nullptr) {
+                            if (curr->getScope() == scope) {
+                                Node *next = curr->getNext();
 
+                                delete curr;
+
+                                curr = next;
+                            }
+                            else break;
+                        }
+
+                        prev->setNext(curr);
+                    }
+                }
                 scope--;
             }           
             else if (token[0] == "LOOKUP") {
