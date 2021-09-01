@@ -197,19 +197,21 @@ void SymbolTable::run(string filename) {
                 if (scope == 0) throw UnknownBlock();
 
                 if (headPtr != nullptr) {
-                    Node *p = headPtr;
+                    Node *curr = headPtr;
                     Node *prev = nullptr;
 
-                    while (p != nullptr) {
-                        if (p->getScope() < scope) {
-                            prev = p;
-                            p = p->getNext();
+                    while (curr != nullptr) {
+                        if (curr->getScope() < scope) {
+                            prev = curr;
+                            curr = curr->getNext();
                         }
                         else break;
                     }
 
-                    if (p != nullptr && p->getScope() == scope) {
-                        Node *curr = p;
+                    if (curr == headPtr) {
+                        clear();
+                    }
+                    else if (curr != nullptr && curr->getScope() == scope) {
                         while (curr != nullptr) {
                             if (curr->getScope() == scope) {
                                 Node *next = curr->getNext();
