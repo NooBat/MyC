@@ -232,44 +232,46 @@ void SymbolTable::run(string filename) {
             else if (token[0] == "PRINT") {
                 string result;
 
-                Node* p = headPtr;
-
-                while (p != nullptr) {
-                    Node* curr = nullptr;
-                    for (int i = p->getScope() + 1; i <= scope; i++) {
-                        curr = getPtrTo(p->getId(), i);
-                        if (curr != nullptr) {
-                            break;
+                if (headPtr != nullptr) {
+                    Node* p = headPtr;
+                    while (p != nullptr) {
+                        Node* curr = nullptr;
+                        for (int i = p->getScope() + 1; i <= scope; i++) {
+                            curr = getPtrTo(p->getId(), i);
+                            if (curr != nullptr) {
+                                break;
+                            }
                         }
+                        if (curr == nullptr) {
+                            result += p->getId() + "//" + to_string(p->getScope()) + " ";
+                        }
+                        p = p->getNext();
                     }
-                    if (curr == nullptr) {
-                        result += p->getId() + "//" + to_string(p->getScope()) + " ";
-                    }
-                    p = p->getNext();
+                    result.erase(result.begin() + result.length() - 1);
+                    cout << result << endl;
                 }
-                result.erase(result.begin() + result.length() - 1);
-                cout << result << endl;
             }
             else if (token[0] == "RPRINT") {
                 string result;
+                if (headPtr != nullptr) {
+                    Node* p = headPtr;
 
-                Node* p = headPtr;
-
-                while (p != nullptr) {
-                    Node* curr = nullptr;
-                    for (int i = p->getScope() + 1; i <= scope; i++) {
-                        curr = getPtrTo(p->getId(), i);
-                        if (curr != nullptr) {
-                            break;
+                    while (p != nullptr) {
+                        Node* curr = nullptr;
+                        for (int i = p->getScope() + 1; i <= scope; i++) {
+                            curr = getPtrTo(p->getId(), i);
+                            if (curr != nullptr) {
+                                break;
+                            }
                         }
+                        if (curr == nullptr) {
+                            result = p->getId() + "//" + to_string(p->getScope()) + " " + result;
+                        }
+                        p = p->getNext();
                     }
-                    if (curr == nullptr) {
-                        result = p->getId() + "//" + to_string(p->getScope()) + " " + result;
-                    }
-                    p = p->getNext();
+                    result.erase(result.begin() + result.length() - 1);
+                    cout << result << endl;
                 }
-                result.erase(result.begin() + result.length() - 1);
-                cout << result << endl;
             }
             else throw InvalidInstruction(instruction);
         }
