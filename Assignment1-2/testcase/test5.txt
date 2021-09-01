@@ -1,40 +1,15 @@
-BEGIN
-INSERT amn number
-INSERT r number
-END
-INSERT g number
-INSERT l1LitV string
-BEGIN
-ASSIGN r 166
-INSERT nRQYU string
-END
-INSERT e4cy string
-ASSIGN nRQYU l1LitV
-INSERT taR string
-PRINT
-INSERT b0 number
-INSERT lhN5 string
-INSERT tnDS0v number
-INSERT r number
-BEGIN
-INSERT xxalj string
-INSERT dfuuy number
-INSERT g string
-INSERT w1g string
-ASSIGN g 510
-LOOKUP w1g
-RPRINT
-INSERT gSrm39 number
-RPRINT
-ASSIGN g ' '
-BEGIN
-INSERT awvBGj number
-ASSIGN gSrm39 666
-INSERT daskA3 number
-INSERT ecFKw number
+INSERT lZv number
+INSERT ub_Ai4 string
 INSERT p string
-INSERT v string
-INSERT nA string
-INSERT p4vWEa number
-INSERT ejf5sx number
-INSERT hN_K string
+INSERT vm string
+INSERT n1AgW string
+INSERT l number
+RPRINT
+INSERT yqZbH number
+INSERT fCQr number
+RPRINT
+INSERT k string
+INSERT eRrau string
+RPRINT
+ASSIGN yqZbH p
+END

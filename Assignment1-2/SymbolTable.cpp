@@ -158,6 +158,9 @@ void SymbolTable::run(string filename) {
                                 break;
                                 done = true;
                             }
+                            else if (curr != nullptr) {
+                                throw TypeMismatch(instruction);
+                            }
                             else curr = nullptr;
                         }
                     }
@@ -183,10 +186,10 @@ void SymbolTable::run(string filename) {
                             break;
                         }
                     }
-
                     if (p == nullptr) throw Undeclared(instruction);
                 }
                 else {
+                    curr = nullptr;
                     cout << "success" << endl;
                 }
             }
