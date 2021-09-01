@@ -146,11 +146,22 @@ void SymbolTable::run(string filename) {
                 string item = token[2];
                 Node* p = nullptr;
                 Node* curr = nullptr;
+                bool done = false;
 
                 for (int i = 0; i <= scope; i++) {
                     p = getPtrTo(id, scope - i);
-                    curr = getPtrTo(item, scope - i);
-                    if (curr != nullptr && curr->getType() == p->getType()) break;
+
+                    if (p != nullptr) {
+                        for (int j = 0; j <= scope; j++) {
+                            curr = getPtrTo(item, scope - j);
+                            if (curr != nullptr && curr->getType() == p->getType()) {
+                                break;
+                                done = true;
+                            }
+                            else curr = nullptr;
+                        }
+                    }
+                    if (done) break;
                 }
 
                 if (curr == nullptr) {
