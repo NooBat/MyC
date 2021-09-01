@@ -145,29 +145,40 @@ void SymbolTable::run(string filename) {
             else if (token[0] == "ASSIGN") {
                 string id = token[1];
                 string item = token[2];
-                Node* p;
+                Node* p = nullptr;
+                Node* curr = nullptr;
 
                 for (int i = 0; i <= scope; i++) {
-                    p = getPtrTo(id, scope - i);
-
-                    if (p != nullptr) {
-                        if (!checkValidItem(p->getType(), item)) throw TypeMismatch(instruction);
-
-                        if (p->getType() == "number") {
-                            string temp = item.substr(1, item.length() - 1);
-                            p->setItem(temp);
-                            cout << "success" << endl;
-                        }
-                        else if (p->getType() == "string") {
-                            string temp = item.substr(1, item.length() - 2);
-                            p->setItem(temp);
-                            cout << "success" << endl;
-                        }
-                        break;
-                    }
+                    curr = getPtrTo(item, scope - i);
+                    if (curr != nullptr) break;
                 }
 
-                if (p == nullptr) throw Undeclared(instruction);
+                if (curr == nullptr) {
+                    for (int i = 0; i <= scope; i++) {
+                        p = getPtrTo(id, scope - i);
+
+                        if (p != nullptr) {
+                            if (!checkValidItem(p->getType(), item)) throw TypeMismatch(instruction);
+
+                            if (p->getType() == "number") {
+                                string temp = item.substr(1, item.length() - 1);
+                                p->setItem(temp);
+                                cout << "success" << endl;
+                            }
+                            else if (p->getType() == "string") {
+                                string temp = item.substr(1, item.length() - 2);
+                                p->setItem(temp);
+                                cout << "success" << endl;
+                            }
+                            break;
+                        }
+                    }
+
+                    if (p == nullptr) throw Undeclared(instruction);
+                }
+                else {
+                    cout << "success" << endl;
+                }
             }
             else if (token[0] == "BEGIN") {
                 scope++;

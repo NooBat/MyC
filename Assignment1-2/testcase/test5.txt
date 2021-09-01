@@ -3,5 +3,6 @@ INSERT y string
 ASSIGN x n15
 BEGIN
 INSERT y number
+ASSIGN y y
 RPRINT
 END
