@@ -1,8 +1,32 @@
-INSERT x number
-INSERT y string
-ASSIGN x n15
+INSERT rXRJkU number
+INSERT lqqS8 number
+INSERT wNz string
+INSERT eVF number
+INSERT lQ0MB number
+ASSIGN lQ0MB n672
 BEGIN
-INSERT y number
-ASSIGN y y
+INSERT onN string
+INSERT jpxq string
+INSERT yxMH string
+INSERT by9V30 string
+INSERT h string
+INSERT cGZBuG string
+PRINT
+PRINT
+INSERT tC1Ccj string
 RPRINT
-END
+INSERT ozVjE number
+INSERT rGFsJ number
+INSERT wSH string
+INSERT pBjE number
+INSERT xO string
+BEGIN
+INSERT z4k number
+INSERT pFbzP string
+g yFzpNZ
+INSERT eY6TE number
+INSERT pn7vD number
+LOOKUP by9V30
+INSERT h0 string
+INSERT cyX_1o number
+INSERT gi2Ia number

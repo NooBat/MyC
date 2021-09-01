@@ -51,7 +51,6 @@ bool checkValidId(const string& id) {
 
 bool checkValidItem(const string& type, const string& item) {
     if (type == "number") {
-        if (item[0] != 'n') return false;
         regex digit("[0-9]");
 
         for (int i = 1; i < item.length(); i++) {
@@ -161,8 +160,7 @@ void SymbolTable::run(string filename) {
                             if (!checkValidItem(p->getType(), item)) throw TypeMismatch(instruction);
 
                             if (p->getType() == "number") {
-                                string temp = item.substr(1, item.length() - 1);
-                                p->setItem(temp);
+                                p->setItem(item);
                                 cout << "success" << endl;
                             }
                             else if (p->getType() == "string") {
