@@ -139,6 +139,7 @@ void SymbolTable::run(string filename) {
                         p->setNext(temp);
                         cout << "success" << endl; 
                     }
+                    p = nullptr;
                 }
             }
             else if (token[0] == "ASSIGN") {
@@ -194,6 +195,8 @@ void SymbolTable::run(string filename) {
                     curr = nullptr;
                     cout << "success" << endl;
                 }
+                p = nullptr;
+                curr = nullptr;
             }
             else if (token[0] == "BEGIN") {
                 scope++;
@@ -231,6 +234,8 @@ void SymbolTable::run(string filename) {
 
                         if (prev != nullptr) prev->setNext(curr);
                     }
+                    prev = nullptr;
+                    curr = nullptr;
                 }
                 scope--;
             }           
@@ -246,15 +251,17 @@ void SymbolTable::run(string filename) {
                     }
                 }
 
-                if (curr == nullptr) throw Undeclared(instruction);            
+                if (curr == nullptr) throw Undeclared(instruction);           
+                curr = nullptr; 
             } 
             else if (token[0] == "PRINT") {
                 string result;
 
                 if (headPtr != nullptr) {
                     Node* p = headPtr;
+                    Node* curr = nullptr;
                     while (p != nullptr) {
-                        Node* curr = nullptr;
+                        curr = nullptr;
                         for (int i = p->getScope() + 1; i <= scope; i++) {
                             curr = getPtrTo(p->getId(), i);
                             if (curr != nullptr) {
@@ -268,6 +275,8 @@ void SymbolTable::run(string filename) {
                     }
                     result.erase(result.begin() + result.length() - 1);
                     cout << result << endl;
+                    p = nullptr;
+                    curr = nullptr;
                 }
             }
             else if (token[0] == "RPRINT") {
@@ -290,6 +299,7 @@ void SymbolTable::run(string filename) {
                     }
                     result.erase(result.begin() + result.length() - 1);
                     cout << result << endl;
+                    p = nullptr;
                 }
             }
             else throw InvalidInstruction(instruction);
