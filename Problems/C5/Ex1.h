@@ -11,7 +11,7 @@ private:
     int col;        //column of queen if it is on the board
 
     //All queens share the same board
-    static Board* boardPtr;
+    static const Board* boardPtr;
 
 public:
     /** Places a queen in upper-left corner of the board. */
@@ -34,6 +34,10 @@ public:
      * the same diagonal; otherwise false. */
     bool isUnderAttack() const;
 
-    static void setBoard(Board* bPtr);
+    static void setBoard(const Board* bPtr);
 };
+void Queen::setBoard(const Board* bPtr) {
+    Queen::boardPtr = bPtr;
+}
+const Board* Queen::boardPtr = nullptr;
 #endif

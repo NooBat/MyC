@@ -39,7 +39,7 @@ public:
     void display() const;
 
     /** Initiates the Eight Queens problem. */
-    void doEightQueens();
+    void doEightQueens(const int& row);
 
     /** @return The number of queens on the board. */
     int getNumQueens() const;
@@ -47,10 +47,6 @@ public:
     /** @return A pointer to the queen at the designated index. */
     Queen* getQueen(const int& index) const;
 };
-
-void Queen::setBoard(Board* bPtr) {
-    boardPtr = bPtr;
-}
 
 Queen::Queen(): row(0), col(0) {
 
@@ -79,10 +75,10 @@ bool Queen::isUnderAttack() const {
 
         int distance = abs(this->col - curr->col) + abs(this->row - curr->row);
 
-        if (distance == this->col - curr->col || distance / 2 == this->col - curr->col) return false;
+        if (distance == this->col - curr->col || distance == 2 * (this->col - curr->col)) return true;
     }
 
-    return true;
+    return false;
 }
 
 bool Board::isQueen(const int& inRow, const int& inCol) const {
@@ -159,12 +155,12 @@ void Board::clear() {
 void Board::display() const {
     for (int i = 0; i < queens.size(); i++) {
         cout << "Queen number " << i + 1 << " is at: " 
-             << queens[i]->getRow() << " " << queens[i]->getCol() << endl; 
+             << queens[i]->getRow() + 1 << " " << queens[i]->getCol() + 1 << endl; 
     }
 }
 
-void Board::doEightQueens() {
-    Queen* firstQueen = new Queen();
+void Board::doEightQueens(const int& row) {
+    Queen* firstQueen = new Queen(row, 0);
 
     placeQueens(firstQueen);
 }
