@@ -2,41 +2,61 @@
 #define SYMBOLTABLE_H
 #include "main.h"
 
+using namespace std;
+
 class Node {
 private:
-    string variable;
+    string type;
+    string id;
     string item;
+    int scope;
     Node* next;
 
 public:
     Node() {
+    }
+
+    Node(const string& type, const string& id, const int& scope) {
+        this->setType(type);
+        this->setId(id);
+        this->setScope(scope);
         this->setNext(nullptr);
     }
 
-    Node(const string& variable, const string& item) {
-        this->setVariable(variable);
-        this->setItem(item);
-        this->setNext(nullptr);
+    void setType(const string& type) {
+        this->type = type;
     }
 
-    void setVariable(const string& variable) {
-        this->variable = variable;
+    void setId(const string& id) {
+        this->id = id;
     }
 
     void setItem(const string& item) {
         this->item = item;
     }
 
-    void setNext(Node* next) {
-        this->next = nullptr;
+    void setScope(const int& scope) {
+        this->scope = scope;
     }
 
-    string getVariable() const {
-        return this->variable;
+    void setNext(Node* next) {
+        this->next = next;
+    }
+
+    string getType() const {
+        return this->type;
+    }
+
+    string getId() const {
+        return this->id;
     }
 
     string getItem() const {
         return this->item;
+    }   
+
+    int getScope() const {
+        return scope;
     }
 
     Node* getNext() const {
@@ -50,10 +70,29 @@ class SymbolTable {
 private:
     Node* headPtr;
 
-    Node* getPtrTo(const string& target_variable) const;
-    vector<string> tokenize(string str, string del = " ") const;
+    Node* getPtrTo(const string& target_variable, const int& scope) const;
 public:
-    SymbolTable() {}
+    SymbolTable() {
+        headPtr = new Node();
+        headPtr = nullptr;
+    }
+    virtual ~SymbolTable() {
+        clear();
+    }
     void run(string filename);
+
+    void clear() {
+        Node* curr = headPtr;
+
+        while (curr != nullptr) {
+            Node *next = curr->getNext();
+
+            delete curr;
+
+            curr = next;
+        }
+
+        headPtr = nullptr;
+    }
 };
 #endif

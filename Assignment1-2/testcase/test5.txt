@@ -1,7 +1,13 @@
-INSERT x number
-INSERT y string
-ASSIGN x n15
-BEGIN
-INSERT y number
-RPRINT
+INSERT zOq string
+INSERT jYe9YE string
+ASSIGN zOq 'Vner'
+INSERT lx2 string
+INSERT gfX string
+PRINT
+INSERT v string
+INSERT oXQ7m string
 END
+BEGIN
+INSERT jM string
+ASSIGN gfX 'Mt'
+INSERT k number

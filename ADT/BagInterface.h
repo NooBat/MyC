@@ -8,6 +8,8 @@ using namespace std;
 template<class ItemType>
 class BagInterface {
 public:
+    virtual ~BagInterface() = 0;
+
     /** Gets the current number of entries in this bag.
      * @return The integer number of entries currently in the bag. */
     virtual int getCurrentSize() const = 0;
@@ -50,4 +52,9 @@ public:
      * @return A vector containing all the entries in the bag. */
     virtual vector<ItemType> toVector() const = 0;
 };
+
+template<class ItemType>
+BagInterface<ItemType>::~BagInterface() {
+
+}
 #endif

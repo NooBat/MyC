@@ -1,95 +1,147 @@
 #include<iostream>
 #include<string>
 #include<vector>
+#include<stack>
+#include<queue>
 #include<sstream>
+#include<regex>
 #include<cmath>
 #include<algorithm>
+#include<fstream>
 
 using namespace std;
 
-class ListNode {
-public: 
-    int val;
-    ListNode* next;
+bool checkValid(const string& str) {
+    bool in = false;
+    bool out = false;
+    int countWord = 0;
+    int countSpace = 0;
+    regex letters("[a-zA-Z0-9]");
 
-    ListNode() {
-        val = 0;
-        next = nullptr;
-    }
+    for (int i = 0; i < str.length(); i++) {
+        string single = str.substr(i, 1);
 
-    ListNode(int val) {
-        this->val = val;
-        next = nullptr;
-    }
-};
-
-ListNode* createList(ListNode* head, int arr[], int n) {
-    if (n == 0) return nullptr;
-
-    head = new ListNode(arr[n - 1]);
-
-    for (int i = n - 2; i >= 0; i--) {
-        ListNode* temp = new ListNode(arr[i]);
-
-        temp->next = head;
-        head = temp;
-    }
-
-    return head;
-}
-
-class Solution {
-public:
-    ListNode* deleteDuplicates(ListNode* head) {
-        if (head == nullptr || head->next == nullptr) return head;
-        
-        ListNode* i = head;
-        ListNode* j = head->next;
-        
-        while (i != nullptr || j != nullptr) {
-            if (i->val == j->val) {
-                j = j->next;
-            }
-            else if (i->val != j->val || j == nullptr) {
-                ListNode* p = i->next;
-                while (p != j) {
-                    ListNode* next = p->next;
-                    p->next = nullptr;
-                    delete p;
-                    p = next;
-                }
-                
-                i->next = j;
-                i = i->next;
-                j = i->next;
-            }
+        if (single == " ") {
+            out = true;
+            in = false;
+            countSpace++;
         }
-        
-        return head;
+        else if (regex_match(single, letters)) {
+            out = false;
+            if (!in) countWord++;
+            in = true;
+        }
     }
-};
 
-void printList(ListNode* p) {
-    while (p != nullptr) {
-        cout << p->val << " ";
-        p = p->next;
+    return (countSpace == countWord - 1) && (countWord >= 1 && countWord <= 3);
+}
+bool checkValidId(const string& id) {
+    regex letter("[a-zA-Z_0-9]");
+    regex digit("[0-9_]*");
+
+    if (regex_match(id, digit)) return false;
+
+    for (int i = 0; i < id.length(); i++) {
+        string temp = id.substr(i, 1);
+
+        if (!regex_match(temp, letter)) return false;
     }
-    cout << endl;
+
+    return true;
+}
+bool checkValidType(const string& type, const string& item) {
+    if (type == "number") {
+        if (item[0] != 'n') return false;
+        regex digit("[0-9]");
+
+        for (int i = 1; i < item.length(); i++) {
+            string temp = item.substr(i, 1);
+            if (!regex_match(temp, digit)) return false;
+        }
+    }
+    else if (type == "string") {
+        if (item[0] != '\'' || item[item.length() - 1] != '\'') return false;
+        regex letter("[a-zA-Z0-9 ]");
+
+        for (int i = 1; i < item.length() - 1; i++) {
+            string temp = item.substr(i, 1);
+            if (!regex_match(temp, letter)) return false;
+        }
+    }
+
+    return true;
 }
 
-int main() {  
-    ListNode* head = nullptr;
+// function to check if character is operator or not
+bool isOperator(char x) {
+  switch (x) {
+  case '+':
+  case '-':
+  case '/':
+  case '*':
+    return true;
+  }
+  return false;
+}
+ 
+// Convert prefix to Infix expression
+string preToInfix(string pre_exp) {
+  stack<string> s;
+ 
+  // length of expression
+ 
+  // reading from right to left
+  for (int i = pre_exp.length() - 1; i >= 0; i--) {
+ 
+    // check if symbol is operator
+    if (isOperator(pre_exp[i])) {
+ 
+      // pop two operands from stack
+      string op1 = (string)s.top();   s.pop();
+      string op2 = (string)s.top();   s.pop();
+ 
+      // concat the operands and operator
+      string temp = "(" + op1 + pre_exp[i] + op2 + ")";
+ 
+      // Push string temp back to stack
+      s.push(temp);
+    }
+ 
+    // if symbol is an operand
+    else {
+ 
+      // push the operand to the stack
+      s.push(string(1, pre_exp[i]));
+    }
+  }
+ 
+  // Stack now contains the Infix expression
+  return s.top();
+}
 
-    int n = 5;
-    int arr[] = {1, 1, 2, 3, 3};
+int main() {
+    // string filename = "/Users/danielnguyen/Repo/C++/Assignment1-2/testcase/test1.txt";
+    // ifstream myfile(filename);
+    // string tmp;
+    // if (myfile.is_open()) {
+    //     while (getline(myfile, tmp)) {
+    //         cout << checkValid(tmp) << " ";
+    //     } 
+    // }
+    // string a = " \'a b c\'";
+    // int start = 0;
+    // int end = (int)a.find(" ");
 
-    head = createList(head, arr, n);
-
-    Solution obj;
-
-    obj.deleteDuplicates(head);
-
-    printList(head);
-
-    return 0;
+    // while (end != -1) {
+    //     start = (int)end + 1;
+    //     if (a[start] != '\'') end = (int)a.find(" ", start);
+    //     else {
+    //         end = (int)a.find("\'", start + 1);
+    //         cout << start << " " << end;
+    //     }
+    // }
+    int a = 0;
+    string id = "__";
+    cout << checkValidId(id);
+	return 0;
 }

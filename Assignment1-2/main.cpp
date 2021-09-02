@@ -18,8 +18,8 @@ void test(string filename)
 
 int main(int argc, char **argv)
 {
-    if (argc < 2)
-        return 1;
-    test(argv[1]);
+    string filename = "/Users/danielnguyen/Repo/C++/Assignment1-2/testcase/test5.txt";
+
+    test(filename);
     return 0;
 }
