@@ -36,7 +36,8 @@ int Prefix::endPre(const int& first, const int& last) const {
         return -1;
     }
     
-    string ch = exp.substr(first, 1);
+    string ch;
+    ch += exp[first];
 
     if ((int)Prefix::Identifier.find(ch) != -1) return first;
     else if ((int)Prefix::Operator.find(ch) != -1) {

@@ -8,13 +8,7 @@ int main() {
 
     string exp = pre.getExp();
 
-    cout << exp << endl;
-
-    string a = exp.substr(3, 1);
-
-    cout << a;
-
-    // cout << pre.evaluatePrefix(0, pre.getExp().length() - 1);
+    cout << pre.evaluatePrefix(0, exp.length() - 1);
 
     return 0;
 }
