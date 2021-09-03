@@ -11,113 +11,30 @@
 
 using namespace std;
 
-bool checkValid(const string& str) {
-    bool in = false;
-    bool out = false;
-    int countWord = 0;
-    int countSpace = 0;
-    regex letters("[a-zA-Z0-9]");
-
-    for (int i = 0; i < str.length(); i++) {
-        string single = str.substr(i, 1);
-
-        if (single == " ") {
-            out = true;
-            in = false;
-            countSpace++;
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        vector<int>::iterator it1 = numbers.begin();
+        vector<int>::iterator it2 = numbers.end() - 1;
+        vector<int> result;
+        
+        while (it1 != it2) {
+            int sum = *it1 + *it2;
+            
+            if (sum == target) {
+                result.push_back(it1 - numbers.begin());
+                result.push_back(it2 - numbers.begin());
+                break;
+            }
+            else if (sum > target) {
+                it2--;
+            }
+            else it1++;
         }
-        else if (regex_match(single, letters)) {
-            out = false;
-            if (!in) countWord++;
-            in = true;
-        }
+        
+        return result;
     }
-
-    return (countSpace == countWord - 1) && (countWord >= 1 && countWord <= 3);
-}
-bool checkValidId(const string& id) {
-    regex letter("[a-zA-Z_0-9]");
-    regex digit("[0-9_]*");
-
-    if (regex_match(id, digit)) return false;
-
-    for (int i = 0; i < id.length(); i++) {
-        string temp = id.substr(i, 1);
-
-        if (!regex_match(temp, letter)) return false;
-    }
-
-    return true;
-}
-bool checkValidType(const string& type, const string& item) {
-    if (type == "number") {
-        if (item[0] != 'n') return false;
-        regex digit("[0-9]");
-
-        for (int i = 1; i < item.length(); i++) {
-            string temp = item.substr(i, 1);
-            if (!regex_match(temp, digit)) return false;
-        }
-    }
-    else if (type == "string") {
-        if (item[0] != '\'' || item[item.length() - 1] != '\'') return false;
-        regex letter("[a-zA-Z0-9 ]");
-
-        for (int i = 1; i < item.length() - 1; i++) {
-            string temp = item.substr(i, 1);
-            if (!regex_match(temp, letter)) return false;
-        }
-    }
-
-    return true;
-}
-
-// function to check if character is operator or not
-bool isOperator(char x) {
-  switch (x) {
-  case '+':
-  case '-':
-  case '/':
-  case '*':
-    return true;
-  }
-  return false;
-}
- 
-// Convert prefix to Infix expression
-string preToInfix(string pre_exp) {
-  stack<string> s;
- 
-  // length of expression
- 
-  // reading from right to left
-  for (int i = pre_exp.length() - 1; i >= 0; i--) {
- 
-    // check if symbol is operator
-    if (isOperator(pre_exp[i])) {
- 
-      // pop two operands from stack
-      string op1 = (string)s.top();   s.pop();
-      string op2 = (string)s.top();   s.pop();
- 
-      // concat the operands and operator
-      string temp = "(" + op1 + pre_exp[i] + op2 + ")";
- 
-      // Push string temp back to stack
-      s.push(temp);
-    }
- 
-    // if symbol is an operand
-    else {
- 
-      // push the operand to the stack
-      s.push(string(1, pre_exp[i]));
-    }
-  }
- 
-  // Stack now contains the Infix expression
-  return s.top();
-}
+};
 
 int main() {
     // string filename = "/Users/danielnguyen/Repo/C++/Assignment1-2/testcase/test1.txt";
@@ -140,8 +57,14 @@ int main() {
     //         cout << start << " " << end;
     //     }
     // }
-    int a = 0;
-    string id = "__";
-    cout << checkValidId(id);
+    Solution obj;
+
+    int target = 9;
+    vector<int> v;
+    v.push_back(2);
+    v.push_back(5);
+    v.push_back(7);
+
+    obj.twoSum(v, target);
 	return 0;
 }
