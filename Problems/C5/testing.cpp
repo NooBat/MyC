@@ -1,17 +1,28 @@
 #include "Board.h"
-#include "Ex1.h"
+#include "Ex4-3.h"
 
 using namespace std;
 
 int main() {
-    for (int i = 0; i < BOARD_SIZE; i++) {
-        Board* newBoard = new Board();
-        Queen::setBoard(newBoard);
-        newBoard->doEightQueens(i);
+    Maze newMaze = Maze(7, 20, 18, 12);
+    Creature goblin = Creature(12, 6);
+    string arr[] = {
+                    "x     x        xxx x",
+                    "x xxxxx  xxxxx  xx x",
+                    "x xxxxx xxxxxxx xx x",
+                    "x x          xx xx x",
+                    "x xxxxxxxxxx xx    x",
+                   };
 
-        newBoard->display();
-        if (i < BOARD_SIZE - 1) cout << endl << endl;
-    }
+    newMaze.createMaze(arr);
+    newMaze.display();
+
+    cout << endl << endl;
+
+    findExit(newMaze, goblin);
+
+    newMaze.setPath(12, 5);
+    newMaze.display();
 
     return 0;
 }

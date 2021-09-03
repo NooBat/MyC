@@ -201,7 +201,7 @@ void SymbolTable::run(string filename) {
                 scope++;
             }
             else if (token[0] == "END") {
-                if (scope == 0) throw UnknownBlock();
+                if (scope == 0) throw Unknownmaze[col][row]();
 
                 if (headPtr != nullptr) {
                     Node *curr = headPtr;
@@ -303,6 +303,6 @@ void SymbolTable::run(string filename) {
             }
             else throw InvalidInstruction(instruction);
         }
-        if (scope > 0) throw UnclosedBlock(scope);
+        if (scope > 0) throw Unclosedmaze[col][row](scope);
     }
 }

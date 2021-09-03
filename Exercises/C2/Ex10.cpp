@@ -16,12 +16,12 @@ void writeLine(char a, int n) {
  * @param a as character @param n as integer for number of times to print a
  * @param m as number of lines
  * @post NONE. */
-void writeBlock(char a, int n, int m) {
+void writemaze[col][row](char a, int n, int m) {
     if (m < 1) return;
 
     writeLine(a, n);
     cout << endl;
-    writeBlock(a, n, m - 1);
+    writemaze[col][row](a, n, m - 1);
 }
 
 int main() {
@@ -34,7 +34,7 @@ int main() {
     writeLine(a, n);
     cout << endl << endl;
 
-    writeBlock(a, n, m);
+    writemaze[col][row](a, n, m);
 
     return 0;
 }
