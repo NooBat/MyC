@@ -36,8 +36,7 @@ int Prefix::endPre(const int& first, const int& last) const {
         return -1;
     }
     
-    string ch;
-    ch += exp[first];
+    string ch = exp.substr(first, 1);
 
     if ((int)Prefix::Identifier.find(ch) != -1) return first;
     else if ((int)Prefix::Operator.find(ch) != -1) {
@@ -66,7 +65,7 @@ bool Prefix::isPrefix() const {
 
 string Prefix::evaluatePrefix(const int& first, const int& last) const {
     int length = last - first + 1;
-    if (length == 1) return exp.substr(first, 1);
+    if (length <= 1) return exp.substr(first, 1);
 
     string op = exp.substr(first, 1);
 
@@ -74,10 +73,8 @@ string Prefix::evaluatePrefix(const int& first, const int& last) const {
 
     string operand1 = evaluatePrefix(first + 1, firstEnd);
 
-    int secondEnd = length - firstEnd + 1;
+    string operand2 = evaluatePrefix(firstEnd + 1, last);
 
-    string operand2 = evaluatePrefix(firstEnd + 1, secondEnd);
-
-    return operand1 + op + operand2;
+    return "(" + operand1 + op + operand2 + ")";
 }
 #endif
