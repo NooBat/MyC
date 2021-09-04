@@ -1,14 +1,13 @@
 #include "Ex5.h"
+#include "Ex8.h"
 #include<iostream>
 
 using namespace std;
 
 int main() {
-    Prefix pre = Prefix("*+/abc+de");
-    string exp = pre.getExp();
+    Infix inf = Infix("((a-c)/b+d)");
 
-    cout << pre.isPrefix() << endl;
-    cout << pre.evaluatePrefix(0, exp.length() - 1);
+    cout << inf.isInfix();
 
     return 0;
 }

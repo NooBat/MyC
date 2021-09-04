@@ -25,6 +25,8 @@ public:
     bool isPrefix() const;
 
     string evaluatePrefix(const int& first, const int& last) const;
+
+    string toPostfix(const int& first, const int& last) const;
 };
 
 const string Prefix::Operator = "+-*/";
@@ -76,5 +78,20 @@ string Prefix::evaluatePrefix(const int& first, const int& last) const {
     string operand2 = evaluatePrefix(firstEnd + 1, last);
 
     return "(" + operand1 + op + operand2 + ")";
+}
+
+string Prefix::toPostfix(const int& first, const int& last) const {
+        int length = last - first + 1;
+    if (length <= 1) return exp.substr(first, 1);
+
+    string op = exp.substr(first, 1);
+
+    int firstEnd = endPre(first + 1, last);      //index of the end of first prefix expression
+
+    string operand1 = toPostfix(first + 1, firstEnd);
+
+    string operand2 = toPostfix(firstEnd + 1, last);
+
+    return operand1 + operand2 + op;
 }
 #endif
