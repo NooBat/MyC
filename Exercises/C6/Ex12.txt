@@ -1,0 +1,43 @@
+char	stack		result
+a					a
+-		-			a
+b		-			ab
++		+			ab-
+c 		+			ab-c
+end					ab-c+
+
+
+
+a/(b*c)
+
+char	stack		result
+a					a
+/		/			a
+(		/(			a
+b		/(			ab
+*		/(*			ab
+c		/(*			abc
+)		/(			abc*
+end					abc*/
+
+
+a-(b/c*d)
+
+char	stack		result
+a					a
+-		-			a
+(		-(			a
+b		-(			ab
+/		-(/			ab
+c		-(/			abc
+*		-(*			abc/
+d		-(*			abc/d
+)		-(			abc/d*
+end					abc/d*-
+
+
+a/b/c-(d+e)*f
+
+char    stack       result
+a                   a
+/       /           a
