@@ -41,3 +41,6 @@ a/b/c-(d+e)*f
 char    stack       result
 a                   a
 /       /           a
+b       /           ab
+/       /           ab/
+c       
