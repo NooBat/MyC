@@ -43,7 +43,7 @@ void displayBag(ArrayBag<string>& bag) {
     cout << "The bag contains " << bag.getCurrentSize() << " items:" << endl;
 
     vector<string> bagItems;
-    bag.toVector(bagItems, bag.getCurrentSize(), bag.getCurrentSize());
+    bag.toVector();
     int numberOfEntries = (int)bagItems.size(); 
     for (int i = 0; i < numberOfEntries; i++) {
         cout << bagItems[i] << " "; 
@@ -127,18 +127,36 @@ void bagTester(ArrayBag<string>& bag) {
 } // end bagTester
 
 void stackTester(Stack<string>& s1, stack<string>& s2) {
+    string items[] = {"one", "two", "three", "four", "five", "six"}; 
+    
+    cout << "Add 6 items to the bag: " << endl;
+    for (int i = 0; i < 6; i++) {
+        s1.push(items[i]);
+        s2.push(items[i]); 
+    } 
+    cout << endl << endl;
 
+    cout << "First item of user-defined stack: " << s1.peek() << endl;
+    cout << "First item of STL stack: " << s2.top() << endl;
+    cout << endl << endl;
+
+    cout << "Pop the user-defined stack: returns " << s1.pop() << endl;
+    cout << "Pop the STL stack" << endl;
+    s2.pop();
+    cout << "First item of user-defined stack: " << s1.peek() << endl;
+    cout << "First item of STL stack: " << s2.top() << endl;
+    cout << endl << endl;
 }
 
 int main() {
     ArrayBag<string> bag;
-    Stack<string> stack;
-    stack<string> s;
+    Stack<string> stack1;
+    stack<string> st;
 
     cout << "Testing the User-defined stack:" << endl; 
     cout << "The initial stack is empty." << endl; 
 
-    stackTester(stack, s);
+    stackTester(stack1, st);
 
     cout << "All done!" << endl;
     return 0; // end main

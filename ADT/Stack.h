@@ -3,8 +3,25 @@
 
 #include "Node.h"
 #include "StackInterface.h"
+#include<iostream>
+#include<cstring>
 
 using namespace std;
+
+class EmptyStack : public exception {
+    string mess;
+
+public:
+    virtual ~EmptyStack() throw() {
+        return ;
+    }
+    EmptyStack() {
+        mess = "Stack is empty!";
+    }
+    const char *what() const throw() {
+        return mess.c_str();
+    }
+};
 
 template<class ItemType>
 class Stack : public StackInterface<ItemType> {
@@ -45,9 +62,10 @@ bool Stack<ItemType>::push(const ItemType& newEntry) {
 
     Node<ItemType>* temp = new Node<ItemType>(newEntry);
 
-    temp->setNext(top->getNext());
+    temp->setNext(top);
     top = temp;
 
+    temp = nullptr;
     return true;
 }
 
@@ -66,7 +84,7 @@ bool Stack<ItemType>::pop() {
 
 template<class ItemType>
 ItemType Stack<ItemType>::peek() const {
-    if (top == nullptr) return throw St;
+    if (top == nullptr) throw EmptyStack();
 
     return top->getItem();
 }
