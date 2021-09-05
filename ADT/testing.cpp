@@ -1,8 +1,10 @@
 #include<iostream>
 #include<vector>
+#include<stack>
 #include<string>
 #include "LinkedBag.h"
 #include "ArrayBag.h"
+#include "Stack.h"
 
 using namespace std;
 
@@ -27,7 +29,7 @@ int sumBag(ArrayBag<int>& bag) {
     int sum = 0;
 
     vector<int> v;
-    bag.toVector(v, bag.getCurrentSize(), bag.getCurrentSize());
+    bag.toVector();
 
     for (int i = 0; i < v.size(); i++) {
         sum += v[i];
@@ -124,13 +126,19 @@ void bagTester(ArrayBag<string>& bag) {
          << "; should be 1 (true)" << endl;
 } // end bagTester
 
+void stackTester(Stack<string>& s1, stack<string>& s2) {
+
+}
+
 int main() {
     ArrayBag<string> bag;
+    Stack<string> stack;
+    stack<string> s;
 
-    cout << "Testing the Array-Based Bag:" << endl; 
-    cout << "The initial bag is empty." << endl; 
+    cout << "Testing the User-defined stack:" << endl; 
+    cout << "The initial stack is empty." << endl; 
 
-    bagTester(bag);
+    stackTester(stack, s);
 
     cout << "All done!" << endl;
     return 0; // end main

@@ -44,6 +44,84 @@ a                   a
 b       /           ab
 /       /           ab/
 c       /           ab/c
--       /-          ab/c
-(       /-(         ab/c
-a
+-       -           ab/c/
+(       -(          ab/c/
+d       -(          ab/c/d
++       -(+         ab/c/d
+e       -(+         ab/c/de
+)       -(          ab/c/de+
+*       -*          ab/c/de+
+f       -*          ab/c/de+f
+end                 ab/cde+f*-
+
+
+(a+b)*c
+
+char    stack       result
+(       (           
+a       (           a
++       (+          a
+b       (+          ab
+)       (           ab+
+*       *           ab+
+c       *           ab+c
+end                 ab+c*
+
+
+a*(b/c/d)+e
+
+char    stack       result
+a                   a
+*       *           a
+(       *(          a
+b       *(          ab
+/       *(/         ab
+c       *(/         abc
+/       *(/         abc/
+d       *(/         abc/d
+)       *(/         abc/d
+        *(          abc/d/
+        *           abc/d/
++       *           abc/d/
+        +           abc/d/*
+e       +           abc/d/*e
+end                 abc/d/*e+
+
+
+a-(b+c)
+
+char    stack       result
+a                   a
+-       -           a
+(       -(          a
+b       -(          ab
++       -(+         ab
+c       -(+         abc
+)       -(+         abc
+        -(          abc+
+        -           abc+
+end     -           abc+
+                    abc+-
+
+
+a-(b+c*d)/e
+
+char    stack       result
+a                   a
+-       -           a
+(       -(          a
+b       -(          ab
++       -(+         ab
+c       -(+         abc
+*       -(+*        abc
+d       -(+*        abcd
+)       -(+*        abcd
+        -(+         abcd*
+        -(          abcd*+
+        -           abcd*+
+/       -/          abcd*+
+e       -/          abcd*+e
+end     -           abcd*+e/
+                    abcd*+e/-
+
+

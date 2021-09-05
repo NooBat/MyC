@@ -1,0 +1,83 @@
+a. Fly from A to F
+
+city        stack       
+A           A
+B           AB      
+H           ABH
+G           ABHG    
+C           ABHGC
+D           ABHGCD
+F           DONE
+
+
+b. Fly from A to G
+
+city        stack
+A           A
+B           AB
+D           ABD
+E           ABDE
+I           ABDEI
+C           ABDEIC
+NO_CITY     ABDEIC
+            ABDEI
+NO_CITY     ABDEI
+            ABDE
+NO_CITY     ABDE
+            ABD
+F           ABDF
+G           DONE
+
+
+c. Fly from F to H
+
+city        stack
+F           F
+I           FI
+C           FIC
+E           FICE
+NO_CITY     FICE
+            FIC
+D           FICD
+H           DONE
+
+d. Fly from D to A
+
+city        stack
+D           D
+E           DE
+I           DEI
+C           DEIC
+B           DEICB
+H           DEICBH
+G           DEICBHG
+NO_CITY     DEICBHG
+            DEICBH
+NO_CITY     DEICBH
+            DEICB
+NO_CITY     DEICB
+            DEIC
+NO_CITY     DEIC
+            DEI
+NO_CITY     DEI
+            DE
+NO_CITY     D
+F           DF
+NO_CITY     DF
+            D
+NO_CITY     D
+            NO PATH TO A
+
+
+e. Fly from I to G
+
+city        stack
+I           I
+C           IC
+E           ICE
+NO_CITY     ICE
+            IC
+D           ICD
+F           ICDF
+G           DONE
+

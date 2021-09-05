@@ -74,34 +74,34 @@ public:
         return mess.c_str();
     }
 };
-class Unclosedmaze[col][row] : public exception
+class UnclosedBlock : public exception
 {
     string mess;
 
 public:
-    virtual ~Unclosedmaze[col][row]() throw() {
+    virtual ~UnclosedBlock() throw() {
         return ;
     }
-    Unclosedmaze[col][row](int level)
+    UnclosedBlock(int level)
     {
-        mess = "Unclosedmaze[col][row]: " + to_string(level);
+        mess = "UnclosedBlock: " + to_string(level);
     }
     const char *what() const throw()
     {
         return mess.c_str();
     }
 };
-class Unknownmaze[col][row] : public exception
+class UnknownBlock : public exception
 {
     string mess;
 
 public:
-    virtual ~Unknownmaze[col][row]() throw() {
+    virtual ~UnknownBlock() throw() {
         return ;
     }
-    Unknownmaze[col][row]()
+    UnknownBlock()
     {
-        mess = "Unknownmaze[col][row]";
+        mess = "UnknownBlock";
     }
     const char *what() const throw()
     {

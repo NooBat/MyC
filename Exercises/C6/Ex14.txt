@@ -1,0 +1,17 @@
+Pseudo code for palindrome recognition algorithm using stack
+
+s = string needs to be identify
+
+aStack = a new empty stack
+
+while (not the middle of s) {
+    ch = the current char;
+    aStack.push(ch);
+}
+
+while (aStack is not empty) {
+    if (ch != aStack.peek()) then s is not a palindrome;
+    aStack.pop();
+}
+
+else s is a palindrome.
