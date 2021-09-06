@@ -1,10 +1,11 @@
 #include<stack>
 #include<string>
 #include<iostream>
+#include<regex>
 
 using namespace std;
 
-bool checkBalanced(const string& exp) {
+bool checkPalindrome(const string& exp) {
     if (exp.length() == 0 || exp.length() == 1) return true;
     stack<char> st;
     int i;
@@ -21,10 +22,35 @@ bool checkBalanced(const string& exp) {
     return true;
 }
 
-int main() {
-    string exp = "wontloversrevoltnow";
+bool isBalanced(const string& exp) {
+    stack<char> st;
 
-    cout << checkBalanced(exp);
+    regex openingBrackets("([{");
+    regex closingBrackets(")]}");
+
+    for (int i = 0; i < exp.length(); i++) {
+        string temp = exp.substr(i, 1);
+
+        if (regex_match(temp, openingBrackets)) {
+            st.push(exp[i]);
+        }
+        else if (regex_match(temp, closingBrackets)) {
+            if ((exp[i] == ')' && st.top() == '(') ||
+                (exp[i] == ']' && st.top() == '[') ||
+                (exp[i] == '}' && st.top() == '}')) {
+                st.pop();
+            }
+            else return false;
+        }
+    }
+
+    return true;
+}
+
+int main() {
+    string exp = "()(";
+
+    cout << isBalanced(exp);
 
     return 0;
 }
