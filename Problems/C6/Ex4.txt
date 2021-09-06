@@ -1,0 +1,12 @@
+$
+a$a
+ab$ba
+abcc/1213$1213/ccba
+abcdefghijklmnopqrstuvwxyz$zyxwvutsrqponmlkjihgfedcba
+12$21
+1$2
+a33bba$abb33a
+DONE
+
+Grammar for this language:
+L = {s$s' : s is a possibly empty string of characters other than $, s' = reverse(s)}
