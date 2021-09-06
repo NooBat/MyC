@@ -36,6 +36,16 @@ public:
     }
 };
 
+int countItem(stack<int> a) {
+    int count = 0;
+    while (!a.empty()) {
+        count++;
+        a.pop();
+    }
+
+    return count;
+}
+
 int main() {
     // string filename = "/Users/danielnguyen/Repo/C++/Assignment1-2/testcase/test1.txt";
     // ifstream myfile(filename);
@@ -57,14 +67,13 @@ int main() {
     //         cout << start << " " << end;
     //     }
     // }
-    Solution obj;
+    stack<int> s;
 
-    int target = 9;
-    vector<int> v;
-    v.push_back(2);
-    v.push_back(5);
-    v.push_back(7);
+    s.push(2);
+    s.push(3);
+    s.push(6);
 
-    obj.twoSum(v, target);
+    cout << countItem(s) << endl;
+    cout << s.empty() << endl;
 	return 0;
 }
