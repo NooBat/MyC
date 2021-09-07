@@ -1,4 +1,6 @@
-Hanoi, Tokyo
-New Dehli, New York
-San Francisco, London
-New York, Ho Chi Minh
+A, F
+A, G
+F, H
+D, A
+I, G
+A, P

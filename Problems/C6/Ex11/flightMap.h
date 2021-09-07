@@ -156,6 +156,7 @@ City* Map::findCity(const string& name) const {
 
 OurStack<City*>* Map::isPath(int& minimumPrice, City* originCity, City* destinationCity) {
     OurStack<City*>* st = new OurStack<City*>();
+    OurStack<City*>* popOp = new OurStack<City*>();
 
     unvisitAll();
 
@@ -181,36 +182,25 @@ OurStack<City*>* Map::isPath(int& minimumPrice, City* originCity, City* destinat
                 }
             }
             
-            City* temp = topCity;
+            if (!popOp->isEmpty()) {
+                popOp->pop();
+            }
+            popOp->push(topCity);
             price -= topCity->getPrice();
             st->pop();
 
             topCity = st->peek();
-
-            City* nextCity = getNextCity(topCity);
-            if (nextCity == NO_CITY) {
-                price -= topCity->getPrice();
-                st->pop();
-
-                topCity = st->peek();
-            }
-            else {
-                markCity(nextCity);
-                st->push(nextCity);
-                price += nextCity->getPrice();
-
-                topCity = st->peek();
-            }
-
-            unmarkCity(temp);
-
-            temp = nullptr;
         }
         else {
             City* nextCity = getNextCity(topCity);
 
             if (nextCity == NO_CITY) {
+                if (!popOp->isEmpty()) {
+                    unmarkCity(popOp->peek());
+                    popOp->pop();
+                }
                 price -= topCity->getPrice();
+                popOp->push(topCity);
                 st->pop();
             }
             else {
