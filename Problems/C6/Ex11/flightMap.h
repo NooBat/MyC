@@ -158,6 +158,24 @@ OurStack<City*>* Map::isPath(int& minimumPrice, City* originCity, City* destinat
     OurStack<City*>* st = new OurStack<City*>();
     OurStack<City*>* popOp = new OurStack<City*>();
 
+    bool isWay = false;
+    for (int i = 0; i < numberOfCities; i++) {
+        if (cities[i]->getName() != destinationCity->getName()) {
+            City* curr = cities[i];
+
+            while (curr != nullptr) {
+                if (curr->getName() == destinationCity->getName()) {
+                    isWay = true;
+                    break;
+                }
+                curr = curr->getNext();
+            }
+            if (isWay) break;
+        }
+    }
+
+    if (!isWay) return st;
+
     unvisitAll();
 
     OurStack<City*>* result = new OurStack<City*>();
