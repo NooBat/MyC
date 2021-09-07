@@ -29,6 +29,8 @@ public:
 
     void markCity(City* city);
 
+    void unmarkCity(City* city);
+
     City* getNextCity(City* fromCity);
 
     City* findCity(const string& name) const;
@@ -100,8 +102,24 @@ void Map::markCity(City* city) {
     }
 }
 
+void Map::unmarkCity(City* city) {
+    for (int i = 0; i < numberOfCities; i++) {
+        City* p = cities[i];
+
+        while (p != nullptr) {
+            if (p->getName() == city->getName()) {
+                p->setVisitState(false);
+                break;
+            }
+            p = p->getNext();
+        }
+
+        p = nullptr;
+    }
+}
+
 City* Map::getNextCity(City* fromCity) {
-    for (i = 0; i < numberOfCities; i++) {
+    for (int i = 0; i < numberOfCities; i++) {
         if (fromCity->getName() == cities[i]->getName()) {
             City* curr = cities[i];
 
@@ -143,65 +161,66 @@ OurStack<City*>* Map::isPath(int& minimumPrice, City* originCity, City* destinat
 
     OurStack<City*>* result = new OurStack<City*>();
 
-    City* dest = nullptr;
-
     markCity(originCity);
     st->push(originCity);
 
     int price = 0;
 
-
     City* topCity = st->peek();
 
-    while (!st->isEmpty() && topCity->getName() != destinationCity->getName()) {
-        City* nextCity = getNextCity(topCity);
-
-        if (nextCity->getName() == destinationCity->getName()) {
-            dest = nextCity;
-            int temp = price + nextCity->getPrice();
-            if (temp < minimumPrice) {
+    while (!st->isEmpty()) {
+        if (topCity->getName() == destinationCity->getName()) {
+            if (price < minimumPrice) {
                 if (!result->isEmpty()) result->clear();
-                minimumPrice = temp;
+
                 vector<City*> v = st->traverse();
+                minimumPrice = price;
 
                 for (int i = 0; i < v.size(); i++) {
-                    result->push(v[i]); 
+                    result->push(v[i]);
                 }
             }
-            while (!st->isEmpty()) {
-                City* nextCity = getNextCity(st->peek());
-
-                if (nextCity == NO_CITY) {
-                    price -= st->peek()->getPrice();
-                    st->pop();
-                }
-                else if (nextCity->getName() == destinationCity->getName()) {
-                    
-                }
-                else {
-                    st->push(nextCity);
-                    price += st->peek()->getPrice();
-                    topCity = st->peek();
-                    break;
-                }
-            }
-            if (st->isEmpty()) break;
-
-        }
-
-        if (nextCity == NO_CITY) {
+            
+            City* temp = topCity;
             price -= topCity->getPrice();
             st->pop();
+
+            topCity = st->peek();
+
+            City* nextCity = getNextCity(topCity);
+            if (nextCity == NO_CITY) {
+                price -= topCity->getPrice();
+                st->pop();
+
+                topCity = st->peek();
+            }
+            else {
+                markCity(nextCity);
+                st->push(nextCity);
+                price += nextCity->getPrice();
+
+                topCity = st->peek();
+            }
+
+            unmarkCity(temp);
+
+            temp = nullptr;
         }
         else {
-            st->push(nextCity);
-            price += nextCity->getPrice();
-            markCity(nextCity);
-        }
-        if (!st->isEmpty()) topCity = st->peek();
-    }
+            City* nextCity = getNextCity(topCity);
 
-    if (dest != nullptr) result->push(dest);
+            if (nextCity == NO_CITY) {
+                price -= topCity->getPrice();
+                st->pop();
+            }
+            else {
+                markCity(nextCity);
+                st->push(nextCity);
+                price += nextCity->getPrice();
+            }
+            if (!st->isEmpty()) topCity = st->peek();
+        }
+    }
 
     return result;
 }
