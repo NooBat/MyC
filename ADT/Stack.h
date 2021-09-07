@@ -1,5 +1,5 @@
-#ifndef _STACK
-#define _STACK
+#ifndef _OurStack
+#define _OurStack
 
 #include "Node.h"
 #include "StackInterface.h"
@@ -24,12 +24,12 @@ public:
 };
 
 template<class ItemType>
-class Stack : public StackInterface<ItemType> {
+class OurStack : public StackInterface<ItemType> {
 private:
     Node<ItemType> *top;
 
 public:
-    Stack();
+    OurStack();
 
     bool isEmpty() const;
 
@@ -41,17 +41,17 @@ public:
 };
 
 template<class ItemType>
-Stack<ItemType>::Stack(): top(nullptr) {
+OurStack<ItemType>::OurStack(): top(nullptr) {
 
 }
 
 template<class ItemType>
-bool Stack<ItemType>::isEmpty() const {
+bool OurStack<ItemType>::isEmpty() const {
     return top == nullptr;
 }
 
 template<class ItemType>
-bool Stack<ItemType>::push(const ItemType& newEntry) {
+bool OurStack<ItemType>::push(const ItemType& newEntry) {
     if (top == nullptr) {
         Node<ItemType>* temp = new Node<ItemType>(newEntry);
         top = temp;
@@ -70,7 +70,7 @@ bool Stack<ItemType>::push(const ItemType& newEntry) {
 }
 
 template<class ItemType>
-bool Stack<ItemType>::pop() {
+bool OurStack<ItemType>::pop() {
     if (top == nullptr) return false;
 
     Node<ItemType>* curr = top;
@@ -83,7 +83,7 @@ bool Stack<ItemType>::pop() {
 }
 
 template<class ItemType>
-ItemType Stack<ItemType>::peek() const {
+ItemType OurStack<ItemType>::peek() const {
     if (top == nullptr) throw EmptyStack();
 
     return top->getItem();

@@ -1,5 +1,6 @@
 #include "Ex5.h"
 #include "Ex7.h"
+#include "Ex10.h"
 #include<iostream>
 
 using namespace std;
@@ -9,14 +10,13 @@ int main() {
     // string input;
     // getline(cin, input);
 
+    Solution obj;
 
-    InfixCalculator inf("7+(200/9)");
+    OurStack<int> result = obj.solveTower(10);
 
-    try {
-        cout << inf.evaluateInfix() << endl;
-    }
-    catch(exception &e) {
-        cout << e.what();
+    while (!result.isEmpty()) {
+        cout << result.peek() << " ";
+        result.pop();
     }
 
     return 0;
