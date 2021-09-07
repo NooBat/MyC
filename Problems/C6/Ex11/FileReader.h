@@ -14,7 +14,7 @@ public:
 
     vector<string> getName() const;
 
-    vector< pair<string, string> > getNamePair() const;
+    vector< vector<string> > getNamePair() const;
 };
 
 FileReader::FileReader() {
@@ -37,8 +37,8 @@ vector<string> FileReader::getName() const {
     return result;
 }
 
-vector< pair<string, string> > FileReader::getNamePair() const {
-    vector< pair<string, string> > result;
+vector< vector<string> > FileReader::getNamePair() const {
+    vector< vector<string> > result;
     string filename = "/Users/danielnguyen/Repo/C++/Problems/C6/Ex11/flightFile.txt";
     ifstream myfile(filename);
 
@@ -46,16 +46,31 @@ vector< pair<string, string> > FileReader::getNamePair() const {
         string temp;
         while (getline(myfile, temp)) {
             int i;
+            vector<string> v;
             for (i = 0; i < temp.length(); i++) {
                 if (temp[i] == ',') break;
             }
 
-            string first = temp.substr(0, i);
-            string second = temp.substr(i + 2, temp.length() - first.length() - 2);
+            string firstCity = temp.substr(0, i);
+            v.push_back(firstCity);
 
-            pair<string, string> newPair(first, second);
+            i = (int)temp.find("  ");
 
-            result.push_back(newPair);
+            string secondCity = temp.substr(firstCity.length() + 2, i - firstCity.length() - 2);
+            v.push_back(secondCity);
+
+            for (; i < temp.length(); i++) {
+                if (temp[i] != ' ') break;
+            }
+
+            string flightName = temp.substr(i, 3);
+            v.push_back(flightName);
+
+            i = i + 8;
+
+            string price = temp.substr(i, 3);
+            v.push_back(price);
+            result.push_back(v);
         }
     }
 

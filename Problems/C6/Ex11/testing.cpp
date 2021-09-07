@@ -37,9 +37,19 @@ int main() {
                 continue;
             }
 
-            OurStack<City*> st;
-            if (flightHPAir.isPath(origin, destination)) {
+            int totalPrice = INT_MAX;
+            OurStack<City*> st = flightHPAir.isPath(totalPrice, origin, destination);
+            if (!st.isEmpty()) {
                 cout << "HPAir flies from " << first << " to " << second << endl;
+                vector<City*> v = st.traverse();
+
+                for (int i = 0; i < v.size() - 1; i++) {
+                    cout << "Flight #" << flightHPAir.getFlightName(v[i], v[i + 1]) << " from " << v[i]->getName() 
+                         << " to " << v[i + 1]->getName() << "\t\t" << "Cost: $" 
+                         << flightHPAir.getPrice(v[i], v[i + 1]) << endl;
+                }
+
+                cout << "Total cost ............. $" << totalPrice << endl;
             }
             else {
                 cout << "Sorry. HPair does not fly from " << first << " to " << second << endl;

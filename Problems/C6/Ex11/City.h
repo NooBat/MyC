@@ -8,8 +8,11 @@ using namespace std;
 class City {
 private:
     string name;
+    int flightName;
+    int price;
     City* next;
     bool visited;
+
 public:
     City();
 
@@ -19,11 +22,19 @@ public:
 
     void setName(const string& name);
 
+    void setPrice(const int& price);
+
+    void setFlightName(const int& flightName);
+
     void setNext(City *next);
 
     void markVisited();
 
     string getName() const;
+
+    int getPrice() const;
+
+    int getFlightName() const;
 
     City* getNext() const;
 
@@ -43,10 +54,19 @@ City::City(const string& name) {
     this->setName(name);
     this->setNext(nullptr);
     this->visited = false;
+    this->setPrice(0);
 }
 
 void City::setName(const string& name) {
     this->name = name;
+}
+
+void City::setPrice(const int& price) {
+    this->price = price;
+}
+
+void City::setFlightName(const int& flightName) {
+    this->flightName = flightName;
 }
 
 void City::setNext(City* next) {
@@ -59,6 +79,14 @@ void City::markVisited() {
 
 string City::getName() const {
     return name;
+}
+
+int City::getPrice() const {
+    return price;
+}
+
+int City::getFlightName() const {
+    return flightName;
 }
 
 City* City::getNext() const {

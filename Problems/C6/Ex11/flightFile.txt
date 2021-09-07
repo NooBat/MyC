@@ -1,8 +1,8 @@
-Hanoi, Ho Chi Minh
-Ho Chi Minh, New Dehli
-Ho Chi Minh, Tokyo
-New Dehli, Tokyo
-New York, Hanoi
-San Francisco, New York
-Tokyo, Hanoi
-Tokyo, San Francisco
+Hanoi, Ho Chi Minh              730     100
+Ho Chi Minh, New Dehli          828     200
+Ho Chi Minh, Tokyo              615     325
+New Dehli, Tokyo                768     360
+New York, Hanoi                 480     500
+San Francisco, New York         112     150
+Tokyo, Hanoi                    230     200
+Tokyo, San Francisco            898     400
