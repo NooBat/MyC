@@ -1,0 +1,8 @@
+Hanoi, Ho Chi Minh
+Ho Chi Minh, New Dehli
+Ho Chi Minh, Tokyo
+New Dehli, Tokyo
+New York, Hanoi
+San Francisco, New York
+Tokyo, Hanoi
+Tokyo, San Francisco

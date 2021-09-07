@@ -1,0 +1,6 @@
+Hanoi
+Ho Chi Minh
+New Dehli
+New York
+San Francisco
+Tokyo
