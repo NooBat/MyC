@@ -67,13 +67,10 @@ int main() {
     //         cout << start << " " << end;
     //     }
     // }
-    stack<int> s;
+    vector<int> v;
 
-    s.push(2);
-    s.push(3);
-    s.push(6);
-
-    cout << countItem(s) << endl;
-    cout << s.empty() << endl;
+    v.push_back(2);
+    v.push_back(3);
+    v[0] = 1;
 	return 0;
 }
