@@ -1,6 +1,7 @@
 #include "FileReader.h"
 #include "flightMap.h"
 #include<iostream>
+#include<iomanip>
 
 using namespace std;
 
@@ -38,15 +39,15 @@ int main() {
             }
 
             int totalPrice = INT_MAX;
-            OurStack<City*> st = flightHPAir.isPath(totalPrice, origin, destination);
-            if (!st.isEmpty()) {
+            OurStack<City*>* st = flightHPAir.isPath(totalPrice, origin, destination);
+            if (!st->isEmpty()) {
                 cout << "HPAir flies from " << first << " to " << second << endl;
-                vector<City*> v = st.traverse();
+                vector<City*> v = st->traverse();
 
-                for (int i = 0; i < v.size() - 1; i++) {
-                    cout << "Flight #" << flightHPAir.getFlightName(v[i], v[i + 1]) << " from " << v[i]->getName() 
-                         << " to " << v[i + 1]->getName() << "\t\t" << "Cost: $" 
-                         << flightHPAir.getPrice(v[i], v[i + 1]) << endl;
+                for (i = 0; i < v.size() - 1; i++) {
+                    cout << "Flight #" << v[i + 1]->getFlightName() << " from " << v[i]->getName() 
+                         << " to " << v[i + 1]->getName() << "\t\t\t\t" << "Cost: $" 
+                         << v[i + 1]->getPrice() << endl;
                 }
 
                 cout << "Total cost ............. $" << totalPrice << endl;
