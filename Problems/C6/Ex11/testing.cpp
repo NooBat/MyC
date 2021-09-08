@@ -23,8 +23,8 @@ int main() {
             string first = temp.substr(0, i);
             string second = temp.substr(i + 2, temp.length() - first.length() - 2);
 
-            City *origin = flightHPAir.findCity(first);
-            City *destination = flightHPAir.findCity(second);
+            City* origin = flightHPAir.findCity(first);
+            City* destination = flightHPAir.findCity(second);
 
             cout << "Request fly from " << first << " to " << second << endl;
             if (origin == NO_CITY) {
