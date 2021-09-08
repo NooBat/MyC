@@ -56,7 +56,7 @@ City::City(const string& name, const int& price) {
     this->setPrice(price);
 }
 
-City::City(const string& name, const int& price, const int& flightName) {
+City::City(const string& name, const int& flightName, const int& price) {
     this->setName(name);
     this->setVisited(false);
     this->setPrice(price);
@@ -190,6 +190,7 @@ Node<City*>* CityList::getPtrTo(const string& name) {
         if (curr->getItem()->getName() == name) {
             return curr;
         }
+        curr = curr->getNext();
     }
 
     return nullptr;

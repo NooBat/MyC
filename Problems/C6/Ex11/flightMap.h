@@ -151,7 +151,8 @@ OurStack<City*>* Map::isPath(int& minimumPrice, City* originCity, City* destinat
         if (!st->isEmpty()) topCity = st->peek();
     }
 
-    return result;
+    minimumPrice = price;
+    return st;
 }
 
 #endif
