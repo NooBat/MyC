@@ -49,9 +49,9 @@ private:
     int maxItem;
     int top;
 
-    void doubleSize() throw(MemoryAllocationException);
+    void doubleSize();
 
-    void halfSize() throw(MemoryAllocationException);
+    void halfSize();
 
 public:
     ArrayStack();
@@ -66,7 +66,7 @@ public:
 
     bool pop();
 
-    ItemType peek() const throw (EmptyStack);
+    ItemType peek() const;
 
     vector<ItemType> toVector() const;
 };

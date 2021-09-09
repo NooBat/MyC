@@ -4,7 +4,7 @@
 using namespace std;
 
 template<class ItemType>
-void ArrayStack<ItemType>::doubleSize() throw(MemoryAllocationException) {
+void ArrayStack<ItemType>::doubleSize() {
     try {
         ItemType* newArr = new ItemType[maxItem * 2];
 
@@ -27,7 +27,7 @@ void ArrayStack<ItemType>::doubleSize() throw(MemoryAllocationException) {
 }
 
 template<class ItemType>
-void ArrayStack<ItemType>::halfSize() throw(MemoryAllocationException) {
+void ArrayStack<ItemType>::halfSize() {
     try {
         if (top + 1 >= maxItem / 2) return;
 
@@ -132,7 +132,7 @@ bool ArrayStack<ItemType>::pop() {
 }
 
 template<class ItemType>
-ItemType ArrayStack<ItemType>::peek() const throw (EmptyStack) {
+ItemType ArrayStack<ItemType>::peek() const {
     if (top == -1) throw EmptyStack();
 
     return arr[top];
