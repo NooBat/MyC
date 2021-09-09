@@ -23,10 +23,26 @@ public:
     }
 };
 
+class MemoryAllocationException : public exception {
+    string mess;
+public:
+    MemoryAllocationException() {
+        mess = "Allocation failed!";
+    }
+
+    virtual ~MemoryAllocationException() throw() {
+        return;
+    }
+
+    const char* what() const throw() {
+        return mess.c_str();
+    }
+};
+
 template<class ItemType>
 class LinkedStack : public StackInterface<ItemType> {
 private:
-    Node<ItemType> *top;
+    Node<ItemType>* top;
 
 public:
     LinkedStack();
@@ -45,7 +61,7 @@ public:
 
     ItemType peek() const;
 
-    vector<ItemType> traverse() const;
+    vector<ItemType> toVector() const;
 };
 
 template<class ItemType>
@@ -60,11 +76,54 @@ LinkedStack<ItemType>::LinkedStack(const LinkedStack<ItemType>& other) {
         return;
     }
 
-    vector<ItemType> v = other.traverse();
-
-    for (int i = 0; i < v.size(); i++) {
-        this->push(v[i]); 
+    try {       //if allocation failed
+        top = new Node<ItemType>*();
     }
+    catch (const bad_alloc& e) {
+        cout << "Memory failed to allocate!" << endl;
+        top = nullptr;
+    }
+
+    Node<ItemType>* newChainPtr = top;
+    Node<ItemType>* origChainPtr = other.top;
+
+    newChainPtr->setItem(origChainPtr->getItem());
+
+    while (origChainPtr != nullptr) {
+        origChainPtr = origChainPtr->getNext();
+
+        Node<ItemType>* newNodePtr = nullptr;
+
+        try {
+            ItemType nextItem = origChainPtr->getItem();
+            newNodePtr = new Node<ItemType>*(nextItem);
+        }
+        catch (UnknownPointer e) {
+            throw e.what();
+        }
+        catch (MemoryAllocationException e) {
+            Node<ItemType>* curr = top;
+
+            while (curr != nullptr) {
+                Node<ItemType>* next = curr->getNext();
+
+                delete curr;
+
+                curr = next;
+            }
+
+            top = nullptr;
+
+            throw e.what();
+        }
+        
+        newChainPtr->setNext(newNodePtr);
+
+        newChainPtr = newChainPtr->getNext();
+    }
+
+    newChainPtr->setNext(nullptr);
+    newChainPtr = nullptr;
 }
 
 template<class ItemType>
@@ -79,14 +138,6 @@ bool LinkedStack<ItemType>::isEmpty() const {
 
 template<class ItemType>
 bool LinkedStack<ItemType>::push(const ItemType& newEntry) {
-    if (top == nullptr) {
-        Node<ItemType>* temp = new Node<ItemType>(newEntry);
-        top = temp;
-        temp = nullptr;
-
-        return true;
-    }
-
     Node<ItemType>* temp = new Node<ItemType>(newEntry);
 
     temp->setNext(top);
@@ -124,7 +175,7 @@ ItemType LinkedStack<ItemType>::peek() const {
 }
 
 template<class ItemType>
-vector<ItemType> LinkedStack<ItemType>::traverse() const {
+vector<ItemType> LinkedStack<ItemType>::toVector() const {
     vector<ItemType> result;
 
     Node<ItemType>* curr = top;

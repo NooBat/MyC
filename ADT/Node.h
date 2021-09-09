@@ -2,6 +2,27 @@
 #define _NODE
 
 #include<iostream>
+#include<string>
+#include<stdexcept>
+
+using namespace std;
+
+class UnknownPointer : public exception {
+    string mess;
+
+public:
+    UnknownPointer() {
+        mess = "This pointer points to NULL";
+    }
+
+    virtual ~UnknownPointer() throw() {
+        return;
+    }
+
+    const char* what() const throw() {
+        return mess.c_str();
+    }
+};
 
 template<class ItemType>
 class Node {
@@ -53,11 +74,13 @@ void Node<ItemType>::setNext(Node<ItemType>* nextNodePtr) {
 
 template<class ItemType>
 ItemType Node<ItemType>::getItem() const {
+    if (this == nullptr) throw UnknownPointer();
     return item;
 }
 
 template<class ItemType>
 Node<ItemType>* Node<ItemType>::getNext() const {
+    if (this == nullptr) throw UnknownPointer();
     return next;
 }
 

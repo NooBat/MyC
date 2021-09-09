@@ -42,7 +42,7 @@ int main() {
             LinkedStack<City*>* st = flightHPAir.isPath(totalPrice, origin, destination);
             if (!st->isEmpty()) {
                 cout << "HPAir flies from " << first << " to " << second << endl;
-                vector<City*> v = st->traverse();
+                vector<City*> v = st->toVector();
 
                 for (i = 0; i < v.size() - 1; i++) {
                     cout << "Flight #" << v[i + 1]->getFlightName() << " from " << v[i]->getName() 

@@ -24,6 +24,10 @@ public:
      * @pre The stack must not be empty.
      * @return The top item of this stack. */
     virtual ItemType peek() const = 0;
+
+    /** Returns a vector contains every item in the stack from bottom to top 
+     * @return A vector contains every item from bottom to top */
+    virtual vector<ItemType> toVector() const = 0;
 };
 
 #endif
