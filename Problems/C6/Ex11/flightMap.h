@@ -36,7 +36,7 @@ public:
 
     City* findCity(const string& name) const;
 
-    OurStack<City*>* isPath(int& minimumPrice, City* originCity, City* destinationCity);
+    LinkedStack<City*>* isPath(int& minimumPrice, City* originCity, City* destinationCity);
 };
 
 int Map::findCityIdx(const string& name) const {
@@ -122,12 +122,12 @@ City* Map::findCity(const string& name) const {
     return NO_CITY;
 }
 
-OurStack<City*>* Map::isPath(int& minimumPrice, City* originCity, City* destinationCity) {
-    OurStack<City*>* st = new OurStack<City*>();
+LinkedStack<City*>* Map::isPath(int& minimumPrice, City* originCity, City* destinationCity) {
+    LinkedStack<City*>* st = new LinkedStack<City*>();
 
     unvisitAll();
 
-    OurStack<City*>* result = new OurStack<City*>();
+    LinkedStack<City*>* result = new LinkedStack<City*>();
 
     markCity(originCity);
     st->push(originCity);

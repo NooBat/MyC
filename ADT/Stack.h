@@ -1,5 +1,5 @@
-#ifndef _OurStack
-#define _OurStack
+#ifndef _LinkedStack
+#define _LinkedStack
 
 #include "Node.h"
 #include "StackInterface.h"
@@ -24,16 +24,16 @@ public:
 };
 
 template<class ItemType>
-class OurStack : public StackInterface<ItemType> {
+class LinkedStack : public StackInterface<ItemType> {
 private:
     Node<ItemType> *top;
 
 public:
-    OurStack();
+    LinkedStack();
 
-    OurStack(const OurStack<ItemType>& other);
+    LinkedStack(const LinkedStack<ItemType>& other);
 
-    virtual ~OurStack();
+    virtual ~LinkedStack();
 
     bool isEmpty() const;
 
@@ -49,12 +49,12 @@ public:
 };
 
 template<class ItemType>
-OurStack<ItemType>::OurStack(): top(nullptr) {
+LinkedStack<ItemType>::LinkedStack(): top(nullptr) {
 
 }
 
 template<class ItemType>
-OurStack<ItemType>::OurStack(const OurStack<ItemType>& other) {
+LinkedStack<ItemType>::LinkedStack(const LinkedStack<ItemType>& other) {
     if (other.top == nullptr) {
         top = nullptr;
         return;
@@ -68,17 +68,17 @@ OurStack<ItemType>::OurStack(const OurStack<ItemType>& other) {
 }
 
 template<class ItemType>
-OurStack<ItemType>::~OurStack() {
+LinkedStack<ItemType>::~LinkedStack() {
     clear();
 }
 
 template<class ItemType>
-bool OurStack<ItemType>::isEmpty() const {
+bool LinkedStack<ItemType>::isEmpty() const {
     return top == nullptr;
 }
 
 template<class ItemType>
-bool OurStack<ItemType>::push(const ItemType& newEntry) {
+bool LinkedStack<ItemType>::push(const ItemType& newEntry) {
     if (top == nullptr) {
         Node<ItemType>* temp = new Node<ItemType>(newEntry);
         top = temp;
@@ -97,7 +97,7 @@ bool OurStack<ItemType>::push(const ItemType& newEntry) {
 }
 
 template<class ItemType>
-bool OurStack<ItemType>::pop() {
+bool LinkedStack<ItemType>::pop() {
     if (top == nullptr) return false;
 
     Node<ItemType>* curr = top;
@@ -110,21 +110,21 @@ bool OurStack<ItemType>::pop() {
 }
 
 template<class ItemType>
-void OurStack<ItemType>::clear() {
+void LinkedStack<ItemType>::clear() {
     while (!isEmpty()) {
         this->pop();
     }
 }
 
 template<class ItemType>
-ItemType OurStack<ItemType>::peek() const {
+ItemType LinkedStack<ItemType>::peek() const {
     if (top == nullptr) throw EmptyStack();
 
     return top->getItem();
 }
 
 template<class ItemType>
-vector<ItemType> OurStack<ItemType>::traverse() const {
+vector<ItemType> LinkedStack<ItemType>::traverse() const {
     vector<ItemType> result;
 
     Node<ItemType>* curr = top;

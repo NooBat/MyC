@@ -39,7 +39,7 @@ int main() {
             }
 
             int totalPrice = INT_MAX;
-            OurStack<City*>* st = flightHPAir.isPath(totalPrice, origin, destination);
+            LinkedStack<City*>* st = flightHPAir.isPath(totalPrice, origin, destination);
             if (!st->isEmpty()) {
                 cout << "HPAir flies from " << first << " to " << second << endl;
                 vector<City*> v = st->traverse();

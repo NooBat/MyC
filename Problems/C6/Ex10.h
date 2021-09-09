@@ -8,10 +8,10 @@ using namespace std;
 
 class Solution {
 public: 
-    OurStack<int> solveTower(int count) {
-        OurStack<int> source;
-        OurStack<int> destination;
-        OurStack<int> auxiliary;
+    LinkedStack<int> solveTower(int count) {
+        LinkedStack<int> source;
+        LinkedStack<int> destination;
+        LinkedStack<int> auxiliary;
 
         for (int i = count; i >= 1; i--) {
             source.push(i);

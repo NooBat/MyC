@@ -12,7 +12,7 @@ int main() {
 
     Solution obj;
 
-    OurStack<int> result = obj.solveTower(10);
+    LinkedStack<int> result = obj.solveTower(10);
 
     while (!result.isEmpty()) {
         cout << result.peek() << " ";
