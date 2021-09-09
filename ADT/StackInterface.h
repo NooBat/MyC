@@ -1,6 +1,10 @@
 #ifndef _STACK_INTERFACE
 #define _STACK_INTERFACE
 
+#include<vector>
+
+using namespace std;
+
 template<class ItemType>
 class StackInterface {
 public:
