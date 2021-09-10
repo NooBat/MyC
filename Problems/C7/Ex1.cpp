@@ -14,13 +14,13 @@ void ArrayStack<ItemType>::doubleSize() {
 
         maxItem *= 2;
 
-        delete arr;
+        delete[] arr;
         
-        arr = newArr;
+        this->arr = newArr;
         newArr = nullptr;
     }
     catch (MemoryAllocationException e) {
-        delete arr;
+        delete[] arr;
 
         throw e.what();
     }
@@ -39,13 +39,13 @@ void ArrayStack<ItemType>::halfSize() {
 
         maxItem /= 2;
 
-        delete arr;
+        delete[] arr;
 
         arr = newArr;
         newArr = nullptr;
     }
     catch (MemoryAllocationException e) {
-        delete arr;
+        delete[] arr;
 
         throw e.what();
     }
@@ -108,7 +108,12 @@ bool ArrayStack<ItemType>::isEmpty() const {
 template<class ItemType>
 bool ArrayStack<ItemType>::push(const ItemType& newEntry) {
     if (top == maxItem - 1) {
-        doubleSize();
+        try {
+            doubleSize();
+        }
+        catch (exception& e) {
+            cout << e.what() << endl;
+        }
     }
 
     top++;
@@ -125,8 +130,12 @@ bool ArrayStack<ItemType>::pop() {
     }
 
     top--;
-
-    halfSize();
+    try {
+        halfSize();
+    }
+    catch (exception& e) {
+        cout << e.what() << endl;
+    }
 
     return true;
 }

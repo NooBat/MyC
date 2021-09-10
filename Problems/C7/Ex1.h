@@ -71,6 +71,4 @@ public:
     vector<ItemType> toVector() const;
 };
 
-
-
 #endif
