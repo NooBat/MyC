@@ -3,8 +3,6 @@
 
 template<class ItemType>
 class ListInterface {
-private:
-    ItemType* arr;
 public:
     /** Sees whether the list is empty.
      * @return True if the list is empty, false otherwise. */
@@ -52,12 +50,4 @@ public:
      * @param newEntry The replacement entry. */
     virtual void setEntry(int position, const ItemType& newEntry) = 0;
 };
-
-template<class ItemType>
-bool swap(ListInterface<ItemType>& list, int pos1, int pos2) {
-    list.arr = new ItemType[6];
-
-    return true;
-}
-
 #endif
