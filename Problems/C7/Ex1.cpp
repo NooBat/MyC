@@ -6,15 +6,21 @@ using namespace std;
 template<class ItemType>
 void ArrayStack<ItemType>::doubleSize() {
     try {
-        ItemType* newArr = new ItemType[maxItem * 2];
+        ItemType* newArr = nullptr;
+
+        if (increment <= 0) newArr = new ItemType[maxItem * 2];
+        else newArr = new ItemType[maxItem + increment];
 
         for (int i = 0; i < maxItem; i++) {
             newArr[i] = arr[i];
         }
 
-        maxItem *= 2;
+        if (increment <= 0) maxItem *= 2;
+        else maxItem += increment;
 
         delete[] arr;
+
+        increment += 2 * increment;
         
         this->arr = newArr;
         newArr = nullptr;
@@ -54,6 +60,19 @@ void ArrayStack<ItemType>::halfSize() {
 template<class ItemType>
 ArrayStack<ItemType>::ArrayStack() {
     maxItem = 6;
+
+    increment = 0;
+
+    arr = new ItemType[6];
+
+    top = -1;
+}
+
+template<class ItemType>
+ArrayStack<ItemType>::ArrayStack(const int& increment) {
+    maxItem = 6;
+    
+    this->increment = increment;
 
     arr = new ItemType[6];
 
@@ -138,6 +157,11 @@ bool ArrayStack<ItemType>::pop() {
     }
 
     return true;
+}
+
+template<class ItemType>
+int ArrayStack<ItemType>::getMaxItem() const {
+    return maxItem;
 }
 
 template<class ItemType>

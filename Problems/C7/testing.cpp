@@ -27,9 +27,9 @@ void stackTester(ArrayStack<string>& st) {
     cout << endl << endl;
 
     cout << "Add 6 item to stack: ";
-    string pack[] = {"one", "two", "three", "four", "five", "six"};
+    string pack1[] = {"one", "two", "three", "four", "five", "six"};
     for (int i = 0; i < 6; i++) {
-        st.push(pack[i]);
+        st.push(pack1[i]);
     }
 
     cout << "isEmpty: returns " << st.isEmpty()
@@ -43,6 +43,21 @@ void stackTester(ArrayStack<string>& st) {
          << "; shoud be 1 (true)" << endl;
     cout << "peek: returns " << st.peek()
          << "; should be ten" << endl;
+    cout << "getMaxItem: returns " << st.getMaxItem() 
+         << "; should be 11" << endl;
+    display(st);
+    cout << endl << endl;
+
+    string pack2[] = {"six", "extra", "word", "to", "test", "resize"};
+    for (int i = 0; i < 6; i++) {
+        st.push(pack2[i]);
+    }
+    cout << "getMaxItem: returns " << st.getMaxItem() 
+         << "; should be 26" << endl;
+    cout << "pop: returns " << st.pop() 
+         << "; should be 1 (true)" << endl;
+    cout << "getMaxItem: returns " << st.getMaxItem()
+         << "; should be 13" << endl;
     display(st);
     cout << endl << endl;
 
@@ -59,7 +74,7 @@ void stackTester(ArrayStack<string>& st) {
 int main() {
     cout << "Testing ADT array-based stack" << endl;
 
-    ArrayStack<string> aStack;
+    ArrayStack<string> aStack(5);
     try {
         stackTester(aStack);
     }

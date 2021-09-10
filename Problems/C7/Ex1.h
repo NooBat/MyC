@@ -46,6 +46,7 @@ class ArrayStack : public StackInterface<ItemType> {
 private:
     ItemType* arr;
 
+    int increment;
     int maxItem;
     int top;
 
@@ -56,6 +57,8 @@ private:
 public:
     ArrayStack();
 
+    ArrayStack(const int& increment);
+
     ArrayStack(ItemType arr[], int n);
 
     ArrayStack(const ArrayStack<ItemType>& aStack);
@@ -65,6 +68,8 @@ public:
     bool push(const ItemType& newEntry);
 
     bool pop();
+
+    int getMaxItem() const;
 
     ItemType peek() const;
 
