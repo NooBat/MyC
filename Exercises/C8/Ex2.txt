@@ -1,0 +1,11 @@
+template<class ItemType>
+bool swap(List<ItemType>& aList, int pos1, int pos2) {
+    if (pos1 < 1 || pos1 > aList.getLength()) return false;
+    if (pos2 < 1 || pos2 > aList.getLength()) return false;
+
+    ItemType temp = aList.getEntry(pos1);
+    aList.setEntry(pos1, aList.getEntry(pos2));
+    aList.setEntry(pos2, temp);
+
+    return true; 
+}

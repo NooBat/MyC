@@ -1,0 +1,13 @@
+Function to computes the sum of the integers in the list aList
+
+sumOfList(aList: List<int>): int {
+    if (length of aList == 0) return INT_MIN;
+
+    sum = 0;
+
+    for (i = 1 to aList's length) {
+        sum += aList's entry[i];
+    }
+
+    return sum;
+}
