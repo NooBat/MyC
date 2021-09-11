@@ -1,6 +1,6 @@
 INSERT zOq string
 INSERT jYe9YE string
-ASSIGN zOq 'Vner'
+ASSIGN abc 'zoa
 INSERT lx2 string
 INSERT gfX string
 PRINT
