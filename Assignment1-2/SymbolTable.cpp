@@ -49,26 +49,39 @@ bool checkValidId(const string& id) {
     return true;
 }
 
-bool checkValidItem(const string& type, const string& item) {
-    if (type == "number") {
-        regex digit("[0-9]");
+bool checkValidString(const string& item) {
+    if (item[0] != '\'' || item[item.length() - 1] != '\'') return false;
+    regex letter("[a-zA-Z0-9 ]");
 
-        for (int i = 1; i < item.length(); i++) {
-            string temp = item.substr(i, 1);
-            if (!regex_match(temp, digit)) return false;
-        }
+    for (int i = 1; i < item.length() - 1; i++) {
+        string temp = item.substr(i, 1);
+        if (!regex_match(temp, letter)) return false;
+    }
+    
+    return true;
+}
+
+bool checkValidInt(const string& item) {
+    regex digit("[0-9]");
+
+    for (int i = 1; i < item.length(); i++) {
+        string temp = item.substr(i, 1);
+        if (!regex_match(temp, digit)) return false;
+    }  
+    
+    return true;
+}
+
+bool checkValidItem(const string& type, const string& item) {
+    bool result;
+    if (type == "number") {
+        result = checkValidInt(item);
     }
     else if (type == "string") {
-        if (item[0] != '\'' || item[item.length() - 1] != '\'') return false;
-        regex letter("[a-zA-Z0-9 ]");
-
-        for (int i = 1; i < item.length() - 1; i++) {
-            string temp = item.substr(i, 1);
-            if (!regex_match(temp, letter)) return false;
-        }
+        result = checkValidString(item);
     }
 
-    return true;
+    return result;
 }
 
 vector<string> tokenize(string str, string del = " ") {
@@ -156,8 +169,8 @@ void SymbolTable::run(string filename) {
                         for (int j = 0; j <= scope; j++) {
                             curr = getPtrTo(item, scope - j);
                             if (curr != nullptr && curr->getType() == p->getType()) {
-                                break;
                                 done = true;
+                                break;
                             }
                             else if (curr != nullptr) {
                                 throw TypeMismatch(instruction);
@@ -170,6 +183,7 @@ void SymbolTable::run(string filename) {
 
                 if (curr == nullptr && checkValidId(item)) throw Undeclared(instruction);
                 else if (curr == nullptr && !checkValidId(item)) {
+                    if (!checkValidString(item) && !checkValidInt(item)) throw InvalidInstruction(instruction);
                     for (int i = 0; i <= scope; i++) {
                         p = getPtrTo(id, scope - i);
                         if (p != nullptr) break;
