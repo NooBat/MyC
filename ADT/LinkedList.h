@@ -1,7 +1,9 @@
 #ifndef _LINKED_LIST
 #define _LINKED_LIST
 
+#include<assert.h>
 #include "ListInterface.h"
+#include "PrecondViolatedException.h"
 #include "Node.h"
 
 template<class ItemType>
@@ -36,6 +38,19 @@ public:
 };
 
 template<class ItemType>
+Node<ItemType>* LinkedList<ItemType>::getNodeAt(int position) const {
+    assert( (position >= 1) && (position <= itemCount) );
+
+    Node<ItemType>* currPtr = headPtr;  
+
+    for (int skip = 1; skip < position; skip++) {
+        currPtr = currPtr->getNext();
+    }
+
+    return currPtr;
+}
+
+template<class ItemType>
 LinkedList<ItemType>::LinkedList(): headPtr(nullptr), itemCount(0) {
 
 }
@@ -47,31 +62,36 @@ LinkedList<ItemType>::LinkedList(const LinkedList<ItemType>& aList) {
         return;
     }
 
-    Node<ItemType>* origListNode = aList.headPtr;
-    headPtr = new Node<ItemType>(origListNode->getItem());
+    Node<ItemType>* origListPtr = aList.headPtr;
+    headPtr = new Node<ItemType>(origListPtr->getItem());
 
-    Node<ItemType>* newListNode = headPtr;
+    Node<ItemType>* newListPtr = headPtr;
     this->itemCount = aList.itemCount;
 
-    origListNode = origListNode->getNext();
+    origListPtr = origListPtr->getNext();
 
-    while (origListNode != nullptr) {
-        Node<ItemType>* temp = new Node<ItemType>(origListNode->getItem());
+    while (origListPtr != nullptr) {
+        Node<ItemType>* temp = new Node<ItemType>(origListPtr->getItem());
 
-        newListNode->setNext(temp);
+        newListPtr->setNext(temp);
 
-        newListNode = newListNode->getNext();
+        newListPtr = newListPtr->getNext();
 
-        origListNode = origListNode->getNext();
+        origListPtr = origListPtr->getNext();
 
         temp = nullptr;
     }
 
-    newListNode->setNext(nullptr);
+    newListPtr->setNext(nullptr);
 
-    origListNode = nullptr;
+    origListPtr = nullptr;
 
-    newListNode = nullptr;
+    newListPtr = nullptr;
+}
+
+template<class ItemType>
+LinkedList<ItemType>::~LinkedList() {
+    clear();
 }
 
 template<class ItemType>
@@ -86,31 +106,101 @@ int LinkedList<ItemType>::getLength() const {
 
 template<class ItemType>
 bool LinkedList<ItemType>::insert(int newPosition, const ItemType& newEntry) {
-    if (newPosition < 1 || newPosition > itemCount + 1) return false;
+    if ( newPosition < 1 || newPosition > itemCount + 1 ) return false;
 
-    Node<ItemType>* newNode = new Node<ItemType>(newEntry);
+    Node<ItemType>* newNodePtr = new Node<ItemType>(newEntry);
 
     if (newPosition == 1) {
-        newNode->setNext(headPtr);
-        headPtr = newNode;
+        newNodePtr->setNext(headPtr);
+        headPtr = newNodePtr;
     }
     else {
-        Node<ItemType>* curr = headPtr;
-        Node<ItemType>* prev = nullptr;
+        Node<ItemType>* prevPtr = getNodeAt(newPosition - 1);
 
-        for (int i = 0; i < newPosition; i++) {
-            prev = curr;
-            curr = curr->getNext();
-        }
+        newNodePtr->setNext(prevPtr->getNext());
+        prevPtr->setNext(newNodePtr);
 
-        prev->setNext(newNode);
-        newNode->setNext(curr);
-
-        prev = nullptr;
-        curr = nullptr;
+        prevPtr = nullptr;
     }
+
+    itemCount++;
 
     return true;
 }
 
+template<class ItemType>
+bool LinkedList<ItemType>::remove(int position) {
+    if (position < 1 || position > itemCount) return false;
+
+    Node<ItemType>* currPtr = nullptr;
+
+    if (position == 1) {
+        currPtr = headPtr;
+        headPtr = headPtr->getNext();
+    }
+    else {
+        Node<ItemType>* prevPtr = getNodeAt(position - 1);
+        currPtr = prevPtr->getNext();
+
+        prevPtr->setNext(currPtr->getNext());
+
+        prevPtr = nullptr;
+    }
+
+    itemCount--;
+
+    currPtr->setNext(nullptr);
+
+    delete currPtr;
+
+    currPtr = nullptr;
+
+    return true;    
+}
+
+template<class ItemType>
+void LinkedList<ItemType>::clear() {
+    if (headPtr == nullptr) return;
+
+    Node<ItemType>* currPtr = headPtr;
+
+    while (currPtr != nullptr) {
+        Node<ItemType>* nextPtr = currPtr->getNext();
+
+        currPtr->setNext(nullptr);
+        delete currPtr;
+
+        currPtr = nextPtr;
+    }
+
+    headPtr = nullptr;
+}
+
+template<class ItemType>
+ItemType LinkedList<ItemType>::getEntry(int position) const {
+    if (position < 1 || position > itemCount) {
+        string message = "getEntry() was called with an empty list or ";
+        message += "invalid position.";
+        throw(PrecondViolatedException(message));
+    }
+
+    Node<ItemType>* currPtr = getNodeAt(position);
+
+    return currPtr->getItem();
+}
+
+template<class ItemType>
+void LinkedList<ItemType>::setEntry(int position, const ItemType& newEntry) {
+    if (position < 1 || position > itemCount) {
+        string message = "setEntry() was called with an empty list or ";
+        message += "invalid position.";
+        throw(PrecondViolatedException(message));
+    }
+
+    Node<ItemType>* currPtr = getNodeAt(position);
+
+    currPtr->setItem(newEntry);
+
+    currPtr = nullptr;
+}
 #endif
