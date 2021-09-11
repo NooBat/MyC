@@ -1,0 +1,10 @@
+template<class ItemType>
+/** Gets the position of the list of a given entry.
+ * @pre None.
+ * @post if targetEntry is in the list and the returned value
+ * is 1 <= position <= getLength().
+ * @param targetEntry The entry needs to be located.
+ * @return The position of the given entry in the list. */
+int getPostion(const ItemType& targetEntry) {
+    
+}
