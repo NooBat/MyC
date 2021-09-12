@@ -3,7 +3,7 @@
 
 void displayList(ListInterface<string>* listPtr) {
     for (int i = 0; i < listPtr->getLength(); i++) {
-        cout << listPtr->getEntry(i) << " ";
+        cout << listPtr->getEntry(i + 1) << " ";
     }
 
     cout << endl;
@@ -19,6 +19,7 @@ void listTester(ListInterface<string>* listPtr) {
         listPtr->insert(i + 1, items[i]);
     } // end for
     displayList(listPtr);
+    cout << endl << endl;
 
     cout << "isEmpty: returns " << listPtr->isEmpty()
          << "; should be 0 (false)" << endl;
@@ -29,14 +30,14 @@ void listTester(ListInterface<string>* listPtr) {
 
     cout << endl << endl;
 
-    cout << "setEntry(1, \"newOne\")";
+    cout << "setEntry(1, \"newOne\")" << endl;
     listPtr->setEntry(1, "newOne");
     displayList(listPtr);
+    cout << endl << endl;
 
     cout << "Clear list";
     listPtr->clear();
-
-    cout << "getEntry(1): returns";
+    cout << endl << endl;
 }
 
 int main() {
@@ -55,30 +56,36 @@ int main() {
     while (toupper(userChoice) != 'Q' && !test.isEmpty()) {
         if (toupper(userChoice) == 'A') {
             listPtr = new ArrayList<string>();
-            test.remove(1);
+            test.remove(test.getPosition('A'));
             cout << "Testing Array-Based List:" << endl;
         }
         else if (toupper(userChoice) == 'L') {
             listPtr = new LinkedList<string>();
-            test.remove(2);
+            test.remove(test.getPosition('L'));
             cout << "Testing Link-Based List:" << endl;
         }
-        
+
+        cout << "The initial list is empty" << endl;    
         try {
             listTester(listPtr);
         }
         catch (PrecondViolatedException& e) {
             cout << e.what() << endl;
+            break;
         }
-        cout << "The initial list is empty" << endl;
         delete listPtr;
 
         if (test.getEntry(1) == 'A') {
             cout << "Enter 'A' to test the array-based implementation\n";
         }
-        else cout << "Enter 'L' to test the link-based implementation\n";
+        else if (test.getEntry(1) == 'L') cout << "Enter 'L' to test the link-based implementation\n";
+        else break;
+
         cout << " or 'Q' to quit: ";
         cin >> userChoice;
     }
 
+    cout << "All done!" << endl;
+
+    return 0;
 }

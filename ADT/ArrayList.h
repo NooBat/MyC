@@ -110,8 +110,8 @@ bool ArrayList<ItemType>::remove(int position) {
     bool ableToRemove = (position >= 1 && position <= itemCount);
 
     if (ableToRemove) {
-        for (int i = position; i < itemCount - 1; i++) {
-            arr[i] = arr[i + 1];
+        for (int i = position; i < itemCount; i++) {
+            arr[i - 1] = arr[i];
         }
 
         itemCount--;
@@ -160,6 +160,6 @@ int ArrayList<ItemType>::getPosition(const ItemType& targetEntry) const {
         }
     }
 
-    return result;
+    return result + 1;
 }
 #endif
