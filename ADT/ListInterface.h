@@ -4,6 +4,10 @@
 template<class ItemType>
 class ListInterface {
 public:
+    virtual ~ListInterface() {
+        return;
+    }
+
     /** Sees whether the list is empty.
      * @return True if the list is empty, false otherwise. */
     virtual bool isEmpty() const = 0;
