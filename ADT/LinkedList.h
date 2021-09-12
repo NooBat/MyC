@@ -15,8 +15,14 @@ private:
 
     Node<ItemType>* getNodeAt(int position) const;
 
+    Node<ItemType>* insertNode(Node<ItemType>* headPtr, const ItemType& newEntry);
+
+    int getPositionRecur(Node<ItemType>* headPtr, const ItemType& targetEntry, int count) const;
+
 public:
     LinkedList();
+
+    LinkedList(ItemType arr[], int n);
 
     LinkedList(const LinkedList<ItemType>& aList);
 
@@ -35,6 +41,8 @@ public:
     ItemType getEntry(int position) const;
 
     void setEntry(int position, const ItemType& newEntry);
+
+    int getPosition(const ItemType& targetEntry) const;
 };
 
 template<class ItemType>
@@ -51,8 +59,44 @@ Node<ItemType>* LinkedList<ItemType>::getNodeAt(int position) const {
 }
 
 template<class ItemType>
+Node<ItemType>* LinkedList<ItemType>::insertNode(Node<ItemType>* headPtr, const ItemType& newEntry) {
+    if (headPtr == nullptr) {
+        Node<ItemType>* newNodePtr = new Node<ItemType>(newEntry);
+        headPtr = newNodePtr;
+        newNodePtr = nullptr;
+        return headPtr;
+    }
+
+    headPtr->setNext(insertNode(headPtr->getNext(), newEntry));
+
+    return headPtr;
+}
+
+
+template<class ItemType>
 LinkedList<ItemType>::LinkedList(): headPtr(nullptr), itemCount(0) {
 
+}
+
+template<class ItemType>
+LinkedList<ItemType>::LinkedList(ItemType arr[], int n) {
+    headPtr = new Node<ItemType>(arr[0]);
+
+    Node<ItemType>* currPtr = headPtr;
+
+    for (int i = 1; i < n; i++) {
+        Node<ItemType>* newListPtr = new Node<ItemType>(arr[i]);
+
+        currPtr->setNext(newListPtr);
+
+        currPtr = currPtr->getNext();
+
+        newListPtr = nullptr;
+    }
+
+    currPtr->setNext(nullptr);
+
+    currPtr = nullptr;
 }
 
 template<class ItemType>
@@ -62,31 +106,13 @@ LinkedList<ItemType>::LinkedList(const LinkedList<ItemType>& aList) {
         return;
     }
 
-    Node<ItemType>* origListPtr = aList.headPtr;
-    headPtr = new Node<ItemType>(origListPtr->getItem());
+    headPtr = nullptr;
 
-    Node<ItemType>* newListPtr = headPtr;
     this->itemCount = aList.itemCount;
 
-    origListPtr = origListPtr->getNext();
-
-    while (origListPtr != nullptr) {
-        Node<ItemType>* temp = new Node<ItemType>(origListPtr->getItem());
-
-        newListPtr->setNext(temp);
-
-        newListPtr = newListPtr->getNext();
-
-        origListPtr = origListPtr->getNext();
-
-        temp = nullptr;
+    for (int i = 1; i <= aList.itemCount; i++) {
+        headPtr = insertNode(headPtr, aList.getEntry(i));
     }
-
-    newListPtr->setNext(nullptr);
-
-    origListPtr = nullptr;
-
-    newListPtr = nullptr;
 }
 
 template<class ItemType>
@@ -202,5 +228,21 @@ void LinkedList<ItemType>::setEntry(int position, const ItemType& newEntry) {
     currPtr->setItem(newEntry);
 
     currPtr = nullptr;
+}
+
+template<class ItemType>
+int LinkedList<ItemType>::getPosition(const ItemType& targetEntry) const {
+    Node<ItemType>* currPtr = headPtr;
+    int count = 1;
+
+    return getPositionRecur(currPtr, targetEntry, count);
+}
+
+template<class ItemType>
+int LinkedList<ItemType>::getPositionRecur(Node<ItemType>* headPtr, const ItemType& targetEntry, int count) const {
+    if (headPtr == nullptr) return -1;
+    else if (headPtr->getItem() == targetEntry) return count;
+
+    return getPositionRecur(headPtr->getNext(), targetEntry, count + 1);
 }
 #endif

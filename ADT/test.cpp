@@ -25,5 +25,13 @@ int main() {
     a.insert(1, 3);
     a.insert(1, 6);
 
-    swap(a, 1, 3);
+    LinkedList<int> aCopy = a;
+
+    for (int i = 1; i <= a.getLength(); i++) {
+        cout << aCopy.getEntry(i) << " ";
+    }
+
+    cout << a.getPosition(3) << " ";
+
+    return 0;
 }

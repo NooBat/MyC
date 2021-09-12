@@ -1,0 +1,11 @@
+//Client level for getPosition function
+
+getPosition(aList: LinkedList, targetEntry: ItemType): int 
+{
+    for (int i = 1; i < length of aList; i++) 
+    {
+        if (entry at position ith == targetEntry) return i;
+    }
+
+    if (no entry == targetEntry) return -1;
+}

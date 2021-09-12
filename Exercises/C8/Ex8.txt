@@ -1,0 +1,13 @@
+Pseudocode fucntion contains at client level
+
+contains(aList: LinkedList<ItemType>, targetEntry: ItemType): bool
+{   
+    bool isEntry = false;
+
+    for (int i = 1; i <= length of aList; i++) 
+    {
+        if (targetEntry == the ith entry of aList) isEntry = true;
+    }
+
+    return isEntry;
+}

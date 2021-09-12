@@ -49,5 +49,31 @@ public:
      * @param position The list position of the item to replace.
      * @param newEntry The replacement entry. */
     virtual void setEntry(int position, const ItemType& newEntry) = 0;
+
+    /** Gets the position of the list of a given entry.
+     * @pre None.
+     * @post if targetEntry is in the list and the returned value
+     * is 1 <= position <= getLength().
+     * @param targetEntry The entry needs to be located.
+     * @return The position of the given entry in the list. */
+    virtual int getPosition(const ItemType& targetEntry) const = 0;
+
+    // /** Checks whether a given entry is in the list.
+    //  * @pre None.
+    //  * @post If targetEntry is in the list and the returned 
+    //  * value is true;
+    //  * @param targetEntry The entry needs to be checked.
+    //  * @return True if the list contains the given entry
+    //  * false otherwise. */
+    // virtual bool contains(const ItemType& targetEntry) const = 0;
+
+    // /** Removes all entries from the list.
+    //  * @pre None.
+    //  * @post If targetEntry is in the list then the entries
+    //  * same with the given entry are deleted and other item will be renumbered
+    //  * accordingly.
+    //  * @param targetEntry The entry needs to be deleted. */
+    // virtual void remove(const ItemType& targetEntry) = 0;
+    
 };
 #endif

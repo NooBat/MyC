@@ -1,0 +1,8 @@
+Pseudocode function remove at client level 
+
+remove(aList: LinkedList<ItemType>, targetEntry: ItemType): void 
+{
+    for (int i = 1; i <= aList's length; i++) {
+        if (the ith entry of aList == targetEntry) aList.remove(i);
+    }
+}
