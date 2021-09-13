@@ -2,31 +2,31 @@
 
 using namespace std;
 
-void recursive(string s, int idx, string& result, string& temp) {
+void recursive(string s, int idx, string& result, string& word) {
     if (idx == 0) {
-        string tmp = s.substr(idx, 1);
-        temp = tmp + temp;
-        result += temp;
+        string temp = s.substr(idx, 1);
+        word = temp + word;
+        result += word;
         return;
     }
 
     if (s[idx] != ' ') {
-        string tmp = s.substr(idx, 1);
-        temp = tmp + temp;
+        string temp = s.substr(idx, 1);
+        word = temp + word;
     }
     else {
-        result += temp + " ";
-        temp.clear();
+        result += word + " ";
+        word.clear();
     }
 
-    recursive(s, idx - 1, result, temp);
+    recursive(s, idx - 1, result, word);
 }
 
 string reverseSentence(string s) {
     string result;
-    string temp = "";
+    string word = "";
 
-    recursive(s, s.length() - 1, result, temp);
+    recursive(s, s.length() - 1, result, word);
 
     return result;
 }
