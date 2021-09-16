@@ -7,6 +7,69 @@ using namespace std;
 // - sort the array digit by digit using any stable sort
 // - preferably counting sort (since digit varies from 0 to 9)
 
+template<class ItemType>
+class RadixSort 
+{
+private:
+    int getMaxDigit(vector<ItemType> arr, int n);
+public:
+    void radixSort(vector<ItemType> arr, int n);
+};
+
+template<class ItemType>
+int RadixSort<ItemType>::getMaxDigit(vector<ItemType> arr, int n) {
+    int max = arr[0];
+    int count = 0;
+
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > max) max = arr[i];
+    }
+
+    while (max > 0) {
+        max /= 10;
+        count++;
+    }
+
+    return count;
+}
+
+template<class ItemType>
+void RadixSort<ItemType>::radixSort(vector<ItemType> arr, int n) 
+{
+    int d = getMaxDigit(arr, n);
+
+    for (int digit = d; digit >= 1; digit--) 
+    {
+        int idx = 0;
+        int count[10] = { 0 };
+        vector<int> tempArr[10];
+
+        for (int i = 0; i < n; i++) 
+        {
+            int temp = arr[i];
+            for (int times = 1; times < digit; times++) 
+            {
+                if (temp == 0) break;
+                temp /= 10;
+            }
+            int k = temp % 10;
+
+            tempArr[k].push_back(arr[i]);
+
+            count[k]++;
+        }
+
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < tempArr[i].size(); j++) 
+            {
+                arr[idx] = tempArr[i][j];
+                idx++;
+            }
+        }
+    }
+}
+
 void counting_sort(vector<int> &arr, int exp) {
     vector<int> output(arr.size());
     int count[10] = { 0 };
@@ -45,30 +108,21 @@ void print_array(vector<int> arr, int n) {
 }
 
 int main() {
-    int T, n;
+    int arr[] = {9, 10, 19833, 129, 1992, 12041};
     
-    cout << "Input number of testcase(s): ";
-    cin >> T;
+    vector<int> v;
 
-    while(T--) {
-        cout << "Testcase: " << T << endl; 
-        cout << "Input number of element(s): ";
-        cin >> n;
-        
-        vector<int> arr(n);
-        cout << "Input array value(s): ";
-        for (int i = 0; i < n; i++) {
-            cin >> arr[i];
-        }
+    int size = (int)(sizeof(arr) / sizeof(arr[0]));
 
-        cout << "Array before sort: ";
-        print_array(arr, n);
-
-        radix_sort(arr);
-
-        cout << "Array after sort: ";
-        print_array(arr, n);
+    for (int i = 0; i < size; i++) {
+        v.push_back(arr[i]);
     }
-    
+
+    RadixSort<int> sortFunction;
+
+    sortFunction.radixSort(v, size);
+
+    print_array(v, size);
+
     return 0;
 }
