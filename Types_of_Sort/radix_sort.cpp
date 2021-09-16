@@ -14,6 +14,7 @@ private:
     int getMaxDigit(ItemType arr[], int n);
 public:
     void radixSort(ItemType arr[], int n);
+    void print_array(ItemType arr[], int n);
 };
 
 template<class ItemType>
@@ -38,10 +39,10 @@ void RadixSort<ItemType>::radixSort(ItemType arr[], int n)
 {
     int d = getMaxDigit(arr, n);
 
-    for (int digit = d; digit >= 1; digit--) 
+    for (int digit = 1; digit <= d; digit++) 
     {
         int idx = 0;
-        vector<int> tempArr[10];
+        vector<int>* tempArr = new vector<int>[10];
 
         for (int i = 0; i < n; i++) 
         {
@@ -56,15 +57,28 @@ void RadixSort<ItemType>::radixSort(ItemType arr[], int n)
             tempArr[k].push_back(arr[i]);
         }
 
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < 10; i++)
         {
             for (int j = 0; j < tempArr[i].size(); j++) 
             {
-                arr[idx] = tempArr[i][j];
-                idx++;
+                arr[idx + j] = tempArr[i][j];
             }
+            idx += tempArr[i].size();
         }
+        
+        delete[] tempArr;
     }
+}
+
+template<class ItemType>
+void RadixSort<ItemType>::print_array(ItemType arr[], int n) 
+{
+    for (int i = 0; i < n; i++) 
+    {
+        cout << arr[i] << " ";
+    }
+
+    cout << endl;
 }
 
 void counting_sort(vector<int> &arr, int exp) {
@@ -97,13 +111,6 @@ void radix_sort(vector<int> &arr) {
     }
 }
 
-void print_array(int arr[], int n) {
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
-}
-
 int main() {
     int arr[] = {9, 10, 19833, 129, 1992, 12041};
 
@@ -113,7 +120,7 @@ int main() {
 
     sortFunction.radixSort(arr, size);
 
-    print_array(arr, size);
+    sortFunction.print_array(arr, size);
 
     return 0;
 }
