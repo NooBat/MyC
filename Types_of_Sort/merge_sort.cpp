@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 
 using namespace std;
 //merge sort:
@@ -6,6 +7,97 @@ using namespace std;
 // - divide the array into half until the array' size is 1
 // - compare and merge the subarrays back with the right order
 // - auxiliary space: O(n)
+
+template<class ItemType>
+class MergeSort 
+{
+private:
+    /** Merges two sorted array segments arr[first..mid] 
+     * and arr[mid+1..last] into one sorted array.
+     * @pre first <= mid <= last. The subarrays arr[first..mid] and 
+     * arr[mid+1..last] are each sorted in increasing order.
+     * @post arr[first..last] is sorted.
+     * @param arr The given array.
+     * @param first The index of the beginning of the first segment in arr.
+     * @param mid The index of the end of the first segment in arr;
+     * mid + 1 marks the beginning of the second segment.
+     * @param last The index of the last element in the second segment in arr.
+     * @note This function merges the two subarrays into a temporary array 
+     * and copies the result into the original array arr. */
+    void merge(ItemType arr[], int first, int mid, int last);
+
+public:
+    /** Sorts the items in an array into ascending order.
+     * @pre arr[first..last] is an array.
+     * @post arr[first..last] is sorted in ascending order.
+     * @param arr The given array.
+     * @param first The index of the first element to consider in arr. 
+     * @param last The index of the last element to consider in arr. */
+    void mergeSort(ItemType arr[], int first, int last);
+};
+
+template<class ItemType>
+void MergeSort<ItemType>::merge(ItemType arr[], int first, int mid, int last) 
+{
+    vector<ItemType> tempArray;
+
+    int first1 = first;
+    int last1 = mid;
+
+    int first2 = mid + 1;
+    int last2 = last;
+
+    while (first1 <= last1 && first2 <= last2) 
+    {
+        if (arr[first1] >= arr[first2]) 
+        {
+            tempArray.push_back(arr[first2]);
+            first2++;
+        }
+        else 
+        {
+            tempArray.push_back(arr[first1]);
+            first1++;
+        }
+    }
+
+    while (first1 <= last1) 
+    {
+        tempArray.push_back(arr[first1]);
+        first1++;
+    }
+
+    while (first2 <= last2) 
+    {
+        tempArray.push_back(arr[first2]);
+        first2++;
+    }
+
+    for (int i = 0; i < tempArray.size(); i++) 
+    {
+        arr[first + i] = tempArray[i];
+    }
+}
+
+template<class ItemType>
+void MergeSort<ItemType>::mergeSort(ItemType arr[], int first, int last) 
+{
+    if (first >= last) return;
+
+    int mid = first + (last - first) / 2;
+
+    mergeSort(arr, first, mid);
+
+    mergeSort(arr, mid + 1, last);
+
+    merge(arr, first, mid, last);
+}
+
+
+
+
+
+
 
 void merge(int arr[], int l, int r, int mid) {
     //n1 is the number of elements in the first half
@@ -68,6 +160,7 @@ void merge_sort(int arr[], int left, int right) {
     merge_sort(arr, mid + 1, right);
     merge(arr, left, right, mid);
 }
+
 void print_array(int arr[], int n) {
     for (int i = 0; i < n; i++) {
         cout << arr[i] << " ";
@@ -76,28 +169,15 @@ void print_array(int arr[], int n) {
 }
 
 int main() {
-    int T, n, arr[1000];
-    
-    cout << "Input number of testcase(s): ";
-    cin >> T;
+    int arr[] = {9, 10, 1983, 129, 1992, 12041, 12388, 28, 29, -129, 129, 121848, 28, 283, 221, 393, 4, 3, 0, 0, 445, 567};
 
-    while(T--) {
-        cout << "Testcase: " << T << endl;
-        cout << "Input number of element(s): ";
-        cin >> n;
-        
-        cout << "Input array value(s): ";
-        for (int i = 0; i < n; i++) {
-            cin >> arr[i];
-        }
+    int size = (int)(sizeof(arr) / sizeof(arr[0]));
 
-        cout << "Array before sort: ";
-        print_array(arr, n);
+    MergeSort<int> sortFunc;
 
-        merge_sort(arr, 0, n - 1);
-        cout << "Array after sort: ";
-        print_array(arr, n);
-    }
+    sortFunc.mergeSort(arr, 0, size - 1);
+
+    print_array(arr, size);
     
     return 0;
 }

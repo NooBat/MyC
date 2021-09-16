@@ -7,19 +7,20 @@ using namespace std;
 // - if key <= predecessor, compare key to the elements before
 // - move the greater elements one position up to make space    4 5 1 3 2 
 
-void insertion_sort(int arr[], int n) {
-    for (int i = 1; i < n; i++) {
-        int key = arr[i];
-        int j = i - 1;
-        
-        
-        while(j >= 0 && key < arr[j]) {
-            // Move the array one element up
-            // while checking predecessor
-            arr[j + 1] = arr[j];
-            j -= 1;
+template<class ItemType>
+void insertionSort(ItemType arr[], int n) 
+{
+    for (int unsorted = 1; unsorted < n; unsorted++) 
+    {
+        ItemType nextItem = arr[unsorted];
+        int loc = unsorted;
+
+        while (loc > 0 && arr[loc - 1] > nextItem) {
+            arr[loc] = arr[loc - 1];
+            loc--;
         }
-        arr[j + 1] = key;
+
+        arr[loc] = nextItem;
     }
 }
 
@@ -31,28 +32,13 @@ void print_array(int arr[], int n) {
 }
 
 int main() {
-    int T, n, arr[1000];
-    
-    cout << "Input number of testcase(s): ";
-    cin >> T;
+    int arr[] = {29, 34, 10, 10, 13, 14};
 
-    while(T--) {
-        cout << "Testcase: " << T << endl; 
-        cout << "Input number of element(s): ";
-        cin >> n;
-        
-        cout << "Input array value(s): ";
-        for (int i = 0; i < n; i++) {
-            cin >> arr[i];
-        }
+    int size = (int)(sizeof(arr) / sizeof(arr[0]));
 
-        cout << "Array before sort: ";
-        print_array(arr, n);
+    insertionSort(arr, size);
 
-        insertion_sort(arr, n);
-        cout << "Array after sort: ";
-        print_array(arr, n);
-    }
+    print_array(arr, size);
     
     return 0;
 }

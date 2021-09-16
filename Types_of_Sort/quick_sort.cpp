@@ -8,6 +8,113 @@ using namespace std;
 // - target of partition is put the picked pivot in the correct position
 // - put smaller elements to the left side of the pivot and other to the right side
 
+template<class ItemType>
+void insertionSort(ItemType arr[], int n) 
+{
+    for (int unsorted = 1; unsorted < n; unsorted++) 
+    {
+        ItemType nextItem = arr[unsorted];
+        int loc = unsorted;
+
+        while (loc > 0 && arr[loc - 1] > nextItem) 
+        {
+            arr[loc] = arr[loc - 1];
+            loc--;
+        }
+
+        arr[loc] = nextItem;
+    }
+}
+
+template<class ItemType>
+class QuickSort 
+{
+private:
+    void sortFirstMiddleLast(ItemType arr[], int first, int mid, int last);
+    int partition(ItemType arr[], int first, int last);
+public:
+    void quickSort(ItemType arr[], int first, int last);
+};
+
+template<class ItemType>
+void QuickSort<ItemType>::sortFirstMiddleLast(ItemType arr[], int first, int mid, int last) 
+{
+    if (arr[first] > arr[mid]) 
+    {
+        swap(arr[first], arr[mid]);
+    }
+
+    if (arr[mid] > arr[last]) 
+    {
+        swap(arr[mid], arr[last]);
+    }
+
+    if (arr[first] > arr[mid]) 
+    {
+        swap(arr[first], arr[mid]);
+    }
+}
+
+template<class ItemType>
+int QuickSort<ItemType>::partition(ItemType arr[], int first, int last) 
+{
+    int mid = first + (last - first) / 2;
+
+    sortFirstMiddleLast(arr, first, mid, last);
+    swap(arr[mid], arr[last - 1]);
+
+    int pivotIdx = last - 1;
+    ItemType pivot = arr[last - 1];
+
+    int indexFromLeft = first + 1;
+    int indexFromRight = last - 2;
+
+    bool done = false;
+
+    while (!done) 
+    {
+        while (arr[indexFromLeft] < pivot) 
+        {
+            indexFromLeft++;
+        }
+
+        while (arr[indexFromRight] > pivot) 
+        {
+            indexFromRight--;
+        }
+
+        if (indexFromLeft < indexFromRight) 
+        {
+            swap(arr[indexFromLeft], arr[indexFromRight]);
+            indexFromLeft++;
+            indexFromRight--;
+        }
+        else done = true;
+    }
+
+    swap(arr[pivotIdx], arr[indexFromLeft]);
+    pivotIdx = indexFromLeft;
+
+    return pivotIdx;
+}   
+
+template<class ItemType>
+void QuickSort<ItemType>::quickSort(ItemType arr[], int first, int last) 
+{   
+    if (first >= last) return;
+    if (last - first + 1 <= 3) 
+    {
+        insertionSort(arr, last - first + 1);
+        return;
+    }
+
+    int pivotIdx = partition(arr, first, last);
+
+    quickSort(arr, first, pivotIdx - 1);
+
+    quickSort(arr, pivotIdx + 1, last);
+}
+
 int partition(int arr[], int l, int r) {
     int pivot = arr[r];
 
@@ -40,28 +147,15 @@ void print_array(int arr[], int n) {
 }
 
 int main() {
-    int T, n, arr[1000];
-    
-    cout << "Input number of testcase(s): ";
-    cin >> T;
+    int arr[] = {9, 10, 1983, 129, 1992, 12041, 12388, 28, 29, -129, 129, 121848, 28, 283, 221, 393, 4, 3, 0, 0, 445, 567};
 
-    while(T--) {
-        cout << "Testcase: " << T << endl;
-        cout << "Input number of element(s): ";
-        cin >> n;
-        
-        cout << "Input array value(s): ";
-        for (int i = 0; i < n; i++) {
-            cin >> arr[i];
-        }
+    int size = (int)(sizeof(arr) / sizeof(arr[0]));
 
-        cout << "Array before sort: ";
-        print_array(arr, n);
+    QuickSort<int> sortFunc;
 
-        quick_sort(arr, 0, n - 1);
-        cout << "Array after sort: ";
-        print_array(arr, n);
-    }
+    sortFunc.quickSort(arr, 0, size - 1);
+
+    print_array(arr, size);
     
     return 0;
 }

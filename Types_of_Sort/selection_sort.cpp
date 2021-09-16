@@ -7,12 +7,17 @@ using namespace std;
 
 // - time complexity: O(n ^ 2) because they use two nested loops
 // - auxiliary space: O(1) 
-void selection_sort(int arr[], int n) {
+template<class ItemType>
+void selectionSort1(ItemType arr[], int n) 
+{
     int min_idx = 0;
 
-    for (int i = 0; i < n; i++) {
-        for (int j = i; j < n; j++) {
-            if (arr[j] < arr[min_idx]) {
+    for (int i = 0; i < n; i++) 
+    {
+        for (int j = i; j < n; j++) 
+        {
+            if (arr[j] < arr[min_idx]) 
+            {
                 min_idx = j; 
             }
         }
@@ -20,37 +25,56 @@ void selection_sort(int arr[], int n) {
     }
 }
 
+template<class ItemType>
+int findMaxIndex(ItemType arr[], int n);
+
+template<class ItemType>
+void selectionSort2(ItemType arr[], int n) 
+{
+    for (int last = n - 1; last >= 1; last--) 
+    {
+        int maxElementIndex = findMaxIndex(arr, last + 1);
+
+        swap(arr[last], arr[maxElementIndex]);
+    }
+}
+
+template<class ItemType>
+int findMaxIndex(ItemType arr[], int size) 
+{
+    ItemType max = arr[0];
+    int result = 0;
+
+    for (int idx = 1; idx < size; idx++) 
+    {
+        if (arr[idx] > max) 
+        {
+            max = arr[idx];
+            result = idx;
+        }
+    }
+
+    return result;
+}
+
 //function to print array
-void print_array(int arr[], int n) {
-    for (int i = 0; i < n; i++) {
+void print_array(int arr[], int n) 
+{
+    for (int i = 0; i < n; i++) 
+    {
         cout << arr[i] << " ";
     }
     cout << endl;
 }
 
 int main() {
-    int T, n, arr[1000];
-    
-    cout << "Input number of testcase(s): ";
-    cin >> T;
+    int arr[] = {29, 10, 33, 14, 20, 21};
 
-    while(T--) {
-        cout << "Testcase: " << T << endl;
-        cout << "Input number of element(s): ";
-        cin >> n;
-        
-        cout << "Input array value(s): ";
-        for (int i = 0; i < n; i++) {
-            cin >> arr[i];
-        }
+    int size = (int)(sizeof(arr) / sizeof(arr[0]));
 
-        cout << "Array before sort: ";
-        print_array(arr, n);
+    selectionSort2(arr, size);
 
-        selection_sort(arr, n);
-        cout << "Array after sort: ";
-        print_array(arr, n);
-    }
-    
+    print_array(arr, size);
+
     return 0;
 }
