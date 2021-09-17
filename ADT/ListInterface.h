@@ -62,6 +62,10 @@ public:
      * @return The position of the given entry in the list. */
     virtual int getPosition(const ItemType& targetEntry) const = 0;
 
+    /** Sort the list in ascending order.
+     * @post A sorted list in ascending order. */
+    virtual void sort() = 0;
+
     // /** Checks whether a given entry is in the list.
     //  * @pre None.
     //  * @post If targetEntry is in the list and the returned 

@@ -1,5 +1,6 @@
 #include "LinkedList.h"
 #include "ArrayList.h"
+#include<iostream>
 
 void displayList(ListInterface<string>* listPtr) {
     for (int i = 0; i < listPtr->getLength(); i++) {
@@ -30,9 +31,13 @@ void listTester(ListInterface<string>* listPtr) {
 
     cout << endl << endl;
 
-    cout << "setEntry(1, \"newOne\")" << endl;
-    listPtr->setEntry(1, "newOne");
-    displayList(listPtr);
+    LinkedList<string> aList(listPtr);
+
+    displayList(&aList);
+
+    cout << "Sort the list" << endl;
+    sort(aList);
+    displayList(&aList);
     cout << endl << endl;
 
     cout << "Clear list";

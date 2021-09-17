@@ -2,6 +2,7 @@
 #define _LINKED_LIST
 
 #include<assert.h>
+#include<string>
 #include "ListInterface.h"
 #include "PrecondViolatedException.h"
 #include "Node.h"
@@ -19,12 +20,16 @@ private:
 
     int getPositionRecur(Node<ItemType>* headPtr, const ItemType& targetEntry, int count) const;
 
+    Node<ItemType>* merge(Node<ItemType>* firstHalf, Node<ItemType>* secondHalf);
+
+    Node<ItemType>* mergeSort(int first, int last);
+
 public:
     LinkedList();
 
     LinkedList(ItemType arr[], int n);
 
-    LinkedList(const LinkedList<ItemType>& aList);
+    LinkedList(ListInterface<ItemType>* aList);
 
     virtual ~LinkedList();
 
@@ -43,7 +48,13 @@ public:
     void setEntry(int position, const ItemType& newEntry);
 
     int getPosition(const ItemType& targetEntry) const;
+
+    void sort();
+
+    friend void sort(LinkedList<string>& aList);
 };
+
+//private methods:
 
 template<class ItemType>
 Node<ItemType>* LinkedList<ItemType>::getNodeAt(int position) const {
@@ -72,6 +83,60 @@ Node<ItemType>* LinkedList<ItemType>::insertNode(Node<ItemType>* headPtr, const 
     return headPtr;
 }
 
+template<class ItemType>
+int LinkedList<ItemType>::getPositionRecur(Node<ItemType>* headPtr, const ItemType& targetEntry, int count) const {
+    if (headPtr == nullptr) return -1;
+    else if (headPtr->getItem() == targetEntry) return count;
+
+    return getPositionRecur(headPtr->getNext(), targetEntry, count + 1);
+}
+
+template<class ItemType>
+Node<ItemType>* LinkedList<ItemType>::merge(Node<ItemType>* firstHalf, Node<ItemType>* secondHalf) 
+{
+    Node<ItemType>* head = nullptr;
+
+    if (firstHalf == nullptr) 
+    {
+        return secondHalf;
+    }
+    else if (secondHalf == nullptr) 
+    {
+        return firstHalf;
+    }
+
+    if (firstHalf->getItem() <= secondHalf->getItem())
+    {
+        head = firstHalf;
+        head->setNext(merge(firstHalf->getNext(), secondHalf));
+    }
+    else {
+        head = secondHalf;
+        head->setNext(merge(firstHalf, secondHalf->getNext()));
+    }
+
+    return head;
+}
+
+template<class ItemType>
+Node<ItemType>* LinkedList<ItemType>::mergeSort(int first, int last) 
+{
+    if (first >= last)
+    {
+        Node<ItemType>* temp = new Node<ItemType>(getEntry(first + 1));
+        return temp;
+    }
+
+    int mid = first + (last - first) / 2;
+    Node<ItemType>* firstHalf = mergeSort(first, mid);
+
+    Node<ItemType>* secondHalf = mergeSort(mid + 1, last);
+
+    return merge(firstHalf, secondHalf);
+}
+
+
+//public methods:
 
 template<class ItemType>
 LinkedList<ItemType>::LinkedList(): headPtr(nullptr), itemCount(0) {
@@ -100,18 +165,18 @@ LinkedList<ItemType>::LinkedList(ItemType arr[], int n) {
 }
 
 template<class ItemType>
-LinkedList<ItemType>::LinkedList(const LinkedList<ItemType>& aList) {
-    if (aList.headPtr == nullptr) {
+LinkedList<ItemType>::LinkedList(ListInterface<ItemType>* aList) {
+    if (aList->getLength() == 0) {
         headPtr = nullptr;
         return;
     }
 
     headPtr = nullptr;
 
-    this->itemCount = aList.itemCount;
+    this->itemCount = aList->getLength();
 
-    for (int i = 1; i <= aList.itemCount; i++) {
-        headPtr = insertNode(headPtr, aList.getEntry(i));
+    for (int i = 1; i <= aList->getLength(); i++) {
+        headPtr = insertNode(headPtr, aList->getEntry(i));
     }
 }
 
@@ -239,10 +304,51 @@ int LinkedList<ItemType>::getPosition(const ItemType& targetEntry) const {
 }
 
 template<class ItemType>
-int LinkedList<ItemType>::getPositionRecur(Node<ItemType>* headPtr, const ItemType& targetEntry, int count) const {
-    if (headPtr == nullptr) return -1;
-    else if (headPtr->getItem() == targetEntry) return count;
+void LinkedList<ItemType>::sort() 
+{
+    Node<ItemType>* temp = nullptr;
+    temp = mergeSort(0, itemCount - 1);
+    clear();
 
-    return getPositionRecur(headPtr->getNext(), targetEntry, count + 1);
+    headPtr = temp;
+}
+
+void sort(LinkedList<string>& aList)
+{
+    int maxLetter = aList.getEntry(1).length();
+    for (int i = 1; i < aList.getLength(); i++) 
+    {
+        if (aList.getEntry(i + 1).length() > maxLetter) 
+        {
+            maxLetter = aList.getEntry(i + 1).length();
+        }
+    }
+
+    for (int letterIdx = 0; letterIdx < maxLetter; letterIdx++) 
+    {   
+        int position = 1;
+        LinkedList<string> hash[26];
+
+        for (int idx = 1; idx < aList.getLength(); idx++) 
+        {
+            char letter = aList.getEntry(idx)[letterIdx];
+
+            int listPosition = hash[letter - 'A'].getLength();
+
+            hash[letter - 'A'].insert(listPosition + 1, aList.getEntry(idx));
+        }
+
+        aList.clear();
+
+        for (int i = 1; i <= 26; i++) 
+        {
+            for (int j = 1; j <= hash[i].getLength(); j++) 
+            {
+                aList.insert(position, hash[i].getEntry(j));
+                position++;
+            }
+            hash[i].clear();
+        }
+    }
 }
 #endif

@@ -3,6 +3,7 @@
 
 #include "ListInterface.h"
 #include "PrecondViolatedException.h"
+#include "/Users/danielnguyen/Repo/C++/Types_of_Sort/merge_sort.cpp"
 
 using namespace std;
 
@@ -35,6 +36,8 @@ public:
     void setEntry(int position, const ItemType& newEntry);
 
     int getPosition(const ItemType& targetEntry) const;
+
+    void sort();
 };
 
 template<class ItemType>
@@ -161,5 +164,13 @@ int ArrayList<ItemType>::getPosition(const ItemType& targetEntry) const {
     }
 
     return result + 1;
+}
+
+template<class ItemType>
+void ArrayList<ItemType>::sort()
+{
+    MergeSort<ItemType> sortFunc;
+
+    sortFunc.mergeSort(arr, 0, itemCount - 1);
 }
 #endif

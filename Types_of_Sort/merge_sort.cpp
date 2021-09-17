@@ -1,3 +1,6 @@
+#ifndef _MERGE_SORT
+#define _MERGE_SORT
+
 #include<iostream>
 #include<vector>
 
@@ -168,16 +171,18 @@ void print_array(int arr[], int n) {
     cout << endl;
 }
 
-int main() {
-    int arr[] = {9, 10, 1983, 129, 1992, 12041, 12388, 28, 29, -129, 129, 121848, 28, 283, 221, 393, 4, 3, 0, 0, 445, 567};
+#endif
 
-    int size = (int)(sizeof(arr) / sizeof(arr[0]));
+// int main() {
+//     int arr[] = {9, 10, 1983, 129, 1992, 12041, 12388, 28, 29, -129, 129, 121848, 28, 283, 221, 393, 4, 3, 0, 0, 445, 567};
 
-    MergeSort<int> sortFunc;
+//     int size = (int)(sizeof(arr) / sizeof(arr[0]));
 
-    sortFunc.mergeSort(arr, 0, size - 1);
+//     MergeSort<int> sortFunc;
 
-    print_array(arr, size);
+//     sortFunc.mergeSort(arr, 0, size - 1);
+
+//     print_array(arr, size);
     
-    return 0;
-}
+//     return 0;
+// }
