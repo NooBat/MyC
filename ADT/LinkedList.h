@@ -264,6 +264,7 @@ void LinkedList<ItemType>::clear() {
         currPtr = nextPtr;
     }
 
+    itemCount = 0;
     headPtr = nullptr;
 }
 
@@ -324,23 +325,32 @@ void sort(LinkedList<string>& aList)
         }
     }
 
-    for (int letterIdx = 0; letterIdx < maxLetter; letterIdx++) 
+    for (int letterIdx = maxLetter - 1; letterIdx >= 0; letterIdx--) 
     {   
         int position = 1;
-        LinkedList<string> hash[26];
+        LinkedList<string> hash[27];
 
-        for (int idx = 1; idx < aList.getLength(); idx++) 
+        for (int idx = 1; idx <= aList.getLength(); idx++) 
         {
-            char letter = aList.getEntry(idx)[letterIdx];
+            if (aList.getEntry(idx).length() > letterIdx) 
+            {
+                char letter = aList.getEntry(idx)[letterIdx];
 
-            int listPosition = hash[letter - 'A'].getLength();
+                int listPosition = hash[letter - 'a' + 1].getLength();
 
-            hash[letter - 'A'].insert(listPosition + 1, aList.getEntry(idx));
+                hash[letter - 'a' + 1].insert(listPosition + 1, aList.getEntry(idx));
+            }
+            else 
+            {
+                int listPosition = hash[0].getLength();
+
+                hash[0].insert(listPosition + 1, aList.getEntry(idx));
+            }
         }
 
         aList.clear();
 
-        for (int i = 1; i <= 26; i++) 
+        for (int i = 0; i < 27; i++) 
         {
             for (int j = 1; j <= hash[i].getLength(); j++) 
             {
