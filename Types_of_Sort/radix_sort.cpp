@@ -1,3 +1,6 @@
+#ifndef _RADIX_SORT
+#define _RADIX_SORT
+
 #include<iostream>
 #include<algorithm>
 #include<vector>
@@ -111,16 +114,18 @@ void radix_sort(vector<int> &arr) {
     }
 }
 
-int main() {
-    int arr[] = {9, 10, 19833, 129, 1992, 12041};
+// int main() {
+//     int arr[] = {9, 10, 19833, 129, 1992, 12041};
 
-    int size = (int)(sizeof(arr) / sizeof(arr[0]));
+//     int size = (int)(sizeof(arr) / sizeof(arr[0]));
 
-    RadixSort<int> sortFunction;
+//     RadixSort<int> sortFunction;
 
-    sortFunction.radixSort(arr, size);
+//     sortFunction.radixSort(arr, size);
 
-    sortFunction.print_array(arr, size);
+//     sortFunction.print_array(arr, size);
 
-    return 0;
-}
+//     return 0;
+// }
+
+#endif

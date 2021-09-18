@@ -1,3 +1,5 @@
+#ifndef _SELECTION_SORT
+#define _SELECTION_SORT
 #include<iostream>
 
 using namespace std;
@@ -67,14 +69,15 @@ void print_array(int arr[], int n)
     cout << endl;
 }
 
-int main() {
-    int arr[] = {29, 10, 33, 14, 20, 21};
+// int main() {
+//     int arr[] = {29, 10, 33, 14, 20, 21};
 
-    int size = (int)(sizeof(arr) / sizeof(arr[0]));
+//     int size = (int)(sizeof(arr) / sizeof(arr[0]));
 
-    selectionSort2(arr, size);
+//     selectionSort2(arr, size);
 
-    print_array(arr, size);
+//     print_array(arr, size);
 
-    return 0;
-}
+//     return 0;
+// }
+#endif

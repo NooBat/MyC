@@ -1,3 +1,5 @@
+#ifndef _INSERTION_SORT
+#define _INSERTION_SORT
 #include<iostream>
 
 using namespace std;
@@ -8,7 +10,25 @@ using namespace std;
 // - move the greater elements one position up to make space    4 5 1 3 2 
 
 template<class ItemType>
-void insertionSort(ItemType arr[], int n) 
+class InsertionSort 
+{
+private:
+    int comparisonCounter;
+
+public:
+    InsertionSort();
+    void insertionSort(ItemType arr[], int n);
+    int getComparison() const;
+};
+
+template<class ItemType>
+InsertionSort<ItemType>::InsertionSort()
+{
+    comparisonCounter = 0;
+}
+
+template<class ItemType>
+void InsertionSort<ItemType>::insertionSort(ItemType arr[], int n) 
 {
     for (int unsorted = 1; unsorted < n; unsorted++) 
     {
@@ -16,6 +36,7 @@ void insertionSort(ItemType arr[], int n)
         int loc = unsorted;
 
         while (loc > 0 && arr[loc - 1] > nextItem) {
+            comparisonCounter += 2;
             arr[loc] = arr[loc - 1];
             loc--;
         }
@@ -24,21 +45,28 @@ void insertionSort(ItemType arr[], int n)
     }
 }
 
-void print_array(int arr[], int n) {
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
+template<class ItemType>
+int InsertionSort<ItemType>::getComparison() const 
+{
+    return comparisonCounter;
 }
 
-int main() {
-    int arr[] = {29, 34, 10, 10, 13, 14};
+// void print_array(int arr[], int n) {
+//     for (int i = 0; i < n; i++) {
+//         cout << arr[i] << " ";
+//     }
+//     cout << endl;
+// }
 
-    int size = (int)(sizeof(arr) / sizeof(arr[0]));
+// int main() {
+//     int arr[] = {29, 34, 10, 10, 13, 14};
 
-    insertionSort(arr, size);
+//     int size = (int)(sizeof(arr) / sizeof(arr[0]));
 
-    print_array(arr, size);
+//     insertionSort(arr, size);
+
+//     print_array(arr, size);
     
-    return 0;
-}
+//     return 0;
+// }
+#endif

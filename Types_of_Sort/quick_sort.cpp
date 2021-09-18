@@ -1,3 +1,5 @@
+#ifndef _QUICK_SORT
+#define _QUICK_SORT
 #include<iostream>
 
 using namespace std;
@@ -139,23 +141,25 @@ void quick_sort(int arr[], int l, int r) {
     quick_sort(arr, pi + 1, r);
 }
 
-void print_array(int arr[], int n) {
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
-}
+// void print_array(int arr[], int n) {
+//     for (int i = 0; i < n; i++) {
+//         cout << arr[i] << " ";
+//     }
+//     cout << endl;
+// }
 
-int main() {
-    int arr[] = {9, 10, 1983, 129, 1992, 12041, 12388, 28, 29, -129, 129, 121848, 28, 283, 221, 393, 4, 3, 0, 0, 445, 567};
+// int main() {
+//     int arr[] = {9, 10, 1983, 129, 1992, 12041, 12388, 28, 29, -129, 129, 121848, 28, 283, 221, 393, 4, 3, 0, 0, 445, 567};
 
-    int size = (int)(sizeof(arr) / sizeof(arr[0]));
+//     int size = (int)(sizeof(arr) / sizeof(arr[0]));
 
-    QuickSort<int> sortFunc;
+//     QuickSort<int> sortFunc;
 
-    sortFunc.quickSort(arr, 0, size - 1);
+//     sortFunc.quickSort(arr, 0, size - 1);
 
-    print_array(arr, size);
+//     print_array(arr, size);
     
-    return 0;
-}
+//     return 0;
+// }
+
+#endif
