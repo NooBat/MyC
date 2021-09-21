@@ -51,12 +51,12 @@ int main() {
     char arr[] = {'A', 'L', 'Q'};
     ArrayList<char> test(arr, 3);
 
-    char userChoice = 'L';
+    char userChoice;
 
-    // cout << "Enter 'A' to test the array-based implementation\n"
-    //      << " or 'L' to test the link-based implementation\n" 
-    //      << " or 'Q' to quit: ";
-    // cin >> userChoice;
+    cout << "Enter 'A' to test the array-based implementation\n"
+         << " or 'L' to test the link-based implementation\n" 
+         << " or 'Q' to quit: ";
+    cin >> userChoice;
 
     while (toupper(userChoice) != 'Q' && !test.isEmpty()) {
         if (toupper(userChoice) == 'A') {
