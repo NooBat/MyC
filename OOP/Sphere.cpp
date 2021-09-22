@@ -1,4 +1,4 @@
-#include "Sphere.h"
+#include "Sphere.hpp"
 
 const double PI = 3.1416;
 

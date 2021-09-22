@@ -5,11 +5,11 @@
 #include<fstream>
 #include<utility>
 #include<vector>
-#include "/Users/danielnguyen/Repo/C++/ADT/Node.h"
-#include "/Users/danielnguyen/Repo/C++/ADT/Stack.h"
-#include "/Users/danielnguyen/Repo/C++/ADT/LinkedBag.h"
-#include "FileReader.h"
-#include "City.h"
+#include "/Users/danielnguyen/Repo/C++/ADT/Node.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT/Stack.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT/LinkedBag.hpp"
+#include "FileReader.hpp"
+#include "City.hpp"
 
 #define NO_CITY nullptr
 

@@ -1,5 +1,5 @@
-#include "FileReader.h"
-#include "flightMap.h"
+#include "FileReader.hpp"
+#include "flightMap.hpp"
 #include<iostream>
 #include<iomanip>
 

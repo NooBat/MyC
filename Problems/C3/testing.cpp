@@ -1,7 +1,7 @@
-#include "Ex1.h"
-#include "Ex2.h"
-#include "Ex3.h"
-#include "Ex4.h"
+#include "Ex1.hpp"
+#include "Ex2.hpp"
+#include "Ex3.hpp"
+#include "Ex4.hpp"
 
 bool calculateChange(Currency& money, const Currency& price) {
     int Money = money.getDollar() * 100 + money.getCent();

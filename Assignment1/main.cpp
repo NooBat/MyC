@@ -17,7 +17,7 @@
 
 using namespace std;
 
-#include "mongol.h"
+#include "mongol.hpp"
 
 int readFile(const char *filename, int &NID, int &N1, int &N5, int& k, string *&ID, string *&input1, string *&input2, string *&input3, string *&input4, string *&input5, string *&input6, string *&input7Matrix, string *&input7Str)
 {

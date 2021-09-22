@@ -1,5 +1,5 @@
-#include "Ex5.h"
-#include "Ex8.h"
+#include "Ex5.hpp"
+#include "Ex8.hpp"
 #include<iostream>
 
 using namespace std;

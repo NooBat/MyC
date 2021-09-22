@@ -1,5 +1,5 @@
-#include "Ex4.h"
-#include "Ex6.h"
+#include "Ex4.hpp"
+#include "Ex6.hpp"
 
 #include<vector>
 #include<iostream>

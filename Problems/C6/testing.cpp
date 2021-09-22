@@ -1,6 +1,6 @@
-#include "Ex5.h"
-#include "Ex7.h"
-#include "Ex10.h"
+#include "Ex5.hpp"
+#include "Ex7.hpp"
+#include "Ex10.hpp"
 #include<iostream>
 
 using namespace std;

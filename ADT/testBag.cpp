@@ -1,8 +1,8 @@
-#include "BagInterface.h"
-#include "LinkedBag.h"
-#include "ArrayBag.h"
-#include "StackInterface.h"
-#include "LinkedStack.h"
+#include "BagInterface.hpp"
+#include "LinkedBag.hpp"
+#include "ArrayBag.hpp"
+#include "StackInterface.hpp"
+#include "LinkedStack.hpp"
 #include<stack>
 #include<iostream>
 #include<string>

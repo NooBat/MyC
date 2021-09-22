@@ -1,4 +1,4 @@
-#include "Ex1.h"
+#include "Ex1.hpp"
 #include<iostream>
 
 using namespace std;

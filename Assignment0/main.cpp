@@ -9,7 +9,7 @@
 
 //The library here is concretely set, students are not allowed to include any other libraries.
 
-#include "firstFight.h"
+#include "firstFight.hpp"
 using namespace std;
 
 int readFile(string filename, int& HP1, int& HP2, int& ID1, int& ID2, int& M1, int& M2, int& E1, int& E2, int& E3, int& E4) {

@@ -8,11 +8,11 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include "task0.h"
-#include "task1.h"
-#include "task2.h"
-#include "task3.h"
-#include "task4.h"
+#include "task0.hpp"
+#include "task1.hpp"
+#include "task2.hpp"
+#include "task3.hpp"
+#include "task4.hpp"
 
 int main(int argc, const char * argv[]) {
     

@@ -1,5 +1,5 @@
-#include "LinkedList.h"
-#include "ArrayList.h"
+#include "LinkedList.hpp"
+#include "ArrayList.hpp"
 #include<iostream>
 
 void displayList(ListInterface<string>* listPtr) {

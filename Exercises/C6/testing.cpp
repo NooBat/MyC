@@ -1,6 +1,6 @@
 #include<iostream>
-#include "Ex11.h"
-#include "/Users/danielnguyen/Repo/C++/Problems/C5/Ex8.h"
+#include "Ex11.hpp"
+#include "/Users/danielnguyen/Repo/C++/Problems/C5/Ex8.hpp"
 
 using namespace std;
 

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Constants.h"
+#include "Constants.hpp"
 using namespace std;
 
 int main()
@@ -14,6 +14,6 @@ int main()
 // Có 2 cách để định nghĩa hằng số dùng được cho cả chương trình:               //
 //      - Cách 1: Trong file constdefinition.cpp.                               //
 //      - Cách 2:                                                               //
-//              + Tạo 1 thư viện riêng (trong trường hợp này là Constants.h).   //
+//              + Tạo 1 thư viện riêng (trong trường hợp này là Constants.hpp).   //
 //              + Dùng thư viện với hằng số đã được định nghĩa vào chương trình.//
 //////////////////////////////////////////////////////////////////////////////////

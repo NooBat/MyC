@@ -1,5 +1,5 @@
-#include "Board.h"
-#include "Ex4-3.h"
+#include "Board.hpp"
+#include "Ex4-3.hpp"
 
 using namespace std;
 
