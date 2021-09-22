@@ -1,7 +1,7 @@
 #ifndef _LINKED_LIST
 #define _LINKED_LIST
 
-#include<assert.hpp>
+#include<assert.h>
 #include<string>
 #include "ListInterface.hpp"
 #include "PrecondViolatedException.hpp"
@@ -183,7 +183,7 @@ LinkedList<ItemType>::LinkedList(ListInterface<ItemType>* aList) {
 
     this->itemCount = aList->getLength();
 
-    for (int i = 1; i <= aList->getLength(); i++) {
+    for (int i = 1; i <= itemCount; i++) {
         headPtr = insertNode(headPtr, aList->getEntry(i));
     }
 }

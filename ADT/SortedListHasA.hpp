@@ -23,7 +23,7 @@ public:
 
     void insertSorted(const ItemType& newEntry);
     bool removeSorted(const ItemType& anEntry);
-    int getPosition(const ItemType& newEntry) const;
+    int getPosition(const ItemType& newEntry);
 
     bool isEmpty() const;
     int getLength() const;
@@ -35,11 +35,11 @@ public:
 template<class ItemType>
 void SortedListHasA<ItemType>::copyChain(LinkedList<ItemType>* originListPtr, LinkedList<ItemType>* copiedListPtr, int position)
 {
-    if (position >= originListPtr->getLength()) return;
+    if (position > originListPtr->getLength()) return;
 
     copyChain(originListPtr, copiedListPtr, position + 1);
 
-    copiedListPtr->insert(1, originListPtr->getItem(position));
+    copiedListPtr->insert(1, originListPtr->getEntry(position));
 }
 
 
@@ -53,9 +53,12 @@ SortedListHasA<ItemType>::SortedListHasA()
 template<class ItemType>
 SortedListHasA<ItemType>::SortedListHasA(const SortedListHasA<ItemType>& sList)
 {
-    listPtr = new LinkedList<ItemType>();
+    listPtr = new LinkedList<ItemType>(sList.listPtr);
 
-    copyChain(sList, listPtr);
+    // for (int i = 1; i <= sList.getLength(); i++)
+    // {
+    //     listPtr->insert(i, sList.getEntry(i));
+    // }
 }
 
 template<class ItemType>
@@ -82,9 +85,59 @@ bool SortedListHasA<ItemType>::removeSorted(const ItemType& anEntry)
 }
 
 template<class ItemType>
-int SortedListHasA<ItemType>::getPosition(const ItemType& newEntry) const 
+int SortedListHasA<ItemType>::getPosition(const ItemType& newEntry) 
 {
+    int result = 1;
 
+    for (int i = 1; i <= listPtr->getLength(); i++)
+    {
+        int result;
+        if (newEntry < listPtr->getEntry(i)) 
+        {
+            result = 0 - i;
+            break;
+        }
+
+        if (newEntry == listPtr->getEntry(i))
+        {
+            result = i;
+            break;
+        }
+    }
+
+    return result;
+}
+
+
+template<class ItemType>
+bool SortedListHasA<ItemType>::isEmpty() const
+{
+    return listPtr->isEmpty();
+}
+
+template<class ItemType>
+int SortedListHasA<ItemType>::getLength() const
+{
+    return listPtr->getLength();
+}
+
+template<class ItemType>
+bool SortedListHasA<ItemType>::remove(int position)
+{
+    return listPtr->remove(position);
+}
+
+template<class ItemType>
+void SortedListHasA<ItemType>::clear()
+{
+    listPtr->clear();
+    listPtr = nullptr;
+}
+
+template<class ItemType>
+ItemType SortedListHasA<ItemType>::getEntry(int position) const
+{
+    return listPtr->getEntry(position);
 }
 
 #endif

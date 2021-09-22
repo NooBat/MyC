@@ -1,11 +1,13 @@
 #include "LinkedSortedList.hpp"
+#include "SortedListHasA.hpp"
+#include<ctime>
 
 
 #include<iostream>
 
 using namespace std;
 
-void displayList(LinkedSortedList<string> list) {
+void displayList(const SortedListHasA<string>& list) {
     for (int i = 0; i < list.getLength(); i++) {
         cout << list.getEntry(i + 1) << " ";
     }
@@ -13,7 +15,7 @@ void displayList(LinkedSortedList<string> list) {
     cout << endl;
 }
 
-void listTester(LinkedSortedList<string>& list)
+void listTester(SortedListHasA<string>& list)
 {
     cout << "isEmpty: returns " << list.isEmpty()
          << "; should be 1 (true)" << endl;
@@ -49,11 +51,33 @@ void listTester(LinkedSortedList<string>& list)
     displayList(list);
 
     cout << endl << endl;
+
+    cout << "Clear the list" << endl;
+    list.clear();
+
+    list = SortedListHasA<string>();
+
+    int size = 1000;
+    // cout << "Input size: ";
+    // cin >> size;
+
+    for (int i = 0; i < size; i++)
+    {
+        list.insertSorted("a");
+    }
+
+    clock_t start = clock();
+    SortedListHasA<string> copyList(list);
+    clock_t end = clock();
+
+    double time = static_cast<double>(end - start);
+
+    cout << "Time: " << time << endl;
 }
 
 int main() 
 {
-    LinkedSortedList<string> aList;
+    SortedListHasA<string> aList;
 
     cout << "Testing link-based sorted list" << endl;
 
