@@ -192,7 +192,7 @@ bool LinkedSortedList<ItemType>::removeSorted(const ItemType& anEntry)
             currPtr->setNext(nullptr);
             delete currPtr;
 
-            headPtr = nextPtr;
+            currPtr = nullptr;
             isRemoved = true;
             break;
         }

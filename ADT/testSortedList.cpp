@@ -62,9 +62,7 @@ int main()
 {
     SortedListInterface<string>* listPtr = nullptr;
 
-    cout << "Testing link-based sorted list" << endl;
-
-    char userChoice;
+    char userChoice = 'L';
     
     char arr[] = {'A', 'L', 'Q'};
     ArrayList<char> test(arr, 3);
@@ -78,12 +76,12 @@ int main()
         if (toupper(userChoice) == 'A') {
             listPtr = new ArraySortedList<string>();
             test.remove(test.getPosition('A'));
-            cout << "Testing Array-Based List:" << endl;
+            cout << "Testing Array-Based Sorted List:" << endl;
         }
         else if (toupper(userChoice) == 'L') {
-            listPtr = new LinkedList<string>();
+            listPtr = new LinkedSortedList<string>();
             test.remove(test.getPosition('L'));
-            cout << "Testing Link-Based List:" << endl;
+            cout << "Testing Link-Based Sorted List:" << endl;
         }
 
         cout << "The initial list is empty" << endl;    
@@ -105,10 +103,6 @@ int main()
         cout << " or 'Q' to quit: ";
         cin >> userChoice;
     }
-
-    cout << "The initial list is empty." << endl;
-
-    listTester(aListPtr);
 
     cout << "All done!";
 
