@@ -1,5 +1,7 @@
 #include "LinkedSortedList.hpp"
 #include "SortedListHasA.hpp"
+#include "ArrayList.hpp"
+#include "/Users/danielnguyen/Repo/C++/Problems/C12/Ex2.hpp"
 #include<ctime>
 
 
@@ -7,83 +9,106 @@
 
 using namespace std;
 
-void displayList(const SortedListHasA<string>& list) {
-    for (int i = 0; i < list.getLength(); i++) {
-        cout << list.getEntry(i + 1) << " ";
+void displayList(const SortedListInterface<string>* listPtr) {
+    for (int i = 0; i < listPtr->getLength(); i++) {
+        cout << listPtr->getEntry(i + 1) << " ";
     }
 
     cout << endl;
 }
 
-void listTester(SortedListHasA<string>& list)
+void listTester(SortedListInterface<string>* listPtr)
 {
-    cout << "isEmpty: returns " << list.isEmpty()
+    cout << "isEmpty: returns " << listPtr->isEmpty()
          << "; should be 1 (true)" << endl;
 
     string items[] = {"one", "two", "three", "four", "five", "one"};
     cout << "Add 6 items to the list: " << endl;
     for (int i = 0; i < 6; i++) {
-        list.insertSorted(items[i]);
+        listPtr->insertSorted(items[i]);
     } // end for
-    displayList(list);
+    displayList(listPtr);
     cout << endl << endl;
 
-    cout << "isEmpty: returns " << list.isEmpty()
+    cout << "isEmpty: returns " << listPtr->isEmpty()
          << "; should be 0 (false)" << endl;
-    cout << "getLength returns : " << list.getLength()
+    cout << "getLength returns : " << listPtr->getLength()
          << "; should be 6" << endl;
     cout << "Try to add another entry: add(\"ten\")" << endl;
-    list.insertSorted("ten");
-    displayList(list);
+    listPtr->insertSorted("ten");
+    displayList(listPtr);
 
     cout << endl << endl;
 
-    cout << "getPosition(\"ten\"): returns: " << list.getPosition("ten")
+    cout << "getPosition(\"ten\"): returns: " << listPtr->getPosition("ten")
          << "; should be 5." << endl;
-    cout << "getPosition(\"six\"): returns: " << list.getPosition("six")
+    cout << "getPosition(\"six\"): returns: " << listPtr->getPosition("six")
          << "; should be -5";
     cout << endl << endl;
 
-    cout << "removeSorted(\"one\"): returns: " << list.removeSorted("one")
+    cout << "removeSorted(\"one\"): returns: " << listPtr->removeSorted("one")
          << "; should be 1 (true)." << endl;
-    cout << "removeSorted(\"seven\"): returns: " << list.removeSorted("seven")
+    cout << "removeSorted(\"seven\"): returns: " << listPtr->removeSorted("seven")
          << "; should be 0 (false)." << endl;
-    displayList(list);
+    displayList(listPtr);
 
     cout << endl << endl;
 
     cout << "Clear the list" << endl;
-    list.clear();
-
-    list = SortedListHasA<string>();
-
-    int size = 10000;
-    // cout << "Input size: ";
-    // cin >> size;
-
-    for (int i = 0; i < size; i++)
-    {
-        list.insertSorted("a");
-    }
-
-    clock_t start = clock();
-    SortedListHasA<string> copyList(list);
-    clock_t end = clock();
-
-    double time = static_cast<double>(end - start);
-
-    cout << "Time: " << time << endl;
+    listPtr->clear();
 }
 
 int main() 
 {
-    SortedListHasA<string> aList;
+    SortedListInterface<string>* listPtr = nullptr;
 
     cout << "Testing link-based sorted list" << endl;
 
+    char userChoice;
+    
+    char arr[] = {'A', 'L', 'Q'};
+    ArrayList<char> test(arr, 3);
+
+    cout << "Enter 'A' to test the array-based implementation\n"
+         << " or 'L' to test the link-based implementation\n" 
+         << " or 'Q' to quit: ";
+    cin >> userChoice;
+
+    while (toupper(userChoice) != 'Q' && !test.isEmpty()) {
+        if (toupper(userChoice) == 'A') {
+            listPtr = new ArraySortedList<string>();
+            test.remove(test.getPosition('A'));
+            cout << "Testing Array-Based List:" << endl;
+        }
+        else if (toupper(userChoice) == 'L') {
+            listPtr = new LinkedList<string>();
+            test.remove(test.getPosition('L'));
+            cout << "Testing Link-Based List:" << endl;
+        }
+
+        cout << "The initial list is empty" << endl;    
+        try {
+            listTester(listPtr);
+        }
+        catch (PrecondViolatedException& e) {
+            cout << e.what() << endl;
+            break;
+        }
+        delete listPtr;
+
+        if (test.getEntry(1) == 'A') {
+            cout << "Enter 'A' to test the array-based implementation\n";
+        }
+        else if (test.getEntry(1) == 'L') cout << "Enter 'L' to test the link-based implementation\n";
+        else break;
+
+        cout << " or 'Q' to quit: ";
+        cin >> userChoice;
+    }
+
     cout << "The initial list is empty." << endl;
 
-    listTester(aList);
+    listTester(aListPtr);
 
     cout << "All done!";
 
