@@ -53,6 +53,8 @@ public:
 
     void sort();
 
+    Node<ItemType>* getHead() const;
+
     friend void sort(LinkedList<string>& aList);
 };
 
@@ -320,6 +322,12 @@ void LinkedList<ItemType>::sort()
     clear();
 
     headPtr = temp;
+}
+
+template<class ItemType>
+Node<ItemType>* LinkedList<ItemType>::getHead() const
+{
+    return headPtr;
 }
 
 void sort(LinkedList<string>& aList)

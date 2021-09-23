@@ -14,7 +14,7 @@ class SortedListHasA : public SortedListInterface<ItemType>
 private:
     LinkedList<ItemType>* listPtr;
 
-    void copyChain(LinkedList<ItemType>* originListPtr, LinkedList<ItemType>* copiedListPtr, int position = 1);
+    Node<ItemType>* copyChain(Node<ItemType>* originListPtr, int position = 1);
     
 public:
     SortedListHasA();
@@ -33,13 +33,14 @@ public:
 };
 
 template<class ItemType>
-void SortedListHasA<ItemType>::copyChain(LinkedList<ItemType>* originListPtr, LinkedList<ItemType>* copiedListPtr, int position)
+Node<ItemType>* SortedListHasA<ItemType>::copyChain(Node<ItemType>* originListPtr, int position)
 {
-    if (position > originListPtr->getLength()) return;
+    if (originListPtr == nullptr) return nullptr;
 
-    copyChain(originListPtr, copiedListPtr, position + 1);
+    Node<ItemType>* currPtr = new Node<ItemType>(originListPtr->getItem());
+    currPtr->setNext(copyChain(originListPtr->getNext(), position + 1));
 
-    copiedListPtr->insert(1, originListPtr->getEntry(position));
+    return currPtr;
 }
 
 
@@ -53,12 +54,9 @@ SortedListHasA<ItemType>::SortedListHasA()
 template<class ItemType>
 SortedListHasA<ItemType>::SortedListHasA(const SortedListHasA<ItemType>& sList)
 {
-    listPtr = new LinkedList<ItemType>(sList.listPtr);
+    Node<ItemType>* head = sList.listPtr->getHead();
 
-    // for (int i = 1; i <= sList.getLength(); i++)
-    // {
-    //     listPtr->insert(i, sList.getEntry(i));
-    // }
+    listPtr = new LinkedList<ItemType>(copyChain(head));
 }
 
 template<class ItemType>

@@ -57,7 +57,7 @@ void listTester(SortedListHasA<string>& list)
 
     list = SortedListHasA<string>();
 
-    int size = 1000;
+    int size = 10000;
     // cout << "Input size: ";
     // cin >> size;
 
