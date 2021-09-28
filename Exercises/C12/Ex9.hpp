@@ -2,6 +2,7 @@
 #define PERSON_ADT
 
 #include<string>
+using namespace std;
 
 class Person
 {

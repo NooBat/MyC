@@ -139,7 +139,7 @@ Polynomial::Polynomial(const vector<vector<int> >& v) {
 }
 
 Polynomial::Polynomial(const Polynomial& other) {
-    PolyNode* curr = other.hppeadPtr;
+    PolyNode* curr = other.headPtr;
 
     if (curr == nullptr) {
         headPtr = nullptr;
@@ -266,7 +266,7 @@ vector<vector<int> > Polynomial::toVector() const {
 
 Polynomial Polynomial::sumOfPolynomial(const Polynomial& other) const {
     PolyNode* i = this->headPtr;
-    PolyNode* j = other.hppeadPtr;
+    PolyNode* j = other.headPtr;
 
     if (i == nullptr) return other;
     if (j == nullptr) return *this;
