@@ -2,53 +2,53 @@
 
 using namespace std;
 
-int minimumAmplitude1(vector<int>& nums, int k)
-{
-    vector<int> maxL(nums.size(), INT_MIN);
-    vector<int> minL(nums.size(), INT_MAX);
+// int minimumAmplitude1(vector<int>& nums, int k)
+// {
+//     vector<int> maxL(nums.size(), INT_MIN);
+//     vector<int> minL(nums.size(), INT_MAX);
 
-    maxL[0] = nums[0];
-    minL[0] = nums[0];
+//     maxL[0] = nums[0];
+//     minL[0] = nums[0];
 
-    for (int i = 1; i < nums.size(); i++)
-    {
-        maxL[i] = max(nums[i], maxL[i - 1]);
-        minL[i] = min(nums[i], minL[i - 1]);
-    }
+//     for (int i = 1; i < nums.size(); i++)
+//     {
+//         maxL[i] = max(nums[i], maxL[i - 1]);
+//         minL[i] = min(nums[i], minL[i - 1]);
+//     }
 
-    vector<int> maxR(nums.size(), INT_MIN);
-    vector<int> minR(nums.size(), INT_MAX);
+//     vector<int> maxR(nums.size(), INT_MIN);
+//     vector<int> minR(nums.size(), INT_MAX);
 
-    maxR[nums.size() - 1] = nums[nums.size() - 1];
-    minR[nums.size() - 1] = nums[nums.size() - 1];
+//     maxR[nums.size() - 1] = nums[nums.size() - 1];
+//     minR[nums.size() - 1] = nums[nums.size() - 1];
 
-    for (int i = nums.size() - 2; i >= 0; i--)
-    {
-        maxR[i] = max(nums[i], maxR[i + 1]);
-        minR[i] = min(nums[i], minR[i + 1]);
-    }
+//     for (int i = nums.size() - 2; i >= 0; i--)
+//     {
+//         maxR[i] = max(nums[i], maxR[i + 1]);
+//         minR[i] = min(nums[i], minR[i + 1]);
+//     }
 
-    int result = INT_MAX;
+//     int result = INT_MAX;
 
-    for (int i = 0; i < nums.size() - k + 1; i++)
-    {
-        int Max = INT_MIN;
-        int Min = INT_MAX;
+//     for (int i = 0; i < nums.size() - k + 1; i++)
+//     {
+//         int Max = INT_MIN;
+//         int Min = INT_MAX;
 
-        Max = max(Max, maxL[i]);
-        Min = min(Min, minL[i]);
+//         Max = max(Max, maxL[i]);
+//         Min = min(Min, minL[i]);
 
-        if (i + k < nums.size())
-        {
-            Max = max(Max, maxR[i + k]);
-            Min = min(Min, minR[i + k]);
-        }
+//         if (i + k < nums.size())
+//         {
+//             Max = max(Max, maxR[i + k]);
+//             Min = min(Min, minR[i + k]);
+//         }
 
-        result = min(result, Max - Min);
-    }
+//         result = min(result, Max - Min);
+//     }
 
-    return result;
-}
+//     return result;
+// }
 
 int minimumAmplitude2(vector<int>& nums, int k) {
     int n = nums.size();
@@ -91,9 +91,9 @@ int main()
 {
     srand(time(NULL));
 
-    int size = 10000;
+    int size = 10000000;
 
-    int k = rand() % (size / (rand() % 9990)) + 1;
+    int k = rand() % (size / 10 + 1) + 1;
     cout << k << endl;
 
     vector<int> v;
@@ -103,8 +103,14 @@ int main()
         v.push_back(rand() % 9999);
     }
 
-    cout << minimumAmplitude1(v, k) << endl;
+    // cout << minimumAmplitude1(v, k) << endl;
+    clock_t start = clock();
     cout << minimumAmplitude2(v, k) << endl;
+    clock_t end = clock();
+
+    double time = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+
+    cout << time << endl;
 
     return 0;
 }
