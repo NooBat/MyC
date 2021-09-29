@@ -59,11 +59,11 @@ ItemType StackIsA<ItemType>::getEntry() const
 
 int main()
 {
-    StackIsA<string> a;
+    StackIsA<string>* a = new StackIsA<string>();
 
-    a.insert("new");
+    a->insert("new");
 
-    cout << a.getEntry();
+    cout << a->getEntry();
 
     return 0;
 }
