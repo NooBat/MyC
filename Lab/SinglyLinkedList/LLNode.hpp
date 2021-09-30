@@ -9,7 +9,7 @@ using namespace std;
 class LLNode
 {
 private:
-    static void add(LLNode* head, int val);
+    static void add(LLNode*& head, int val);
 public:
     int val;
     LLNode* next;
@@ -41,6 +41,7 @@ public:
             {
                 cout << ", ";
             }
+            curr = curr->next;
         }
 
         cout << "]" << endl;

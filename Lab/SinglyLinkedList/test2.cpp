@@ -3,11 +3,12 @@
 
 int main()
 {
-    int arr[] = {9, 5, 7, 5, 0};
+    int arr[] = {4, 42,3, 134,1512, 134,1 };
+    int k = 3;
     LLNode* head = LLNode::createWithIterators(arr, arr + sizeof(arr) / sizeof(int)); 
     LLNode::printList(head);
     cout << "\n";
-    LLNode* newhead = foldLinkedList(head);
+    LLNode* newhead = reverseLinkedList(head);
     LLNode::printList(newhead);
 
     return 0;
