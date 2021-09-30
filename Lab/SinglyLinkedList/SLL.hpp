@@ -1,6 +1,10 @@
 #ifndef _SINGLY_LINKED_LIST
 #define _SINGLY_LINKED_LIST
 
+#include<iostream>
+#include<string>
+#include<vector>
+
 using namespace std;
 
 template <class T> 
@@ -11,18 +15,22 @@ public:
 protected:
     Node* head;
     Node* tail;
-    int itemCount;
+    int count;
 public:
-    SLinkedList(): head(NULL), tail(NULL), count(0);
+    SLinkedList(): head(NULL), tail(NULL), count(0) { };
     ~SLinkedList() { };
-    void    add(T e);
-    void    add(int index, T e);
-    int     size();
-    bool    empty();
-    T       get(int index);
-    void    set(int index, T e);
-    int     indexOf(T item);
-    bool    contains(T item);
+    void        add(T e);
+    void        add(int index, T e);
+    int         size();
+    void        clear();
+    bool        empty();
+    T           get(int index);
+    void        set(int index, T e);
+    int         indexOf(T item);
+    bool        contains(T item);
+    T           removeAt(int index);
+    bool        removeItem(T item);
+    vector<T>   toVector();
 public:
     class Node
     {
