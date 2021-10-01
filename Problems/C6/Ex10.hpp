@@ -1,7 +1,7 @@
 #ifndef _TOWER
 #define _TOWER
 
-#include "/Users/danielnguyen/Repo/C++/ADT/Stack.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT/LinkedStack.hpp"
 #include<math.h>
 
 using namespace std;
