@@ -1,20 +1,20 @@
-#ifndef _QUEUE_INTERFACE
-#define _QUEUE_INTERFACE
+#ifndef _PRIORITY_QUEUE_INTERFACE
+#define _PRIORITY_QUEUE_INTERFACE
 
 #include "PrecondViolatedException.hpp"
 
 template<class ItemType>
-class QueueInterface
+class PriorityQueueInterface
 {
 public:
     /** Sees whether this queue is empty.
      * @return True if the queue is empty, or false if not. */
     virtual bool isEmpty() const = 0;
 
-
-    /** Adds a new entry to the back of this queue.
-     * @post If the operation was successful, newEntry is at the
-     * back of the queue.
+    /** Adds a new entry to this queue in its proper order so that 
+     * the queue remains sorted.
+     * @post If the operation was successful, newEntry is in the queue
+     * and the queue is sorted.
      * @param newEntry The object to be added as a new entry.
      * @return True if the addition is successful or false if not. */
     virtual bool enqueue(const ItemType& newEntry) = 0;
