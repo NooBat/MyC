@@ -1,95 +1,143 @@
 #include<bits/stdc++.h>
 
 using namespace std;
-int checkBound(int param) {
-    if (param < 0) {
-        param = 0;
-        return param;
-    } 
-    else if (param > 1000) {
-        param = 1000;
-        return param;
+
+class Tree
+{
+public:
+    class Node
+    {
+    private:
+        int value;
+        int multiplier;
+        int leftHeight;
+        bool counted;
+        Node* left;
+        Node* right;
+        friend class Tree;
+    public:
+        Node(): value(0), leftHeight(0), multiplier(1), counted(0), left(nullptr), right(nullptr) { }
+        Node(int value, Node* left = nullptr, Node* right = nullptr)
+        {
+            this->value = value;
+            this->leftHeight = 0;
+            this->multiplier = 1;
+            this->counted = 0;
+            this->left = left;
+            this->right = right;
+        }
+    };
+private:
+    Node* root;
+public:
+    Tree(): root(nullptr) { }
+
+    void insert(int value)
+    {
+        Node* curr = root;
+
+        if (root == nullptr) 
+        {
+            root = new Node(value);
+            return;
+        }
+
+        while (true)
+        {
+            if (value < curr->value) 
+            {
+                curr->leftHeight += curr->multiplier;
+                increaseRightSubtree(curr->right);
+                if (curr->left == nullptr) 
+                {
+                    curr->left = new Node(value);
+                    break;
+                }
+                else curr = curr->left;
+            }
+            else if (value > curr->value) 
+            {
+                if (curr->right == nullptr) 
+                {
+                    curr->right = new Node(value);
+                    break;
+                }
+
+                else curr = curr->right;
+            }
+            else
+            {
+                curr->multiplier++;
+                increaseRightSubtree(curr->right);
+                return;
+            }
+        }
     }
 
-    return param;
+    int getLeftHeight(int value)
+    {
+        Node* curr = root;
+        while (curr != nullptr)
+        {
+            if (value < curr->value) 
+            {
+                curr = curr->left;
+            }
+            else if (value > curr->value) curr = curr->right;
+            else break;
+        }
+
+        if (curr == nullptr) return 0;
+        if (curr->counted) return 0;
+        curr->counted = 1;
+        return curr->leftHeight;
+    }
+
+    void increaseRightSubtree(Node* curr)
+    {
+        if (curr == nullptr) return;
+
+        increaseRightSubtree(curr->left);
+        curr->leftHeight += curr->multiplier;
+        increaseRightSubtree(curr->right);
+    }
+};
+
+int solve(std::vector<int> arr)
+{
+    Tree* tree = new Tree();
+    int result = 0;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        tree->insert(arr[i]);
+    }
+
+    for (int i = 0; i < arr.size(); i++)
+    {
+        result += tree->getLeftHeight(arr[i]);
+    }
+
+    return result;
 }
 
+int main()
+{
+    srand(time(NULL));
 
-int getReady(int& HP, const int& ID, int& M, const int& E1){
-    //Complete this function to gain point on task 1
-    
-    //if HP goes beyond [0;1000]
-    HP = checkBound(HP);
+    int size = 30000;
 
-    //if M goes beyond [0;1000] 
-    M = checkBound(M);
+    vector<int> temp;
 
-    if (E1 >= 100 && E1 <= 199) {
-        if (ID == 1) return checkBound(HP + 75) + M;
-        else if (ID == 2) return HP + M;
-
-        int h = (E1 - 100) % 64;
-        int J = HP % 100;
-
-        if (J > h) {
-            if (HP >= 500 && M % 2 != 0 && M >= 300) {
-                if (ID == 0) {
-                    return checkBound(HP + 50) + (M - 300);
-                }
-            }
-            if (M % 2 == 0 && M >= 200) {
-                return checkBound(HP + 25) + (M - 200);
-            }
-        }
-        else {
-            return HP + M;
-        }
+    for (int i = 0; i < size; i++)
+    {
+        temp.push_back(rand());
     }
-    else if (E1 >= 200 && E1 <= 299) {
-        int m[4] = {190, 195, 200, 205};
-        int hp[4]= {  5,   7,   9,  11};
-        int x = (E1 % 4) + 1;
-        if (ID == 1 || ID == 2) {
-            if (M > m[x - 1]) {
-                return checkBound(HP + hp[x - 1]) + (M - m[x - 1]);
-            }
-        }
-        else {
-            if (M % 2 == 0 && m[x - 1] % 2 != 0) {
-                if (M >= m[x - 1]) {
-                    return checkBound(HP + hp[x - 1]) + (M - m[x - 1]);
-                }
-            }
-            if (M % 2 != 0 && m[x - 1] % 2 == 0) {
-                if (M >= m[x - 1]) {
-                    return checkBound(HP + hp[x - 1]) + (M - m[x - 1]);
-                }
-            }
-        }
+    clock_t start = clock();
+    int a = solve(temp);
+    clock_t end = clock();
 
-        return HP + M;
-    }
-
-    return -1;
-}
-
-int main() {
-    int HP, ID, M, E1;
-    
-    cout << "HP: ";
-    cin >> HP;
-
-    cout << "ID: ";
-    cin >> ID;
-
-    cout << "M: ";
-    cin >> M;
-
-    cout << "E1: ";
-    cin >> E1;
-
-
-    cout << getReady(HP, ID, M, E1);
+    double time = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+    cout << a << " " << time;
 
     return 0;
 }
