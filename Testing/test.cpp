@@ -2,142 +2,53 @@
 
 using namespace std;
 
-class Tree
+string highAndLow(const string& numbers)
 {
-public:
-    class Node
+  //your code here
+  string temp;
+  string max; 
+  string min;
+  
+  int i = 0;
+  while (numbers[i] != ' ')
+  {
+    i++;  
+  }
+  
+  max = numbers.substr(0, i);
+  min = numbers.substr(0, i);
+  
+  i++;
+  for (; i < (int)numbers.length(); i++)
+  {
+    int j = i;
+    while (numbers[i] && numbers[i] != ' ') 
     {
-    private:
-        int value;
-        int multiplier;
-        int leftHeight;
-        bool counted;
-        Node* left;
-        Node* right;
-        friend class Tree;
-    public:
-        Node(): value(0), leftHeight(0), multiplier(1), counted(0), left(nullptr), right(nullptr) { }
-        Node(int value, Node* left = nullptr, Node* right = nullptr)
-        {
-            this->value = value;
-            this->leftHeight = 0;
-            this->multiplier = 1;
-            this->counted = 0;
-            this->left = left;
-            this->right = right;
-        }
-    };
-private:
-    Node* root;
-public:
-    Tree(): root(nullptr) { }
-
-    void insert(int value)
-    {
-        Node* curr = root;
-
-        if (root == nullptr) 
-        {
-            root = new Node(value);
-            return;
-        }
-
-        while (true)
-        {
-            if (value < curr->value) 
-            {
-                curr->leftHeight += curr->multiplier;
-                increaseRightSubtree(curr->right);
-                if (curr->left == nullptr) 
-                {
-                    curr->left = new Node(value);
-                    break;
-                }
-                else curr = curr->left;
-            }
-            else if (value > curr->value) 
-            {
-                if (curr->right == nullptr) 
-                {
-                    curr->right = new Node(value);
-                    break;
-                }
-
-                else curr = curr->right;
-            }
-            else
-            {
-                curr->multiplier++;
-                increaseRightSubtree(curr->right);
-                return;
-            }
-        }
+      i++;
     }
-
-    int getLeftHeight(int value)
+    
+    temp = numbers.substr(j, i - j);
+    if (stoi(temp) > stoi(max)) 
     {
-        Node* curr = root;
-        while (curr != nullptr)
-        {
-            if (value < curr->value) 
-            {
-                curr = curr->left;
-            }
-            else if (value > curr->value) curr = curr->right;
-            else break;
-        }
-
-        if (curr == nullptr) return 0;
-        if (curr->counted) return 0;
-        curr->counted = 1;
-        return curr->leftHeight;
+      max.clear();
+      max = temp;
     }
-
-    void increaseRightSubtree(Node* curr)
+    if (stoi(temp) < stoi(min))
     {
-        if (curr == nullptr) return;
-
-        increaseRightSubtree(curr->left);
-        curr->leftHeight += curr->multiplier;
-        increaseRightSubtree(curr->right);
+      min.clear();
+      min = temp;
     }
-};
-
-int solve(std::vector<int> arr)
-{
-    Tree* tree = new Tree();
-    int result = 0;
-    for (int i = 0; i < arr.size(); i++)
-    {
-        tree->insert(arr[i]);
-    }
-
-    for (int i = 0; i < arr.size(); i++)
-    {
-        result += tree->getLeftHeight(arr[i]);
-    }
-
-    return result;
+    
+    temp.clear();
+  }
+  
+  return max + " " + min;
 }
-
 int main()
 {
-    srand(time(NULL));
+    string input = "8 3 -5 42 -1 0 0 -9 4 7 4 -4";
 
-    int size = 30000;
-
-    vector<int> temp;
-
-    for (int i = 0; i < size; i++)
-    {
-        temp.push_back(rand());
-    }
-    clock_t start = clock();
-    int a = solve(temp);
-    clock_t end = clock();
-
-    double time = static_cast<double>(end - start) / CLOCKS_PER_SEC;
-    cout << a << " " << time;
+    cout << highAndLow(input);
 
     return 0;
 }
