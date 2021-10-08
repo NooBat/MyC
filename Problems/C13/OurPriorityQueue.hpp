@@ -2,6 +2,7 @@
 #define _OUR_PRIORITY_QUEUE
 
 #include<queue>
+#include<vector>
 #include<string>
 #include "/Users/danielnguyen/Repo/C++/ADT/PrecondViolatedException.hpp"
 #include "/Users/danielnguyen/Repo/C++/ADT/PriorityQueueInterface.hpp"
@@ -12,12 +13,12 @@ template<class ItemType>
 class OurPriorityQueue : public PriorityQueueInterface<ItemType>
 {
 private:
-    priority_queue<ItemType>* aQueue;
+    priority_queue<ItemType, vector<ItemType>, greater<ItemType> >* aQueue;
 
 public:
     OurPriorityQueue()
     {
-        aQueue = new priority_queue<ItemType>();
+        aQueue = new priority_queue<ItemType, vector<ItemType>, greater<ItemType> >();
     }
 
     bool isEmpty() const
@@ -25,16 +26,16 @@ public:
         return aQueue->empty();
     }
 
-    bool add(const ItemType& newEntry)
+    bool enqueue(const ItemType& newEntry)
     {
         aQueue->push(newEntry);
 
         return true;
     }
 
-    bool remove()
+    bool dequeue()
     {
-        if (aQueue->empty) return false;
+        if (aQueue->empty()) return false;
 
         aQueue->pop();
         return true;
@@ -48,7 +49,7 @@ public:
             throw PrecondViolatedException(msg);
         }
 
-        return aQueue->front();
+        return aQueue->top();
     }
 };
 
