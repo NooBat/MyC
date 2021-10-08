@@ -1,95 +1,54 @@
 #include<bits/stdc++.h>
 
 using namespace std;
-int checkBound(int param) {
-    if (param < 0) {
-        param = 0;
-        return param;
-    } 
-    else if (param > 1000) {
-        param = 1000;
-        return param;
+
+string highAndLow(const string& numbers)
+{
+  //your code here
+  string temp;
+  string max; 
+  string min;
+  
+  int i = 0;
+  while (numbers[i] != ' ')
+  {
+    i++;  
+  }
+  
+  max = numbers.substr(0, i);
+  min = numbers.substr(0, i);
+  
+  i++;
+  for (; i < (int)numbers.length(); i++)
+  {
+    int j = i;
+    while (numbers[i] && numbers[i] != ' ') 
+    {
+      i++;
     }
-
-    return param;
-}
-
-
-int getReady(int& HP, const int& ID, int& M, const int& E1){
-    //Complete this function to gain point on task 1
     
-    //if HP goes beyond [0;1000]
-    HP = checkBound(HP);
-
-    //if M goes beyond [0;1000] 
-    M = checkBound(M);
-
-    if (E1 >= 100 && E1 <= 199) {
-        if (ID == 1) return checkBound(HP + 75) + M;
-        else if (ID == 2) return HP + M;
-
-        int h = (E1 - 100) % 64;
-        int J = HP % 100;
-
-        if (J > h) {
-            if (HP >= 500 && M % 2 != 0 && M >= 300) {
-                if (ID == 0) {
-                    return checkBound(HP + 50) + (M - 300);
-                }
-            }
-            if (M % 2 == 0 && M >= 200) {
-                return checkBound(HP + 25) + (M - 200);
-            }
-        }
-        else {
-            return HP + M;
-        }
+    temp = numbers.substr(j, i - j);
+    if (stoi(temp) > stoi(max)) 
+    {
+      max.clear();
+      max = temp;
     }
-    else if (E1 >= 200 && E1 <= 299) {
-        int m[4] = {190, 195, 200, 205};
-        int hp[4]= {  5,   7,   9,  11};
-        int x = (E1 % 4) + 1;
-        if (ID == 1 || ID == 2) {
-            if (M > m[x - 1]) {
-                return checkBound(HP + hp[x - 1]) + (M - m[x - 1]);
-            }
-        }
-        else {
-            if (M % 2 == 0 && m[x - 1] % 2 != 0) {
-                if (M >= m[x - 1]) {
-                    return checkBound(HP + hp[x - 1]) + (M - m[x - 1]);
-                }
-            }
-            if (M % 2 != 0 && m[x - 1] % 2 == 0) {
-                if (M >= m[x - 1]) {
-                    return checkBound(HP + hp[x - 1]) + (M - m[x - 1]);
-                }
-            }
-        }
-
-        return HP + M;
+    if (stoi(temp) < stoi(min))
+    {
+      min.clear();
+      min = temp;
     }
-
-    return -1;
-}
-
-int main() {
-    int HP, ID, M, E1;
     
-    cout << "HP: ";
-    cin >> HP;
+    temp.clear();
+  }
+  
+  return max + " " + min;
+}
+int main()
+{
+    string input = "8 3 -5 42 -1 0 0 -9 4 7 4 -4";
 
-    cout << "ID: ";
-    cin >> ID;
-
-    cout << "M: ";
-    cin >> M;
-
-    cout << "E1: ";
-    cin >> E1;
-
-
-    cout << getReady(HP, ID, M, E1);
+    cout << highAndLow(input);
 
     return 0;
 }
