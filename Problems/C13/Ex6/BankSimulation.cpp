@@ -1,6 +1,39 @@
 #include "BankSimulation.hpp"
 #include<fstream>
+#include<vector>
 #include<iostream>
+
+using namespace std;
+
+void BankSimulation::displayEventQueue()
+{
+    vector<Event>* temp = new vector<Event>();
+    while (!eventList->isEmpty())
+    {
+        temp->push_back(eventList->peekFront());
+        eventList->dequeue();
+    }
+
+    cout << "Current event list: " << endl; 
+    if (temp->empty()) 
+    {
+        cout << "No more events." << endl << endl << endl;
+        return;
+    }
+
+    for (int i = 0; i < temp->size(); i++)
+    {
+        Event curr = temp->at(i);
+        eventList->enqueue(curr);
+
+        cout << curr.getState() << " " << curr.getStartTime() << " " << curr.getProcessTime() << endl;
+    }
+
+    delete temp;
+    temp = nullptr;
+
+    cout << endl << endl;
+}
 
 void BankSimulation::processArrival(Event& arrivalEvent)
 {
@@ -17,6 +50,9 @@ void BankSimulation::processArrival(Event& arrivalEvent)
     else 
     {
         bankQueue->enqueue(arrivalEvent);
+        maximumLength++;
+        totalLength++;
+        lengthHash.push_back(totalLength);
     }
 }
 
@@ -31,6 +67,10 @@ void BankSimulation::processDeparture(Event& departureEvent)
         Event nextEvent = bankQueue->peekFront();
         totalTransactionTime += currentTime - nextEvent.getStartTime();
         bankQueue->dequeue();
+
+        totalLength--;
+        lengthHash.push_back(totalLength);
+
         Event newDepartureEvent('D', currentTime + nextEvent.getProcessTime());
         eventList->enqueue(newDepartureEvent);
     }
@@ -45,6 +85,8 @@ BankSimulation::BankSimulation()
     tellerAvailable = true;
     totalTransactionTime = 0;
     numberOfCustomer = 0;
+    maximumLength = 0;
+    totalLength = 0;
 }
 
 void BankSimulation::simulation(string inputFileName)
@@ -87,6 +129,8 @@ void BankSimulation::simulation(string inputFileName)
     {
         Event newEvent = eventList->peekFront();
 
+        displayEventQueue();
+
         currentTime = newEvent.getStartTime();
 
         if (newEvent.getState() == 'A')
@@ -102,7 +146,7 @@ void BankSimulation::simulation(string inputFileName)
 
 double BankSimulation::getAverageTransactionTime() const
 {
-    double result = totalTransactionTime / (double)(numberOfCustomer - 1);
+    double result = totalTransactionTime / (double)(numberOfCustomer);
 
     return result;
 }
@@ -110,4 +154,22 @@ double BankSimulation::getAverageTransactionTime() const
 int BankSimulation::getNumberOfCustomer() const
 {
     return numberOfCustomer;
+}
+
+int BankSimulation::getMaximumLength() const
+{
+    return maximumLength;
+}
+
+double BankSimulation::getAverageLineLength() const
+{
+    double result = 0;
+    for (int i = 0; i < lengthHash.size(); i++)
+    {
+        result += lengthHash[i];
+    } 
+
+    result = result / double(lengthHash.size());
+
+    return result;
 }

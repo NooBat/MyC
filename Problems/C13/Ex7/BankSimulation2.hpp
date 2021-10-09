@@ -3,7 +3,8 @@
 
 #include<iostream>
 #include<vector>
-#include "Event.hpp"
+#include<fstream>
+#include "/Users/danielnguyen/Repo/C++/Problems/C13/Ex6/Event.hpp"
 #include "/Users/danielnguyen/Repo/C++/Problems/C13/OurPriorityQueue.hpp"
 #include "/Users/danielnguyen/Repo/C++/Problems/C13/OurQueue.hpp"
 
@@ -12,17 +13,17 @@ using namespace std;
 class BankSimulation
 {
 private:
-    OurQueue<Event>* bankQueue;
-    OurPriorityQueue<Event>* eventList;
+    OurQueue<Event>* bankQueue;                 //for 3 distinct lines
+    OurPriorityQueue<Event>* eventList;         //for all event
     int currentTime;
-    bool tellerAvailable;
+    bool tellerAvailable[3];
 
 
-    double totalTransactionTime;
+    double totalWaitTime;
     int numberOfCustomer;
     int maximumLength;
-    int totalLength;
-    vector<int> lengthHash;
+    vector<int> queueLength;
+    vector< vector<int> >* lengthHash;
 
     void processArrival(Event& arrivalEvent);
 
@@ -30,12 +31,14 @@ private:
 
     void displayEventQueue();
 
+    int getShortestLine() const;
+
 public:
     BankSimulation();
 
     void simulation(string inputFileName);
 
-    double getAverageTransactionTime() const;
+    double getAverageWaitTime() const;
 
     int getNumberOfCustomer() const;
 

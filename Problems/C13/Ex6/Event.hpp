@@ -5,16 +5,16 @@ class Event
 {
 private:
     char state;
-    int startTime;
-    int processTime;
+    double startTime;
+    double processTime;
 public:
     Event()
     {
-        startTime = 0;
-        processTime = 0;
+        startTime = 0.0;
+        processTime = 0.0;
     }
 
-    Event(const char& state, const int& startTime, const int& processTime = 0)
+    Event(const char& state, const double& startTime, const double& processTime = 0)
     {
         this->setState(state);
         this->startTime = startTime;
@@ -44,12 +44,12 @@ public:
         return state;
     }
 
-    int getStartTime() const
+    double getStartTime() const
     {
         return startTime;
     }
 
-    int getProcessTime() const
+    double getProcessTime() const
     {
         return processTime;
     }
