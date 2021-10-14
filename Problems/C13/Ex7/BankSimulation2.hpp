@@ -13,10 +13,12 @@ using namespace std;
 class BankSimulation
 {
 private:
+    int numberOfTeller;
+    int numberOfQueue;
     OurQueue<Event>* bankQueue;                 //for 3 distinct lines
     OurPriorityQueue<Event>* eventList;         //for all event
     int currentTime;
-    bool tellerAvailable[3];
+    bool* tellerAvailable;
 
 
     double totalWaitTime;
@@ -33,8 +35,12 @@ private:
 
     int getShortestLine() const;
 
+    int getFirstFree() const;
+
 public:
     BankSimulation();
+
+    BankSimulation(const int& numberOfTeller, const int& numberOfQueue);
 
     void simulation(string inputFileName);
 

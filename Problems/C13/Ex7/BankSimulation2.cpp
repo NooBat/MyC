@@ -2,18 +2,48 @@
 
 using namespace std;
 
+int BankSimulation::getFirstFree() const
+{
+    int firstFree = -1;
+    for (int i = 0; i < numberOfTeller; i++)
+    {
+        if (tellerAvailable[i]) 
+        {
+            firstFree = i;
+            break;
+        }
+    }   
+
+    return firstFree;
+}
+
+int BankSimulation::getShortestLine() const
+{
+    int shortestIdx = 0;
+    for (int i = 1; i < numberOfQueue; i++)
+    {
+        if (queueLength[i] < queueLength[shortestIdx])
+        {
+            shortestIdx = i;
+        }
+    }
+
+    return shortestIdx;
+}
+
 void BankSimulation::processArrival(Event& arrivalEvent)
 {
     int minLengthIdx = getShortestLine();
+    int firstFreeIdx = getFirstFree();
 
     cout << "Processing an arrival event at:\t" << arrivalEvent.getStartTime() << " " 
          << "\nIn line: " << minLengthIdx + 1 << endl << endl;
     eventList->dequeue();
 
-    if (bankQueue[minLengthIdx].isEmpty() && tellerAvailable[minLengthIdx])
+    if (bankQueue[minLengthIdx].isEmpty() && firstFreeIdx != -1)
     {
-        tellerAvailable[minLengthIdx] = false;
-        Event newDepartureEvent('D', currentTime + arrivalEvent.getProcessTime(), minLengthIdx);
+        tellerAvailable[firstFreeIdx] = false;
+        Event newDepartureEvent('D', currentTime + arrivalEvent.getProcessTime(), 0, minLengthIdx, firstFreeIdx);
         eventList->enqueue(newDepartureEvent);
     }
     else 
@@ -29,10 +59,11 @@ void BankSimulation::processDeparture(Event& departureEvent)
 {
     eventList->dequeue();
 
-    int lineIdx = departureEvent.getProcessTime();
+    int lineIdx = departureEvent.getFromLine();
+    int tellerIdx = departureEvent.getFromTeller();
 
     cout << "Processing a departure event at:\t" << departureEvent.getStartTime() 
-        << "\nAt teller: " << lineIdx + 1 << endl << endl;
+        << "\nAt teller: " << tellerIdx + 1 << endl << endl;
 
     if (!bankQueue[lineIdx].isEmpty())
     {
@@ -45,10 +76,10 @@ void BankSimulation::processDeparture(Event& departureEvent)
         queueLength[lineIdx]--;
         lengthHash->push_back(queueLength);
 
-        Event newDepartureEvent('D', currentTime + newCustomer.getProcessTime(), lineIdx);
+        Event newDepartureEvent('D', currentTime + newCustomer.getProcessTime(), 0, lineIdx, tellerIdx);
         eventList->enqueue(newDepartureEvent);
     }
-    else tellerAvailable[lineIdx] = true;
+    else tellerAvailable[tellerIdx] = true;
 }
 
 void BankSimulation::displayEventQueue()
@@ -81,37 +112,50 @@ void BankSimulation::displayEventQueue()
     cout << endl << endl;
 }
 
-int BankSimulation::getShortestLine() const
-{
-    for (int i = 0; i < 3; i++)
-    {
-        if (tellerAvailable[i]) return i;
-    }
-
-    int shortestIdx = 0;
-    for (int i = 1; i < 3; i++)
-    {
-        if (queueLength[i] < queueLength[shortestIdx])
-        {
-            shortestIdx = i;
-        }
-    }
-
-    return shortestIdx;
-}
-
 BankSimulation::BankSimulation()
 {
-    bankQueue = new OurQueue<Event>[3];
+    numberOfQueue = 1;
+    numberOfTeller = 1;
+    tellerAvailable = new bool[numberOfTeller];
+    bankQueue = new OurQueue<Event>[numberOfQueue];
     eventList = new OurPriorityQueue<Event>();
     currentTime = 0;
     totalWaitTime = 0.0;
     numberOfCustomer = 0;
     maximumLength = 0;
     
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < numberOfTeller; i++)
     {
         tellerAvailable[i] = true;
+    }
+
+    for (int i = 0; i < numberOfQueue; i++)
+    {
+        queueLength.push_back(0);
+    }
+
+    lengthHash = new vector< vector<int> >();
+}
+
+BankSimulation::BankSimulation(const int& numberOfTeller, const int& numberOfQueue)
+{
+    this->numberOfQueue = numberOfQueue;
+    this->numberOfTeller = numberOfTeller;
+    tellerAvailable = new bool[numberOfTeller];
+    bankQueue = new OurQueue<Event>[numberOfQueue];
+    eventList = new OurPriorityQueue<Event>();
+    currentTime = 0;
+    totalWaitTime = 0.0;
+    numberOfCustomer = 0;
+    maximumLength = 0;
+    
+    for (int i = 0; i < numberOfTeller; i++)
+    {
+        tellerAvailable[i] = true;
+    }
+
+    for (int i = 0; i < numberOfQueue; i++)
+    {
         queueLength.push_back(0);
     }
 
@@ -196,7 +240,12 @@ double BankSimulation::getAverageLineLength() const
 
     for (vector< vector<int> >::iterator i = lengthHash->begin(); i != lengthHash->end(); i++)
     {
-        totalLength = (i->at(0) + i->at(1) + i->at(2)) / 3.00;
+        for (int j = 0; j < queueLength.size(); j++)
+        {
+            totalLength += i->at(j);
+        }
+
+        totalLength /= double(queueLength.size());
     }
 
     result = totalLength / (double)lengthHash->size();

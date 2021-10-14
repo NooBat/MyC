@@ -7,6 +7,8 @@ private:
     char state;
     double startTime;
     double processTime;
+    int fromLine;
+    int fromTeller;
 public:
     Event()
     {
@@ -14,11 +16,13 @@ public:
         processTime = 0.0;
     }
 
-    Event(const char& state, const double& startTime, const double& processTime = 0)
+    Event(const char& state, const double& startTime, const double& processTime = 0, const int& fromLine = -1, const int& fromTeller = -1)
     {
         this->setState(state);
         this->startTime = startTime;
         this->processTime = processTime;
+        this->fromLine = fromLine;
+        this->fromTeller = fromTeller;
     }
 
     Event(const Event& other)
@@ -26,6 +30,8 @@ public:
         this->setState(other.state);
         this->startTime = other.startTime;
         this->processTime = other.processTime;
+        this->fromLine = other.fromLine;
+        this->fromTeller = other.fromTeller;
     }
 
     bool setState(const char& state)
@@ -52,6 +58,16 @@ public:
     double getProcessTime() const
     {
         return processTime;
+    }
+
+    int getFromLine() const
+    {
+        return fromLine;
+    }
+
+    int getFromTeller() const
+    {
+        return fromTeller;
     }
 
     bool operator> (const Event& other) const

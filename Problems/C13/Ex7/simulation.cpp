@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    BankSimulation newBank;
+    BankSimulation newBank(3, 1);
 
     cout << "Simulation starts." << endl << endl;
     newBank.simulation("/Users/danielnguyen/Repo/C++/Problems/C13/Ex6/event.txt");
