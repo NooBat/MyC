@@ -39,7 +39,7 @@ void BankSimulation::processArrival(Event& arrivalEvent)
 {
     eventList->dequeue();
 
-    cout << "Processing a arrival event at time:\t" << arrivalEvent.getStartTime() << endl;
+    cout << "Processing an arrival event at time:\t" << arrivalEvent.getStartTime() << endl;
 
     if (bankQueue->isEmpty() && tellerAvailable)
     {
