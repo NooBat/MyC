@@ -20,7 +20,7 @@ private:
 public:
     Event() {}
 
-    Event(const string& transactionCode, const string& mopCode, const string& state, const double& arrivalTime, const double& processTime, const string& name, const bool& approved = true, const double& totalTime)
+    Event(const string& transactionCode, const string& mopCode, const string& state, const double& arrivalTime, const double& processTime, const string& name, const double& totalTime, const bool& approved = true)
     {
         this->setTransaction(transactionCode);
         this->setMOP(mopCode);
@@ -62,7 +62,7 @@ public:
           R for registration renewal
           CC for cashier approval
           D for departure */
-        if (state != "A" || state != "S" || state != "L" || state != "R" || state != "CC", state != "D") return false;
+        if (state != "A" || state != "S" || state != "L" || state != "R" || state != "CC" || state != "D") return false;
         
         this->state = state;
 

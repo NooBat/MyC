@@ -80,7 +80,7 @@ void BankSimulation::processDeparture(Event& departureEvent)
 BankSimulation::BankSimulation()
 {
     bankQueue = new OurQueue<Event>();
-    eventList = new OurPriorityQueue<Event>();
+    eventList = new OurPriorityQueue<Event, greater<Event> >();
     currentTime = 0;
     tellerAvailable = true;
     totalTransactionTime = 0;

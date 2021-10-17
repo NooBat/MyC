@@ -9,22 +9,27 @@
 
 using namespace std;
 
-template<class ItemType>
+template<class ItemType, class Comparator>
 class OurPriorityQueue : public PriorityQueueInterface<ItemType>
 {
 private:
-    priority_queue<ItemType, vector<ItemType>, greater<ItemType> >* aQueue;
+    priority_queue<ItemType, vector<ItemType>, Comparator>* aQueue;
 
 public:
     OurPriorityQueue()
     {
-        aQueue = new priority_queue<ItemType, vector<ItemType>, greater<ItemType> >();
+        aQueue = new priority_queue<ItemType, vector<ItemType>, Comparator >();
     }
 
-    OurPriorityQueue(OurPriorityQueue<ItemType>& other)
+    OurPriorityQueue(bool (*func)(ItemType, ItemType))
+    {
+        aQueue = new priority_queue<ItemType, vector<ItemType>, decltype(func) >();
+    }
+
+    OurPriorityQueue(OurPriorityQueue<ItemType, Comparator>& other)
     {
         vector<ItemType> temp;
-        aQueue = new priority_queue<ItemType, vector<ItemType>, greater<ItemType> >();
+        aQueue = new priority_queue<ItemType, vector<ItemType>, Comparator >();
 
         while (!other.aQueue->empty())
         {
