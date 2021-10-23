@@ -5,11 +5,22 @@ using namespace std;
 
 int main() {
 <<<<<<< HEAD
+<<<<<<< HEAD
     int d = 
 =======
+=======
+    int num1, num2;
+    cin >> num1 >> num2;
+>>>>>>> main
 
-    cout << "|" << setw(11) << setiosflags(ios::scientific) << setprecision(3) << 26.67;
+    cout << "Maximum: ";
 
+    if (num1 > num2)
+    {
+        cout << num1 << endl;
+    }
+    else cout << num2 << endl;
+ 
     return 0;
 >>>>>>> main
 }
