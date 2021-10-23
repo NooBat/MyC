@@ -11,7 +11,7 @@ private:
     string transactionCode;
     string mopCode;
     string state;
-    double arrivalTime;
+    double startTime;
     double processTime;
     double totalTime;
     bool approved;
@@ -20,12 +20,12 @@ private:
 public:
     Event() {}
 
-    Event(const string& transactionCode, const string& mopCode, const string& state, const double& arrivalTime, const double& processTime, const string& name, const double& totalTime, const bool& approved = true)
+    Event(const string& transactionCode, const string& mopCode, const string& state, const double& startTime, const double& processTime, const string& name, const double& totalTime, const bool& approved = true)
     {
         this->setTransaction(transactionCode);
         this->setMOP(mopCode);
         this->setState(state);
-        this->setArrivalTime(arrivalTime);
+        this->setStartTime(startTime);
         this->setProcessTime(processTime);
         this->setApproved(approved);
         this->setName(name);
@@ -34,8 +34,8 @@ public:
 
     bool setTransaction(const string& transactionCode)
     {
-        if (transactionCode != "L" || transactionCode != "R" ||
-            transactionCode != "l" || transactionCode != "r")
+        if (transactionCode != "L" && transactionCode != "R" &&
+            transactionCode != "l" && transactionCode != "r")
         {
             return false;
         }
@@ -45,7 +45,7 @@ public:
 
     bool setMOP(const string& mopCode)
     {
-        if (mopCode != "$" || mopCode != "C")
+        if (mopCode != "$" && mopCode != "C")
         {
             return false;
         }
@@ -62,17 +62,17 @@ public:
           R for registration renewal
           CC for cashier approval
           D for departure */
-        if (state != "A" || state != "S" || state != "L" || state != "R" || state != "CC" || state != "D") return false;
+        if (state != "A" && state != "S" && state != "L" && state != "R" && state != "CC" && state != "D") return false;
         
         this->state = state;
 
         return true;
     }
 
-    void setArrivalTime(const double& arrivalTime)
+    void setStartTime(const double& startTime)
     {
-        if (arrivalTime < 0.0) this->arrivalTime = 0.0;
-        else this->arrivalTime = arrivalTime;
+        if (startTime < 0.0) this->startTime = 0.0;
+        else this->startTime = startTime;
     }
 
     void setProcessTime(const double& processTime)
@@ -112,9 +112,9 @@ public:
         return state;
     }
 
-    double getArrivalTime() const
+    double getStartTime() const
     {
-        return arrivalTime;
+        return startTime;
     }
 
     double getProcessTime() const
@@ -140,8 +140,8 @@ public:
     bool operator> (const Event& other) const 
     {
         string temp = "A S L R CC D";
-        if (this->arrivalTime < other.arrivalTime) return true;
-        else if (this->arrivalTime > other.arrivalTime) return false;
+        if (this->startTime < other.startTime) return true;
+        else if (this->startTime > other.startTime) return false;
         else 
         {
             int state1 = (int)temp.find(this->state);
@@ -153,9 +153,25 @@ public:
         return false;
     }
 
+    bool operator< (const Event& other) const
+    {
+        string temp = "A S L R CC D";
+        if (this->startTime > other.startTime) return true;
+        else if (this->startTime < other.startTime) return false;
+        else 
+        {
+            int state1 = (int)temp.find(this->state);
+            int state2 = (int)temp.find(other.state);
+            if (state1 > state2) return true;
+            else return false;
+        }
+
+        return false;
+    }
+
     bool operator== (const Event& other) const
     {
-        if (this->arrivalTime == other.arrivalTime && this->state == other.state && this->name == other.name)
+        if (this->startTime == other.startTime && this->state == other.state && this->name == other.name)
         {
             return true;
         }

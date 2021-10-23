@@ -15,7 +15,7 @@ auto comparator = [](const Event& a, const Event& b)
 class MVDSimulation
 {
 private:
-    OurPriorityQueue<Event, greater<Event> >* eventList;
+    OurPriorityQueue<Event, less<Event> >* eventList;
     OurPriorityQueue<Event, decltype(comparator)>* lrLine;    //license renewal waiting line
     OurQueue<Event>* rrLine;            //registration renewal waiting line
     OurQueue<Event>* siLine;            //sign in waiting line
@@ -34,6 +34,7 @@ private:
     void processSignIn(Event SignIn);
     void processRegistrationRenewal(Event registration);
     void processLicenseRenewal(Event license);
+    void processCashierLine(Event c);
     void processDeparture(Event departure);
 
 

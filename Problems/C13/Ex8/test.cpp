@@ -1,31 +1,16 @@
 #include "MVDSimulation.hpp"
+#include "MVDSimulation.cpp"
 #include<string>
 #include<algorithm>
 #include<iostream>
 
 using namespace std;
 
-auto comparator2 = [] (const string& a, const string& b)
-{
-    return a < b;
-};
-
 int main()
 {
-    OurPriorityQueue<string, decltype(comparator2) > newQueue;
+    MVDSimulation mvd;
 
-    string arr[] = {"jack", "amber", "hansel"};
-
-    for (int i = 0; i < 3; i++)
-    {
-        newQueue.enqueue(arr[i]);
-    }
-
-    while (!newQueue.isEmpty())
-    {
-        cout << newQueue.peekFront() << " ";
-        newQueue.dequeue();
-    }
+    mvd.simulation();
 
     return 0;
 }
