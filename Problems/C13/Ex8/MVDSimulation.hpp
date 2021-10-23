@@ -7,16 +7,16 @@
 
 using namespace std;
 
-bool comparator(const Event& a, const Event& b)
+auto comparator = [](const Event& a, const Event& b)
 {
-    return a.getName() < b.getName();
-}
+    return a.getName() > b.getName();
+};
 
 class MVDSimulation
 {
 private:
     OurPriorityQueue<Event, greater<Event> >* eventList;
-    OurPriorityQueue<Event, decltype(&comparator)>* lrLine;    //license renewal waiting line
+    OurPriorityQueue<Event, decltype(comparator)>* lrLine;    //license renewal waiting line
     OurQueue<Event>* rrLine;            //registration renewal waiting line
     OurQueue<Event>* siLine;            //sign in waiting line
     OurQueue<Event>* cLine;             //cashier waiting line

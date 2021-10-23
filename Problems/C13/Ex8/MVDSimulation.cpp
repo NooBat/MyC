@@ -6,7 +6,7 @@ using namespace std;
 MVDSimulation::MVDSimulation()
 {
     eventList = new OurPriorityQueue<Event, greater<Event> >();
-    lrLine = new OurPriorityQueue<Event, decltype(&comparator)>();
+    lrLine = new OurPriorityQueue<Event, decltype(comparator)>();
     rrLine = new OurQueue<Event>();
     siLine = new OurQueue<Event>();
     cLine = new OurQueue<Event>();
