@@ -2,11 +2,10 @@
 
 using namespace std;
 
-static int a;
- a = 3;
+static int a = 2;
 void foo()
 {
-    int a = 3;
+    string a = "ag";
     cout << a;
 }
 
