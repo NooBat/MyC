@@ -11,7 +11,5 @@ void foo()
 
 int main()
 {  
-    cout << a << endl;
-    foo();
-    return 0;
+    int a =1 =
 }
