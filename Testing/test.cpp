@@ -11,5 +11,9 @@ void foo()
 
 int main()
 {  
-    int a =1 =
+    int a = 10, b;
+    b = a++ + ++a;
+
+    cout << b << " " << a++ << " " << a << ++a;
+    return 0;
 }
