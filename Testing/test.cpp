@@ -11,9 +11,10 @@ void foo()
 
 int main()
 {  
-    int a = 10, b;
-    b = a++ + ++a;
+    regex word("[a-z](\\w)+");
 
-    cout << b << " " << a++ << " " << a << ++a;
+    string a = "Abc203_";
+
+    cout << regex_match(a, word);
     return 0;
 }
