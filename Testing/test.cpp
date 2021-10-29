@@ -2,19 +2,31 @@
 
 using namespace std;
 
-static int a = 2;
-void foo()
-{
-    string a = "ag";
-    cout << a;
-}
-
 int main()
 {  
-    regex word("[a-z](\\w)+");
+    int number;
 
-    string a = "Abc203_";
+    cin >> number;
+    int temp = number;
+    int digit = 0;
 
-    cout << regex_match(a, word);
+    int result = 0;
+    if (temp == 0) cout << number << endl;
+    else 
+    {
+        while (temp > 0)
+        {
+            temp /= 10;
+            digit++;
+        }
+
+        for (int i = 0; i < digit; i++)
+        {
+            
+        }
+    }
+
+    
+
     return 0;
 }
