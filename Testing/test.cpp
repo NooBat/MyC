@@ -2,10 +2,28 @@
 
 using namespace std;
 
-int main()
+enum BalanceValue
 {
-    int x = 0x72;
-    cout << x << endl;
+    LH = -1,
+    EH = 0,
+    RH = 1
+};
 
+class Node
+{
+public:
+    int data;
+    Node* next;
+    BalanceValue balance;
+
+    Node(int data): data(data), next(nullptr), balance(EH) {}
+    ~Node() {}
+};
+
+int main()
+{  
+    Node* head = new Node(2);
+
+    cout << head->balance << endl;
     return 0;
 }
