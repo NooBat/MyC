@@ -57,7 +57,7 @@ LinkedQueue<ItemType>::LinkedQueue(const LinkedQueue<ItemType>& other)
 template<class ItemType>
 LinkedQueue<ItemType>::~LinkedQueue()
 {
-    
+     
 }
 
 #endif
