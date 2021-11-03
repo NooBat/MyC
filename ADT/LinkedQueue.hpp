@@ -4,6 +4,7 @@
 #include "QueueInterface.hpp"
 #include "PrecondViolatedException.hpp"
 #include "Node.hpp"
+#include<string>
 
 using namespace std;
 
@@ -57,7 +58,73 @@ LinkedQueue<ItemType>::LinkedQueue(const LinkedQueue<ItemType>& other)
 template<class ItemType>
 LinkedQueue<ItemType>::~LinkedQueue()
 {
-     
+    Node<ItemType>* currPtr = headPtr;
+
+    while (currPtr)
+    {
+        Node<ItemType>* nextPtr = currPtr->getNext();
+        currPtr->setNext(nullptr);
+        delete currPtr;
+
+        currPtr = nextPtr;
+    }
+
+    headPtr = tailPtr = nullptr;
+}
+
+template<class ItemType>
+bool LinkedQueue<ItemType>::isEmpty() const
+{
+    return (headPtr == nullptr);
+}
+
+template<class ItemType>
+bool LinkedQueue<ItemType>::enqueue(const ItemType& newEntry)
+{
+    Node<ItemType>* newNodePtr = new Node<ItemType>(newEntry);
+    if (!headPtr)
+    {
+        headPtr = tailPtr = newNodePtr;
+    }
+    else
+    {
+        tailPtr->setNext(newNodePtr);
+        tailPtr = newNodePtr;
+    }
+
+    return true;
+}
+
+template<class ItemType>
+bool LinkedQueue<ItemType>::dequeue()
+{
+    if (isEmpty()) return false;
+
+    Node<ItemType>* firstNode = headPtr;
+
+    if (headPtr == tailPtr)
+    {
+        tailPtr = nullptr;
+    }
+    headPtr = headPtr->getNext();
+
+    firstNode->setNext(nullptr);
+    delete firstNode;
+    firstNode = nullptr;
+
+    return true;
+}
+
+template<class ItemType>
+ItemType LinkedQueue<ItemType>::peekFront() const
+{
+    if (this->isEmpty())
+    {
+        string message = "peekFront() was called with an empty queue";
+        throw PrecondViolatedException(message);
+    }
+
+    return headPtr->getItem();
 }
 
 #endif
