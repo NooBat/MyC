@@ -4,34 +4,21 @@ using namespace std;
 
 int main()
 {  
-    int n;
-    cin >> n;
-    int arr[n];
-    bool checked[n];
-
-    for (int i = 0; i < n; i++)
+    int a, b, c;
+    cin >> a >> b >> c;
+    if (a > b)
     {
-        cin >> arr[i];
-        checked[i] = false;
+        swap(a, b);
     }
-
-    for (int i = 0; i < n; i++)
+    if (a > c)
     {
-        int count = 0;
-        if (!checked[i])
-        {
-            for (int j = i; j < n; j++)
-            {
-                if (arr[j] == arr[i])
-                {
-                    checked[j] = true;
-                    count++;
-                }
-            }
-
-            cout << "Frequency of " << arr[i] << ": " << count << endl;
-        }
+        swap(a, c);
     }
-
+    if (b > c)
+    {
+        swap(b, c);
+    }
+    cout << a << " " << b << " " << c << endl;
+    
     return 0;
 }
