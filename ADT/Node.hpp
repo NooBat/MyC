@@ -74,13 +74,29 @@ void Node<ItemType>::setNext(Node<ItemType>* nextNodePtr) {
 
 template<class ItemType>
 ItemType Node<ItemType>::getItem() const {
-    if (this == nullptr) throw UnknownPointer();
+    try
+    {
+        Node<ItemType>* nextPtr = this->next;
+    }
+    catch(exception& e)
+    {
+        throw e.what();
+    }
+
     return item;
 }
 
 template<class ItemType>
 Node<ItemType>* Node<ItemType>::getNext() const {
-    if (this == nullptr) throw UnknownPointer();
+    try
+    {
+        Node<ItemType>* nextPtr = this->next;
+    }
+    catch(exception& e)
+    {
+        throw e.what();
+    }
+    
     return next;
 }
 
