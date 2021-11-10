@@ -1,4 +1,5 @@
 #include "LinkedQueue.hpp"
+#include "SL_PriorityQueue.hpp"
 #include<iostream>
 
 using namespace std;
