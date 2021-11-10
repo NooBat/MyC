@@ -3,7 +3,7 @@
 
 #include "PrecondViolatedException.hpp"
 
-template<class ItemType>
+template<class T>
 class DequeInterface
 {
 public:
@@ -42,14 +42,14 @@ public:
      * @post The front of the queue has been returned, and the
      * queue is unchanged.
      * @return The front of the queue. */
-    virtual ItemType front() const = 0;
+    virtual T front() const = 0;
 
     /** Returns the back of this queue.
      * @pre The queue is not empty.
      * @post The back of the queue has been returned, and the
      * queue is unchanged.
      * @return The back of the queue. */
-    virtual ItemType back() const = 0;
+    virtual T back() const = 0;
 };
 
 #endif

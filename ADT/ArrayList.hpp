@@ -7,10 +7,10 @@
 
 using namespace std;
 
-template<class ItemType>
-class ArrayList : public ListInterface<ItemType> {
+template<class T>
+class ArrayList : public ListInterface<T> {
 private:
-    ItemType* arr;
+    T* arr;
 
     int itemCount;
     int maxItem;
@@ -19,51 +19,51 @@ private:
 public:
     ArrayList();
 
-    ArrayList(ItemType arr[], int n);
+    ArrayList(T arr[], int n);
 
     bool isEmpty() const;
 
     int getLength() const;
 
-    bool insert(int newPosition, const ItemType& newEntry);
+    bool insert(int newPosition, const T& newEntry);
 
     bool remove(int position);
 
     void clear();
 
-    ItemType getEntry(int position) const;
+    T getEntry(int position) const;
 
-    void setEntry(int position, const ItemType& newEntry);
+    void setEntry(int position, const T& newEntry);
 
-    int getPosition(const ItemType& targetEntry) const;
+    int getPosition(const T& targetEntry) const;
 
     void sort();
 };
 
-template<class ItemType>
-ArrayList<ItemType>::ArrayList() {
-    arr = new ItemType[10];
+template<class T>
+ArrayList<T>::ArrayList() {
+    arr = new T[10];
     itemCount = 0;
     maxItem = 10;
 }
 
-template<class ItemType>
-ArrayList<ItemType>::ArrayList(ItemType arr[], int n) {
+template<class T>
+ArrayList<T>::ArrayList(T arr[], int n) {
     itemCount = n;
     maxItem = n + 10;
     
-    this->arr = new ItemType[maxItem];
+    this->arr = new T[maxItem];
 
     for (int i = 0; i < n; i++) {
         this->arr[i] = arr[i];
     }
 }
 
-template<class ItemType>
-void ArrayList<ItemType>::resize() {
+template<class T>
+void ArrayList<T>::resize() {
     maxItem *= 2;
 
-    ItemType* newArr = new ItemType[maxItem];
+    T* newArr = new T[maxItem];
 
     for (int i = 0; i < itemCount; i++) {
         newArr[i] = arr[i];
@@ -76,18 +76,18 @@ void ArrayList<ItemType>::resize() {
     newArr = nullptr;
 }
 
-template<class ItemType>
-bool ArrayList<ItemType>::isEmpty() const {
+template<class T>
+bool ArrayList<T>::isEmpty() const {
     return itemCount == 0;
 }
 
-template<class ItemType>
-int ArrayList<ItemType>::getLength() const {
+template<class T>
+int ArrayList<T>::getLength() const {
     return itemCount;
 }
 
-template<class ItemType>
-bool ArrayList<ItemType>::insert(int newPosition, const ItemType& newEntry) {
+template<class T>
+bool ArrayList<T>::insert(int newPosition, const T& newEntry) {
     bool ableToInsert = (newPosition >= 1 && newPosition <= itemCount + 1) && (itemCount < maxItem);
 
     if (ableToInsert) {
@@ -108,8 +108,8 @@ bool ArrayList<ItemType>::insert(int newPosition, const ItemType& newEntry) {
     return ableToInsert;
 }
 
-template<class ItemType>
-bool ArrayList<ItemType>::remove(int position) {
+template<class T>
+bool ArrayList<T>::remove(int position) {
     bool ableToRemove = (position >= 1 && position <= itemCount);
 
     if (ableToRemove) {
@@ -123,15 +123,15 @@ bool ArrayList<ItemType>::remove(int position) {
     return ableToRemove;
 }
 
-template<class ItemType>
-void ArrayList<ItemType>::clear() {
+template<class T>
+void ArrayList<T>::clear() {
     delete[] arr;
 
     itemCount = 0;
 }
 
-template<class ItemType>
-ItemType ArrayList<ItemType>::getEntry(int position) const {
+template<class T>
+T ArrayList<T>::getEntry(int position) const {
     if (position < 1 || position > itemCount) {
         string message = "getEntry() was called with an empty list or ";
         message += "invalid position.";
@@ -141,8 +141,8 @@ ItemType ArrayList<ItemType>::getEntry(int position) const {
     return arr[position - 1];
 }   
 
-template<class ItemType>
-void ArrayList<ItemType>::setEntry(int position, const ItemType& newEntry) {
+template<class T>
+void ArrayList<T>::setEntry(int position, const T& newEntry) {
     if (position < 1 || position > itemCount) {
         string message = "setEntry() was called with an empty list or ";
         message += "invalid position.";
@@ -152,8 +152,8 @@ void ArrayList<ItemType>::setEntry(int position, const ItemType& newEntry) {
     arr[position - 1] = newEntry;
 }
 
-template<class ItemType>
-int ArrayList<ItemType>::getPosition(const ItemType& targetEntry) const {
+template<class T>
+int ArrayList<T>::getPosition(const T& targetEntry) const {
     int result = -1;
 
     for (int i = 0; i < itemCount; i++) {
@@ -166,10 +166,10 @@ int ArrayList<ItemType>::getPosition(const ItemType& targetEntry) const {
     return result + 1;
 }
 
-template<class ItemType>
-void ArrayList<ItemType>::sort()
+template<class T>
+void ArrayList<T>::sort()
 {
-    MergeSort<ItemType> sortFunc;
+    MergeSort<T> sortFunc;
 
     sortFunc.mergeSort(arr, 0, itemCount - 1);
 }

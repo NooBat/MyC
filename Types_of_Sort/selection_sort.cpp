@@ -9,8 +9,8 @@ using namespace std;
 
 // - time complexity: O(n ^ 2) because they use two nested loops
 // - auxiliary space: O(1) 
-template<class ItemType>
-void selectionSort1(ItemType arr[], int n) 
+template<class T>
+void selectionSort1(T arr[], int n) 
 {
     int min_idx = 0;
 
@@ -27,11 +27,11 @@ void selectionSort1(ItemType arr[], int n)
     }
 }
 
-template<class ItemType>
-int findMaxIndex(ItemType arr[], int n);
+template<class T>
+int findMaxIndex(T arr[], int n);
 
-template<class ItemType>
-void selectionSort2(ItemType arr[], int n) 
+template<class T>
+void selectionSort2(T arr[], int n) 
 {
     for (int last = n - 1; last >= 1; last--) 
     {
@@ -41,10 +41,10 @@ void selectionSort2(ItemType arr[], int n)
     }
 }
 
-template<class ItemType>
-int findMaxIndex(ItemType arr[], int size) 
+template<class T>
+int findMaxIndex(T arr[], int size) 
 {
-    ItemType max = arr[0];
+    T max = arr[0];
     int result = 0;
 
     for (int idx = 1; idx < size; idx++) 

@@ -5,7 +5,7 @@
 
 using namespace std;
 
-template<class ItemType>
+template<class T>
 class BagInterface {
 public:
     virtual ~BagInterface() = 0;
@@ -23,14 +23,14 @@ public:
      * the count of items in the bag has increased by 1.
      * @param newEntry The object to be added as a new entry. 
      * @return True if addition was successful, or false if not. */
-    virtual bool add(const ItemType& newEntry) = 0;
+    virtual bool add(const T& newEntry) = 0;
 
     /** Removes one occurrence of a given entry from this bag, if possible.
      * @post If successful, anEntry has been removed from the bag and 
      * the count of items in the bag has decreased by 1.
      * @param anEntry The entry to be removed.
      * @return True if removal was successful, or false if not. */
-    virtual bool remove(const ItemType& entry) = 0;
+    virtual bool remove(const T& entry) = 0;
 
     /** Removes all entries from this bag.
      * @post Bag contains no items, and the count of items is 0. */
@@ -40,21 +40,21 @@ public:
     /** Counts the number of times a given entry appears in bag. 
      * @param anEntry The entry to be counted.
      * @return The number of times anEntry appears in the bag. */
-    virtual int getFrequencyOf(const ItemType& entry) const = 0;
+    virtual int getFrequencyOf(const T& entry) const = 0;
 
     /** Tests whether this bag contains a given entry.
      * @param anEntry The entry to locate.
      * @return True if bag contains anEntry, or false otherwise. */
-    virtual bool contains(const ItemType& entry) const = 0;
+    virtual bool contains(const T& entry) const = 0;
     
     /** Empties and then fills a given vector with all entries that 
      * are in this bag.
      * @return A vector containing all the entries in the bag. */
-    virtual vector<ItemType> toVector() const = 0;
+    virtual vector<T> toVector() const = 0;
 };
 
-template<class ItemType>
-BagInterface<ItemType>::~BagInterface() {
+template<class T>
+BagInterface<T>::~BagInterface() {
 
 }
 #endif

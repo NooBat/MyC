@@ -39,73 +39,73 @@ public:
     }
 };
 
-template<class ItemType>
-class LinkedStack : public StackInterface<ItemType> {
+template<class T>
+class LinkedStack : public StackInterface<T> {
 private:
-    Node<ItemType>* top;
+    Node<T>* top;
 
 public:
     LinkedStack();
 
-    LinkedStack(const LinkedStack<ItemType>& other);
+    LinkedStack(const LinkedStack<T>& other);
 
     virtual ~LinkedStack();
 
     bool isEmpty() const;
 
-    bool push(const ItemType& newEntry);
+    bool push(const T& newEntry);
 
     bool pop();
 
     void clear();
 
-    ItemType peek() const;
+    T peek() const;
 
-    vector<ItemType> toVector() const;
+    vector<T> toVector() const;
 };
 
-template<class ItemType>
-LinkedStack<ItemType>::LinkedStack(): top(nullptr) {
+template<class T>
+LinkedStack<T>::LinkedStack(): top(nullptr) {
 
 }
 
-template<class ItemType>
-LinkedStack<ItemType>::LinkedStack(const LinkedStack<ItemType>& other) {
+template<class T>
+LinkedStack<T>::LinkedStack(const LinkedStack<T>& other) {
     if (other.top == nullptr) {
         top = nullptr;
         return;
     }
 
     try {       //if allocation failed
-        top = new Node<ItemType>*();
+        top = new Node<T>*();
     }
     catch (const bad_alloc& e) {
         cout << "Memory failed to allocate!" << endl;
         top = nullptr;
     }
 
-    Node<ItemType>* newChainPtr = top;
-    Node<ItemType>* origChainPtr = other.top;
+    Node<T>* newChainPtr = top;
+    Node<T>* origChainPtr = other.top;
 
     newChainPtr->setItem(origChainPtr->getItem());
 
     while (origChainPtr != nullptr) {
         origChainPtr = origChainPtr->getNext();
 
-        Node<ItemType>* newNodePtr = nullptr;
+        Node<T>* newNodePtr = nullptr;
 
         try {
-            ItemType nextItem = origChainPtr->getItem();
-            newNodePtr = new Node<ItemType>*(nextItem);
+            T nextItem = origChainPtr->getItem();
+            newNodePtr = new Node<T>*(nextItem);
         }
         catch (UnknownPointer e) {
             throw e.what();
         }
         catch (MemoryAllocationException e) {
-            Node<ItemType>* curr = top;
+            Node<T>* curr = top;
 
             while (curr != nullptr) {
-                Node<ItemType>* next = curr->getNext();
+                Node<T>* next = curr->getNext();
 
                 delete curr;
 
@@ -126,19 +126,19 @@ LinkedStack<ItemType>::LinkedStack(const LinkedStack<ItemType>& other) {
     newChainPtr = nullptr;
 }
 
-template<class ItemType>
-LinkedStack<ItemType>::~LinkedStack() {
+template<class T>
+LinkedStack<T>::~LinkedStack() {
     clear();
 }
 
-template<class ItemType>
-bool LinkedStack<ItemType>::isEmpty() const {
+template<class T>
+bool LinkedStack<T>::isEmpty() const {
     return top == nullptr;
 }
 
-template<class ItemType>
-bool LinkedStack<ItemType>::push(const ItemType& newEntry) {
-    Node<ItemType>* temp = new Node<ItemType>(newEntry);
+template<class T>
+bool LinkedStack<T>::push(const T& newEntry) {
+    Node<T>* temp = new Node<T>(newEntry);
 
     temp->setNext(top);
     top = temp;
@@ -147,11 +147,11 @@ bool LinkedStack<ItemType>::push(const ItemType& newEntry) {
     return true;
 }
 
-template<class ItemType>
-bool LinkedStack<ItemType>::pop() {
+template<class T>
+bool LinkedStack<T>::pop() {
     if (top == nullptr) return false;
 
-    Node<ItemType>* curr = top;
+    Node<T>* curr = top;
     top = top->getNext();
 
     delete curr;
@@ -160,25 +160,25 @@ bool LinkedStack<ItemType>::pop() {
     return true;
 }
 
-template<class ItemType>
-void LinkedStack<ItemType>::clear() {
+template<class T>
+void LinkedStack<T>::clear() {
     while (!isEmpty()) {
         this->pop();
     }
 }
 
-template<class ItemType>
-ItemType LinkedStack<ItemType>::peek() const {
+template<class T>
+T LinkedStack<T>::peek() const {
     if (top == nullptr) throw EmptyStack();
 
     return top->getItem();
 }
 
-template<class ItemType>
-vector<ItemType> LinkedStack<ItemType>::toVector() const {
-    vector<ItemType> result;
+template<class T>
+vector<T> LinkedStack<T>::toVector() const {
+    vector<T> result;
 
-    Node<ItemType>* curr = top;
+    Node<T>* curr = top;
 
     while (curr != nullptr) {
         result.insert(result.begin(), curr->getItem());

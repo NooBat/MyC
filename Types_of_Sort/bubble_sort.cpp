@@ -10,15 +10,15 @@ using namespace std;
 // - worst case time complexity: O(n ^ 2) when the array is reverse sorted
 // - auxiliary space: O(1)
 
-template<class ItemType>
+template<class T>
 class BubbleSort
 {
 public:
-    void bubbleSort(ItemType arr[], int n);
+    void bubbleSort(T arr[], int n);
 };
 
-template<class ItemType>
-void BubbleSort<ItemType>::bubbleSort(ItemType arr[], int n) 
+template<class T>
+void BubbleSort<T>::bubbleSort(T arr[], int n) 
 {
     for (int i = 0; i < n; i++)
     {

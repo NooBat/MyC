@@ -4,18 +4,18 @@
 #include "BagInterface.hpp"
 #include<algorithm>
 
-template<class ItemType>
-class ArrayBag : public BagInterface<ItemType> {
+template<class T>
+class ArrayBag : public BagInterface<T> {
 private:
     static const int DEFAULT_CAPACITY = 50;
-    ItemType items[DEFAULT_CAPACITY];   // Array of bag items
+    T items[DEFAULT_CAPACITY];   // Array of bag items
     int itemCount;                      // Current count of bag items
     int maxItems;                       // Max capacity of the bag;
 
     // Returns either the index of the element in the array items that 
     // contains the given target or -1, if the array does not contain 
     // the target.
-    int getIndexOf(const ItemType& target) const;
+    int getIndexOf(const T& target) const;
 
 public:
     ArrayBag();
@@ -24,31 +24,31 @@ public:
 
     bool isEmpty() const;
 
-    bool add(const ItemType& newEntry);
+    bool add(const T& newEntry);
 
-    bool remove(const ItemType& entry);
+    bool remove(const T& entry);
 
     void clear();
 
-    int getFrequencyOf(const ItemType& entry) const;
+    int getFrequencyOf(const T& entry) const;
 
-    bool contains(const ItemType& entry) const;
+    bool contains(const T& entry) const;
 
-    vector<ItemType> toVector() const;
+    vector<T> toVector() const;
 
-    bool replace(const ItemType& entry, const ItemType& newEntry);
+    bool replace(const T& entry, const T& newEntry);
 
-    ArrayBag<ItemType> Union(const ArrayBag<ItemType>& other) const;
+    ArrayBag<T> Union(const ArrayBag<T>& other) const;
 
-    ArrayBag<ItemType> intersection(const ArrayBag<ItemType>& other) const;
+    ArrayBag<T> intersection(const ArrayBag<T>& other) const;
 
-    ArrayBag<ItemType> difference(const ArrayBag<ItemType>& other) const;
+    ArrayBag<T> difference(const ArrayBag<T>& other) const;
 
-    ArrayBag<ItemType> operator= (const ArrayBag<ItemType>& other);
+    ArrayBag<T> operator= (const ArrayBag<T>& other);
 };
 
-template<class ItemType>
-int ArrayBag<ItemType>::getIndexOf(const ItemType& target) const {
+template<class T>
+int ArrayBag<T>::getIndexOf(const T& target) const {
     if (itemCount == 0) return -1;
 
     bool found = false;
@@ -62,23 +62,23 @@ int ArrayBag<ItemType>::getIndexOf(const ItemType& target) const {
     return -1;
 }
 
-template<class ItemType>
-ArrayBag<ItemType>::ArrayBag(): itemCount(0), maxItems(DEFAULT_CAPACITY)
+template<class T>
+ArrayBag<T>::ArrayBag(): itemCount(0), maxItems(DEFAULT_CAPACITY)
 {
 }
 
-template<class ItemType>
-int ArrayBag<ItemType>::getCurrentSize() const {
+template<class T>
+int ArrayBag<T>::getCurrentSize() const {
     return itemCount;
 }
 
-template<class ItemType>
-bool ArrayBag<ItemType>::isEmpty() const {
+template<class T>
+bool ArrayBag<T>::isEmpty() const {
     return (itemCount == 0);
 }
 
-template<class ItemType>
-bool ArrayBag<ItemType>::add(const ItemType& newEntry) {
+template<class T>
+bool ArrayBag<T>::add(const T& newEntry) {
     if (itemCount >= maxItems) return false;
 
     items[itemCount] = newEntry;
@@ -88,8 +88,8 @@ bool ArrayBag<ItemType>::add(const ItemType& newEntry) {
     return true;
 }
 
-template<class ItemType>
-bool ArrayBag<ItemType>::remove(const ItemType& entry) {
+template<class T>
+bool ArrayBag<T>::remove(const T& entry) {
     if (itemCount == 0) return false;
 
     int i;
@@ -107,13 +107,13 @@ bool ArrayBag<ItemType>::remove(const ItemType& entry) {
     return true;
 }
 
-template<class ItemType>
-void ArrayBag<ItemType>::clear() {
+template<class T>
+void ArrayBag<T>::clear() {
     itemCount = 0;
 }
 
-template<class ItemType>
-int ArrayBag<ItemType>::getFrequencyOf(const ItemType& entry) const {
+template<class T>
+int ArrayBag<T>::getFrequencyOf(const T& entry) const {
     if (itemCount == 0) return -1;
 
     int count = 0;
@@ -125,14 +125,14 @@ int ArrayBag<ItemType>::getFrequencyOf(const ItemType& entry) const {
     return count;
 }
 
-template<class ItemType>
-bool ArrayBag<ItemType>::contains(const ItemType& entry) const {
+template<class T>
+bool ArrayBag<T>::contains(const T& entry) const {
     return getIndexOf(entry) > -1;
 }
 
-template<class ItemType>
-vector<ItemType> ArrayBag<ItemType>::toVector() const {
-    vector<ItemType> result;
+template<class T>
+vector<T> ArrayBag<T>::toVector() const {
+    vector<T> result;
 
     if (getCurrentSize() == 0) {
         return result;
@@ -145,8 +145,8 @@ vector<ItemType> ArrayBag<ItemType>::toVector() const {
     return result;
 }
 
-template<class ItemType>
-bool ArrayBag<ItemType>::replace(const ItemType& entry, const ItemType& newEntry) {
+template<class T>
+bool ArrayBag<T>::replace(const T& entry, const T& newEntry) {
     if (newEntry == entry || getCurrentSize() == 0 || !contains(entry)) {
         return false;
     } 
@@ -158,12 +158,12 @@ bool ArrayBag<ItemType>::replace(const ItemType& entry, const ItemType& newEntry
     return true;
 }
 
-template<class ItemType>
-ArrayBag<ItemType> ArrayBag<ItemType>::Union(const ArrayBag<ItemType>& other) const {
-    ArrayBag<ItemType> result;
+template<class T>
+ArrayBag<T> ArrayBag<T>::Union(const ArrayBag<T>& other) const {
+    ArrayBag<T> result;
 
-    vector<ItemType> v1 = this->toVector();
-    vector<ItemType> v2 = other.toVector();
+    vector<T> v1 = this->toVector();
+    vector<T> v2 = other.toVector();
     sort(v1.begin(), v1.end());
     sort(v2.begin(), v2.end());
 
@@ -200,12 +200,12 @@ ArrayBag<ItemType> ArrayBag<ItemType>::Union(const ArrayBag<ItemType>& other) co
     return result;
 }
 
-template<class ItemType>
-ArrayBag<ItemType> ArrayBag<ItemType>::intersection(const ArrayBag<ItemType>& other) const {
-    ArrayBag<ItemType> result;
+template<class T>
+ArrayBag<T> ArrayBag<T>::intersection(const ArrayBag<T>& other) const {
+    ArrayBag<T> result;
     
-    vector<ItemType> v1 = this->toVector();
-    vector<ItemType> v2 = other.toVector();
+    vector<T> v1 = this->toVector();
+    vector<T> v2 = other.toVector();
     sort(v1.begin(), v1.end());
     sort(v2.begin(), v2.end());
 
@@ -225,12 +225,12 @@ ArrayBag<ItemType> ArrayBag<ItemType>::intersection(const ArrayBag<ItemType>& ot
     return result;
 }
 
-template<class ItemType>
-ArrayBag<ItemType> ArrayBag<ItemType>::difference(const ArrayBag<ItemType>& other) const {
-    ArrayBag<ItemType> result;
+template<class T>
+ArrayBag<T> ArrayBag<T>::difference(const ArrayBag<T>& other) const {
+    ArrayBag<T> result;
     
-    vector<ItemType> v1 = this->toVector();
-    vector<ItemType> v2 = other.toVector();
+    vector<T> v1 = this->toVector();
+    vector<T> v2 = other.toVector();
     sort(v1.begin(), v1.end());
     sort(v2.begin(), v2.end());
 
@@ -255,8 +255,8 @@ ArrayBag<ItemType> ArrayBag<ItemType>::difference(const ArrayBag<ItemType>& othe
     return result;
 }
 
-template<class ItemType>
-ArrayBag<ItemType> ArrayBag<ItemType>::operator= (const ArrayBag<ItemType>& other) {
+template<class T>
+ArrayBag<T> ArrayBag<T>::operator= (const ArrayBag<T>& other) {
     itemCount = other.itemCount;
     maxItems = other.maxItems;
 

@@ -9,33 +9,33 @@
 
 using namespace std;
 
-template<class ItemType>
-class LinkedSortedList : public SortedListInterface<ItemType>
+template<class T>
+class LinkedSortedList : public SortedListInterface<T>
 {
 private:
-    Node<ItemType>* headPtr;
+    Node<T>* headPtr;
 
     int itemCount;
 
     /** Returns a pointer to a copy of the chain to which origChainPtr points. */
-    Node<ItemType>* copyChain(Node<ItemType>* head);
+    Node<T>* copyChain(Node<T>* head);
 
     /** Locates the node that is before the node that should or does
      * contain the given entry.
      * @param anEntry The entry to find.
      * @return Either a pointer to the node before the node that contains
      * or should contain the given entry, or nullptr if no prior node exists. */
-    Node<ItemType>* getNodeBefore(const ItemType& anEntry) const;
+    Node<T>* getNodeBefore(const T& anEntry) const;
 
     /** Locates the node at a given position within the chain. */
-    Node<ItemType>* getNodeAt(int position) const;
+    Node<T>* getNodeAt(int position) const;
 
 public:
     LinkedSortedList();
 
-    LinkedSortedList(const LinkedSortedList<ItemType>& aList);
+    LinkedSortedList(const LinkedSortedList<T>& aList);
 
-    LinkedSortedList(const SortedListInterface<ItemType>* aList);
+    LinkedSortedList(const SortedListInterface<T>* aList);
 
     virtual ~LinkedSortedList();
 
@@ -43,29 +43,29 @@ public:
 
     int getLength() const;
 
-    void insertSorted(const ItemType& newEntry);
+    void insertSorted(const T& newEntry);
 
-    bool removeSorted(const ItemType& anEntry);
+    bool removeSorted(const T& anEntry);
 
     bool remove(int position);
 
     void clear();
 
-    int getPosition(const ItemType& anEntry);
+    int getPosition(const T& anEntry);
 
-    ItemType getEntry(int position) const;
+    T getEntry(int position) const;
 };
 
 //private methods
-template<class ItemType>
-Node<ItemType>* LinkedSortedList<ItemType>::copyChain(Node<ItemType>* head)
+template<class T>
+Node<T>* LinkedSortedList<T>::copyChain(Node<T>* head)
 {
     if (head == nullptr) {
         itemCount = 0;
         return nullptr;
     }
 
-    Node<ItemType>* copiedChainPtr = new Node<ItemType>(head->getItem());
+    Node<T>* copiedChainPtr = new Node<T>(head->getItem());
 
     copiedChainPtr->setNext(copyChain(head->getNext()));
     itemCount++;
@@ -73,11 +73,11 @@ Node<ItemType>* LinkedSortedList<ItemType>::copyChain(Node<ItemType>* head)
     return copiedChainPtr;
 }
 
-template<class ItemType>
-Node<ItemType>* LinkedSortedList<ItemType>::getNodeBefore(const ItemType& anEntry) const
+template<class T>
+Node<T>* LinkedSortedList<T>::getNodeBefore(const T& anEntry) const
 {
-    Node<ItemType>* currPtr = headPtr;
-    Node<ItemType>* prevPtr = nullptr;
+    Node<T>* currPtr = headPtr;
+    Node<T>* prevPtr = nullptr;
 
     while (currPtr != nullptr && anEntry > currPtr->getItem())
     {
@@ -88,12 +88,12 @@ Node<ItemType>* LinkedSortedList<ItemType>::getNodeBefore(const ItemType& anEntr
     return prevPtr;
 }
 
-template<class ItemType>
-Node<ItemType>* LinkedSortedList<ItemType>::getNodeAt(int position) const
+template<class T>
+Node<T>* LinkedSortedList<T>::getNodeAt(int position) const
 {
     if (position < 1 || position > itemCount) return nullptr;
 
-    Node<ItemType>* currPtr = headPtr;
+    Node<T>* currPtr = headPtr;
 
     for (int i = 1; i < position; i++)
     {
@@ -106,21 +106,21 @@ Node<ItemType>* LinkedSortedList<ItemType>::getNodeAt(int position) const
 
 //public methods:
 
-template<class ItemType>
-LinkedSortedList<ItemType>::LinkedSortedList(): 
+template<class T>
+LinkedSortedList<T>::LinkedSortedList(): 
                             headPtr(nullptr), itemCount(0)
 {
 
 }
 
-template<class ItemType>
-LinkedSortedList<ItemType>::LinkedSortedList(const LinkedSortedList<ItemType>& aList)
+template<class T>
+LinkedSortedList<T>::LinkedSortedList(const LinkedSortedList<T>& aList)
 {
     headPtr = copyChain(aList.hppeadPtr);
 }
 
-template<class ItemType>
-LinkedSortedList<ItemType>::LinkedSortedList(const SortedListInterface<ItemType>* aList)
+template<class T>
+LinkedSortedList<T>::LinkedSortedList(const SortedListInterface<T>* aList)
 {
     itemCount = 0;
     headPtr = nullptr;
@@ -131,29 +131,29 @@ LinkedSortedList<ItemType>::LinkedSortedList(const SortedListInterface<ItemType>
     }
 }
 
-template<class ItemType>
-LinkedSortedList<ItemType>::~LinkedSortedList()
+template<class T>
+LinkedSortedList<T>::~LinkedSortedList()
 {
     clear();
 }
 
-template<class ItemType>
-bool LinkedSortedList<ItemType>::isEmpty() const
+template<class T>
+bool LinkedSortedList<T>::isEmpty() const
 {
     return itemCount == 0;
 }
 
-template<class ItemType>
-int LinkedSortedList<ItemType>::getLength() const
+template<class T>
+int LinkedSortedList<T>::getLength() const
 {
     return itemCount;
 }
 
-template<class ItemType>
-void LinkedSortedList<ItemType>::insertSorted(const ItemType& newEntry)
+template<class T>
+void LinkedSortedList<T>::insertSorted(const T& newEntry)
 {
-    Node<ItemType>* newNodePtr = new Node<ItemType>(newEntry);
-    Node<ItemType>* prevPtr = getNodeBefore(newEntry);
+    Node<T>* newNodePtr = new Node<T>(newEntry);
+    Node<T>* prevPtr = getNodeBefore(newEntry);
 
     if (headPtr == nullptr || prevPtr == nullptr)
     {
@@ -162,7 +162,7 @@ void LinkedSortedList<ItemType>::insertSorted(const ItemType& newEntry)
     }
     else
     {
-        Node<ItemType>* nextPtr = prevPtr->getNext();
+        Node<T>* nextPtr = prevPtr->getNext();
 
         newNodePtr->setNext(nextPtr);
 
@@ -173,17 +173,17 @@ void LinkedSortedList<ItemType>::insertSorted(const ItemType& newEntry)
     itemCount++;
 }
 
-template<class ItemType>
-bool LinkedSortedList<ItemType>::removeSorted(const ItemType& anEntry)
+template<class T>
+bool LinkedSortedList<T>::removeSorted(const T& anEntry)
 {
-    Node<ItemType>* currPtr = headPtr;
-    Node<ItemType>* prevPtr = nullptr;
+    Node<T>* currPtr = headPtr;
+    Node<T>* prevPtr = nullptr;
     
     bool isRemoved = false;
 
     while (currPtr != nullptr) 
     {
-        Node<ItemType>* nextPtr = currPtr->getNext();
+        Node<T>* nextPtr = currPtr->getNext();
 
         if (currPtr->getItem() == anEntry) 
         {
@@ -206,12 +206,12 @@ bool LinkedSortedList<ItemType>::removeSorted(const ItemType& anEntry)
     return isRemoved;
 }
 
-template<class ItemType>
-bool LinkedSortedList<ItemType>::remove(int position)
+template<class T>
+bool LinkedSortedList<T>::remove(int position)
 {
     if (position < 1 || position > itemCount) return false;
 
-    Node<ItemType>* currPtr = nullptr;
+    Node<T>* currPtr = nullptr;
     if (position == 1) 
     {
         currPtr = headPtr;
@@ -220,8 +220,8 @@ bool LinkedSortedList<ItemType>::remove(int position)
     }
     else
     {
-        Node<ItemType>* prevPtr = getNodeAt(position - 1);
-        Node<ItemType>* nextPtr = getNodeAt(position + 1);
+        Node<T>* prevPtr = getNodeAt(position - 1);
+        Node<T>* nextPtr = getNodeAt(position + 1);
 
         prevPtr->setNext(nextPtr);
     }
@@ -233,14 +233,14 @@ bool LinkedSortedList<ItemType>::remove(int position)
     return true;
 }
 
-template<class ItemType>
-void LinkedSortedList<ItemType>::clear() 
+template<class T>
+void LinkedSortedList<T>::clear() 
 {
-    Node<ItemType>* currPtr = headPtr;
+    Node<T>* currPtr = headPtr;
 
     while (currPtr != nullptr)
     {
-        Node<ItemType>* nextPtr = currPtr->getNext();
+        Node<T>* nextPtr = currPtr->getNext();
 
         currPtr->setNext(nullptr);
         delete currPtr;
@@ -252,13 +252,13 @@ void LinkedSortedList<ItemType>::clear()
     headPtr = nullptr;
 }
 
-template<class ItemType>
-int LinkedSortedList<ItemType>::getPosition(const ItemType& anEntry)
+template<class T>
+int LinkedSortedList<T>::getPosition(const T& anEntry)
 {
     int position = 1;
 
-    Node<ItemType>* currPtr = headPtr;
-    Node<ItemType>* prevPtr = nullptr;
+    Node<T>* currPtr = headPtr;
+    Node<T>* prevPtr = nullptr;
 
     while (currPtr != nullptr && currPtr->getItem() < anEntry)
     {
@@ -271,15 +271,15 @@ int LinkedSortedList<ItemType>::getPosition(const ItemType& anEntry)
     return position;
 }
 
-template<class ItemType>
-ItemType LinkedSortedList<ItemType>::getEntry(int position) const
+template<class T>
+T LinkedSortedList<T>::getEntry(int position) const
 {
     if (position < 1 || position > itemCount) {
         string message = "getEntry() was called with an empty list or invalid position.";
         throw PrecondViolatedException(message);
     }
 
-    Node<ItemType>* currPtr = getNodeAt(position);
+    Node<T>* currPtr = getNodeAt(position);
 
     return currPtr->getItem();
 }

@@ -7,17 +7,17 @@
 
 using namespace std;
 
-template<class ItemType>
-class Set : public BagInterface<ItemType> {
+template<class T>
+class Set : public BagInterface<T> {
 private:
     int itemCount;
-    Node<ItemType>* head_ptr;
+    Node<T>* head_ptr;
 
-    Node<ItemType>* getPointerTo(const ItemType& target);
+    Node<T>* getPointerTo(const T& target);
 public:
     Set();
 
-    Set(const Set<ItemType>& other);
+    Set(const Set<T>& other);
 
     virtual ~Set();
 
@@ -25,24 +25,24 @@ public:
 
     bool isEmpty() const;
 
-    bool add(const ItemType& newEntry);
+    bool add(const T& newEntry);
 
-    bool remove(const ItemType& entry);
+    bool remove(const T& entry);
 
     void clear();
 
-    int getFrequencyOf(const ItemType& entry) const;
+    int getFrequencyOf(const T& entry) const;
 
-    bool contains(const ItemType& entry) const;
+    bool contains(const T& entry) const;
 
-    vector<ItemType> toVector() const;
+    vector<T> toVector() const;
 };
 
-template<class ItemType>
-Node<ItemType>* Set<ItemType>::getPointerTo(const ItemType& target) {
+template<class T>
+Node<T>* Set<T>::getPointerTo(const T& target) {
     if (!contains(target)) return nullptr;
 
-    Node<ItemType>* p = head_ptr;
+    Node<T>* p = head_ptr;
 
     while (p != nullptr) {
         if (p->getItem() == target) return p;
@@ -52,18 +52,18 @@ Node<ItemType>* Set<ItemType>::getPointerTo(const ItemType& target) {
     return nullptr;
 }
 
-template<class ItemType>
-Set<ItemType>::Set(): itemCount(0), head_ptr(nullptr) {
+template<class T>
+Set<T>::Set(): itemCount(0), head_ptr(nullptr) {
 
 }
 
-template<class ItemType>
-Set<ItemType>::Set(const Set<ItemType>& other) {
+template<class T>
+Set<T>::Set(const Set<T>& other) {
     itemCount = other.itemCount;
 
     if (other.hppead_ptr == nullptr) head_ptr = nullptr;
     else {
-        Node<ItemType>* temp = other.hppead_ptr;
+        Node<T>* temp = other.hppead_ptr;
 
         while (temp != nullptr) {
             add(temp->getItem());
@@ -72,29 +72,29 @@ Set<ItemType>::Set(const Set<ItemType>& other) {
     }
 }
 
-template<class ItemType>
-Set<ItemType>::~Set() {
+template<class T>
+Set<T>::~Set() {
     clear();
 }
 
-template<class ItemType>
-int Set<ItemType>::getCurrentSize() const {
+template<class T>
+int Set<T>::getCurrentSize() const {
     return this->itemCount;
 }
 
-template<class ItemType>
-bool Set<ItemType>::isEmpty() const {
+template<class T>
+bool Set<T>::isEmpty() const {
     return itemCount == 0;
 }
 
-template<class ItemType>
-bool Set<ItemType>::add(const ItemType& newEntry) {
+template<class T>
+bool Set<T>::add(const T& newEntry) {
     if (contains(newEntry)) return false;
     if (head_ptr == nullptr) {
-        head_ptr = new Node<ItemType>(newEntry);
+        head_ptr = new Node<T>(newEntry);
         return true;
     }
-    Node<ItemType>* temp = new Node<ItemType>(newEntry);
+    Node<T>* temp = new Node<T>(newEntry);
 
     temp->next = head_ptr;
 
@@ -105,12 +105,12 @@ bool Set<ItemType>::add(const ItemType& newEntry) {
     return true;
 }
 
-template<class ItemType>
-bool Set<ItemType>::remove(const ItemType& entry) {
+template<class T>
+bool Set<T>::remove(const T& entry) {
     if (!contains(entry)) return false;
     if (isEmpty()) return false;
 
-    Node<ItemType>* curr = getPointerTo(entry);
+    Node<T>* curr = getPointerTo(entry);
 
     if (curr == nullptr) return false;
 
@@ -124,8 +124,8 @@ bool Set<ItemType>::remove(const ItemType& entry) {
         return true;
     }
 
-    Node<ItemType>* prev = head_ptr;
-    Node<ItemType>* next = curr->getNext();
+    Node<T>* prev = head_ptr;
+    Node<T>* next = curr->getNext();
     while (prev->getNext() != curr) {
         prev = prev->getNext();
     }
@@ -139,16 +139,16 @@ bool Set<ItemType>::remove(const ItemType& entry) {
     return true;
 }
 
-template<class ItemType>
-void Set<ItemType>::clear() {
+template<class T>
+void Set<T>::clear() {
     if (head_ptr == nullptr) return;
 
     itemCount = 0;
 
-    Node<ItemType>* p = head_ptr;
+    Node<T>* p = head_ptr;
 
     while (p != nullptr) {
-        Node<ItemType>* next = p->getNext();
+        Node<T>* next = p->getNext();
 
         delete p;
 
@@ -158,11 +158,11 @@ void Set<ItemType>::clear() {
     head_ptr = nullptr;
 }
 
-template<class ItemType>
-int Set<ItemType>::getFrequencyOf(const ItemType& entry) const {
+template<class T>
+int Set<T>::getFrequencyOf(const T& entry) const {
     int count = 0;
 
-    Node<ItemType>* p = head_ptr;
+    Node<T>* p = head_ptr;
 
     while (p != nullptr) {
         if (p->getItem() == entry) count++;
@@ -171,11 +171,11 @@ int Set<ItemType>::getFrequencyOf(const ItemType& entry) const {
     return count;
 }
 
-template<class ItemType> 
-bool Set<ItemType>::contains(const ItemType& entry) const {
+template<class T> 
+bool Set<T>::contains(const T& entry) const {
     if (head_ptr == nullptr) return false;
 
-    Node<ItemType>* p = head_ptr;
+    Node<T>* p = head_ptr;
 
     while (p != nullptr) {
         if (p->getItem() == entry) return true;
@@ -185,13 +185,13 @@ bool Set<ItemType>::contains(const ItemType& entry) const {
     return false;
 }
 
-template<class ItemType>
-vector<ItemType> Set<ItemType>::toVector() const {
-    vector<ItemType> result;
+template<class T>
+vector<T> Set<T>::toVector() const {
+    vector<T> result;
 
     if (head_ptr == nullptr) return result;
 
-    Node<ItemType>* p = head_ptr;
+    Node<T>* p = head_ptr;
 
     while (p != nullptr) {
         result.push_back(p->getItem());

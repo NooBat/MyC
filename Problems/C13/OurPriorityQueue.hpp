@@ -9,27 +9,27 @@
 
 using namespace std;
 
-template<class ItemType, class Comparator>
-class OurPriorityQueue : public PriorityQueueInterface<ItemType>
+template<class T, class Comparator>
+class OurPriorityQueue : public PriorityQueueInterface<T>
 {
 private:
-    priority_queue<ItemType, vector<ItemType>, Comparator>* aQueue;
+    priority_queue<T, vector<T>, Comparator>* aQueue;
 
 public:
     OurPriorityQueue()
     {
-        aQueue = new priority_queue<ItemType, vector<ItemType>, Comparator >();
+        aQueue = new priority_queue<T, vector<T>, Comparator >();
     }
 
-    OurPriorityQueue(bool (*func)(ItemType, ItemType))
+    OurPriorityQueue(bool (*func)(T, T))
     {
-        aQueue = new priority_queue<ItemType, vector<ItemType>, decltype(func) >();
+        aQueue = new priority_queue<T, vector<T>, decltype(func) >();
     }
 
-    OurPriorityQueue(OurPriorityQueue<ItemType, Comparator>& other)
+    OurPriorityQueue(OurPriorityQueue<T, Comparator>& other)
     {
-        vector<ItemType> temp;
-        aQueue = new priority_queue<ItemType, vector<ItemType>, Comparator >();
+        vector<T> temp;
+        aQueue = new priority_queue<T, vector<T>, Comparator >();
 
         while (!other.aQueue->empty())
         {
@@ -50,7 +50,7 @@ public:
         return aQueue->empty();
     }
 
-    bool enqueue(const ItemType& newEntry)
+    bool enqueue(const T& newEntry)
     {
         aQueue->push(newEntry);
 
@@ -65,7 +65,7 @@ public:
         return true;
     }
 
-    ItemType peekFront() const
+    T peekFront() const
     {
         if (aQueue->empty()) 
         {

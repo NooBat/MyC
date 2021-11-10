@@ -1,5 +1,5 @@
-template<class ItemType>
-void reverse(List<ItemType>& aList) {
+template<class T>
+void reverse(List<T>& aList) {
     for (int i = 1; i <= aList.getLength() / 2; i++) {
         swap(aList, i, aList.getLength() - i + 1);
     }

@@ -6,11 +6,11 @@
 
 using namespace std;
 
-template<class ItemType>
+template<class T>
 class FrontList
 {
 private:
-    Node<ItemType>* headPtr;
+    Node<T>* headPtr;
     int itemCount;
 
 public:
@@ -20,38 +20,38 @@ public:
 
     virtual int getLength() const;
 
-    virtual bool insert(const ItemType& newEntry);
+    virtual bool insert(const T& newEntry);
 
     virtual bool remove();
 
     virtual void clear();
 
-    virtual ItemType getEntry() const;
+    virtual T getEntry() const;
 };
 
-template<class ItemType>
-FrontList<ItemType>::FrontList()
+template<class T>
+FrontList<T>::FrontList()
 {
     headPtr = nullptr;
     itemCount = 0;
 }
 
-template<class ItemType>
-bool FrontList<ItemType>::isEmpty() const
+template<class T>
+bool FrontList<T>::isEmpty() const
 {
     return itemCount == 0;
 }
 
-template<class ItemType>
-int FrontList<ItemType>::getLength() const
+template<class T>
+int FrontList<T>::getLength() const
 {
     return itemCount;
 }
 
-template<class ItemType>
-bool FrontList<ItemType>::insert(const ItemType& newEntry)
+template<class T>
+bool FrontList<T>::insert(const T& newEntry)
 {
-    Node<ItemType>* newNodePtr = new Node<ItemType>(newEntry);
+    Node<T>* newNodePtr = new Node<T>(newEntry);
 
     newNodePtr->setNext(headPtr);
 
@@ -62,11 +62,11 @@ bool FrontList<ItemType>::insert(const ItemType& newEntry)
     return true;
 }
 
-template<class ItemType>
-bool FrontList<ItemType>::remove()
+template<class T>
+bool FrontList<T>::remove()
 {
     if (itemCount == 0) return false;
-    Node<ItemType>* targetNodePtr = headPtr;
+    Node<T>* targetNodePtr = headPtr;
 
     headPtr = headPtr->getNext();
 
@@ -79,16 +79,16 @@ bool FrontList<ItemType>::remove()
     return true;
 }
 
-template<class ItemType>
-void FrontList<ItemType>::clear()
+template<class T>
+void FrontList<T>::clear()
 {
     if (headPtr == nullptr) return;
 
-    Node<ItemType>* currPtr = headPtr;
+    Node<T>* currPtr = headPtr;
 
     while (currPtr != nullptr)
     {
-        Node<ItemType>* nextPtr = currPtr->getNext();
+        Node<T>* nextPtr = currPtr->getNext();
 
         currPtr->setNext(nullptr);
         delete currPtr;
@@ -100,8 +100,8 @@ void FrontList<ItemType>::clear()
     headPtr = nullptr;
 }
 
-template<class ItemType>
-ItemType FrontList<ItemType>::getEntry() const
+template<class T>
+T FrontList<T>::getEntry() const
 {
     if (itemCount == 0) 
     {

@@ -5,7 +5,7 @@
 
 using namespace std;
 
-template<class ItemType>
+template<class T>
 class StackInterface {
 public:
     /** Sees whether this stack is empty.
@@ -16,7 +16,7 @@ public:
      * @post newEntry will be on top of the stack.
      * @param newEntry item needs to be pushed to the stack.
      * @return True if push was successful, otherwise false. */
-    virtual bool push(const ItemType& newEntry) = 0;
+    virtual bool push(const T& newEntry) = 0;
 
     /** Removes the top of this stack.
      * @pre The stack must not be empty.
@@ -27,11 +27,11 @@ public:
     /** Returns the top of this stack.
      * @pre The stack must not be empty.
      * @return The top item of this stack. */
-    virtual ItemType peek() const = 0;
+    virtual T peek() const = 0;
 
     /** Returns a vector contains every item in the stack from bottom to top 
      * @return A vector contains every item from bottom to top */
-    virtual vector<ItemType> toVector() const = 0;
+    virtual vector<T> toVector() const = 0;
 };
 
 #endif

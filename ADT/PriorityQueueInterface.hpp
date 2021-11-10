@@ -3,7 +3,7 @@
 
 #include "PrecondViolatedException.hpp"
 
-template<class ItemType>
+template<class T>
 class PriorityQueueInterface
 {
 public:
@@ -17,7 +17,7 @@ public:
      * and the queue is sorted.
      * @param newEntry The object to be added as a new entry.
      * @return True if the addition is successful or false if not. */
-    virtual bool enqueue(const ItemType& newEntry) = 0;
+    virtual bool enqueue(const T& newEntry) = 0;
 
     /** Removes the front of this queue.
      * @post If the operation was successful, the front of the queue
@@ -30,7 +30,7 @@ public:
      * @post The front of the queue has been returned, and the
      * queue is unchanged.
      * @return The front of the queue. */
-    virtual ItemType peekFront() const = 0;
+    virtual T peekFront() const = 0;
 };
 
 #endif

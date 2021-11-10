@@ -1,6 +1,6 @@
 Pseudocode fucntion contains at client level
 
-contains(aList: LinkedList<ItemType>, targetEntry: ItemType): bool
+contains(aList: LinkedList<T>, targetEntry: T): bool
 {   
     bool isEntry = false;
 

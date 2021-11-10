@@ -10,37 +10,37 @@
 
 using namespace std;
 
-template<class ItemType>
-class LinkedQueue : public QueueInterface<ItemType>
+template<class T>
+class LinkedQueue : public QueueInterface<T>
 {
 private:
-    Node<ItemType>* headPtr;
-    Node<ItemType>* tailPtr;
+    Node<T>* headPtr;
+    Node<T>* tailPtr;
 
 public:
     LinkedQueue();
-    LinkedQueue(const LinkedQueue<ItemType>& other);
+    LinkedQueue(const LinkedQueue<T>& other);
     virtual ~LinkedQueue();
 
     bool isEmpty() const;
-    bool enqueue(const ItemType& newEntry);
+    bool enqueue(const T& newEntry);
     bool dequeue();
-    ItemType peekFront() const;
-    vector<ItemType> display() const;
+    T peekFront() const;
+    vector<T> display() const;
     int getNumberOfElements() const;
-    vector<ItemType> display() const;
+    vector<T> display() const;
     int getNumberOfElements() const;
 };
 
-template<class ItemType>
-LinkedQueue<ItemType>::LinkedQueue()
+template<class T>
+LinkedQueue<T>::LinkedQueue()
 {
     headPtr = nullptr;
     tailPtr = nullptr;
 }
 
-template<class ItemType>
-LinkedQueue<ItemType>::LinkedQueue(const LinkedQueue<ItemType>& other)
+template<class T>
+LinkedQueue<T>::LinkedQueue(const LinkedQueue<T>& other)
 {
     headPtr = nullptr;
     tailPtr = nullptr;
@@ -48,14 +48,14 @@ LinkedQueue<ItemType>::LinkedQueue(const LinkedQueue<ItemType>& other)
     {
         if (!other.isEmpty())
         {
-            Node<ItemType>* currPtr = other.headPtr;
-            headPtr = new Node<ItemType>(currPtr->getItem());
+            Node<T>* currPtr = other.headPtr;
+            headPtr = new Node<T>(currPtr->getItem());
             tailPtr = headPtr;
             currPtr = currPtr->getNext();
 
             while (currPtr)
             {
-                Node<ItemType>* newNodePtr = new Node<ItemType>(currPtr->getItem());
+                Node<T>* newNodePtr = new Node<T>(currPtr->getItem());
                 tailPtr->setNext(newNodePtr);
                 currPtr = currPtr->getNext();
                 tailPtr = tailPtr->getNext();
@@ -69,14 +69,14 @@ LinkedQueue<ItemType>::LinkedQueue(const LinkedQueue<ItemType>& other)
     }
 }
 
-template<class ItemType>
-LinkedQueue<ItemType>::~LinkedQueue()
+template<class T>
+LinkedQueue<T>::~LinkedQueue()
 {
-    Node<ItemType>* currPtr = headPtr;
+    Node<T>* currPtr = headPtr;
 
     while (currPtr)
     {
-        Node<ItemType>* nextPtr = currPtr->getNext();
+        Node<T>* nextPtr = currPtr->getNext();
         currPtr->setNext(nullptr);
         delete currPtr;
 
@@ -86,16 +86,16 @@ LinkedQueue<ItemType>::~LinkedQueue()
     headPtr = tailPtr = nullptr;
 }
 
-template<class ItemType>
-bool LinkedQueue<ItemType>::isEmpty() const
+template<class T>
+bool LinkedQueue<T>::isEmpty() const
 {
     return (headPtr == nullptr);
 }
 
-template<class ItemType>
-bool LinkedQueue<ItemType>::enqueue(const ItemType& newEntry)
+template<class T>
+bool LinkedQueue<T>::enqueue(const T& newEntry)
 {
-    Node<ItemType>* newNodePtr = new Node<ItemType>(newEntry);
+    Node<T>* newNodePtr = new Node<T>(newEntry);
     if (!headPtr)
     {
         headPtr = tailPtr = newNodePtr;
@@ -109,12 +109,12 @@ bool LinkedQueue<ItemType>::enqueue(const ItemType& newEntry)
     return true;
 }
 
-template<class ItemType>
-bool LinkedQueue<ItemType>::dequeue()
+template<class T>
+bool LinkedQueue<T>::dequeue()
 {
     if (isEmpty()) return false;
 
-    Node<ItemType>* firstNode = headPtr;
+    Node<T>* firstNode = headPtr;
 
     if (headPtr == tailPtr)
     {
@@ -129,8 +129,8 @@ bool LinkedQueue<ItemType>::dequeue()
     return true;
 }
 
-template<class ItemType>
-ItemType LinkedQueue<ItemType>::peekFront() const
+template<class T>
+T LinkedQueue<T>::peekFront() const
 {
     if (this->isEmpty())
     {
@@ -141,11 +141,11 @@ ItemType LinkedQueue<ItemType>::peekFront() const
     return headPtr->getItem();
 }
 
-template<class ItemType>
-vector<ItemType> LinkedQueue<ItemType>::display() const
+template<class T>
+vector<T> LinkedQueue<T>::display() const
 {
-    Node<ItemType>* currPtr = headPtr;
-    vector<ItemType> result;
+    Node<T>* currPtr = headPtr;
+    vector<T> result;
     while (currPtr != nullptr)
     {
         result.push_back(currPtr->getItem());
@@ -155,10 +155,10 @@ vector<ItemType> LinkedQueue<ItemType>::display() const
     return result;
 }
 
-template<class ItemType>
-int LinkedQueue<ItemType>::getNumberOfElements() const
+template<class T>
+int LinkedQueue<T>::getNumberOfElements() const
 {
-    Node<ItemType>* currPtr = headPtr;
+    Node<T>* currPtr = headPtr;
     int numOfItem = 0;
 
     while (currPtr)

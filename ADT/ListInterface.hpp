@@ -1,7 +1,7 @@
 #ifndef _LIST_INTERFACE
 #define _LIST_INTERFACE
 
-template<class ItemType>
+template<class T>
 class ListInterface {
 public:
     virtual ~ListInterface() {
@@ -25,7 +25,7 @@ public:
      * @param newPosition The list position at which to insert newEntry.
      * @param newEntry The entry to insert into the list.
      * @return True if insertion is successful, false otherwise. */
-    virtual bool insert(int newPosition, const ItemType& newEntry) = 0;
+    virtual bool insert(int newPosition, const T& newEntry) = 0;
 
     /** Removes the entry at a given position from this list.
      * @pre None. 
@@ -45,14 +45,14 @@ public:
      * @post The desired entry has been returned.
      * @param position The list position of the desired entry.
      * @return The item at the given position. */
-    virtual ItemType getEntry(int position) const = 0;
+    virtual T getEntry(int position) const = 0;
 
     /** Replaces the entry at the given position in this list.
      * @pre 1 <= position <= getLength().
      * @post The entry at the given position is newEntry.
      * @param position The list position of the item to replace.
      * @param newEntry The replacement entry. */
-    virtual void setEntry(int position, const ItemType& newEntry) = 0;
+    virtual void setEntry(int position, const T& newEntry) = 0;
 
     /** Gets the position of the list of a given entry.
      * @pre None.
@@ -60,7 +60,7 @@ public:
      * is 1 <= position <= getLength().
      * @param targetEntry The entry needs to be located.
      * @return The position of the given entry in the list. */
-    virtual int getPosition(const ItemType& targetEntry) const = 0;
+    virtual int getPosition(const T& targetEntry) const = 0;
 
     /** Sort the list in ascending order.
      * @post A sorted list in ascending order. */
@@ -73,7 +73,7 @@ public:
     //  * @param targetEntry The entry needs to be checked.
     //  * @return True if the list contains the given entry
     //  * false otherwise. */
-    // virtual bool contains(const ItemType& targetEntry) const = 0;
+    // virtual bool contains(const T& targetEntry) const = 0;
 
     // /** Removes all entries from the list.
     //  * @pre None.
@@ -81,7 +81,7 @@ public:
     //  * same with the given entry are deleted and other item will be renumbered
     //  * accordingly.
     //  * @param targetEntry The entry needs to be deleted. */
-    // virtual void remove(const ItemType& targetEntry) = 0;
+    // virtual void remove(const T& targetEntry) = 0;
     
 };
 #endif

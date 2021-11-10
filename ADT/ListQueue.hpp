@@ -8,56 +8,56 @@
 
 using namespace std;
 
-template<class ItemType>
-class ListQueue : public QueueInterface<ItemType>
+template<class T>
+class ListQueue : public QueueInterface<T>
 {
 private:
-    LinkedList<ItemType>* listPtr;
+    LinkedList<T>* listPtr;
 
 public:
     ListQueue();
     ListQueue(const ListQueue& aQueue);
     virtual ~ListQueue();
     bool isEmpty() const;
-    bool enqueue(const ItemType& newEntry);
+    bool enqueue(const T& newEntry);
     bool dequeue();
-    ItemType peekFront() const;
+    T peekFront() const;
 };
 
-template<class ItemType>
-ListQueue<ItemType>::ListQueue()
+template<class T>
+ListQueue<T>::ListQueue()
 {
-    listPtr = new LinkedList<ItemType>();
+    listPtr = new LinkedList<T>();
 }
 
-template<class ItemType>
-ListQueue<ItemType>::ListQueue(const ListQueue& aQueue)
+template<class T>
+ListQueue<T>::ListQueue(const ListQueue& aQueue)
 {
-    listPtr = new LinkedList<ItemType>(aQueue.listPtr);
+    listPtr = new LinkedList<T>(aQueue.listPtr);
 }
 
-template<class ItemType>
-ListQueue<ItemType>::~ListQueue()
+template<class T>
+ListQueue<T>::~ListQueue()
 {
     listPtr->clear();
     listPtr = nullptr;
 }
 
-template<class ItemType>
-bool ListQueue<ItemType>::isEmpty() const
+template<class T>
+bool ListQueue<T>::isEmpty() const
 {
     return listPtr->isEmpty();
 }
 
-template<class ItemType>
-bool ListQueue<ItemType>::enqueue(const ItemType& newEntry)
+template<class T>
+bool ListQueue<T>::enqueue(const T& newEntry)
 {
     int lastPosition = listPtr->getLength();
     return listPtr->insert(lastPosition + 1, newEntry);
 }
 
-template<class ItemType>
-ItemType ListQueue<ItemType>::peekFront() const
+template<class T>
+T ListQueue<T>::peekFront() const
 {
     if (listPtr->getLength() == 0)
     {

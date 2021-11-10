@@ -8,36 +8,36 @@
 
 using namespace std;
 
-template<class ItemType>
-class SortedListHasA : public SortedListInterface<ItemType>
+template<class T>
+class SortedListHasA : public SortedListInterface<T>
 {
 private:
-    LinkedList<ItemType>* listPtr;
+    LinkedList<T>* listPtr;
 
-    Node<ItemType>* copyChain(Node<ItemType>* originListPtr, int position = 1);
+    Node<T>* copyChain(Node<T>* originListPtr, int position = 1);
     
 public:
     SortedListHasA();
-    SortedListHasA(const SortedListHasA<ItemType>& sList);
+    SortedListHasA(const SortedListHasA<T>& sList);
     virtual ~SortedListHasA();
 
-    void insertSorted(const ItemType& newEntry);
-    bool removeSorted(const ItemType& anEntry);
-    int getPosition(const ItemType& newEntry);
+    void insertSorted(const T& newEntry);
+    bool removeSorted(const T& anEntry);
+    int getPosition(const T& newEntry);
 
     bool isEmpty() const;
     int getLength() const;
     bool remove(int position);
     void clear();   
-    ItemType getEntry(int position) const;
+    T getEntry(int position) const;
 };
 
-template<class ItemType>
-Node<ItemType>* SortedListHasA<ItemType>::copyChain(Node<ItemType>* originListPtr, int position)
+template<class T>
+Node<T>* SortedListHasA<T>::copyChain(Node<T>* originListPtr, int position)
 {
     if (originListPtr == nullptr) return nullptr;
 
-    Node<ItemType>* currPtr = new Node<ItemType>(originListPtr->getItem());
+    Node<T>* currPtr = new Node<T>(originListPtr->getItem());
     currPtr->setNext(copyChain(originListPtr->getNext(), position + 1));
 
     return currPtr;
@@ -45,36 +45,36 @@ Node<ItemType>* SortedListHasA<ItemType>::copyChain(Node<ItemType>* originListPt
 
 
 
-template<class ItemType>
-SortedListHasA<ItemType>::SortedListHasA()
+template<class T>
+SortedListHasA<T>::SortedListHasA()
 {
-    listPtr = new LinkedList<ItemType>();
+    listPtr = new LinkedList<T>();
 }
 
-template<class ItemType>
-SortedListHasA<ItemType>::SortedListHasA(const SortedListHasA<ItemType>& sList)
+template<class T>
+SortedListHasA<T>::SortedListHasA(const SortedListHasA<T>& sList)
 {
-    Node<ItemType>* head = sList.listPtr->getHead();
+    Node<T>* head = sList.listPtr->getHead();
 
-    listPtr = new LinkedList<ItemType>(copyChain(head));
+    listPtr = new LinkedList<T>(copyChain(head));
 }
 
-template<class ItemType>
-SortedListHasA<ItemType>::~SortedListHasA()
+template<class T>
+SortedListHasA<T>::~SortedListHasA()
 {
     clear();
 }
 
-template<class ItemType>
-void SortedListHasA<ItemType>::insertSorted(const ItemType& newEntry)
+template<class T>
+void SortedListHasA<T>::insertSorted(const T& newEntry)
 {
     int newPosition = abs(getPosition(newEntry));
 
     listPtr->insert(newPosition, newEntry);
 }
 
-template<class ItemType>
-bool SortedListHasA<ItemType>::removeSorted(const ItemType& anEntry)
+template<class T>
+bool SortedListHasA<T>::removeSorted(const T& anEntry)
 {
     int position = getPosition(anEntry);
 
@@ -82,8 +82,8 @@ bool SortedListHasA<ItemType>::removeSorted(const ItemType& anEntry)
     return listPtr->remove(position);
 }
 
-template<class ItemType>
-int SortedListHasA<ItemType>::getPosition(const ItemType& newEntry) 
+template<class T>
+int SortedListHasA<T>::getPosition(const T& newEntry) 
 {
     int result = 1;
 
@@ -107,33 +107,33 @@ int SortedListHasA<ItemType>::getPosition(const ItemType& newEntry)
 }
 
 
-template<class ItemType>
-bool SortedListHasA<ItemType>::isEmpty() const
+template<class T>
+bool SortedListHasA<T>::isEmpty() const
 {
     return listPtr->isEmpty();
 }
 
-template<class ItemType>
-int SortedListHasA<ItemType>::getLength() const
+template<class T>
+int SortedListHasA<T>::getLength() const
 {
     return listPtr->getLength();
 }
 
-template<class ItemType>
-bool SortedListHasA<ItemType>::remove(int position)
+template<class T>
+bool SortedListHasA<T>::remove(int position)
 {
     return listPtr->remove(position);
 }
 
-template<class ItemType>
-void SortedListHasA<ItemType>::clear()
+template<class T>
+void SortedListHasA<T>::clear()
 {
     listPtr->clear();
     listPtr = nullptr;
 }
 
-template<class ItemType>
-ItemType SortedListHasA<ItemType>::getEntry(int position) const
+template<class T>
+T SortedListHasA<T>::getEntry(int position) const
 {
     return listPtr->getEntry(position);
 }

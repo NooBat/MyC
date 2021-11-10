@@ -4,49 +4,49 @@
 #include "/Users/danielnguyen/Repo/C++/ADT/SortedListInterface.hpp"
 #include "/Users/danielnguyen/Repo/C++/ADT/PrecondViolatedException.hpp"
 
-template<class ItemType>
-class ArraySortedList : public SortedListInterface<ItemType>
+template<class T>
+class ArraySortedList : public SortedListInterface<T>
 {
 private:
-    ItemType* theList;
+    T* theList;
     int itemCount;
     int maxItem;
     static const int NUMBER_OF_ITEMS;
 
     void resize();
-    int getPositionRecur(const ItemType& anEntry, int idx = 1) const;
+    int getPositionRecur(const T& anEntry, int idx = 1) const;
 
 public:
     ArraySortedList();
 
-    ArraySortedList(const ArraySortedList<ItemType>& sList);
+    ArraySortedList(const ArraySortedList<T>& sList);
 
     bool isEmpty() const;
 
     int getLength() const;
 
-    void insertSorted(const ItemType& newEntry);
+    void insertSorted(const T& newEntry);
 
-    bool removeSorted(const ItemType& anEntry);
+    bool removeSorted(const T& anEntry);
 
-    int getPosition(const ItemType& anEntry);
+    int getPosition(const T& anEntry);
 
     bool remove(int position);
 
     void clear();
 
-    ItemType getEntry(int position) const;
+    T getEntry(int position) const;
 };
 
-template<class ItemType>
-const int ArraySortedList<ItemType>::NUMBER_OF_ITEMS = 50;
+template<class T>
+const int ArraySortedList<T>::NUMBER_OF_ITEMS = 50;
 
-template<class ItemType>
-void ArraySortedList<ItemType>::resize()
+template<class T>
+void ArraySortedList<T>::resize()
 {
     maxItem += 10;
 
-    ItemType* newList = new ItemType[maxItem];
+    T* newList = new T[maxItem];
 
     for (int i = 0; i < itemCount; i++)
     {
@@ -59,8 +59,8 @@ void ArraySortedList<ItemType>::resize()
     newList = nullptr;
 }
 
-template<class ItemType>
-int ArraySortedList<ItemType>::getPositionRecur(const ItemType& anEntry, int idx) const
+template<class T>
+int ArraySortedList<T>::getPositionRecur(const T& anEntry, int idx) const
 {
     if (idx > itemCount) return 0 - idx;
 
@@ -69,21 +69,21 @@ int ArraySortedList<ItemType>::getPositionRecur(const ItemType& anEntry, int idx
     return 0 - idx;
 }
 
-template<class ItemType>
-ArraySortedList<ItemType>::ArraySortedList()
+template<class T>
+ArraySortedList<T>::ArraySortedList()
 {
     maxItem = NUMBER_OF_ITEMS;
     itemCount = 0;
-    theList = new ItemType[maxItem];
+    theList = new T[maxItem];
 }
 
-template<class ItemType>
-ArraySortedList<ItemType>::ArraySortedList(const ArraySortedList<ItemType>& sList)
+template<class T>
+ArraySortedList<T>::ArraySortedList(const ArraySortedList<T>& sList)
 {
     maxItem = sList.maxItem;
     itemCount = sList.itemCount;
 
-    theList = new ItemType[maxItem];
+    theList = new T[maxItem];
 
     for (int i = 0; i < itemCount; i++)
     {
@@ -91,20 +91,20 @@ ArraySortedList<ItemType>::ArraySortedList(const ArraySortedList<ItemType>& sLis
     }
 }
 
-template<class ItemType>
-bool ArraySortedList<ItemType>::isEmpty() const
+template<class T>
+bool ArraySortedList<T>::isEmpty() const
 {
     return itemCount == 0;
 }
 
-template<class ItemType>
-int ArraySortedList<ItemType>::getLength() const
+template<class T>
+int ArraySortedList<T>::getLength() const
 {
     return itemCount;
 }
 
-template<class ItemType>
-void ArraySortedList<ItemType>::insertSorted(const ItemType& newEntry)
+template<class T>
+void ArraySortedList<T>::insertSorted(const T& newEntry)
 {
     int insertPosition = abs(getPosition(newEntry));
 
@@ -117,8 +117,8 @@ void ArraySortedList<ItemType>::insertSorted(const ItemType& newEntry)
     itemCount++;
 }
 
-template<class ItemType>
-bool ArraySortedList<ItemType>::removeSorted(const ItemType& anEntry)
+template<class T>
+bool ArraySortedList<T>::removeSorted(const T& anEntry)
 {
     int removePosition = getPosition(anEntry);
 
@@ -126,14 +126,14 @@ bool ArraySortedList<ItemType>::removeSorted(const ItemType& anEntry)
     return remove(removePosition);
 }
 
-template<class ItemType>
-int ArraySortedList<ItemType>::getPosition(const ItemType& anEntry)
+template<class T>
+int ArraySortedList<T>::getPosition(const T& anEntry)
 {
     return getPositionRecur(anEntry);
 }
 
-template<class ItemType>
-bool ArraySortedList<ItemType>::remove(int position)
+template<class T>
+bool ArraySortedList<T>::remove(int position)
 {
     if (position < 1 || position > itemCount) return false;
 
@@ -146,16 +146,16 @@ bool ArraySortedList<ItemType>::remove(int position)
     return true;
 }
 
-template<class ItemType>
-void ArraySortedList<ItemType>::clear()
+template<class T>
+void ArraySortedList<T>::clear()
 {
     delete[] theList;
     theList = nullptr;
     itemCount = 0;
 }
 
-template<class ItemType>
-ItemType ArraySortedList<ItemType>::getEntry(int position) const
+template<class T>
+T ArraySortedList<T>::getEntry(int position) const
 {
     if (position < 1 || position > itemCount)
     {

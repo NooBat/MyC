@@ -8,34 +8,34 @@
 
 using namespace std;
 
-template<class ItemType>
-class SL_PriorityQueue : public PriorityQueueInterface<ItemType>
+template<class T>
+class SL_PriorityQueue : public PriorityQueueInterface<T>
 {
 private:
-    LinkedSortedList<ItemType>* sListPtr;
+    LinkedSortedList<T>* sListPtr;
 public:
     SL_PriorityQueue();
     SL_PriorityQueue(const SL_PriorityQueue& pq);
     virtual ~SL_PriorityQueue();
 
     bool isEmpty() const;
-    bool enqueue(const ItemType& newEntry);
+    bool enqueue(const T& newEntry);
     bool dequeue();
-    ItemType peekFront() const;
+    T peekFront() const;
 };
 
-template<class ItemType>
-SL_PriorityQueue<ItemType>::SL_PriorityQueue()
+template<class T>
+SL_PriorityQueue<T>::SL_PriorityQueue()
 {
-    sListPtr = new LinkedSortedList<ItemType>();
+    sListPtr = new LinkedSortedList<T>();
 }
 
-template<class ItemType>
-SL_PriorityQueue<ItemType>::SL_PriorityQueue(const SL_PriorityQueue& pq)
+template<class T>
+SL_PriorityQueue<T>::SL_PriorityQueue(const SL_PriorityQueue& pq)
 {
     if (pq.sListPtr->getLength() == 0) 
     {
-        sListPtr = new LinkedSortedList<ItemType>();
+        sListPtr = new LinkedSortedList<T>();
     }
     else
     {
@@ -46,27 +46,27 @@ SL_PriorityQueue<ItemType>::SL_PriorityQueue(const SL_PriorityQueue& pq)
     }
 }
 
-template<class ItemType>
-SL_PriorityQueue<ItemType>::~SL_PriorityQueue()
+template<class T>
+SL_PriorityQueue<T>::~SL_PriorityQueue()
 {
     sListPtr->clear();
     sListPtr = nullptr;
 }
 
-template<class ItemType>
-bool SL_PriorityQueue<ItemType>::enqueue(const ItemType& newEntry)
+template<class T>
+bool SL_PriorityQueue<T>::enqueue(const T& newEntry)
 {
     return sListPtr->insertSorted(newEntry);
 }
 
-template<class ItemType>
-bool SL_PriorityQueue<ItemType>::dequeue() 
+template<class T>
+bool SL_PriorityQueue<T>::dequeue() 
 {
     return sListPtr->remove(sListPtr->getLength());
 }
 
-template<class ItemType>
-ItemType SL_PriorityQueue<ItemType>::peekFront() const
+template<class T>
+T SL_PriorityQueue<T>::peekFront() const
 {
     if (sListPtr->isEmpty())
     {

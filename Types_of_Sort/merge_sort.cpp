@@ -11,7 +11,7 @@ using namespace std;
 // - compare and merge the subarrays back with the right order
 // - auxiliary space: O(n)
 
-template<class ItemType>
+template<class T>
 class MergeSort 
 {
 private:
@@ -27,7 +27,7 @@ private:
      * @param last The index of the last element in the second segment in arr.
      * @note This function merges the two subarrays into a temporary array 
      * and copies the result into the original array arr. */
-    void merge(ItemType arr[], int first, int mid, int last);
+    void merge(T arr[], int first, int mid, int last);
 
 public:
     /** Sorts the items in an array into ascending order.
@@ -36,13 +36,13 @@ public:
      * @param arr The given array.
      * @param first The index of the first element to consider in arr. 
      * @param last The index of the last element to consider in arr. */
-    void mergeSort(ItemType arr[], int first, int last);
+    void mergeSort(T arr[], int first, int last);
 };
 
-template<class ItemType>
-void MergeSort<ItemType>::merge(ItemType arr[], int first, int mid, int last) 
+template<class T>
+void MergeSort<T>::merge(T arr[], int first, int mid, int last) 
 {
-    vector<ItemType> tempArray;
+    vector<T> tempArray;
 
     int first1 = first;
     int last1 = mid;
@@ -82,8 +82,8 @@ void MergeSort<ItemType>::merge(ItemType arr[], int first, int mid, int last)
     }
 }
 
-template<class ItemType>
-void MergeSort<ItemType>::mergeSort(ItemType arr[], int first, int last) 
+template<class T>
+void MergeSort<T>::mergeSort(T arr[], int first, int last) 
 {
     if (first >= last) return;
 

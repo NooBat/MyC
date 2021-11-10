@@ -5,30 +5,30 @@
 
 using namespace std;
 
-template<class ItemType>
+template<class T>
 class ShellSort {
 private:
     int comparisonCounter;
 public:
     ShellSort();
-    void shellSort(ItemType arr[], int n);
+    void shellSort(T arr[], int n);
     int getComparison() const;
 };
 
-template<class ItemType>
-ShellSort<ItemType>::ShellSort()
+template<class T>
+ShellSort<T>::ShellSort()
 {
     comparisonCounter = 0;
 }
 
-template<class ItemType>
-void ShellSort<ItemType>::shellSort(ItemType arr[], int n)
+template<class T>
+void ShellSort<T>::shellSort(T arr[], int n)
 {
     for (int h = n / 2; h > 0; h = h / 2)
     {   
         for (int unsorted = h; unsorted < n; unsorted++)
         {
-            ItemType nextItem = arr[unsorted];
+            T nextItem = arr[unsorted];
             int loc = unsorted;
 
             while (loc >= h && arr[loc - h] > nextItem)
@@ -43,8 +43,8 @@ void ShellSort<ItemType>::shellSort(ItemType arr[], int n)
     }
 }
 
-template<class ItemType>
-int ShellSort<ItemType>::getComparison() const 
+template<class T>
+int ShellSort<T>::getComparison() const 
 {
     return comparisonCounter;
 }
