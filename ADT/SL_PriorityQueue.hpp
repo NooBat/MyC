@@ -62,7 +62,7 @@ bool SL_PriorityQueue<ItemType>::enqueue(const ItemType& newEntry)
 template<class ItemType>
 bool SL_PriorityQueue<ItemType>::dequeue() 
 {
-    return sListPtr->remove(1);
+    return sListPtr->remove(sListPtr->getLength());
 }
 
 template<class ItemType>
@@ -74,7 +74,7 @@ ItemType SL_PriorityQueue<ItemType>::peekFront() const
         throw PrecondViolatedException(msg);
     }
 
-    return sListPtr->getEntry(1);
+    return sListPtr->getEntry(sListPtr->getLength());
 }
 
 #endif
