@@ -5,10 +5,7 @@
 #include "PrecondViolatedException.hpp"
 #include "Node.hpp"
 #include<string>
-<<<<<<< HEAD
 #include<vector>
-=======
->>>>>>> 5786e7ca1abcca13190da876c2bf3b9550f9899f
 
 using namespace std;
 
@@ -28,11 +25,8 @@ public:
     bool enqueue(const ItemType& newEntry);
     bool dequeue();
     ItemType peekFront() const;
-<<<<<<< HEAD
     vector<ItemType> display() const;
     int getNumberOfElements() const;
-=======
->>>>>>> 5786e7ca1abcca13190da876c2bf3b9550f9899f
 };
 
 template<class ItemType>
