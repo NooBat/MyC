@@ -5,6 +5,7 @@
 #include "PrecondViolatedException.hpp"
 #include "Node.hpp"
 #include<string>
+#include<vector>
 
 using namespace std;
 
@@ -24,6 +25,8 @@ public:
     bool enqueue(const ItemType& newEntry);
     bool dequeue();
     ItemType peekFront() const;
+    vector<ItemType> display() const;
+    int getNumberOfElements() const;
 };
 
 template<class ItemType>
@@ -135,4 +138,30 @@ ItemType LinkedQueue<ItemType>::peekFront() const
     return headPtr->getItem();
 }
 
+template<class ItemType>
+vector<ItemType> LinkedQueue<ItemType>::display() const
+{
+    Node<ItemType>* currPtr = headPtr;
+    vector<ItemType> result;
+    while (currPtr != nullptr)
+    {
+        result.push_back(currPtr->getItem());
+        currPtr = currPtr->getNext();
+    }
+
+    return result;
+}
+
+template<class ItemType>
+int LinkedQueue<ItemType>::getNumberOfElements() const
+{
+    Node<ItemType>* currPtr = headPtr;
+    int numOfItem = 0;
+
+    while (currPtr)
+    {
+        ++numOfItem;
+        currPtr = currPtr->getNext();
+    }
+}
 #endif
