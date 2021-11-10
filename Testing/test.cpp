@@ -4,11 +4,6 @@ using namespace std;
 
 int main()
 {  
-<<<<<<< HEAD
-    int n;
-    cin >> n;
-    
-=======
     int a, b, c;
     cin >> a >> b >> c;
     if (a > b)
@@ -26,5 +21,4 @@ int main()
     cout << a << " " << b << " " << c << endl;
     
     return 0;
->>>>>>> main
 }

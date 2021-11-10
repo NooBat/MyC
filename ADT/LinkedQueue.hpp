@@ -38,20 +38,28 @@ LinkedQueue<ItemType>::LinkedQueue(const LinkedQueue<ItemType>& other)
 {
     headPtr = nullptr;
     tailPtr = nullptr;
-    if (!other.isEmpty())
+    try
     {
-        Node<ItemType>* currPtr = other.headPtr;
-        headPtr = new Node<ItemType>(currPtr->getItem());
-        tailPtr = headPtr;
-        currPtr = currPtr->getNext();
-
-        while (currPtr)
+        if (!other.isEmpty())
         {
-            Node<ItemType>* newNodePtr = new Node<ItemType>(currPtr->getItem());
-            tailPtr->setNext(newNodePtr);
+            Node<ItemType>* currPtr = other.headPtr;
+            headPtr = new Node<ItemType>(currPtr->getItem());
+            tailPtr = headPtr;
             currPtr = currPtr->getNext();
-            tailPtr = tailPtr->getNext();
+
+            while (currPtr)
+            {
+                Node<ItemType>* newNodePtr = new Node<ItemType>(currPtr->getItem());
+                tailPtr->setNext(newNodePtr);
+                currPtr = currPtr->getNext();
+                tailPtr = tailPtr->getNext();
+            }
         }
+    }
+    catch(bad_alloc& e)
+    {
+        ~LinkedQueue();
+        throw e.what();
     }
 }
 
