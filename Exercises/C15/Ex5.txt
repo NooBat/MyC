@@ -1,0 +1,17 @@
+Specifications:
+    - Checks whether the given node is a leaf node or not.
+    - Precondition: None
+    - Postcondition: The tree and node remains unchanged. 
+    - Parameter (currPtr): The node to be evaluated.
+    - Returns: True if the node is leaf, otherwise false.
+
+isLeaf(Node* currPtr): bool
+{
+    isLeaf := true;     //Assume the node is a leaf node
+
+    if currPtr is NULL then isLeaf := false;
+    else
+    {
+        
+    }
+}

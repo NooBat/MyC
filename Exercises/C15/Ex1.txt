@@ -1,0 +1,7 @@
+a. The tree root is the node with the value of 60.
+b. Parents is:              [60, 20, 40]
+c. Children is:             {'60': [20, 70], '20': [10, 40], '40': [30, 50]}
+d. Siblings is:             [[20, 70], [10, 40], [30, 50]]
+e. Ancestors of 50 is:      [40, 20, 60]
+f. Descendants of 20 is:    [[10], [40, 30, 50]]
+g. Leaves is:               [10, 30, 50, 70]
