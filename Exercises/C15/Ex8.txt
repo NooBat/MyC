@@ -1,0 +1,5 @@
+No. Because there are some nodes which are not obeying the properties of a binary search tree.
+
+For example:
+    - H > G but H is in G's left subtree.
+    - U, V > T but they are in T's left subtree.
