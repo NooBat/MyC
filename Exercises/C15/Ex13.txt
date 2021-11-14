@@ -25,13 +25,18 @@ minimaximizeTree(Node* ptr, level(default := 0)): int
 {
     if (ptr->left is nullptr and ptr->right is nullptr) 
     {
-        return ptr->value
+        return ptr->val
     }
 
-    //recursively postorder traverse the tree
+    //recursively postorder traverse through the entire tree
     num1 := minimaximizeTree(ptr->left, level + 1)
     num2 := minimaximizeTree(ptr->right, level + 1)
 
     if (level is even number)
+        ptr->val = (num1 > num2) ? (num1) : (num2)
+    else
+        ptr->val = (num1 < num2) ? (num1) : (num2)
+
+    return ptr->val
 }
 
