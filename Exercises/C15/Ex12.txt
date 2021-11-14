@@ -1,0 +1,2 @@
+This convention exists so that when perform operations which involve comparison, we can know if we continue to
+the left subtree or the right when encounter an equal comparison.

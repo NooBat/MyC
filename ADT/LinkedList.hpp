@@ -8,7 +8,8 @@
 #include "Node.hpp"
 
 template<class T>
-class LinkedList : public ListInterface<T> {
+class LinkedList : public ListInterface<T> 
+{
 private:
     Node<T>* headPtr;
     
@@ -55,7 +56,11 @@ public:
 
     Node<T>* getHead() const;
 
+    int sumOfNode(Node<T>* curr);
+
     friend void sort(LinkedList<string>& aList);
+
+    friend void sumList(LinkedList<int>& aList);
 };
 
 //private methods:
@@ -139,6 +144,15 @@ Node<T>* LinkedList<T>::mergeSort(int first, int last)
     return merge(firstHalf, secondHalf);
 }
 
+template<class T>
+int LinkedList<T>::sumOfNode(Node<T>* currPtr)
+{
+    if (!currPtr) return 0;
+
+    currPtr->setItem(currPtr->getItem() + sumOfNode(currPtr->getNext()));
+
+    return currPtr->getItem();
+}
 
 //public methods:
 
@@ -377,4 +391,10 @@ void sort(LinkedList<string>& aList)
         }
     }
 }
+
+void sumList(LinkedList<int>* aList)
+{
+    int a = aList->sumOfNode(aList->getHead());
+}
+
 #endif

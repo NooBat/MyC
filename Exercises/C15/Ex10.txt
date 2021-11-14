@@ -1,0 +1,6 @@
+a.
+node[6] must contain the value that comes immediately after the value in the root node. Because node[6] is the
+leftest node in the root's right subtree.
+
+b.
+The order for inorder traversal: ([4], [2], [5], [8], [1], [6], [9], [3], [7])
