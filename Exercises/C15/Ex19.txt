@@ -8,3 +8,4 @@ Complete tree has two properties:
 b.
 Base case: h = 1 => 2^(i - 1) = 1
 
+ffá
