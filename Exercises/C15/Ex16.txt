@@ -1,0 +1,15 @@
+Pseudocode:
+
+nodeWithValue(Node* curr): void
+{
+    if curr is nullptr then return
+
+    if (curr->value < 100) nodeWithValue(curr->right)
+    else if (curr->value > 1000) nodeWithValue(curr->left)
+    else
+    {
+        print curr->value
+        nodeWithValue(curr->left)
+        nodeWithValue(curr->right)
+    }
+}
