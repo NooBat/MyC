@@ -2,8 +2,8 @@
 #define _LIST_QUEUE
 
 #include "QueueInterface.hpp"
-#include "LinkedList.hpp"
-#include "PrecondViolatedException.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT/List/LinkedList.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT/PrecondViolatedException.hpp"
 #include<string>
 
 using namespace std;

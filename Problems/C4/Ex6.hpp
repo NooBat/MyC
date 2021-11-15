@@ -1,7 +1,7 @@
 #ifndef _DOUBLY_LINKED_BAG
 #define _DOUBLY_LINKED_BAG
 
-#include "/Users/danielnguyen/Repo/C++/ADT/Doubly_Node.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT/Doubly_/Users/danielnguyen/Repo/C++/ADT/Node.hpp"
 #include "/Users/danielnguyen/Repo/C++/ADT/BagInterface.hpp"
 
 using namespace std;

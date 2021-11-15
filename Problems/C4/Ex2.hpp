@@ -2,7 +2,7 @@
 #define _SET
 
 #include "/Users/danielnguyen/Repo/C++/ADT/BagInterface.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/Node.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT//Users/danielnguyen/Repo/C++/ADT/Node.hpp"
 #include<iostream>
 
 using namespace std;

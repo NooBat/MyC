@@ -2,9 +2,9 @@
 #include<vector>
 #include<stack>
 #include<string>
-#include "LinkedBag.hpp"
-#include "ArrayBag.hpp"
-#include "LinkedStack.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT/Bag/LinkedBag.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT/Bag/ArrayBag.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT/Stack/LinkedStack.hpp"
 
 using namespace std;
 

@@ -2,8 +2,8 @@
 #define _CIRCULAR_LINKED_QUEUE
 
 #include "QueueInterface.hpp"
-#include "Node.hpp"
-#include "PrecondViolatedException.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT/Node.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT/PrecondViolatedException.hpp"
 
 template<class T>
 class CircularLinkedQueue : QueueInterface<T>

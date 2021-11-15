@@ -1,8 +1,8 @@
-#include "BagInterface.hpp"
-#include "LinkedBag.hpp"
-#include "ArrayBag.hpp"
-#include "StackInterface.hpp"
-#include "LinkedStack.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT/Bag/BagInterface.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT/Bag/LinkedBag.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT/Bag/ArrayBag.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT/Stack/StackInterface.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT/Stack/LinkedStack.hpp"
 #include<stack>
 #include<iostream>
 #include<string>

@@ -2,7 +2,7 @@
 #define _LINKED_SORTED_LIST
 
 #include "/Users/danielnguyen/Repo/C++/ADT/SortedListInterface.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/Node.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT//Users/danielnguyen/Repo/C++/ADT/Node.hpp"
 #include "/Users/danielnguyen/Repo/C++/ADT/PrecondViolatedException.hpp"
 
 #include<string>

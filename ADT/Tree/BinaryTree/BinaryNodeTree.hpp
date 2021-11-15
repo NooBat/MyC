@@ -2,7 +2,7 @@
 #define _BINARY_NODE_TREE
 
 #include "BinaryTreeInterface.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/Tree/BinaryNode.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT/Node.hpp"
 #include "/Users/danielnguyen/Repo/C++/ADT/NotFoundException.hpp"
 #include "/Users/danielnguyen/Repo/C++/ADT/PrecondViolatedException.hpp"
 

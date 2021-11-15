@@ -1,7 +1,7 @@
 #ifndef _LINKED_STACK
 #define _LINKED_STACK
 
-#include "Node.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT/Node.hpp"
 #include "StackInterface.hpp"
 #include<iostream>
 #include<cstring>

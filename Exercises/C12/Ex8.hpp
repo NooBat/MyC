@@ -1,7 +1,7 @@
 #ifndef _FRONT_LIST
 #define _FRONT_LIST
 
-#include "/Users/danielnguyen/Repo/C++/ADT/Node.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT//Users/danielnguyen/Repo/C++/ADT/Node.hpp"
 #include "/Users/danielnguyen/Repo/C++/ADT/PrecondViolatedException.hpp"
 
 using namespace std;
