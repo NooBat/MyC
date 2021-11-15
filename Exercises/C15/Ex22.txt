@@ -1,0 +1,12 @@
+a.
+
+Algorithm 1: ["Jane", "Bob", "Alan", "Elisa", "Tom", "Nancy", "Wendy"]
+
+Algorithm 2: ["Jane", "Bob", "Tom", "Alan", "Elisa", "Nancy", "Wendy"]
+
+b.
+
+For Algorithm 1 we can use the ADT stack for keeper C.
+For Algorithm 2 we can use the ADT queue for keeper C.
+
+The ADT should contains the pointer to each node in the tree.

@@ -1,0 +1,1 @@
+You should use Preorder traversal to attain the same shape and nodes as the original tree.

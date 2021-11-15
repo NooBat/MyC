@@ -1,0 +1,8 @@
+Base case: with 1 node (root node) we will have 1 + 1 = 2 empty subtrees. This is true.
+
+Assume this is also true for n = k nodes, which will have k + 1 empty subtrees.
+
+- With n = k + 1, we have k + 2 empty subtrees. This has more than the last one by 1 subtree. This is true since
+adding one more node means the number of empty subtrees have to reduce by 1, hence k empty subtrees. 
+- Also, by adding a new node, we are adding two more empty subtrees, on the left and the right of the new node. 
+- So this is true for every number.

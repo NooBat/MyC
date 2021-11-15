@@ -1,0 +1,10 @@
+Base case: with 1 leaf node we have 2 * 1 - 1 = 1 node. This is true since tree with 1 node 
+is both a root and a leaf node.
+
+Assume this is correct for k leaves => 2 * k - 1 = 2k - 1 nodes.
+
+With k + 1 leaves, we have 2k + 1 nodes. If we want to add 1 leaf to the tree, we have to add 
+2 nodes on both side of the parent node. Because with 1 node added this would violate the properties of 
+the strictly binary tree. So k leaves lead to 2k - 1 nodes, hence k + 1 leaves lead to 2k + 1 nodes. 
+
+=> This is true for all real numbers.
