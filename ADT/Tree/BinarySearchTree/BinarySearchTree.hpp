@@ -23,7 +23,7 @@ protected:
 
     //Recursively adds a new node to the tree in a left/right fashion to
     //keep the tree balanced.
-    BinaryNode<T>* balancedAdd(BinaryNode<T>* subTreePtr, BinaryNode<T>* newNodePtr);
+    BinaryNode<T>* insertNode(BinaryNode<T>* subTreePtr, BinaryNode<T>* newNodePtr);
 
     //Removes the target value from the tree by calling moveValuesUpTree
     //to overwrite value with value from child.
