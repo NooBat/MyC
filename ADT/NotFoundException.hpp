@@ -3,19 +3,17 @@
 
 #include<iostream>
 #include<string>
-#include<exception>
+#include<cstring>
+#include<stdexcept>
 
 using namespace std;
-
-class NotFoundException : public exception
+class NotFoundException : public domain_error
 {
 public:
-    NotFoundException(const string& msg = "");
-}
+    NotFoundException(const string& msg = ""): domain_error("Not Found Exception: " + msg)
+    {
 
-NotFoundException::NotFoundException(const string& msg) : exception("Not Found Exception: " + msg)
-{
-    
-}
+    }
+};
 
 #endif

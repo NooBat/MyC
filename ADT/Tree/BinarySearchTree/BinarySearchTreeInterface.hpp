@@ -5,7 +5,6 @@ template<class T>
 class BinarySearchTreeInterface 
 {
 public:
-public:
     /** Tests whether this binary search tree is empty.
      * @return True if the binary search tree is empty, or false if not. */
     virtual bool isEmpty() const = 0;

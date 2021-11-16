@@ -1,13 +1,11 @@
-#ifndef _BINARY_NODE_TREE
-#define _BINARY_NODE_TREE
+#ifndef _BINARY_SEARCH_TREE
+#define _BINARY_SEARCH_TREE
 
-#include "BinaryTreeInterface.hpp"
+#include "BinarySearchTreeInterface.hpp"
 #include "/Users/danielnguyen/Repo/C++/ADT/Tree/BinaryNode.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/NotFoundException.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/PrecondViolatedException.hpp"
 
 template<class T>
-class BinaryNodeTree : public BinaryTreeInterface<T>
+class BinarySearchTree : public BinarySearchTreeInterface
 {
 private:
     BinaryNode<T>* rootPtr;
@@ -17,7 +15,6 @@ protected:
 //      Protected Utility Methods Section:  
 //      Recursive helper methods for the public methods.
 //----------------------------------------------------------
-
     int getHeightHelper(BinaryNode<T>* subTreePtr) const;
     int getNumberOfNodesHelper(BinaryNode<T>* subTreePtr) const;
 
@@ -49,46 +46,6 @@ protected:
     void preorder(void visit(T&), BinaryNode<T>* treePtr) const;
     void inorder(void visit(T&), BinaryNode<T>* treePtr) const;
     void postorder(void visit(T&), BinaryNode<T>* treePtr) const;
-
-public:
-//----------------------------------------------------------
-//      Constructor and Destructor Section.
-//----------------------------------------------------------
-
-    BinaryNodeTree();
-    BinaryNodeTree(const T& item, 
-                   const BinaryNodeTree<T>* leftTreePtr = nullptr, 
-                   const BinaryNodeTree<T>* rightTreePtr = nullptr);
-    BinaryNodeTree(const BinaryNodeTree<T>& tree);  
-    virtual ~BinaryNodeTree();
-
-//----------------------------------------------------------
-//      Public BinaryTreeInterface Methods Section.
-//----------------------------------------------------------
-
-    bool isEmpty() const;
-    int getHeight() const;
-    int getNumberOfNodes() const;
-    T getRootData() const;
-    void setRootData(const T& newData);
-    bool add(const T& newData);
-    bool remove(const T& data);
-    void clear();
-    T getEntry(const T& anEntry) const;
-    bool contains(const T& anEntry) const;
-
-//----------------------------------------------------------
-//      Public Traversals Section.
-//----------------------------------------------------------
-
-    void preorderTraverse(void visit(T&)) const;
-    void inorderTraverse(void visit(T&)) const;
-    void postorderTraverse(void visit(T&)) const;
-
-//----------------------------------------------------------
-//      Overloaded Operator Section.
-//----------------------------------------------------------
-    BinaryNodeTree<T>& operator=(const BinaryNodeTree<T>& rightHandSide);
 };
 
 #endif
