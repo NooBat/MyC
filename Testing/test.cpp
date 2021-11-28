@@ -4,6 +4,9 @@ using namespace std;
 
 int main()
 {  
-    int a = 2;
+    freopen("test.txt", "r", stdin);
+    string a;
+    cin >> 
+
     return 0;
 }

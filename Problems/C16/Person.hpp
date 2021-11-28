@@ -25,6 +25,7 @@ public:
     int getYear() const;
 
     bool operator>(const Person& rightHandSide) const;
+    bool operator<(const Person& rightHandSide) const;
     bool operator==(const Person& rightHandSide) const;
 };
 

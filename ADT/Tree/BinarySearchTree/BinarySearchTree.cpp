@@ -1,3 +1,6 @@
+#ifndef _IMPLEMENT_BST
+#define _IMPLEMENT_BST
+
 #include "BinarySearchTree.hpp"
 
 //----------------------------------------------------------
@@ -94,9 +97,9 @@ template<class T>
 BinaryNode<T>* BinarySearchTree<T>::findNode(BinaryNode<T>* treePtr, const T& target) const
 {
     if (!treePtr) return nullptr;
-
-    if (treePtr->getItem() > target) return findNode(treePtr->getLeftPtr(), target);
-    else if (treePtr->getItem() < target) return findNode(treePtr->getRightPtr(), target);
+    T theItem = treePtr->getItem();
+    if (theItem > target) return findNode(treePtr->getLeftPtr(), target);
+    else if (theItem < target) return findNode(treePtr->getRightPtr(), target);
     return treePtr;
 }
 
@@ -236,9 +239,9 @@ bool BinarySearchTree<T>::contains(const T& anEntry) const
 }
 
 template<class T>
-void BinarySearchTree<T>::readTree(const string& filename)
+void BinarySearchTree<T>::readTree(T arr[], int n)
 {
-
+    rootPtr = createTree(rootPtr, arr, 0, n - 1);
 }
 
 //----------------------------------------------------------
@@ -294,3 +297,5 @@ BinarySearchTree<T>& BinarySearchTree<T>::operator=(const BinarySearchTree<T>& r
 
     return *this;
 }
+
+#endif

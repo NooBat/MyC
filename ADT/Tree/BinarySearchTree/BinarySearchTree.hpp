@@ -69,7 +69,7 @@ public:
     void clear();
     T getEntry(const T& anEntry) const;
     bool contains(const T& anEntry) const;
-    void readTree(const string& filename);
+    void readTree(T arr[], int n);
 
 //----------------------------------------------------------
 //      Public Traversals Section.
