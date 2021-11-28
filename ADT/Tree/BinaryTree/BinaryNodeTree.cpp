@@ -55,7 +55,7 @@ BinaryNode<T>* BinaryNodeTree<T>::balancedAdd(BinaryNode<T>* subTreePtr, BinaryN
         }
         else
         {
-            BinaryNode<T>* newRightPtr = balanceAdd(subTreePtr->getRightPtr(), newNodePtr);
+            BinaryNode<T>* newRightPtr = balancedAdd(subTreePtr->getRightPtr(), newNodePtr);
             subTreePtr->setRightPtr(newRightPtr);
         }
     }
@@ -66,20 +66,68 @@ BinaryNode<T>* BinaryNodeTree<T>::balancedAdd(BinaryNode<T>* subTreePtr, BinaryN
 template<class T>
 BinaryNode<T>* BinaryNodeTree<T>::removeValue(BinaryNode<T>* subTreePtr, const T& target, bool& success)
 {
+    if (!subTreePtr) return nullptr;
 
-    return nullptr;
+    if (subTreePtr->getItem() == target) 
+    {
+        if (subTreePtr->isLeaf()) 
+        {
+            delete subTreePtr;
+            subTreePtr = nullptr; 
+        }
+        else if (!subTreePtr->getLeftPtr()) subTreePtr->setItem(moveValuesUpTree(subTreePtr->getRightPtr())->getItem());
+        else subTreePtr->setItem(moveValuesUpTree(subTreePtr->getLeftPtr())->getItem());
+        success = true;
+    }
+    else 
+    {
+        subTreePtr->setLeftPtr(removeValue(subTreePtr->getLeftPtr(), target, success));
+        if (!success) subTreePtr->setRightPtr(removeValue(subTreePtr->getRightPtr(), target, success));
+    }
+
+    return subTreePtr;
 }
 
 template<class T>
 BinaryNode<T>* BinaryNodeTree<T>::moveValuesUpTree(BinaryNode<T>* subTreePtr)
 {
-    return nullptr;
+    if (!subTreePtr) return nullptr;
+
+    if (subTreePtr->isLeaf()) 
+    {
+        delete subTreePtr;
+        subTreePtr = nullptr;
+    }
+    else if (!subTreePtr->getLeftPtr()) 
+    {
+        subTreePtr->setItem(subTreePtr->getRightPtr()->getItem());
+        subTreePtr->setRightPtr(moveValuesUpTree(subTreePtr->getRightPtr()));
+    }
+    else
+    {
+        subTreePtr->setItem(subTreePtr->getLeftPtr()->getItem());
+        subTreePtr->setRightPtr(moveValuesUpTree(subTreePtr->getLeftPtr()));
+    }
+
+    return subTreePtr;
 }
 
 template<class T>
 BinaryNode<T>* BinaryNodeTree<T>::findNode(BinaryNode<T>* treePtr, const T& target, bool& success) const
 {
-    return nullptr;
+    if (!treePtr) return nullptr;
+
+    if (treePtr->getItem() == target)
+    {
+        success = true;
+    }
+    else
+    {
+        treePtr->setLeftPtr(findNode(treePtr->getLeftPtr(), target, success));
+        treePtr->setRightPtr(findNode(treePtr->getRightPtr(), target, success));
+    }
+
+    return treePtr;
 }
 
 template<class T>
@@ -101,7 +149,7 @@ void BinaryNodeTree<T>::preorder(void visit(T&), BinaryNode<T>* treePtr) const
     if (!treePtr) return;
 
     T theItem = treePtr->getItem();
-    visit(treePtr->getItem());
+    visit(theItem);
     preorder(visit, treePtr->getLeftPtr());
     preorder(visit, treePtr->getRightPtr());
 }
@@ -112,7 +160,8 @@ void BinaryNodeTree<T>::inorder(void visit(T&), BinaryNode<T>* treePtr) const
     if (!treePtr) return;
 
     inorder(visit, treePtr->getLeftPtr());
-    visit(treePtr->getItem());
+    T theItem = treePtr->getItem();
+    visit(theItem);
     inorder(visit, treePtr->getRightPtr());
 }
 
@@ -123,7 +172,8 @@ void BinaryNodeTree<T>::postorder(void visit(T&), BinaryNode<T>* treePtr) const
 
     postorder(visit, treePtr->getLeftPtr());
     postorder(visit, treePtr->getRightPtr());
-    visit(treePtr->getItem());
+    T theItem = treePtr->getItem();
+    visit(theItem);
 }
 
 
@@ -220,14 +270,14 @@ bool BinaryNodeTree<T>::remove(const T& data)
 template<class T>
 void BinaryNodeTree<T>::clear()
 {
-    destroyTree();
+    destroyTree(rootPtr);
 }
 
 template<class T>
 T BinaryNodeTree<T>::getEntry(const T& anEntry) const
 {
     bool isInTree = false;
-    rootPtr = findNode(rootPtr, anEntry, isInTree);
+    findNode(rootPtr, anEntry, isInTree);
 
     if (!isInTree)
     {
@@ -242,7 +292,7 @@ template<class T>
 bool BinaryNodeTree<T>::contains(const T& anEntry) const
 {
     bool isInTree = false;
-    rootPtr = findNode(rootPtr, anEntry, isInTree);
+    findNode(rootPtr, anEntry, isInTree);
 
     return isInTree;
 }

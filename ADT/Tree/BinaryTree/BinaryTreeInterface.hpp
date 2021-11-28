@@ -11,7 +11,7 @@ public:
 
     /** Gets the height of this binary tree. 
      * @return The height of the binary tree. */
-    virtual int getHeigth() const = 0;
+    virtual int getHeight() const = 0;
 
     /** Gets number of nodes in this binary tree. 
      * @return The number of nodes in the binary tree. */

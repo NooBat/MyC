@@ -1,0 +1,9 @@
+Maximum height:
+A->C->E->F->L->V->Z
+
+Minimum height:
+                        F
+                      /   \
+                     C      V
+                    / \    / \
+                   A   E  L   Z
