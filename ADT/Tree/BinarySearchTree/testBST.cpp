@@ -34,7 +34,7 @@ void testBST(BinarySearchTree<string>& tree)
     cout << "; should be adam eve genesis new syslink";
     cout << endl << endl;
 
-    cout << "remove(\"bronson\"): returns " << tree.remove("bronson") << "; should be 0 (false)." << endl;
+    cout << "remove(\"allison\"): returns " << tree.remove("allison") << "; should be 0 (false)." << endl;
     cout << "remove(\"syslink\"): returns " << tree.remove("syslink") << "; should be 1 (true)." << endl;
     cout << "Inorder traversal: ";
     tree.inorderTraverse(visit);
