@@ -75,8 +75,7 @@ BinaryNode<T>* BinaryNodeTree<T>::removeValue(BinaryNode<T>* subTreePtr, const T
             delete subTreePtr;
             subTreePtr = nullptr; 
         }
-        else if (!subTreePtr->getLeftPtr()) subTreePtr->setItem(moveValuesUpTree(subTreePtr->getRightPtr())->getItem());
-        else subTreePtr->setItem(moveValuesUpTree(subTreePtr->getLeftPtr())->getItem());
+        else subTreePtr = moveValuesUpTree(subTreePtr);
         success = true;
     }
     else 
@@ -98,15 +97,15 @@ BinaryNode<T>* BinaryNodeTree<T>::moveValuesUpTree(BinaryNode<T>* subTreePtr)
         delete subTreePtr;
         subTreePtr = nullptr;
     }
-    else if (!subTreePtr->getLeftPtr()) 
+    else if (!subTreePtr->getRightPtr()) 
     {
-        subTreePtr->setItem(subTreePtr->getRightPtr()->getItem());
-        subTreePtr->setRightPtr(moveValuesUpTree(subTreePtr->getRightPtr()));
+        subTreePtr->setItem(subTreePtr->getLeftPtr()->getItem());
+        subTreePtr->setLeftPtr(moveValuesUpTree(subTreePtr->getLeftPtr()));
     }
     else
     {
-        subTreePtr->setItem(subTreePtr->getLeftPtr()->getItem());
-        subTreePtr->setRightPtr(moveValuesUpTree(subTreePtr->getLeftPtr()));
+        subTreePtr->setItem(subTreePtr->getRightPtr()->getItem());
+        subTreePtr->setRightPtr(moveValuesUpTree(subTreePtr->getRightPtr()));
     }
 
     return subTreePtr;
