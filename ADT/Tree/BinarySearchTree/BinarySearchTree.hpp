@@ -4,6 +4,10 @@
 #include "/Users/danielnguyen/Repo/C++/ADT/Tree/BinaryTree/BinaryTreeInterface.hpp"
 #include "/Users/danielnguyen/Repo/C++/ADT/Tree/BinaryTree/BinaryNodeTree.hpp"
 #include "/Users/danielnguyen/Repo/C++/ADT/Tree/BinaryTree/BinaryNodeTree.cpp"
+#include<string>
+#include<fstream>
+
+using namespace std;
 
 template<class T>
 class BinarySearchTree : public BinaryNodeTree<T>
@@ -38,6 +42,9 @@ protected:
     //or nullptr if not found.
     BinaryNode<T>* findNode(BinaryNode<T>* treePtr, const T& target) const;
 
+    //Take array and turn it into a balanced binary search tree.
+    BinaryNode<T>* createTree(BinaryNode<T>* subTreePtr, T arr[], int left, int right);
+
 public:
 //----------------------------------------------------------
 //      Constructor and Destructor Section.             
@@ -62,6 +69,7 @@ public:
     void clear();
     T getEntry(const T& anEntry) const;
     bool contains(const T& anEntry) const;
+    void readTree(const string& filename);
 
 //----------------------------------------------------------
 //      Public Traversals Section.

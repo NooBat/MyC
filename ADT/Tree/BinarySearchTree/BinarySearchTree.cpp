@@ -100,6 +100,26 @@ BinaryNode<T>* BinarySearchTree<T>::findNode(BinaryNode<T>* treePtr, const T& ta
     return treePtr;
 }
 
+template<class T> 
+BinaryNode<T>* BinarySearchTree<T>::createTree(BinaryNode<T>* subTreePtr, T arr[], int left, int right)
+{
+    if (left <= right)
+    {
+        int mid = left + (right - left) / 2;
+        BinaryNode<T>* treePtr = new BinaryNode<T>(arr[mid]);
+
+        BinaryNode<T>* leftSubtree = createTree(treePtr->getLeftPtr(), arr, left, mid - 1);
+        BinaryNode<T>* rightSubtree = createTree(treePtr->getRightPtr(), arr, mid + 1, right);
+
+        treePtr->setLeftPtr(leftSubtree);
+        treePtr->setRightPtr(rightSubtree);
+
+        return treePtr;
+    }
+
+    return nullptr;
+}
+
 //----------------------------------------------------------
 //      Constructor and Destructor Section.             
 //----------------------------------------------------------
@@ -216,6 +236,16 @@ bool BinarySearchTree<T>::contains(const T& anEntry) const
 }
 
 template<class T>
+void BinarySearchTree<T>::readTree(const string& filename)
+{
+
+}
+
+//----------------------------------------------------------
+//      Public Traversals Section.
+//----------------------------------------------------------
+
+template<class T>
 void BinarySearchTree<T>::preorderTraverse(void visit(T&)) const
 {
     if (!rootPtr) return;
@@ -248,6 +278,10 @@ void BinarySearchTree<T>::postorderTraverse(void visit(T&)) const
     BinaryNodeTree<T>::postorder(visit, rootPtr->getRightPtr());
     visit(theItem);
 }
+
+//----------------------------------------------------------
+//      Overloaded Operator Section.
+//----------------------------------------------------------
 
 template<class T>
 BinarySearchTree<T>& BinarySearchTree<T>::operator=(const BinarySearchTree<T>& rightHandSide)
