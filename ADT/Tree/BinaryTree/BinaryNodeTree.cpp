@@ -15,7 +15,7 @@ int BinaryNodeTree<T>::getHeightHelper(BinaryNode<T>* subTreePtr) const
     int leftHeight = getHeightHelper(subTreePtr->getLeftPtr());
     int rightHeight = getHeightHelper(subTreePtr->getRightPtr());
 
-    return (leftHeight < rightHeight) ? (leftHeight + 1) : (rightHeight + 1); 
+    return (leftHeight >= rightHeight) ? (leftHeight + 1) : (rightHeight + 1); 
 }
 
 template<class T>
