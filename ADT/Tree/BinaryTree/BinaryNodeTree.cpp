@@ -280,7 +280,7 @@ T BinaryNodeTree<T>::getEntry(const T& anEntry) const
 
     if (!isInTree)
     {
-        string msg = "getEntry() was called with an empty tree or nonexistent item!";
+        string msg = "getEntry() was called with an empty tree or nonexisted item!";
         throw NotFoundException(msg);
     }
 

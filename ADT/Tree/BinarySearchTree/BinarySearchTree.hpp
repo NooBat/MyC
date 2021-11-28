@@ -1,31 +1,30 @@
 #ifndef _BINARY_SEARCH_TREE
 #define _BINARY_SEARCH_TREE
 
-#include "ADT/Tree/BinaryTree/BinaryTreeInterface.hpp"
-#include "ADT/Tree/BinaryTree/BinaryNodeTree.hpp"
-#include "ADT/Tree/BinaryTree/BinaryNodeTree.cpp"
+#include "/Users/danielnguyen/Repo/C++/ADT/Tree/BinaryTree/BinaryTreeInterface.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT/Tree/BinaryTree/BinaryNodeTree.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT/Tree/BinaryTree/BinaryNodeTree.cpp"
 
 template<class T>
 class BinarySearchTree : public BinaryNodeTree<T>
 {
 private:
     BinaryNode<T>* rootPtr;
-
 protected:
 //----------------------------------------------------------
 //      Protected Utility Methods Section:  
 //      Recursive helper methods for the public methods.
 //----------------------------------------------------------
 
-    //Recursively adds a new node to the tree in a left/right fashion to
-    //keep the tree balanced.
-    BinaryNode<T>* insertNode(BinaryNode<T>* subTreePtr, BinaryNode<T>* newNodePtr);
+    // Recursively finds where the given node should be placed and
+    // inserts it in a leaf at that point.
+    BinaryNode<T>* insertInorder(BinaryNode<T>* subTreePtr, BinaryNode<T>* newNodePtr);
 
-    //Removes the target value from the tree by calling moveValuesUpTree
-    //to overwrite value with value from child.
+    // Removes the given target value from the tree while maintaining a 
+    // binary search tree.
     BinaryNode<T>* removeValue(BinaryNode<T>* subTreePtr, const T& target, bool& success);
 
-    //Removes the given target value from the tree while maintaining a
+    //Removes the given node from the tree while maintaining a
     //binary search tree.
     BinaryNode<T>* removeNode(BinaryNode<T>* nodePtr);
 
@@ -67,9 +66,9 @@ public:
 //----------------------------------------------------------
 //      Public Traversals Section.
 //----------------------------------------------------------
-    void preorderTraversal(void visit(T&)) const;
-    void inorderTraversal(void visit(T&)) const;
-    void postorderTraversal(void visit(T&)) const;
+    void preorderTraverse(void visit(T&)) const;
+    void inorderTraverse(void visit(T&)) const;
+    void postorderTraverse(void visit(T&)) const;
 
 //----------------------------------------------------------
 //      Overloaded Operator Section.
