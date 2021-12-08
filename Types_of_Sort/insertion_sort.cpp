@@ -51,22 +51,26 @@ int InsertionSort<T>::getComparison() const
     return comparisonCounter;
 }
 
-// void print_array(int arr[], int n) {
-//     for (int i = 0; i < n; i++) {
-//         cout << arr[i] << " ";
-//     }
-//     cout << endl;
-// }
+void print_array(int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
 
-// int main() {
-//     int arr[] = {29, 34, 10, 10, 13, 14};
+int main() {
+    int arr[] = {29, 28, 27, 26, 25, 24, 23};
 
-//     int size = (int)(sizeof(arr) / sizeof(arr[0]));
+    int size = (int)(sizeof(arr) / sizeof(arr[0]));
 
-//     insertionSort(arr, size);
+    InsertionSort<int> s;
 
-//     print_array(arr, size);
+    s.insertionSort(arr, size);
+
+    cout << s.getComparison() << endl;
+
+    print_array(arr, size);
     
-//     return 0;
-// }
+    return 0;
+}
 #endif
