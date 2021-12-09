@@ -1,0 +1,7 @@
+At h = 1, there is 2^1 - 1 = 1 node. (This is true since the first node is at height = 1)
+At h = k, there is 2^k - 1 nodes
+At h = k + 1, there is 2^(k + 1) - 1 = 2^k * 2 - 1 = (2^k - 1) + 2^k nodes
+Because the next row of nodes always double the number of nodes in the previous row since it is a full binary tree.
+And since every level n has 2^(n - 1) nodes so the total number at height k + 1 has 
+2^k - 1 + 2^(k + 1 - 1) = 2^k - 1 + 2^k
+=> This has been proved.

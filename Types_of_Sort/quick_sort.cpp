@@ -10,12 +10,12 @@ using namespace std;
 // - target of partition is put the picked pivot in the correct position
 // - put smaller elements to the left side of the pivot and other to the right side
 
-template<class ItemType>
-void insertionSort(ItemType arr[], int n) 
+template<class T>
+void insertionSort(T arr[], int n) 
 {
     for (int unsorted = 1; unsorted < n; unsorted++) 
     {
-        ItemType nextItem = arr[unsorted];
+        T nextItem = arr[unsorted];
         int loc = unsorted;
 
         while (loc > 0 && arr[loc - 1] > nextItem) 
@@ -28,18 +28,18 @@ void insertionSort(ItemType arr[], int n)
     }
 }
 
-template<class ItemType>
+template<class T>
 class QuickSort 
 {
 private:
-    void sortFirstMiddleLast(ItemType arr[], int first, int mid, int last);
-    int partition(ItemType arr[], int first, int last);
+    void sortFirstMiddleLast(T arr[], int first, int mid, int last);
+    int partition(T arr[], int first, int last);
 public:
-    void quickSort(ItemType arr[], int first, int last);
+    void quickSort(T arr[], int first, int last);
 };
 
-template<class ItemType>
-void QuickSort<ItemType>::sortFirstMiddleLast(ItemType arr[], int first, int mid, int last) 
+template<class T>
+void QuickSort<T>::sortFirstMiddleLast(T arr[], int first, int mid, int last) 
 {
     if (arr[first] > arr[mid]) 
     {
@@ -57,8 +57,8 @@ void QuickSort<ItemType>::sortFirstMiddleLast(ItemType arr[], int first, int mid
     }
 }
 
-template<class ItemType>
-int QuickSort<ItemType>::partition(ItemType arr[], int first, int last) 
+template<class T>
+int QuickSort<T>::partition(T arr[], int first, int last) 
 {
     int mid = first + (last - first) / 2;
 
@@ -66,7 +66,7 @@ int QuickSort<ItemType>::partition(ItemType arr[], int first, int last)
     swap(arr[mid], arr[last - 1]);
 
     int pivotIdx = last - 1;
-    ItemType pivot = arr[last - 1];
+    T pivot = arr[last - 1];
 
     int indexFromLeft = first + 1;
     int indexFromRight = last - 2;
@@ -100,8 +100,8 @@ int QuickSort<ItemType>::partition(ItemType arr[], int first, int last)
     return pivotIdx;
 }   
 
-template<class ItemType>
-void QuickSort<ItemType>::quickSort(ItemType arr[], int first, int last) 
+template<class T>
+void QuickSort<T>::quickSort(T arr[], int first, int last) 
 {   
     if (first >= last) return;
     if (last - first + 1 <= 3) 

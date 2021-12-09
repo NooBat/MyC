@@ -1,0 +1,16 @@
+The maximum number of nodes that a binary tree can have at level n is 2^n - 1.
+
+a.
+Complete tree has two properties:
+    - All its leaf nodes must tend toward the left.
+    - It may not have a right sibling.
+
+b.
+Base case: h = 1 => 2^(i - 1) = 1
+
+Assume this formula is correct for all h = k
+
+With h = k + 1 => Sum = 2^0 + 2^1 + 2^2 + ... + 2^k
+When h = k then Sum = 2^0 + 2^1 + 2^2 + ... + 2^(k - 1) => the number of nodes only at level h = k + 1 is 2^k
+Since we need the maximum number in the binary tree so we can assume that the next level always have double the number
+of nodes of the previous level. And since 2^k = 2^(k - 1) * 2 so this is true.

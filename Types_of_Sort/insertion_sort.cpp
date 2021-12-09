@@ -9,7 +9,7 @@ using namespace std;
 // - if key <= predecessor, compare key to the elements before
 // - move the greater elements one position up to make space    4 5 1 3 2 
 
-template<class ItemType>
+template<class T>
 class InsertionSort 
 {
 private:
@@ -17,22 +17,22 @@ private:
 
 public:
     InsertionSort();
-    void insertionSort(ItemType arr[], int n);
+    void insertionSort(T arr[], int n);
     int getComparison() const;
 };
 
-template<class ItemType>
-InsertionSort<ItemType>::InsertionSort()
+template<class T>
+InsertionSort<T>::InsertionSort()
 {
     comparisonCounter = 0;
 }
 
-template<class ItemType>
-void InsertionSort<ItemType>::insertionSort(ItemType arr[], int n) 
+template<class T>
+void InsertionSort<T>::insertionSort(T arr[], int n) 
 {
     for (int unsorted = 1; unsorted < n; unsorted++) 
     {
-        ItemType nextItem = arr[unsorted];
+        T nextItem = arr[unsorted];
         int loc = unsorted;
 
         while (loc > 0 && arr[loc - 1] > nextItem) {
@@ -45,28 +45,32 @@ void InsertionSort<ItemType>::insertionSort(ItemType arr[], int n)
     }
 }
 
-template<class ItemType>
-int InsertionSort<ItemType>::getComparison() const 
+template<class T>
+int InsertionSort<T>::getComparison() const 
 {
     return comparisonCounter;
 }
 
-// void print_array(int arr[], int n) {
-//     for (int i = 0; i < n; i++) {
-//         cout << arr[i] << " ";
-//     }
-//     cout << endl;
-// }
+void print_array(int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
 
-// int main() {
-//     int arr[] = {29, 34, 10, 10, 13, 14};
+int main() {
+    int arr[] = {29, 28, 27, 26, 25, 24, 23};
 
-//     int size = (int)(sizeof(arr) / sizeof(arr[0]));
+    int size = (int)(sizeof(arr) / sizeof(arr[0]));
 
-//     insertionSort(arr, size);
+    InsertionSort<int> s;
 
-//     print_array(arr, size);
+    s.insertionSort(arr, size);
+
+    cout << s.getComparison() << endl;
+
+    print_array(arr, size);
     
-//     return 0;
-// }
+    return 0;
+}
 #endif

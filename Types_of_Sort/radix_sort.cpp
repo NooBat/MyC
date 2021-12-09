@@ -10,18 +10,18 @@ using namespace std;
 // - sort the array digit by digit using any stable sort
 // - preferably counting sort (since digit varies from 0 to 9)
 
-template<class ItemType>
+template<class T>
 class RadixSort 
 {
 private:
-    int getMaxDigit(ItemType arr[], int n);
+    int getMaxDigit(T arr[], int n);
 public:
-    void radixSort(ItemType arr[], int n);
-    void print_array(ItemType arr[], int n);
+    void radixSort(T arr[], int n);
+    void print_array(T arr[], int n);
 };
 
-template<class ItemType>
-int RadixSort<ItemType>::getMaxDigit(ItemType arr[], int n) {
+template<class T>
+int RadixSort<T>::getMaxDigit(T arr[], int n) {
     int max = arr[0];
     int count = 0;
 
@@ -37,8 +37,8 @@ int RadixSort<ItemType>::getMaxDigit(ItemType arr[], int n) {
     return count;
 }
 
-template<class ItemType>
-void RadixSort<ItemType>::radixSort(ItemType arr[], int n) 
+template<class T>
+void RadixSort<T>::radixSort(T arr[], int n) 
 {
     int d = getMaxDigit(arr, n);
 
@@ -73,8 +73,8 @@ void RadixSort<ItemType>::radixSort(ItemType arr[], int n)
     }
 }
 
-template<class ItemType>
-void RadixSort<ItemType>::print_array(ItemType arr[], int n) 
+template<class T>
+void RadixSort<T>::print_array(T arr[], int n) 
 {
     for (int i = 0; i < n; i++) 
     {

@@ -1,0 +1,2 @@
+Because the maximum number of nodes can only be reached when a binary tree is a full binary tree. So this
+can be proved the same as Ex17.

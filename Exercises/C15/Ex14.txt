@@ -1,0 +1,2 @@
+There will be at least one binary search tree whose preorder traversal matches the order of the items on the list.
+No, there will only be one binary search tree that has the given preorder traversal.

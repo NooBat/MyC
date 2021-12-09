@@ -41,10 +41,10 @@ public:
     }
 };
 
-template<class ItemType>
-class ArrayStack : public StackInterface<ItemType> {
+template<class T>
+class ArrayStack : public StackInterface<T> {
 private:
-    ItemType* arr;
+    T* arr;
 
     int increment;
     int maxItem;
@@ -59,21 +59,21 @@ public:
 
     ArrayStack(const int& increment);
 
-    ArrayStack(ItemType arr[], int n);
+    ArrayStack(T arr[], int n);
 
-    ArrayStack(const ArrayStack<ItemType>& aStack);
+    ArrayStack(const ArrayStack<T>& aStack);
 
     bool isEmpty() const;
 
-    bool push(const ItemType& newEntry);
+    bool push(const T& newEntry);
 
     bool pop();
 
     int getMaxItem() const;
 
-    ItemType peek() const;
+    T peek() const;
 
-    vector<ItemType> toVector() const;
+    vector<T> toVector() const;
 };
 
 #endif

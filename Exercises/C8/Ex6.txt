@@ -1,6 +1,6 @@
 //Client level for getPosition function
 
-getPosition(aList: LinkedList, targetEntry: ItemType): int 
+getPosition(aList: LinkedList, targetEntry: T): int 
 {
     for (int i = 1; i < length of aList; i++) 
     {

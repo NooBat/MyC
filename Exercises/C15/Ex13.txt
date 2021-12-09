@@ -1,0 +1,42 @@
+a.
+
+Max                            0
+Min            100                             100
+Max        0           0                   0           0
+Min    1     23    17      99          98      53  21      0
+
+After transform to Minimax tree: 
+
+Max                            23
+Min            23                              21
+Max        23          99                  98          21
+Min    1     23    17      99          98      53  21      0
+
+b.
+
+Outline:
+- Postorder traversal through the entire tree 
+- Save the level to identify max or min node and save the maximum/minimum
+- Assign the maximum/minimum to the node.
+
+Pseudocode:
+
+minimaximizeTree(Node* ptr, level(default := 0)): int
+{
+    if (ptr->left is nullptr and ptr->right is nullptr) 
+    {
+        return ptr->val
+    }
+
+    //recursively postorder traverse through the entire tree
+    num1 := minimaximizeTree(ptr->left, level + 1)
+    num2 := minimaximizeTree(ptr->right, level + 1)
+
+    if (level is even number)
+        ptr->val = (num1 > num2) ? (num1) : (num2)
+    else
+        ptr->val = (num1 < num2) ? (num1) : (num2)
+
+    return ptr->val
+}
+

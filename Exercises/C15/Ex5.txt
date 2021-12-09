@@ -1,0 +1,24 @@
+a.
+Specifications:
+    - Checks whether the root node is a leaf node or not.
+    - Precondition: None
+    - Postcondition: The tree and node remains unchanged. 
+    - Returns: True if the node is leaf, otherwise false.
+
+isLeaf(): bool
+{
+    isLeaf := true;     //Assume the node is a leaf node
+
+    if rootNode is NULL then isLeaf := false;
+    else
+    {
+        if rootNode have a child (left or right child) then isLeaf := false;
+    }
+
+    return isLeaf;
+}
+
+
+b.
+Yes, the client-implemented function would take the root node as a argument and then we can evaluate it
+normally as the pseudocode above.

@@ -4,57 +4,57 @@
 
 using namespace std;
 
-template<class ItemType>
-class StackIsA : public FrontList<ItemType>
+template<class T>
+class StackIsA : public FrontList<T>
 {
 public:
     StackIsA();
 
     bool isEmpty() const;
 
-    // bool insert(const ItemType& newEntry);
+    // bool insert(const T& newEntry);
 
     bool remove();
 
     void clear();
 
-    ItemType getEntry() const;
+    T getEntry() const;
 };
 
-template<class ItemType>
-StackIsA<ItemType>::StackIsA() : FrontList<ItemType>::FrontList()
+template<class T>
+StackIsA<T>::StackIsA() : FrontList<T>::FrontList()
 {
 
 }
 
-template<class ItemType>
-bool StackIsA<ItemType>::isEmpty() const
+template<class T>
+bool StackIsA<T>::isEmpty() const
 {
-    return FrontList<ItemType>::isEmpty();
+    return FrontList<T>::isEmpty();
 }
 
-// template<class ItemType>
-// bool StackIsA<ItemType>::insert(const ItemType& newEntry)
+// template<class T>
+// bool StackIsA<T>::insert(const T& newEntry)
 // {
-//     return FrontList<ItemType>::insert(newEntry);
+//     return FrontList<T>::insert(newEntry);
 // }
 
-template<class ItemType>
-bool StackIsA<ItemType>::remove()
+template<class T>
+bool StackIsA<T>::remove()
 {
-    return FrontList<ItemType>::remove();
+    return FrontList<T>::remove();
 }
 
-template<class ItemType>
-void StackIsA<ItemType>::clear()
+template<class T>
+void StackIsA<T>::clear()
 {
-    FrontList<ItemType>::clear();
+    FrontList<T>::clear();
 }
 
-template<class ItemType>
-ItemType StackIsA<ItemType>::getEntry() const
+template<class T>
+T StackIsA<T>::getEntry() const
 {
-    return FrontList<ItemType>::getEntry();
+    return FrontList<T>::getEntry();
 }
 
 int main()

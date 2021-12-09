@@ -24,59 +24,59 @@ public:
     }
 };
 
-template<class ItemType>
+template<class T>
 class Node {
 private:
-    ItemType item;
-    Node<ItemType>* next;
+    T item;
+    Node<T>* next;
 
 public: 
     Node();
 
-    Node(const ItemType& anItem);
+    Node(const T& anItem);
 
-    Node(const ItemType& anItem, Node<ItemType>* nextNodePtr);
+    Node(const T& anItem, Node<T>* nextNodePtr);
     
-    void setItem(const ItemType& anItem);
+    void setItem(const T& anItem);
 
-    void setNext(Node<ItemType>* nextNodePtr);
+    void setNext(Node<T>* nextNodePtr);
 
-    ItemType getItem() const;
+    T getItem() const;
 
-    Node<ItemType>* getNext() const;
+    Node<T>* getNext() const;
 };
 
-template<class ItemType>
-Node<ItemType>::Node(): next(NULL) {
+template<class T>
+Node<T>::Node(): next(NULL) {
 
 }
 
-template<class ItemType>
-Node<ItemType>::Node(const ItemType& anItem): item(anItem), next(nullptr) {
+template<class T>
+Node<T>::Node(const T& anItem): item(anItem), next(nullptr) {
 
 }
 
-template<class ItemType>
-Node<ItemType>::Node(const ItemType& anItem, Node<ItemType>* nextNodePtr) {
+template<class T>
+Node<T>::Node(const T& anItem, Node<T>* nextNodePtr) {
     this->item = anItem;
     this->next = nextNodePtr;
 }
 
-template<class ItemType>
-void Node<ItemType>::setItem(const ItemType& anItem) {
+template<class T>
+void Node<T>::setItem(const T& anItem) {
     this->item = anItem;
 }
 
-template<class ItemType>
-void Node<ItemType>::setNext(Node<ItemType>* nextNodePtr) {
+template<class T>
+void Node<T>::setNext(Node<T>* nextNodePtr) {
     this->next = nextNodePtr;
 }
 
-template<class ItemType>
-ItemType Node<ItemType>::getItem() const {
+template<class T>
+T Node<T>::getItem() const {
     try
     {
-        Node<ItemType>* nextPtr = this->next;
+        Node<T>* nextPtr = this->next;
     }
     catch(exception& e)
     {
@@ -86,11 +86,11 @@ ItemType Node<ItemType>::getItem() const {
     return item;
 }
 
-template<class ItemType>
-Node<ItemType>* Node<ItemType>::getNext() const {
+template<class T>
+Node<T>* Node<T>::getNext() const {
     try
     {
-        Node<ItemType>* nextPtr = this->next;
+        Node<T>* nextPtr = this->next;
     }
     catch(exception& e)
     {

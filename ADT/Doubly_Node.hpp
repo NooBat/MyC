@@ -5,81 +5,81 @@
 
 using namespace std;
 
-template<class ItemType>
+template<class T>
 class DoublyNode {
 private:
-    ItemType item;
-    DoublyNode<ItemType>* next;
-    DoublyNode<ItemType>* prev;
+    T item;
+    DoublyNode<T>* next;
+    DoublyNode<T>* prev;
 
 public:
     DoublyNode();
 
-    DoublyNode(const ItemType& item);
+    DoublyNode(const T& item);
 
-    DoublyNode(const ItemType& item, DoublyNode<ItemType>* next, 
-               DoublyNode<ItemType>* previous);
+    DoublyNode(const T& item, DoublyNode<T>* next, 
+               DoublyNode<T>* previous);
 
-    void setItem(const ItemType& item);
+    void setItem(const T& item);
 
-    void setNext(DoublyNode<ItemType>* next);
+    void setNext(DoublyNode<T>* next);
 
-    void setPrevious(DoublyNode<ItemType>* previous);
+    void setPrevious(DoublyNode<T>* previous);
 
-    ItemType getItem() const;
+    T getItem() const;
 
-    DoublyNode<ItemType>* getNext() const;
+    DoublyNode<T>* getNext() const;
 
-    DoublyNode<ItemType>* getPrevious() const;
+    DoublyNode<T>* getPrevious() const;
 };
 
-template<class ItemType>
-DoublyNode<ItemType>::DoublyNode(): next(nullptr), prev(nullptr) {
+template<class T>
+DoublyNode<T>::DoublyNode(): next(nullptr), prev(nullptr) {
 
 }
 
-template<class ItemType>
-DoublyNode<ItemType>::DoublyNode(const ItemType& item): item(item), next(nullptr), prev(nullptr) {
+template<class T>
+DoublyNode<T>::DoublyNode(const T& item): item(item), next(nullptr), prev(nullptr) {
 
 }
 
-template<class ItemType>
-DoublyNode<ItemType>::DoublyNode(const ItemType& item, 
-                      DoublyNode<ItemType>* next, 
-                      DoublyNode<ItemType>* previous) 
+template<class T>
+DoublyNode<T>::DoublyNode(const T& item, 
+                      DoublyNode<T>* next, 
+                      DoublyNode<T>* previous) 
 {
     this->setItem(item);
     this->setNext(next);
     this->setPrevious(previous);
 }
 
-template<class ItemType>
-void DoublyNode<ItemType>::setItem(const ItemType& item) {
+template<class T>
+void DoublyNode<T>::setItem(const T& item) {
     this->item = item;
 }
 
-template<class ItemType>
-void DoublyNode<ItemType>::setNext(DoublyNode<ItemType>* next) {
+template<class T>
+void DoublyNode<T>::setNext(DoublyNode<T>* next) {
     this->next = next;
 }
 
-template<class ItemType>
-void DoublyNode<ItemType>::setPrevious(DoublyNode<ItemType>* previous) {
+template<class T>
+void DoublyNode<T>::setPrevious(DoublyNode<T>* previous) {
     this->prev = previous;
 }
 
-template<class ItemType>
-ItemType DoublyNode<ItemType>::getItem() const {
+template<class T>
+T DoublyNode<T>::getItem() const {
     return this->item;
 }
 
-template<class ItemType>
-DoublyNode<ItemType>* DoublyNode<ItemType>::getNext() const {
+template<class T>
+DoublyNode<T>* DoublyNode<T>::getNext() const {
     return this->next;
 }
 
-template<class ItemType>
-DoublyNode<ItemType>* DoublyNode<ItemType>::getPrevious() const {
+template<class T>
+DoublyNode<T>* DoublyNode<T>::getPrevious() const {
     return this->prev;
 }
 #endif

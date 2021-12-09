@@ -4,27 +4,9 @@ using namespace std;
 
 int main()
 {  
-<<<<<<< HEAD
-    int n;
-    cin >> n;
-    
-=======
-    int a, b, c;
-    cin >> a >> b >> c;
-    if (a > b)
-    {
-        swap(a, b);
-    }
-    if (a > c)
-    {
-        swap(a, c);
-    }
-    if (b > c)
-    {
-        swap(b, c);
-    }
-    cout << a << " " << b << " " << c << endl;
-    
+    freopen("test.txt", "r", stdin);
+    string a;
+    cin >> 
+
     return 0;
->>>>>>> main
 }

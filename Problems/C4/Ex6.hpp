@@ -1,23 +1,23 @@
 #ifndef _DOUBLY_LINKED_BAG
 #define _DOUBLY_LINKED_BAG
 
-#include "/Users/danielnguyen/Repo/C++/ADT/Doubly_Node.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT/Doubly_/Users/danielnguyen/Repo/C++/ADT/Node.hpp"
 #include "/Users/danielnguyen/Repo/C++/ADT/BagInterface.hpp"
 
 using namespace std;
 
-template<class ItemType>
-class DoublyLinkedBag : public BagInterface<ItemType> {
+template<class T>
+class DoublyLinkedBag : public BagInterface<T> {
 private:
     int itemCount;
-    DoublyNode<ItemType>* headPtr;
+    DoublyNode<T>* headPtr;
 
-    DoublyNode<ItemType>* getPtrTo(const ItemType& target) const;
+    DoublyNode<T>* getPtrTo(const T& target) const;
 
 public:
     DoublyLinkedBag();
 
-    DoublyLinkedBag(const DoublyLinkedBag<ItemType>& other);
+    DoublyLinkedBag(const DoublyLinkedBag<T>& other);
 
     virtual ~DoublyLinkedBag();
 
@@ -25,24 +25,24 @@ public:
 
     bool isEmpty() const;
 
-    bool add(const ItemType& newEntry);
+    bool add(const T& newEntry);
 
-    bool remove(const ItemType& entry);
+    bool remove(const T& entry);
 
     void clear();
 
-    int getFrequencyOf(const ItemType& entry) const;
+    int getFrequencyOf(const T& entry) const;
 
-    bool contains(const ItemType& entry) const;
+    bool contains(const T& entry) const;
 
-    vector<ItemType> toVector() const;
+    vector<T> toVector() const;
 };
 
-template<class ItemType>
-DoublyNode<ItemType>* DoublyLinkedBag<ItemType>::getPtrTo(const ItemType& target) const {
+template<class T>
+DoublyNode<T>* DoublyLinkedBag<T>::getPtrTo(const T& target) const {
     if (headPtr == nullptr) return nullptr;
 
-    DoublyNode<ItemType>* curr = headPtr;
+    DoublyNode<T>* curr = headPtr;
 
     while (curr != nullptr) {
         if (curr->getItem() == target) return curr;
@@ -52,20 +52,20 @@ DoublyNode<ItemType>* DoublyLinkedBag<ItemType>::getPtrTo(const ItemType& target
     return nullptr;
 }
 
-template<class ItemType>
-DoublyLinkedBag<ItemType>::DoublyLinkedBag(): itemCount(0), headPtr(nullptr) {
+template<class T>
+DoublyLinkedBag<T>::DoublyLinkedBag(): itemCount(0), headPtr(nullptr) {
 
 }
 
-template<class ItemType>
-DoublyLinkedBag<ItemType>::DoublyLinkedBag(const DoublyLinkedBag<ItemType>& other) {
+template<class T>
+DoublyLinkedBag<T>::DoublyLinkedBag(const DoublyLinkedBag<T>& other) {
     if (other.hppeadPtr == nullptr) return;
 
     itemCount = other.itemCount;
 
     headPtr = nullptr;
 
-    DoublyNode<ItemType>* curr = other.hppeadPtr;
+    DoublyNode<T>* curr = other.hppeadPtr;
 
     while (curr != nullptr) {
         this->add(curr->getItem());
@@ -73,30 +73,30 @@ DoublyLinkedBag<ItemType>::DoublyLinkedBag(const DoublyLinkedBag<ItemType>& othe
     }
 }
 
-template<class ItemType>
-DoublyLinkedBag<ItemType>::~DoublyLinkedBag() {
+template<class T>
+DoublyLinkedBag<T>::~DoublyLinkedBag() {
     clear();
 }
 
-template<class ItemType>
-int DoublyLinkedBag<ItemType>::getCurrentSize() const {
+template<class T>
+int DoublyLinkedBag<T>::getCurrentSize() const {
     return itemCount;
 }
 
-template<class ItemType>
-bool DoublyLinkedBag<ItemType>::isEmpty() const {
+template<class T>
+bool DoublyLinkedBag<T>::isEmpty() const {
     return itemCount == 0;
 }
 
-template<class ItemType>
-bool DoublyLinkedBag<ItemType>::add(const ItemType& newEntry) {
+template<class T>
+bool DoublyLinkedBag<T>::add(const T& newEntry) {
     if (headPtr == nullptr) {
-        headPtr = new DoublyNode<ItemType>(newEntry);
+        headPtr = new DoublyNode<T>(newEntry);
         itemCount++;
         return true;
     }
 
-    DoublyNode<ItemType>* temp = new DoublyNode<ItemType>(newEntry);
+    DoublyNode<T>* temp = new DoublyNode<T>(newEntry);
 
     temp->setNext(headPtr);
     headPtr->setPrevious(temp);
@@ -107,9 +107,9 @@ bool DoublyLinkedBag<ItemType>::add(const ItemType& newEntry) {
     return true;
 }
 
-template<class ItemType>
-bool DoublyLinkedBag<ItemType>::remove(const ItemType& entry) {
-    DoublyNode<ItemType>* curr = getPtrTo(entry);
+template<class T>
+bool DoublyLinkedBag<T>::remove(const T& entry) {
+    DoublyNode<T>* curr = getPtrTo(entry);
 
     if (curr == nullptr) return false;
     if (curr == headPtr) {
@@ -124,8 +124,8 @@ bool DoublyLinkedBag<ItemType>::remove(const ItemType& entry) {
         return true;
     }
 
-    DoublyNode<ItemType>* prev = curr->getPrevious();
-    DoublyNode<ItemType>* next = curr->getNext();
+    DoublyNode<T>* prev = curr->getPrevious();
+    DoublyNode<T>* next = curr->getNext();
 
     prev->setNext(next);
     if (next != nullptr) next->setPrevious(prev);
@@ -137,14 +137,14 @@ bool DoublyLinkedBag<ItemType>::remove(const ItemType& entry) {
     return true;
 }
 
-template<class ItemType>
-void DoublyLinkedBag<ItemType>::clear() {
+template<class T>
+void DoublyLinkedBag<T>::clear() {
     if (headPtr == nullptr) return;
 
-    DoublyNode<ItemType>* curr = headPtr;
+    DoublyNode<T>* curr = headPtr;
     
     while (curr != nullptr) {
-        DoublyNode<ItemType>* next = curr->getNext();
+        DoublyNode<T>* next = curr->getNext();
 
         delete curr;
 
@@ -154,12 +154,12 @@ void DoublyLinkedBag<ItemType>::clear() {
     headPtr = nullptr;
 }
 
-template<class ItemType>
-int DoublyLinkedBag<ItemType>::getFrequencyOf(const ItemType& entry) const {
+template<class T>
+int DoublyLinkedBag<T>::getFrequencyOf(const T& entry) const {
     int count = 0;
     if (headPtr == nullptr) return count;
 
-    DoublyNode<ItemType>* curr = headPtr;
+    DoublyNode<T>* curr = headPtr;
 
     while (curr != nullptr) {
         if (curr->getItem() == entry) count++;
@@ -169,18 +169,18 @@ int DoublyLinkedBag<ItemType>::getFrequencyOf(const ItemType& entry) const {
     return count;
 }
 
-template<class ItemType>
-bool DoublyLinkedBag<ItemType>::contains(const ItemType& entry) const {
+template<class T>
+bool DoublyLinkedBag<T>::contains(const T& entry) const {
     return getPtrTo(entry) != nullptr;
 }
 
-template<class ItemType>
-vector<ItemType> DoublyLinkedBag<ItemType>::toVector() const {
-    vector<ItemType> result;
+template<class T>
+vector<T> DoublyLinkedBag<T>::toVector() const {
+    vector<T> result;
 
     if (headPtr == nullptr) return result;
 
-    DoublyNode<ItemType>* curr = headPtr;
+    DoublyNode<T>* curr = headPtr;
 
     while (curr != nullptr) {
         result.push_back(curr->getItem());

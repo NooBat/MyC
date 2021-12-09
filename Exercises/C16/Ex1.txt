@@ -1,0 +1,7 @@
+a.
+The node numbered 6 must be the inorder successor of the root. Since this is the leftmost node in the root's 
+right subtree.
+
+b.
+The node numbered 8 must be the inorder predecessor of the root. Since this is the rightmost node in the root's 
+left subtree.

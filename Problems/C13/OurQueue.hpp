@@ -8,16 +8,16 @@
 
 using namespace std;
 
-template<class ItemType>
-class OurQueue : public QueueInterface<ItemType>
+template<class T>
+class OurQueue : public QueueInterface<T>
 {
 private:
-    queue<ItemType>* aQueue;
+    queue<T>* aQueue;
 
 public:
     OurQueue()
     {
-        aQueue = new queue<ItemType>();
+        aQueue = new queue<T>();
     }
 
     ~OurQueue()
@@ -31,7 +31,7 @@ public:
         return aQueue->empty();
     }
 
-    bool enqueue(const ItemType& newEntry)
+    bool enqueue(const T& newEntry)
     {
         aQueue->push(newEntry);
         return true;
@@ -44,7 +44,7 @@ public:
         return true;
     }
 
-    ItemType peekFront() const
+    T peekFront() const
     {
         if (aQueue->empty())
         {

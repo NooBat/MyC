@@ -3,13 +3,13 @@
 
 using namespace std;
 
-template<class ItemType>
-void ArrayStack<ItemType>::doubleSize() {
+template<class T>
+void ArrayStack<T>::doubleSize() {
     try {
-        ItemType* newArr = nullptr;
+        T* newArr = nullptr;
 
-        if (increment <= 0) newArr = new ItemType[maxItem * 2];
-        else newArr = new ItemType[maxItem + increment];
+        if (increment <= 0) newArr = new T[maxItem * 2];
+        else newArr = new T[maxItem + increment];
 
         for (int i = 0; i < maxItem; i++) {
             newArr[i] = arr[i];
@@ -32,12 +32,12 @@ void ArrayStack<ItemType>::doubleSize() {
     }
 }
 
-template<class ItemType>
-void ArrayStack<ItemType>::halfSize() {
+template<class T>
+void ArrayStack<T>::halfSize() {
     try {
         if (top + 1 >= maxItem / 2) return;
 
-        ItemType* newArr = new ItemType[maxItem / 2];
+        T* newArr = new T[maxItem / 2];
 
         for (int i = 0; i < maxItem / 2; i++) {
             newArr[i] = arr[i];
@@ -57,34 +57,34 @@ void ArrayStack<ItemType>::halfSize() {
     }
 }
 
-template<class ItemType>
-ArrayStack<ItemType>::ArrayStack() {
+template<class T>
+ArrayStack<T>::ArrayStack() {
     maxItem = 6;
 
     increment = 0;
 
-    arr = new ItemType[6];
+    arr = new T[6];
 
     top = -1;
 }
 
-template<class ItemType>
-ArrayStack<ItemType>::ArrayStack(const int& increment) {
+template<class T>
+ArrayStack<T>::ArrayStack(const int& increment) {
     maxItem = 6;
     
     this->increment = increment;
 
-    arr = new ItemType[6];
+    arr = new T[6];
 
     top = -1;
 }
 
-template<class ItemType>
-ArrayStack<ItemType>::ArrayStack(ItemType arr[], int n) {
+template<class T>
+ArrayStack<T>::ArrayStack(T arr[], int n) {
     try {
         maxItem = n;
 
-        this->arr = new ItemType[n];
+        this->arr = new T[n];
 
         top = n - 1;
 
@@ -99,14 +99,14 @@ ArrayStack<ItemType>::ArrayStack(ItemType arr[], int n) {
     }
 }
 
-template<class ItemType>
-ArrayStack<ItemType>::ArrayStack(const ArrayStack<ItemType>& aStack) {
+template<class T>
+ArrayStack<T>::ArrayStack(const ArrayStack<T>& aStack) {
     maxItem = aStack.maxItem;
 
     top = aStack.top;
 
     try {
-        arr = new ItemType[maxItem];
+        arr = new T[maxItem];
 
         for (int i = 0; i < maxItem; i++) {
             arr[i] = aStack.arr[i];
@@ -119,13 +119,13 @@ ArrayStack<ItemType>::ArrayStack(const ArrayStack<ItemType>& aStack) {
     }
 }
 
-template<class ItemType>
-bool ArrayStack<ItemType>::isEmpty() const {
+template<class T>
+bool ArrayStack<T>::isEmpty() const {
     return top == -1;
 }
 
-template<class ItemType>
-bool ArrayStack<ItemType>::push(const ItemType& newEntry) {
+template<class T>
+bool ArrayStack<T>::push(const T& newEntry) {
     if (top == maxItem - 1) {
         try {
             doubleSize();
@@ -142,8 +142,8 @@ bool ArrayStack<ItemType>::push(const ItemType& newEntry) {
     return true;
 }
 
-template<class ItemType>
-bool ArrayStack<ItemType>::pop() {
+template<class T>
+bool ArrayStack<T>::pop() {
     if (top == -1) {
         return false;
     }
@@ -159,21 +159,21 @@ bool ArrayStack<ItemType>::pop() {
     return true;
 }
 
-template<class ItemType>
-int ArrayStack<ItemType>::getMaxItem() const {
+template<class T>
+int ArrayStack<T>::getMaxItem() const {
     return maxItem;
 }
 
-template<class ItemType>
-ItemType ArrayStack<ItemType>::peek() const {
+template<class T>
+T ArrayStack<T>::peek() const {
     if (top == -1) throw EmptyStack();
 
     return arr[top];
 }
 
-template<class ItemType>
-vector<ItemType> ArrayStack<ItemType>::toVector() const {
-    vector<ItemType> result;
+template<class T>
+vector<T> ArrayStack<T>::toVector() const {
+    vector<T> result;
 
     for (int i = top; i >= 0; i--) {
         result.push_back(arr[i]);

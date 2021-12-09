@@ -1,0 +1,2 @@
+Number of ways:
+C = (2n)! / ((n + 1)! * n!)

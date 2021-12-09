@@ -1,16 +1,16 @@
 #ifndef _BOOK_PILE
 #define _BOOK_PILE
 
-#include "/Users/danielnguyen/Repo/C++/ADT/Node.hpp"
+#include "/Users/danielnguyen/Repo/C++/ADT//Users/danielnguyen/Repo/C++/ADT/Node.hpp"
 #include<iostream>
  
 using namespace std;
 
-template<class ItemType>
+template<class T>
 class Pile {
 private:
     int             bookCount;      //number of books in the pile
-    Node<ItemType>* head;           //head of the pile
+    Node<T>* head;           //head of the pile
 
 public:
     /** The default constructor for class Pile. */
@@ -23,7 +23,7 @@ public:
     /** Adds a new book on top of the pile.
      * @param newBook the book to be added to the pile.
      * @returns True if successful, false otherwise. */
-    bool addBook(const ItemType& newBook);
+    bool addBook(const T& newBook);
 
     /** Removes the top of the pile.
      * @pre Pile must not be empty.
@@ -41,19 +41,19 @@ public:
     int getCurrentSize() const;
 };
 
-template<class ItemType>
-Pile<ItemType>::Pile(): bookCount(0), head(nullptr) {
+template<class T>
+Pile<T>::Pile(): bookCount(0), head(nullptr) {
 
 }
 
-template<class ItemType>
-Pile<ItemType>::~Pile() {
+template<class T>
+Pile<T>::~Pile() {
     clear();
 }
 
-template<class ItemType>
-bool Pile<ItemType>::addBook(const ItemType& newBook) {
-    Node<ItemType>* temp = new Node<ItemType>(newBook);
+template<class T>
+bool Pile<T>::addBook(const T& newBook) {
+    Node<T>* temp = new Node<T>(newBook);
 
     temp->setNext(head);
 
@@ -64,11 +64,11 @@ bool Pile<ItemType>::addBook(const ItemType& newBook) {
     return true;
 }
 
-template<class ItemType>
-bool Pile<ItemType>::popBook() {
+template<class T>
+bool Pile<T>::popBook() {
     if (head == nullptr) return false;
 
-    Node<ItemType>* p = head;
+    Node<T>* p = head;
 
     head = head->getNext();
 
@@ -81,14 +81,14 @@ bool Pile<ItemType>::popBook() {
     return true;
 }
 
-template<class ItemType>
-void Pile<ItemType>::clear() {
+template<class T>
+void Pile<T>::clear() {
     if (head == nullptr) return;
 
-    Node<ItemType>* curr = head;
+    Node<T>* curr = head;
 
     while (curr != nullptr) {
-        Node<ItemType>* next = curr->getNext();
+        Node<T>* next = curr->getNext();
 
         delete curr;
 
@@ -100,8 +100,8 @@ void Pile<ItemType>::clear() {
     bookCount = 0;
 }
 
-template<class ItemType>
-int Pile<ItemType>::getCurrentSize() const {
+template<class T>
+int Pile<T>::getCurrentSize() const {
     return bookCount;
 }
 #endif
