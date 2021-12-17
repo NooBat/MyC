@@ -20,8 +20,9 @@ private:
 public:
     LinkedIterator(const LinkedList<T>* someList, Node<T>* nodePtr);
 
-    /**Dereferencing operator overload.
-     * @return  **/ 
+    /** Dereferencing operator overload.
+     * @return The item at the position referenced by iterator. **/ 
+    const T operator*();
 };
 
 #endif
