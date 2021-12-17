@@ -68,7 +68,7 @@ public:
      * @param begin The iterator to start iterating from.
      * @param end The iterator to stop iterating at.
      * @param target The item to find in the range.
-     * @return The iterator pointing to the targeted item. */
+     * @return The iterator pointing to the targeted item, if not return end. */
     LinkedIterator<T> find(LinkedIterator<T> begin, LinkedIterator<T> end, const T& target) const;
 
     /** Count the number of occurence of the given item 
