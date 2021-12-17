@@ -175,10 +175,10 @@ void BinaryNodeTree<T>::postorder(void visit(T&), BinaryNode<T>* treePtr) const
     visit(theItem);
 }
 
-
 //----------------------------------------------------------
 //      Constructor and Destructor Section.
 //----------------------------------------------------------
+
 template<class T>
 BinaryNodeTree<T>::BinaryNodeTree(): rootPtr(nullptr)
 {
