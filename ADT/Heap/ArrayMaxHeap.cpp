@@ -106,3 +106,21 @@ ArrayMaxHeap<T>::~ArrayMaxHeap()
     items = nullptr;
     itemCount = 0;
 }
+
+template<class T>
+bool ArrayMaxHeap<T>::isEmpty() const
+{
+    return itemCount == 0;
+}
+
+template<class T>
+int ArrayMaxHeap<T>::getNumberOfNodes() const
+{
+    return itemCount;
+}
+
+template<class T>
+int ArrayMaxHeap<T>::getHeight() const
+{
+    
+}
