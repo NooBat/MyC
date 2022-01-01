@@ -11,7 +11,7 @@ private:
     static const int ROOT_INDEX = 0;
     static const int DEFAULT_CAPACITY = 21;
     T* items;
-    int itemCount,
+    int itemCount;
     int maxItems;
 
     //Returns the array index of the left child (if it exists).
