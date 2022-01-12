@@ -27,6 +27,7 @@ using namespace std;
 
 int firstMeet(int& EXP1, int& EXP2, const int& E1){
     //Complete this function to gain point on task 1
+    
     return -1;
 }
 

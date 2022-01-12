@@ -7,5 +7,6 @@
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
         "**/.dSYM": true
-    }
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }
