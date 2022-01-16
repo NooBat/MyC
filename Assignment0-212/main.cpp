@@ -87,6 +87,7 @@ int main(int argc, const char * argv[]) {
                             } else {
                                 if (inputString[j] != outputString[j]) {
                                     cout << "Difference in Output/output" << i << ".txt" << endl;
+                                    
                                     break;
                                 }
                             }
