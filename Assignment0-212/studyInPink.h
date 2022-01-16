@@ -155,12 +155,12 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
     int P2[] = {2, 3, 5, 7, 11, 13, 17};
     
     int P3[20];
-    int i = 2;
+    int num = 2;
     int times = 0;
     while (times < 20) {
-        P3[times] = pow(i, 2);
+        P3[times] = pow(num, 2);
         times++;
-        i += 2;
+        num += 2;
     }
 
     int P4[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
@@ -210,10 +210,11 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
     }
 
     //Road 4
-    int min = 10;
+    int min = 10000;
     int min_idx = 1;
     for (int i = 0; i < 12; i++) {
-        P4[i] = P4[i] + int(pow(ceil(E3 / 29.0), 3)) % 9;
+        int a = pow(ceil(E3 / 29.0), 3);
+        P4[i] = (P4[i] + a) % 9;
         if (P4[i] < min) {
             min = P4[i];
             min_idx = i + 1;
@@ -228,7 +229,7 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
         }
     }
 
-    M1 = M1 - ceil((!foundLuggage[0] * pow(9, 2) + !foundLuggage[1] * pow(7, 2) + !foundLuggage[2] * pow(20, 2) + !foundLuggage[3] * pow(12, 2)) * E3 / 9.0);
+    M1 = ceil(M1 - (!foundLuggage[0] * pow(9, 2) + !foundLuggage[1] * pow(7, 2) + !foundLuggage[2] * pow(20, 2) + !foundLuggage[3] * pow(12, 2)) * E3 / 9.0);
 
     if (!foundLuggage[0] && !foundLuggage[1] && !foundLuggage[2] && !foundLuggage[3]) {
         HP1 -= (59 * E3) % 900;

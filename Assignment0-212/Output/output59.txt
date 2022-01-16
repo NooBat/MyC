@@ -1,10 +1,10 @@
 Testcase output #59: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999 
-EXP1 = 778, EXP2 = 312 
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 913 
+EXP1 = 470, EXP2 = 443 
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999 
-EXP1 = 778, EXP2 = 312, HP2 = 38, M2 = 404 
+EXP1 = 470, EXP2 = 443, HP2 = 440, M2 = 276 
 Task 3: 
 Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999 
-HP1 = 795, EXP1 = 778, M1 = 205 
+HP1 = 820, EXP1 = 470, M1 = 1317 

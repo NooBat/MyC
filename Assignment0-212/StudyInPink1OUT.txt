@@ -1,1100 +1,1100 @@
 Testcase output #1: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 779
-EXP1 = 246, EXP2 = 533
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 418, EXP2 = 22
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 4115
-EXP1 = 348, EXP2 = 834, HP2 = 933, M2 = 2000
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3284
+EXP1 = 474, EXP2 = 189, HP2 = 621, M2 = 2000
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 561
-HP1 = 139, EXP1 = 422, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 778, EXP1 = 474, M1 = 503
 
 Testcase output #2: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1003
-EXP1 = 143, EXP2 = 860
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 207, EXP2 = 102
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 1558
-EXP1 = 149, EXP2 = 878, HP2 = 334, M2 = 197
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 207, EXP2 = 102, HP2 = 909, M2 = 90
 Task 3: 
 Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 77, EXP1 = 149, M1 = 1488
+HP1 = 453, EXP1 = 207, M1 = 1218
 
 Testcase output #3: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 600, EXP2 = 563
+EXP1 = 287, EXP2 = 376
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3268
-EXP1 = 680, EXP2 = 800, HP2 = 344, M2 = 1444
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 287, EXP2 = 376, HP2 = 601, M2 = 709
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 763, EXP1 = 597, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 307
+HP1 = 0, EXP1 = 307, M1 = 0
 
 Testcase output #4: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 852
-EXP1 = 208, EXP2 = 644
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 491, EXP2 = 748
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 208, EXP2 = 644, HP2 = 372, M2 = 1388
+EXP1 = 491, EXP2 = 748, HP2 = 83, M2 = 549
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 600
-HP1 = 318, EXP1 = 282, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 1124
+HP1 = 601, EXP1 = 523, M1 = 0
 
 Testcase output #5: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 188, EXP2 = 115
+EXP1 = 634, EXP2 = 147
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 188, EXP2 = 115, HP2 = 819, M2 = 1731
+EXP1 = 634, EXP2 = 147, HP2 = 479, M2 = 506
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 143, EXP1 = 173, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 490, EXP1 = 634, M1 = 1497
 
 Testcase output #6: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 482, EXP2 = 700
+EXP1 = 642, EXP2 = 437
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3722
-EXP1 = 494, EXP2 = 736, HP2 = 865, M2 = 1627
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 642, EXP2 = 437, HP2 = 339, M2 = 569
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 734
-HP1 = 0, EXP1 = 734, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 783, EXP1 = 642, M1 = 377
 
 Testcase output #7: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 800, EXP2 = 411
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1257
+EXP1 = 842, EXP2 = 415
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 800, EXP2 = 411, HP2 = 844, M2 = 16
+EXP1 = 842, EXP2 = 415, HP2 = 204, M2 = 244
 Task 3: 
 Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 0, EXP1 = 732, M1 = 0
+HP1 = 0, EXP1 = 719, M1 = 0
 
 Testcase output #8: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 659, EXP2 = 422
+EXP1 = 76, EXP2 = 6
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 659, EXP2 = 422, HP2 = 873, M2 = 1241
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2073
+EXP1 = 86, EXP2 = 36, HP2 = 460, M2 = 1491
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 848, EXP1 = 659, M1 = 1784
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 143
+HP1 = 0, EXP1 = 143, M1 = 0
 
 Testcase output #9: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 601
-EXP1 = 242, EXP2 = 359
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 770
+EXP1 = 239, EXP2 = 531
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 242, EXP2 = 359, HP2 = 313, M2 = 701
+EXP1 = 239, EXP2 = 531, HP2 = 555, M2 = 1013
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 366
-HP1 = 113, EXP1 = 253, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
+HP1 = 0, EXP1 = 0, M1 = 0
 
 Testcase output #10: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 466, EXP2 = 27
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 789
+EXP1 = 217, EXP2 = 572
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 466, EXP2 = 27, HP2 = 878, M2 = 650
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 1852
+EXP1 = 353, EXP2 = 900, HP2 = 303, M2 = 296
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 779
-HP1 = 0, EXP1 = 779, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 99, EXP1 = 353, M1 = 332
 
 Testcase output #11: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 315, EXP2 = 647
+EXP1 = 40, EXP2 = 204
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 315, EXP2 = 647, HP2 = 672, M2 = 767
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3781
+EXP1 = 215, EXP2 = 724, HP2 = 842, M2 = 2000
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 347
-HP1 = 0, EXP1 = 347, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 251
+HP1 = 0, EXP1 = 251, M1 = 0
 
 Testcase output #12: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1110
-EXP1 = 210, EXP2 = 900
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 840, EXP2 = 125
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3642
-EXP1 = 221, EXP2 = 900, HP2 = 607, M2 = 1914
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3340
+EXP1 = 900, EXP2 = 314, HP2 = 126, M2 = 2000
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 515, EXP1 = 0, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 616, EXP1 = 900, M1 = 247
 
 Testcase output #13: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 742, EXP2 = 620
+EXP1 = 816, EXP2 = 704
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3046
-EXP1 = 821, EXP2 = 853, HP2 = 441, M2 = 931
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 816, EXP2 = 704, HP2 = 77, M2 = 801
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 547, EXP1 = 821, M1 = 1562
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
+HP1 = 166, EXP1 = 615, M1 = 0
 
 Testcase output #14: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1519
-EXP1 = 723, EXP2 = 796
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 828
+EXP1 = 196, EXP2 = 632
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 723, EXP2 = 796, HP2 = 558, M2 = 1929
+EXP1 = 196, EXP2 = 632, HP2 = 857, M2 = 948
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 1005
-HP1 = 271, EXP1 = 734, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
+HP1 = 0, EXP1 = 0, M1 = 0
 
 Testcase output #15: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 897
-EXP1 = 351, EXP2 = 546
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1641
+EXP1 = 741, EXP2 = 900
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3724
-EXP1 = 488, EXP2 = 900, HP2 = 336, M2 = 2000
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 4240
+EXP1 = 817, EXP2 = 900, HP2 = 523, M2 = 2000
 Task 3: 
 Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 313, EXP1 = 287, M1 = 0
+HP1 = 178, EXP1 = 538, M1 = 0
 
 Testcase output #16: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 308, EXP2 = 49
+EXP1 = 602, EXP2 = 712
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3262
-EXP1 = 407, EXP2 = 342, HP2 = 513, M2 = 2000
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 4122
+EXP1 = 701, EXP2 = 900, HP2 = 521, M2 = 2000
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 0, EXP1 = 304, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 792
+HP1 = 71, EXP1 = 721, M1 = 0
 
 Testcase output #17: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 665, EXP2 = 586
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 589
+EXP1 = 269, EXP2 = 320
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 4176
-EXP1 = 741, EXP2 = 811, HP2 = 624, M2 = 2000
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 269, EXP2 = 320, HP2 = 354, M2 = 125
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 917
-HP1 = 144, EXP1 = 773, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
+HP1 = 410, EXP1 = 250, M1 = 0
 
 Testcase output #18: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 991
-EXP1 = 616, EXP2 = 375
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 730, EXP2 = 444
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 616, EXP2 = 375, HP2 = 635, M2 = 266
+EXP1 = 730, EXP2 = 444, HP2 = 349, M2 = 640
 Task 3: 
 Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 673, EXP1 = 616, M1 = 867
+HP1 = 918, EXP1 = 730, M1 = 856
 
 Testcase output #19: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1241
-EXP1 = 684, EXP2 = 557
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 849
+EXP1 = 454, EXP2 = 395
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3140
-EXP1 = 699, EXP2 = 601, HP2 = 330, M2 = 1510
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2612
+EXP1 = 522, EXP2 = 596, HP2 = 790, M2 = 704
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 1230
-HP1 = 411, EXP1 = 819, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 519, EXP1 = 522, M1 = 1098
 
 Testcase output #20: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 422
-EXP1 = 127, EXP2 = 295
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 363, EXP2 = 726
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 1144
-EXP1 = 140, EXP2 = 334, HP2 = 369, M2 = 301
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 363, EXP2 = 726, HP2 = 804, M2 = 449
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 214
-HP1 = 0, EXP1 = 214, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 56, EXP1 = 363, M1 = 1083
 
 Testcase output #21: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1367
-EXP1 = 686, EXP2 = 681
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1165
+EXP1 = 501, EXP2 = 664
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3276
-EXP1 = 693, EXP2 = 701, HP2 = 153, M2 = 1729
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2447
+EXP1 = 509, EXP2 = 688, HP2 = 872, M2 = 378
 Task 3: 
 Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 200, EXP1 = 693, M1 = 850
+HP1 = 954, EXP1 = 509, M1 = 282
 
 Testcase output #22: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 498, EXP2 = 75
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 825
+EXP1 = 736, EXP2 = 89
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 498, EXP2 = 75, HP2 = 502, M2 = 389
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 1958
+EXP1 = 883, EXP2 = 526, HP2 = 304, M2 = 245
 Task 3: 
 Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 0, EXP1 = 323, M1 = 0
+HP1 = 591, EXP1 = 720, M1 = 0
 
 Testcase output #23: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 782, EXP2 = 824
+EXP1 = 42, EXP2 = 459
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 782, EXP2 = 824, HP2 = 952, M2 = 1965
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2637
+EXP1 = 46, EXP2 = 470, HP2 = 732, M2 = 1389
 Task 3: 
 Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 0, EXP1 = 506, M1 = 0
+HP1 = 0, EXP1 = 0, M1 = 0
 
 Testcase output #24: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 772
-EXP1 = 369, EXP2 = 403
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 709, EXP2 = 344
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2107
-EXP1 = 425, EXP2 = 569, HP2 = 27, M2 = 1086
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2333
+EXP1 = 764, EXP2 = 506, HP2 = 482, M2 = 581
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 939
-HP1 = 461, EXP1 = 478, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 217, EXP1 = 764, M1 = 1548
 
 Testcase output #25: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 861, EXP2 = 336
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 577
+EXP1 = 231, EXP2 = 346
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 861, EXP2 = 336, HP2 = 444, M2 = 1889
+EXP1 = 231, EXP2 = 346, HP2 = 700, M2 = 87
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 0, EXP1 = 628, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 931, EXP1 = 231, M1 = 142
 
 Testcase output #26: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 865
-EXP1 = 111, EXP2 = 754
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 961
+EXP1 = 286, EXP2 = 675
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2903
-EXP1 = 120, EXP2 = 779, HP2 = 337, M2 = 1667
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2155
+EXP1 = 294, EXP2 = 699, HP2 = 375, M2 = 787
 Task 3: 
 Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 0, EXP1 = 101, M1 = 0
+HP1 = 0, EXP1 = 133, M1 = 0
 
 Testcase output #27: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1129
-EXP1 = 229, EXP2 = 900
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1075
+EXP1 = 257, EXP2 = 818
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 229, EXP2 = 900, HP2 = 518, M2 = 1521
+EXP1 = 257, EXP2 = 818, HP2 = 925, M2 = 1460
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 545, EXP1 = 229, M1 = 1946
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 293
+HP1 = 0, EXP1 = 293, M1 = 0
 
 Testcase output #28: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 708, EXP2 = 85
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1260
+EXP1 = 504, EXP2 = 756
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2679
-EXP1 = 837, EXP2 = 469, HP2 = 350, M2 = 1023
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 4167
+EXP1 = 621, EXP2 = 900, HP2 = 646, M2 = 2000
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 219, EXP1 = 837, M1 = 1620
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
+HP1 = 278, EXP1 = 532, M1 = 0
 
 Testcase output #29: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1092
-EXP1 = 192, EXP2 = 900
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 528, EXP2 = 291
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3524
-EXP1 = 311, EXP2 = 900, HP2 = 313, M2 = 2000
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2201
+EXP1 = 691, EXP2 = 777, HP2 = 95, M2 = 638
 Task 3: 
 Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 841, EXP1 = 311, M1 = 1457
+HP1 = 909, EXP1 = 691, M1 = 299
 
 Testcase output #30: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 112, EXP2 = 420
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1330
+EXP1 = 668, EXP2 = 662
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3518
-EXP1 = 291, EXP2 = 900, HP2 = 327, M2 = 2000
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 668, EXP2 = 662, HP2 = 109, M2 = 166
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 277, EXP1 = 291, M1 = 728
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 721
+HP1 = 0, EXP1 = 721, M1 = 0
 
 Testcase output #31: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 469, EXP2 = 208
+EXP1 = 508, EXP2 = 97
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 469, EXP2 = 208, HP2 = 789, M2 = 1638
+EXP1 = 508, EXP2 = 97, HP2 = 796, M2 = 1267
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 0, EXP1 = 418, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 217, EXP1 = 508, M1 = 952
 
 Testcase output #32: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 772
-EXP1 = 78, EXP2 = 694
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 898
+EXP1 = 282, EXP2 = 616
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 1831
-EXP1 = 90, EXP2 = 728, HP2 = 361, M2 = 652
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 4036
+EXP1 = 426, EXP2 = 900, HP2 = 710, M2 = 2000
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 0, EXP1 = 81, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 504
+HP1 = 0, EXP1 = 504, M1 = 0
 
 Testcase output #33: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 115, EXP2 = 183
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 893
+EXP1 = 344, EXP2 = 549
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 115, EXP2 = 183, HP2 = 870, M2 = 152
+EXP1 = 344, EXP2 = 549, HP2 = 578, M2 = 1969
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 679, EXP1 = 0, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 380
+HP1 = 0, EXP1 = 380, M1 = 0
 
 Testcase output #34: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 211, EXP2 = 464
+EXP1 = 389, EXP2 = 130
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 1956
-EXP1 = 277, EXP2 = 659, HP2 = 286, M2 = 734
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 389, EXP2 = 130, HP2 = 492, M2 = 1024
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 309
-HP1 = 0, EXP1 = 309, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 669, EXP1 = 389, M1 = 1206
 
 Testcase output #35: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1373
-EXP1 = 473, EXP2 = 900
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 933
+EXP1 = 33, EXP2 = 900
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 473, EXP2 = 900, HP2 = 85, M2 = 420
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2523
+EXP1 = 113, EXP2 = 900, HP2 = 531, M2 = 979
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 875
-HP1 = 349, EXP1 = 526, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 421, EXP1 = 113, M1 = 1426
 
 Testcase output #36: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 770, EXP2 = 83
+EXP1 = 352, EXP2 = 652
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3636
-EXP1 = 883, EXP2 = 418, HP2 = 335, M2 = 2000
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 352, EXP2 = 652, HP2 = 890, M2 = 461
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 211, EXP1 = 883, M1 = 726
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
+HP1 = 1, EXP1 = 217, M1 = 0
 
 Testcase output #37: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1513
-EXP1 = 743, EXP2 = 770
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 656, EXP2 = 254
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2690
-EXP1 = 881, EXP2 = 900, HP2 = 505, M2 = 404
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2566
+EXP1 = 785, EXP2 = 641, HP2 = 170, M2 = 970
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 900
-HP1 = 0, EXP1 = 900, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 800
+HP1 = 0, EXP1 = 800, M1 = 0
 
 Testcase output #38: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 587, EXP2 = 781
+EXP1 = 874, EXP2 = 219
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2516
-EXP1 = 692, EXP2 = 900, HP2 = 264, M2 = 660
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 1691
+EXP1 = 884, EXP2 = 248, HP2 = 313, M2 = 246
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 117, EXP1 = 692, M1 = 528
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
+HP1 = 571, EXP1 = 613, M1 = 0
 
 Testcase output #39: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 623, EXP2 = 646
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1101
+EXP1 = 244, EXP2 = 857
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2646
-EXP1 = 772, EXP2 = 900, HP2 = 0, M2 = 974
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 244, EXP2 = 857, HP2 = 635, M2 = 1463
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 813, EXP1 = 772, M1 = 1680
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 280
+HP1 = 0, EXP1 = 280, M1 = 0
 
 Testcase output #40: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 965
-EXP1 = 151, EXP2 = 814
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 620, EXP2 = 672
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2959
-EXP1 = 211, EXP2 = 900, HP2 = 205, M2 = 1643
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2829
+EXP1 = 635, EXP2 = 715, HP2 = 975, M2 = 504
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 366, EXP1 = 211, M1 = 728
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 671
+HP1 = 0, EXP1 = 671, M1 = 0
 
 Testcase output #41: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 768
-EXP1 = 483, EXP2 = 285
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 802, EXP2 = 417
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 483, EXP2 = 285, HP2 = 696, M2 = 545
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3868
+EXP1 = 900, EXP2 = 798, HP2 = 170, M2 = 2000
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 345, EXP1 = 324, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 900
+HP1 = 0, EXP1 = 900, M1 = 0
 
 Testcase output #42: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 714, EXP2 = 387
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 583
+EXP1 = 334, EXP2 = 249
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 714, EXP2 = 387, HP2 = 653, M2 = 1831
+EXP1 = 334, EXP2 = 249, HP2 = 226, M2 = 1617
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 767
-HP1 = 0, EXP1 = 767, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
+HP1 = 0, EXP1 = 239, M1 = 0
 
 Testcase output #43: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1074
-EXP1 = 174, EXP2 = 900
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 429
+EXP1 = 0, EXP2 = 429
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3139
-EXP1 = 289, EXP2 = 900, HP2 = 506, M2 = 1444
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 920
+EXP1 = 6, EXP2 = 447, HP2 = 466, M2 = 1
 Task 3: 
 Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 484, EXP1 = 289, M1 = 215
+HP1 = 431, EXP1 = 6, M1 = 613
 
 Testcase output #44: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 659
-EXP1 = 27, EXP2 = 632
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 275
+EXP1 = 114, EXP2 = 161
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 27, EXP2 = 632, HP2 = 183, M2 = 90
+EXP1 = 114, EXP2 = 161, HP2 = 131, M2 = 118
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 63
-HP1 = 0, EXP1 = 63, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 590, EXP1 = 114, M1 = 882
 
 Testcase output #45: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 549, EXP2 = 590
+EXP1 = 330, EXP2 = 840
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3564
-EXP1 = 612, EXP2 = 778, HP2 = 470, M2 = 1704
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3872
+EXP1 = 461, EXP2 = 900, HP2 = 511, M2 = 2000
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 295, EXP1 = 612, M1 = 1899
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
+HP1 = 279, EXP1 = 168, M1 = 0
 
 Testcase output #46: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1280
-EXP1 = 633, EXP2 = 647
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 159, EXP2 = 674
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 633, EXP2 = 647, HP2 = 511, M2 = 1969
+EXP1 = 159, EXP2 = 674, HP2 = 700, M2 = 1696
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 0, EXP1 = 516, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 195
+HP1 = 0, EXP1 = 195, M1 = 0
 
 Testcase output #47: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 813
-EXP1 = 102, EXP2 = 711
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 589, EXP2 = 290
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 1725
-EXP1 = 109, EXP2 = 730, HP2 = 741, M2 = 145
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 589, EXP2 = 290, HP2 = 336, M2 = 1562
 Task 3: 
 Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 539, EXP1 = 109, M1 = 203
+HP1 = 139, EXP1 = 589, M1 = 1653
 
 Testcase output #48: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 580, EXP2 = 160
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 455
+EXP1 = 161, EXP2 = 294
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 580, EXP2 = 160, HP2 = 726, M2 = 1023
+EXP1 = 161, EXP2 = 294, HP2 = 230, M2 = 1891
 Task 3: 
 Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 16, EXP1 = 580, M1 = 834
+HP1 = 990, EXP1 = 161, M1 = 1247
 
 Testcase output #49: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1162
-EXP1 = 262, EXP2 = 900
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1622
+EXP1 = 722, EXP2 = 900
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 262, EXP2 = 900, HP2 = 567, M2 = 1830
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 4163
+EXP1 = 734, EXP2 = 900, HP2 = 677, M2 = 1852
 Task 3: 
 Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 674, EXP1 = 262, M1 = 1511
+HP1 = 287, EXP1 = 734, M1 = 1848
 
 Testcase output #50: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 230, EXP2 = 123
+EXP1 = 364, EXP2 = 397
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3485
-EXP1 = 392, EXP2 = 608, HP2 = 485, M2 = 2000
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 364, EXP2 = 397, HP2 = 451, M2 = 1375
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 236, EXP1 = 392, M1 = 1114
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
+HP1 = 0, EXP1 = 229, M1 = 0
 
 Testcase output #51: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 816, EXP2 = 685
+EXP1 = 547, EXP2 = 258
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 816, EXP2 = 685, HP2 = 799, M2 = 489
+EXP1 = 547, EXP2 = 258, HP2 = 158, M2 = 1272
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 0, EXP1 = 591, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 928, EXP1 = 547, M1 = 1400
 
 Testcase output #52: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1235
-EXP1 = 702, EXP2 = 533
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1543
+EXP1 = 808, EXP2 = 735
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2259
-EXP1 = 709, EXP2 = 554, HP2 = 386, M2 = 610
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 808, EXP2 = 735, HP2 = 439, M2 = 34
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 251, EXP1 = 709, M1 = 622
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
+HP1 = 656, EXP1 = 807, M1 = 0
 
 Testcase output #53: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1207
-EXP1 = 748, EXP2 = 459
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 650, EXP2 = 292
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 748, EXP2 = 459, HP2 = 411, M2 = 1675
+EXP1 = 650, EXP2 = 292, HP2 = 653, M2 = 121
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 0, EXP1 = 565, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 315, EXP1 = 650, M1 = 1842
 
 Testcase output #54: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1062
-EXP1 = 688, EXP2 = 374
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 42, EXP2 = 797
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 688, EXP2 = 374, HP2 = 56, M2 = 38
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 1840
+EXP1 = 52, EXP2 = 826, HP2 = 178, M2 = 784
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 724
-HP1 = 0, EXP1 = 724, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 88
+HP1 = 0, EXP1 = 88, M1 = 0
 
 Testcase output #55: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 904
-EXP1 = 664, EXP2 = 240
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 895, EXP2 = 746
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 664, EXP2 = 240, HP2 = 615, M2 = 387
+EXP1 = 895, EXP2 = 746, HP2 = 719, M2 = 1045
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 633, EXP1 = 383, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 1072
+HP1 = 172, EXP1 = 900, M1 = 0
 
 Testcase output #56: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 625, EXP2 = 410
+EXP1 = 753, EXP2 = 1
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 4119
-EXP1 = 782, EXP2 = 881, HP2 = 456, M2 = 2000
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3015
+EXP1 = 767, EXP2 = 42, HP2 = 509, M2 = 1697
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 900
-HP1 = 0, EXP1 = 900, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 782
+HP1 = 0, EXP1 = 782, M1 = 0
 
 Testcase output #57: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1709
-EXP1 = 838, EXP2 = 871
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1437
+EXP1 = 537, EXP2 = 900
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3253
-EXP1 = 900, EXP2 = 900, HP2 = 985, M2 = 468
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 537, EXP2 = 900, HP2 = 833, M2 = 702
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 1354
-HP1 = 454, EXP1 = 900, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 210, EXP1 = 537, M1 = 1156
 
 Testcase output #58: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 239
-EXP1 = 87, EXP2 = 152
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 299
+EXP1 = 22, EXP2 = 277
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 1959
-EXP1 = 163, EXP2 = 378, HP2 = 83, M2 = 1335
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3475
+EXP1 = 189, EXP2 = 775, HP2 = 511, M2 = 2000
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 586, EXP1 = 163, M1 = 709
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
+HP1 = 0, EXP1 = 9, M1 = 0
 
 Testcase output #59: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 778, EXP2 = 312
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 913
+EXP1 = 470, EXP2 = 443
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 778, EXP2 = 312, HP2 = 38, M2 = 404
+EXP1 = 470, EXP2 = 443, HP2 = 440, M2 = 276
 Task 3: 
 Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 795, EXP1 = 778, M1 = 205
+HP1 = 820, EXP1 = 470, M1 = 1317
 
 Testcase output #60: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 464
-EXP1 = 20, EXP2 = 444
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 173, EXP2 = 666
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2396
-EXP1 = 31, EXP2 = 476, HP2 = 789, M2 = 1100
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2959
+EXP1 = 179, EXP2 = 683, HP2 = 837, M2 = 1260
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 0, EXP1 = 0, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 199
+HP1 = 0, EXP1 = 199, M1 = 0
 
 Testcase output #61: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 238
-EXP1 = 188, EXP2 = 50
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 264, EXP2 = 306
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 188, EXP2 = 50, HP2 = 905, M2 = 767
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 1485
+EXP1 = 322, EXP2 = 478, HP2 = 386, M2 = 299
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 0, EXP1 = 33, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 295, EXP1 = 322, M1 = 1315
 
 Testcase output #62: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 572, EXP2 = 325
+EXP1 = 404, EXP2 = 173
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3906
-EXP1 = 693, EXP2 = 685, HP2 = 528, M2 = 2000
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3505
+EXP1 = 513, EXP2 = 499, HP2 = 493, M2 = 2000
 Task 3: 
 Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 109, EXP1 = 693, M1 = 1271
+HP1 = 523, EXP1 = 513, M1 = 1826
 
 Testcase output #63: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 487, EXP2 = 356
+EXP1 = 127, EXP2 = 83
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2298
-EXP1 = 493, EXP2 = 372, HP2 = 709, M2 = 724
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 127, EXP2 = 83, HP2 = 711, M2 = 51
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 670
-HP1 = 0, EXP1 = 670, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 124, EXP1 = 127, M1 = 731
 
 Testcase output #64: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 81, EXP2 = 391
+EXP1 = 312, EXP2 = 862
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3349
-EXP1 = 232, EXP2 = 841, HP2 = 276, M2 = 2000
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 312, EXP2 = 862, HP2 = 166, M2 = 1431
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 265, EXP1 = 232, M1 = 978
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 521
+HP1 = 156, EXP1 = 365, M1 = 0
 
 Testcase output #65: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1067
-EXP1 = 740, EXP2 = 327
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 765, EXP2 = 168
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 4012
-EXP1 = 749, EXP2 = 352, HP2 = 911, M2 = 2000
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 765, EXP2 = 168, HP2 = 563, M2 = 657
 Task 3: 
 Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 529, EXP1 = 749, M1 = 1138
+HP1 = 903, EXP1 = 765, M1 = 1276
 
 Testcase output #66: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 322, EXP2 = 679
+EXP1 = 558, EXP2 = 858
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 322, EXP2 = 679, HP2 = 195, M2 = 1288
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2383
+EXP1 = 563, EXP2 = 871, HP2 = 570, M2 = 379
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 766
-HP1 = 412, EXP1 = 354, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
+HP1 = 64, EXP1 = 560, M1 = 0
 
 Testcase output #67: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 276, EXP2 = 823
+EXP1 = 671, EXP2 = 889
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3618
-EXP1 = 401, EXP2 = 900, HP2 = 345, M2 = 1972
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 671, EXP2 = 889, HP2 = 581, M2 = 1787
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 341, EXP1 = 401, M1 = 1709
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 686
+HP1 = 0, EXP1 = 686, M1 = 0
 
 Testcase output #68: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1322
-EXP1 = 714, EXP2 = 608
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 632
+EXP1 = 59, EXP2 = 573
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2899
-EXP1 = 724, EXP2 = 637, HP2 = 654, M2 = 884
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3467
+EXP1 = 123, EXP2 = 765, HP2 = 579, M2 = 2000
 Task 3: 
 Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 682, EXP1 = 724, M1 = 1112
+HP1 = 182, EXP1 = 123, M1 = 458
 
 Testcase output #69: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 179, EXP2 = 283
+EXP1 = 887, EXP2 = 720
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 179, EXP2 = 283, HP2 = 537, M2 = 1728
+EXP1 = 887, EXP2 = 720, HP2 = 865, M2 = 345
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 0, EXP1 = 170, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 183, EXP1 = 887, M1 = 679
 
 Testcase output #70: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 719, EXP2 = 738
+EXP1 = 168, EXP2 = 320
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 719, EXP2 = 738, HP2 = 280, M2 = 70
+EXP1 = 168, EXP2 = 320, HP2 = 735, M2 = 214
 Task 3: 
 Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 908, EXP1 = 719, M1 = 887
+HP1 = 37, EXP1 = 168, M1 = 1908
 
 Testcase output #71: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 429, EXP2 = 522
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 192
+EXP1 = 40, EXP2 = 152
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3488
-EXP1 = 437, EXP2 = 544, HP2 = 788, M2 = 1719
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 40, EXP2 = 152, HP2 = 717, M2 = 1234
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 322, EXP1 = 437, M1 = 737
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 275
+HP1 = 115, EXP1 = 160, M1 = 0
 
 Testcase output #72: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 238
-EXP1 = 8, EXP2 = 230
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 841
+EXP1 = 42, EXP2 = 799
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 8, EXP2 = 230, HP2 = 804, M2 = 672
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2064
+EXP1 = 155, EXP2 = 900, HP2 = 56, M2 = 953
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 0, EXP1 = 0, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 17, EXP1 = 155, M1 = 1578
 
 Testcase output #73: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 234, EXP2 = 644
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 984
+EXP1 = 144, EXP2 = 840
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2931
-EXP1 = 243, EXP2 = 671, HP2 = 499, M2 = 1518
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3278
+EXP1 = 198, EXP2 = 900, HP2 = 180, M2 = 2000
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 658, EXP1 = 243, M1 = 1056
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 407
+HP1 = 135, EXP1 = 272, M1 = 0
 
 Testcase output #74: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1282
-EXP1 = 382, EXP2 = 900
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1469
+EXP1 = 812, EXP2 = 657
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 382, EXP2 = 900, HP2 = 892, M2 = 432
+EXP1 = 812, EXP2 = 657, HP2 = 81, M2 = 447
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 877, EXP1 = 382, M1 = 1540
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
+HP1 = 178, EXP1 = 649, M1 = 0
 
 Testcase output #75: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 25, EXP2 = 794
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1144
+EXP1 = 244, EXP2 = 900
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3609
-EXP1 = 35, EXP2 = 824, HP2 = 970, M2 = 1780
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3890
+EXP1 = 257, EXP2 = 900, HP2 = 733, M2 = 2000
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 857, EXP1 = 0, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 23, EXP1 = 257, M1 = 1422
 
 Testcase output #76: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 534, EXP2 = 453
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 692
+EXP1 = 359, EXP2 = 333
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3976
-EXP1 = 547, EXP2 = 492, HP2 = 937, M2 = 2000
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3682
+EXP1 = 510, EXP2 = 782, HP2 = 390, M2 = 2000
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 0, EXP1 = 488, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 903, EXP1 = 510, M1 = 1233
 
 Testcase output #77: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1567
-EXP1 = 667, EXP2 = 900
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 487, EXP2 = 713
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3796
-EXP1 = 821, EXP2 = 900, HP2 = 75, M2 = 2000
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 487, EXP2 = 713, HP2 = 298, M2 = 100
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 466, EXP1 = 821, M1 = 413
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
+HP1 = 331, EXP1 = 232, M1 = 0
 
 Testcase output #78: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 68, EXP2 = 714
+EXP1 = 419, EXP2 = 700
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2243
-EXP1 = 224, EXP2 = 900, HP2 = 0, M2 = 1119
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2103
+EXP1 = 604, EXP2 = 900, HP2 = 19, M2 = 580
 Task 3: 
 Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 394, EXP1 = 224, M1 = 1597
+HP1 = 954, EXP1 = 604, M1 = 1664
 
 Testcase output #79: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 807
-EXP1 = 464, EXP2 = 343
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1800
+EXP1 = 900, EXP2 = 900
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3291
-EXP1 = 586, EXP2 = 705, HP2 = 0, M2 = 2000
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 900, EXP2 = 900, HP2 = 182, M2 = 713
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 679, EXP1 = 586, M1 = 797
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
+HP1 = 0, EXP1 = 762, M1 = 0
 
 Testcase output #80: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 955
-EXP1 = 500, EXP2 = 455
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 444, EXP2 = 360
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 500, EXP2 = 455, HP2 = 398, M2 = 149
+EXP1 = 444, EXP2 = 360, HP2 = 39, M2 = 1847
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 0, EXP1 = 275, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 164, EXP1 = 444, M1 = 301
 
 Testcase output #81: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 819, EXP2 = 30
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1556
+EXP1 = 656, EXP2 = 900
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 819, EXP2 = 30, HP2 = 615, M2 = 1953
+EXP1 = 656, EXP2 = 900, HP2 = 615, M2 = 1552
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 1200
-HP1 = 328, EXP1 = 872, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 759, EXP1 = 656, M1 = 1343
 
 Testcase output #82: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 688, EXP2 = 279
+EXP1 = 396, EXP2 = 139
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 688, EXP2 = 279, HP2 = 751, M2 = 1181
+EXP1 = 396, EXP2 = 139, HP2 = 756, M2 = 818
 Task 3: 
 Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 845, EXP1 = 688, M1 = 1952
+HP1 = 365, EXP1 = 396, M1 = 1636
 
 Testcase output #83: 
 Task 1: 
 Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 524, EXP2 = 421
+EXP1 = 597, EXP2 = 727
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 524, EXP2 = 421, HP2 = 317, M2 = 412
-Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 957, EXP1 = 524, M1 = 1990
-
-Testcase output #84: 
-Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 703, EXP2 = 278
-Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 703, EXP2 = 278, HP2 = 473, M2 = 811
-Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 0, EXP1 = 614, M1 = 0
-
-Testcase output #85: 
-Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1098
-EXP1 = 697, EXP2 = 401
-Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2673
-EXP1 = 704, EXP2 = 422, HP2 = 20, M2 = 1527
-Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
-HP1 = 0, EXP1 = 607, M1 = 0
-
-Testcase output #86: 
-Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 990
-EXP1 = 182, EXP2 = 808
-Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 1665
-EXP1 = 322, EXP2 = 900, HP2 = 232, M2 = 211
-Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 516
-HP1 = 0, EXP1 = 516, M1 = 0
-
-Testcase output #87: 
-Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 115, EXP2 = 768
-Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 115, EXP2 = 768, HP2 = 243, M2 = 1242
-Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 112, EXP1 = 115, M1 = 871
-
-Testcase output #88: 
-Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 112, EXP2 = 893
-Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 1835
-EXP1 = 119, EXP2 = 900, HP2 = 44, M2 = 772
-Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 154, EXP1 = 119, M1 = 329
-
-Testcase output #89: 
-Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1603
-EXP1 = 703, EXP2 = 900
-Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 703, EXP2 = 900, HP2 = 803, M2 = 1953
-Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 924
-HP1 = 147, EXP1 = 777, M1 = 0
-
-Testcase output #90: 
-Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1252
-EXP1 = 352, EXP2 = 900
-Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 352, EXP2 = 900, HP2 = 801, M2 = 399
-Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 183, EXP1 = 352, M1 = 1772
-
-Testcase output #91: 
-Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 367, EXP2 = 327
-Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3771
-EXP1 = 501, EXP2 = 726, HP2 = 544, M2 = 2000
-Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 619, EXP1 = 501, M1 = 535
-
-Testcase output #92: 
-Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 5, EXP2 = 820
-Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 5, EXP2 = 820, HP2 = 406, M2 = 1304
-Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 161
-HP1 = 0, EXP1 = 161, M1 = 0
-
-Testcase output #93: 
-Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 495
-EXP1 = 0, EXP2 = 495
-Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 1318
-EXP1 = 67, EXP2 = 694, HP2 = 252, M2 = 305
-Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 237
-HP1 = 96, EXP1 = 141, M1 = 0
-
-Testcase output #94: 
-Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 657, EXP2 = 823
-Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 657, EXP2 = 823, HP2 = 694, M2 = 575
-Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 480, EXP1 = 657, M1 = 1611
-
-Testcase output #95: 
-Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 638, EXP2 = 608
-Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 638, EXP2 = 608, HP2 = 931, M2 = 1877
-Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 674
-HP1 = 0, EXP1 = 674, M1 = 0
-
-Testcase output #96: 
-Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 796
-EXP1 = 28, EXP2 = 768
-Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 4004
-EXP1 = 146, EXP2 = 900, HP2 = 958, M2 = 2000
-Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 157, EXP1 = 146, M1 = 1382
-
-Testcase output #97: 
-Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1457
-EXP1 = 872, EXP2 = 585
-Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 872, EXP2 = 585, HP2 = 393, M2 = 317
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 4111
+EXP1 = 769, EXP2 = 900, HP2 = 442, M2 = 2000
 Task 3: 
 Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 900
 HP1 = 0, EXP1 = 900, M1 = 0
 
-Testcase output #98: 
+Testcase output #84: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 301
-EXP1 = 8, EXP2 = 293
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1536
+EXP1 = 636, EXP2 = 900
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 1057
-EXP1 = 87, EXP2 = 527, HP2 = 169, M2 = 274
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 636, EXP2 = 900, HP2 = 766, M2 = 46
 Task 3: 
 Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
-HP1 = 280, EXP1 = 87, M1 = 356
+HP1 = 454, EXP1 = 636, M1 = 1560
+
+Testcase output #85: 
+Task 1: 
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 254, EXP2 = 21
+Task 2: 
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 254, EXP2 = 21, HP2 = 19, M2 = 1400
+Task 3: 
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
+HP1 = 391, EXP1 = 193, M1 = 0
+
+Testcase output #86: 
+Task 1: 
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 615, EXP2 = 277
+Task 2: 
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 1732
+EXP1 = 624, EXP2 = 303, HP2 = 271, M2 = 534
+Task 3: 
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 497, EXP1 = 624, M1 = 361
+
+Testcase output #87: 
+Task 1: 
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 659, EXP2 = 243
+Task 2: 
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 659, EXP2 = 243, HP2 = 697, M2 = 1371
+Task 3: 
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 282, EXP1 = 659, M1 = 1922
+
+Testcase output #88: 
+Task 1: 
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 645, EXP2 = 826
+Task 2: 
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3693
+EXP1 = 796, EXP2 = 900, HP2 = 0, M2 = 1997
+Task 3: 
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 488, EXP1 = 796, M1 = 77
+
+Testcase output #89: 
+Task 1: 
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 960
+EXP1 = 598, EXP2 = 362
+Task 2: 
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2010
+EXP1 = 661, EXP2 = 550, HP2 = 488, M2 = 311
+Task 3: 
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 633, EXP1 = 661, M1 = 62
+
+Testcase output #90: 
+Task 1: 
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 975
+EXP1 = 235, EXP2 = 740
+Task 2: 
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 235, EXP2 = 740, HP2 = 960, M2 = 544
+Task 3: 
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 465, EXP1 = 235, M1 = 346
+
+Testcase output #91: 
+Task 1: 
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 562, EXP2 = 153
+Task 2: 
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 562, EXP2 = 153, HP2 = 575, M2 = 1919
+Task 3: 
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
+HP1 = 0, EXP1 = 515, M1 = 0
+
+Testcase output #92: 
+Task 1: 
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1582
+EXP1 = 682, EXP2 = 900
+Task 2: 
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 682, EXP2 = 900, HP2 = 512, M2 = 1643
+Task 3: 
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 1137
+HP1 = 402, EXP1 = 735, M1 = 0
+
+Testcase output #93: 
+Task 1: 
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 793
+EXP1 = 518, EXP2 = 275
+Task 2: 
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3461
+EXP1 = 586, EXP2 = 479, HP2 = 396, M2 = 2000
+Task 3: 
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 643
+HP1 = 0, EXP1 = 643, M1 = 0
+
+Testcase output #94: 
+Task 1: 
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1252
+EXP1 = 715, EXP2 = 537
+Task 2: 
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 3505
+EXP1 = 722, EXP2 = 556, HP2 = 849, M2 = 1378
+Task 3: 
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 303, EXP1 = 722, M1 = 35
+
+Testcase output #95: 
+Task 1: 
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1106
+EXP1 = 604, EXP2 = 502
+Task 2: 
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2029
+EXP1 = 611, EXP2 = 521, HP2 = 283, M2 = 614
+Task 3: 
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 103, EXP1 = 611, M1 = 1098
+
+Testcase output #96: 
+Task 1: 
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 769, EXP2 = 452
+Task 2: 
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 769, EXP2 = 452, HP2 = 409, M2 = 1128
+Task 3: 
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 900, EXP1 = 769, M1 = 1795
+
+Testcase output #97: 
+Task 1: 
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1600
+EXP1 = 700, EXP2 = 900
+Task 2: 
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 700, EXP2 = 900, HP2 = 701, M2 = 318
+Task 3: 
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
+HP1 = 795, EXP1 = 518, M1 = 0
+
+Testcase output #98: 
+Task 1: 
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1106
+EXP1 = 434, EXP2 = 672
+Task 2: 
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 434, EXP2 = 672, HP2 = 32, M2 = 776
+Task 3: 
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -1
+HP1 = 0, EXP1 = 141, M1 = 0
 
 Testcase output #99: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 259
-EXP1 = 23, EXP2 = 236
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
+EXP1 = 469, EXP2 = 857
 Task 2: 
-Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): 2609
-EXP1 = 100, EXP2 = 466, HP2 = 302, M2 = 1741
+Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
+EXP1 = 469, EXP2 = 857, HP2 = 103, M2 = 467
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 136
-HP1 = 0, EXP1 = 136, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 228, EXP1 = 469, M1 = 366
 
 Testcase output #100: 
 Task 1: 
-Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): -999
-EXP1 = 514, EXP2 = 59
+Sum of EXP1 and EXP2 is (if E1 is not in range [0; 999] then print -999): 1277
+EXP1 = 377, EXP2 = 900
 Task 2: 
 Sum of EXP1, EXP2, HP2, M2 is (if E2 is not in range [0; 999] then print -999): -999
-EXP1 = 514, EXP2 = 59, HP2 = 271, M2 = 992
+EXP1 = 377, EXP2 = 900, HP2 = 108, M2 = 1060
 Task 3: 
-Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): 1013
-HP1 = 467, EXP1 = 546, M1 = 0
+Sum of EXP1, HP1, M1 is (if E3 is not in range [0; 999] then print -999): -999
+HP1 = 243, EXP1 = 377, M1 = 790
 
