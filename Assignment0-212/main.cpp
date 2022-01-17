@@ -27,7 +27,7 @@ int readFile(string filename, int& HP1, int& HP2, int& EXP1, int& EXP2, int& M1,
 }
 
 int main(int argc, const char * argv[]) {
-    for (int i = 1; i <= 100; i++) {
+    for (int i = 1; i <= 10000; i++) {
         string filename = "Input/input" + to_string(i) + ".txt";
         string destination = "Output/output" + to_string(i) + ".txt";
 
@@ -81,7 +81,7 @@ int main(int argc, const char * argv[]) {
                     if (inputString == "") {
                         continue;
                     } else {
-                        for (int j = 0; j < inputString.length(); j++) {
+                        for (int j = 0; j < outputString.length(); j++) {
                             if (inputString[j] < '0' || inputString[j] > 'z') {
                                 break;
                             } else {
