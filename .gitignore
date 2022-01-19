@@ -1,8 +1,13 @@
-.vscode/
-.vscode/c_cpp_properties.json
-.vscode/settings.json
+#ignore all binary files
 *
 !*.*
 !*/
+
+#ignore .vscode folder
+.vscode/
+
+#ignore all executable files
 *.exe
+
+#ignore all DS_Store files
 *.DS_Store
