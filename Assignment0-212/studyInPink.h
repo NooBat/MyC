@@ -229,10 +229,10 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
         }
     }
 
-    M1 = M1 - ceil(!foundLuggage[0] * pow(9, 2) * E3 / 9.0) - 
-              ceil(!foundLuggage[1] * pow(7, 2) * E3 / 9.0) - 
-              ceil(!foundLuggage[2] * pow(20, 2) * E3 / 9.0) - 
-              ceil(!foundLuggage[3] * pow(12, 2) * E3 / 9.0);
+    M1 = ceil(M1 - !foundLuggage[0] * pow(9, 2) * E3 / 9.0);
+    M1 = ceil(M1 - !foundLuggage[1] * pow(7, 2) * E3 / 9.0);
+    M1 = ceil(M1 - !foundLuggage[2] * pow(20, 2) * E3 / 9.0); 
+    M1 = ceil(M1 - !foundLuggage[3] * pow(12, 2) * E3 / 9.0);
 
     if (!foundLuggage[0] && !foundLuggage[1] && !foundLuggage[2] && !foundLuggage[3]) {
         HP1 -= (59 * E3) % 900;
