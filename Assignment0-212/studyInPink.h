@@ -87,7 +87,7 @@ int firstMeet(int& EXP1, int& EXP2, const int& E1){
                 EXP2 = ceil(EXP2 + E1 / 9.0 + 11);
             }
         } else {
-            EXP2 = ceil(EXP2 + E1 / 7.0 + 9 + E1 / 9.0 + 11);
+            EXP2 = EXP2 + ceil(E1 / 7.0 + 9) + ceil(E1 / 9.0 + 11);
             if ( EXP2 > 600 ) {
                 EXP2 = ceil(EXP2 + E1 / 5.0 + 6);
                 EXP2 = ceil(EXP2 * 1.15);
@@ -115,7 +115,7 @@ int investigateScene(int& EXP1, int& EXP2, int& HP2, int& M2, const int& E2){
 
     float d1 = E2 / 9.0 + 10;
     float d2 = 0.35 * E2;
-    float d3 = 0.17 * (d1 + d2);
+    float d3 = 0.17 * (ceil(d1) + ceil(d2));
 
     EXP1 = ceil(EXP1 + d1 / 3);
     EXP2 = ceil(EXP2 + d1);
@@ -229,7 +229,10 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
         }
     }
 
-    M1 = ceil(M1 - (!foundLuggage[0] * pow(9, 2) + !foundLuggage[1] * pow(7, 2) + !foundLuggage[2] * pow(20, 2) + !foundLuggage[3] * pow(12, 2)) * E3 / 9.0);
+    M1 = M1 - ceil(!foundLuggage[0] * pow(9, 2) * E3 / 9.0) - 
+              ceil(!foundLuggage[1] * pow(7, 2) * E3 / 9.0) - 
+              ceil(!foundLuggage[2] * pow(20, 2) * E3 / 9.0) - 
+              ceil(!foundLuggage[3] * pow(12, 2) * E3 / 9.0);
 
     if (!foundLuggage[0] && !foundLuggage[1] && !foundLuggage[2] && !foundLuggage[3]) {
         HP1 -= (59 * E3) % 900;
