@@ -153,7 +153,7 @@ int main() {
     string a = "Testcase output #1: ";
     string b = "Testcase output #1: ";  
 
-    cout << (a == b) << endl;
+    cout << (a != b) << endl;
 
     return 0;
 }
