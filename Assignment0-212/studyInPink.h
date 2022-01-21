@@ -222,7 +222,7 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
     }   
 
     for (int i = 11; i >= 0; i--) {
-        P4[i] = ((P4[i] + E3) * int(ceil(min / min_idx))) % 26 + 65;
+        P4[i] = ((P4[i] + E3) * int(ceil(min * 1.0 / min_idx))) % 26 + 65;
         if ( P4[i] == 80 && !foundLuggage[3] ) {
             k[3] = 12 - i;
             foundLuggage[3] = true;
