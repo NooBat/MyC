@@ -100,11 +100,8 @@ ArrayMaxHeap<T>::ArrayMaxHeap(const T someArray[], const int arraySize) : itemCo
 }
 
 template<class T>
-ArrayMaxHeap<T>::~ArrayMaxHeap()
-{
-    delete[] items;
-    items = nullptr;
-    itemCount = 0;
+ArrayMaxHeap<T>::~ArrayMaxHeap() {
+    clear();
 }
 
 template<class T>
@@ -114,13 +111,79 @@ bool ArrayMaxHeap<T>::isEmpty() const
 }
 
 template<class T>
-int ArrayMaxHeap<T>::getNumberOfNodes() const
-{
+int ArrayMaxHeap<T>::getNumberOfNodes() const {
     return itemCount;
 }
 
 template<class T>
 int ArrayMaxHeap<T>::getHeight() const
 {
-    
+    int height = 0;
+    if (itemCount > 0) {
+        int currentIndex = itemCount - 1;
+
+        while (getParentIndex(currentIndex) >= 0) {
+            height++;
+            currentIndex = getParentIndex(currentIndex);
+        }
+    }
+
+    return height;
 }
+
+template<class T>
+T ArrayMaxHeap<T>::peekTop() const {
+    if (itemCount == 0) {
+        string msg = "peekTop() was called with an empty heap";
+        throw PrecondViolatedException(msg);
+    }
+
+    return items[0];
+}
+
+template<class T>
+bool ArrayMaxHeap<T>::add(const T& newData) {
+    if (itemCount == maxItems) {
+        return false;
+    } else {
+        int newIndex = itemCount;
+        bool inPlace = false;
+        items[itemCount] = newData;
+
+        while ( (newIndex >= 0) && !inPlace ) {
+            int parentIndex = getParentIndex(newIndex);
+            if (items[newIndex] > items[parentIndex]) {
+                swap(items[newIndex], items[parentIndex]);
+                newIndex = parentIndex;
+            } else {
+                inPlace = true;
+            }
+        }
+
+        itemCount++;
+    }
+
+    return true;
+}
+
+template<class T>
+bool ArrayMaxHeap<T>::remove() {
+    if (!itemCount) {
+        return false;
+    } else {
+        items[0] = items[itemCount - 1];
+
+        itemCount--;
+
+        heapRebuild(0);
+    }
+
+    return true;
+}
+
+template<class T>
+void ArrayMaxHeap<T>::clear() {
+    delete[] items;
+    items = nullptr;
+    itemCount = 0;
+ }
