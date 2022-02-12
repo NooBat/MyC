@@ -50,11 +50,11 @@ void ArrayMaxHeap<T>::heapRebuild(int subTreeRootIndex)
 {
     if (!isLeaf(subTreeRootIndex))
     {
-        largerChildIndex = getLeftChildIndex(subTreeRootIndex);
+        int largerChildIndex = getLeftChildIndex(subTreeRootIndex);
 
         if (largerChildIndex + 1 < itemCount)
         {
-            rightChildIndex = largerChildIndex + 1;
+            int rightChildIndex = largerChildIndex + 1;
             if (items[rightChildIndex] > items[rightChildIndex])
             {
                 largerChildIndex = rightChildIndex;

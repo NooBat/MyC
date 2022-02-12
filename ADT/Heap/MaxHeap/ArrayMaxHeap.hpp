@@ -1,8 +1,8 @@
 #ifndef _ARRAY_MAX_HEAP
 #define _ARRAY_MAX_HEAP
 
-#include "HeapInterface.hpp"
-#include "../PrecondViolatedException.hpp"
+#include "../HeapInterface.hpp"
+#include "../../PrecondViolatedException.hpp"
 
 template<class T> 
 class ArrayMaxHeap : public HeapInterface<T>
