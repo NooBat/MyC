@@ -31,14 +31,15 @@ string notebook1(string ntb1) {
     ifstream file;
     file.open(ntb1);
 
-    string freq;
+    string line;
     string sn1;
     int n1;
+    int count[10] = { 0 };
 
-    getline(file, freq);
+    getline(file, line);
 
-    if (freq.length() == 14) {
-        sn1 = freq.substr(11, 3);
+    if (line.length() == 14) {
+        sn1 = line.substr(11, 3);
 
         for (int i = 0; i < sn1.length(); i++) {
             if (sn1[i] < '0' || sn1[i] > '9') {
@@ -47,14 +48,64 @@ string notebook1(string ntb1) {
         }
 
         n1 = stoi(sn1);
+        if (!n1) return "0000000000";
+
+        int temp;
+
+        for (int i = 0;  i < n1; i++) {
+            file >> temp;
+
+            count[temp] += 1;
+
+            if (count[temp] >= 10) {
+                count[temp] %= 10;
+            }
+        }
     }
 
     file.close();
-    return "000000000";
+    
+    string password;
+
+    for (int i = 0; i < 10; i++) {
+        password += to_string(count[i]);
+    }
+
+    return password;
 }
 
 string notebook2(string ntb2) {
     // Complete this function to gain point
+    ifstream file;
+    file.open(ntb1);
+
+    string line;
+    int n2;
+
+    getline(file, line);
+
+    if (line.length() == 5) {
+        for (int i = 0; i < 5; i++) {
+            if (line[i] < '0' || line[i] > '9') {
+                return "1111111111";
+            }
+        }
+
+        n2 = stoi(line);
+
+        if (n2 < 6 || n2 > 100) {
+            return "1111111111";
+        }
+    } else {
+        return "1111111111";
+    }
+
+    for (int i = 0; i < n2; i++) {
+        getline(file, line);
+
+        
+    }
+
     return "000000000";
 }
 
