@@ -104,6 +104,35 @@ string functionG(string s1, string s2) {
     return result;
 }
 
+bool isInBound(int& rowIndex, int& columnIndex, const char moveCmd) {
+    int r = rowIndex;
+    int c = columnIndex;
+
+    switch (moveCmd) {
+        case 'L': 
+            c -=1;
+            break;
+        case 'R': 
+            c += 1;
+            break;
+        case 'U': 
+            r -= 1;
+            break;
+        case 'D': 
+            r += 1;
+            break;
+    }
+
+    if ( (c < 0 && c > 100) || (r < 0 && r > 100) ) {
+        return false;
+    } else {
+        rowIndex = r;
+        columnIndex = c;
+    }
+
+    return true;
+}
+
 string notebook1(string ntb1) {
     // Complete this function to gain point
     ifstream file;
@@ -225,7 +254,7 @@ string notebook3(string ntb3) {
         }
     }
 
-    for (int i = 1; i < 10; i++) {
+    for (int i = 0; i < 10; i++) {
         for (int j = 0; j < i; j++) {
             while (!isFibonacci(arr[i][j])) {
                 arr[i][j]++;
@@ -240,6 +269,8 @@ string notebook3(string ntb3) {
     }
 
     string pwd;
+
+    cout << arr[9][9];
 
     for (int i = 0; i < 10; i++) {
         pwd += to_string(indexOfMax(arr[i]));
@@ -277,12 +308,47 @@ bool chaseTaxi(
     string & outCatchUps
 ) {
     // Complete this function to gain point
+
+    //initialize the map
+    arr[0][0] = 0;
+    for (int i = 0; i < 100; i++) {
+        for (int j = 1; j < 100; j++) {
+            arr[i][j] = -9;
+        }
+    }
+
+    int* currVal = &arr[0][0];
+
+
+
     return false;
 }
 
 string enterLaptop(string tag, string message) {
     // Complete this function to gain point
-    return "";
+    ifstream file;
+    file.open(tag);
+
+    string email;
+    string sn3;
+    string line;
+
+    getline(file, line);
+    email = line.substr(line.find(" ") + 1, line.length() - line.find(" "));
+
+    getline(file, line);
+    sn3 = line.substr(line.find(" ") + 1, line.find(" ", 9) - line.find(" ") - 1);
+
+    int n3 = stoi(sn3); 
+
+    string name;
+
+    for (int i = 0; i < n3; i++) {
+        name += message;
+    }
+    
+    file.close();
+    return email + ";" + name;
 }
 
 ////////////////////////////////////////////////

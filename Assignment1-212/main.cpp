@@ -57,6 +57,7 @@ int main(int argc, const char * argv[]) {
         string pwd1 = notebook1(ntb1);
         string pwd2 = notebook2(ntb2);
         string pwd3 = notebook3(ntb3);
+        cout << pwd3 << endl;
         string listPwd = generateListPasswords(pwd1, pwd2, pwd3);
 
         cout << "pwd1: " << pwd1 << endl;
