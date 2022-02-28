@@ -62,7 +62,7 @@ bool isSquare(int n) {
 }
 
 bool isFibonacci(int n) {
-    return (isSquare(5 * n * n - 4) && isSquare(5 * n * n + 4));
+    return (isSquare(5 * n * n - 4) || isSquare(5 * n * n + 4));
 }
 
 //Helper function for function generateListPasswords
