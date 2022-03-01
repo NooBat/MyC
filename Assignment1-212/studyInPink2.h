@@ -201,7 +201,7 @@ string notebook2(string ntb2) {
 
         n2 = stoi(line);
 
-        if (n2 < 6 || n2 > 100) {
+        if (n2 < 5 || n2 > 100) {
             return "1111111111";
         }
     } else {
@@ -230,7 +230,11 @@ string notebook2(string ntb2) {
 
 string notebook3(string ntb3) {
     // Complete this function to gain point
-    int arr[10][10];
+    int** arr = new int*[10];
+    
+    for (int i = 0; i < 10; i++) {
+        arr[i] = new int[10];
+    }
 
     ifstream file;
     file.open(ntb3);
@@ -249,8 +253,10 @@ string notebook3(string ntb3) {
     }
 
     for (int i = 0; i < 10; i++) {
-        while (!isPrime(arr[i][i])) {
-            arr[i][i]++;
+        for (int j = i + 1; j < 10; j++) {
+            while (!isPrime(arr[i][j])) {
+                arr[i][j]++;
+            }
         }
     }
 
@@ -270,11 +276,11 @@ string notebook3(string ntb3) {
 
     string pwd;
 
-    cout << arr[9][9];
-
     for (int i = 0; i < 10; i++) {
         pwd += to_string(indexOfMax(arr[i]));
+        delete[] arr[i];
     }
+    delete[] arr;
 
     return pwd;
 }
