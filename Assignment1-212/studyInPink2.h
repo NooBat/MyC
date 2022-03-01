@@ -80,7 +80,6 @@ int indexOfMax(int *arr) {
     return index;
 }
 
-
 string functionG(string s1, string s2) {
     int temp = 0;
     string result;
@@ -123,7 +122,7 @@ bool isInBound(int& rowIndex, int& columnIndex, const char moveCmd) {
             break;
     }
 
-    if ( (c < 0 && c > 100) || (r < 0 && r > 100) ) {
+    if ( (c < 0 || c > 100) || (r < 0 || r > 100) ) {
         return false;
     } else {
         rowIndex = r;
@@ -287,19 +286,19 @@ string notebook3(string ntb3) {
 
 string generateListPasswords(string pwd1, string pwd2, string pwd3) {
     // Complete this function to gain point
-    string passwordsList = "";
+    string passwordsList;
 
-    passwordsList += pwd1 + "," + pwd2 + "," + pwd3 + ",";
+    passwordsList += pwd1 + ";" + pwd2 + ";" + pwd3 + ";";
 
-    passwordsList += functionG(pwd1, pwd2) + ",";
+    passwordsList += functionG(pwd1, pwd2) + ";";
 
-    passwordsList += functionG(pwd1, pwd3) + ",";
+    passwordsList += functionG(pwd1, pwd3) + ";";
 
-    passwordsList += functionG(pwd2, pwd3) + ",";
+    passwordsList += functionG(pwd2, pwd3) + ";";
 
-    passwordsList += functionG(functionG(pwd1, pwd2), pwd3) + ",";
+    passwordsList += functionG(functionG(pwd1, pwd2), pwd3) + ";";
 
-    passwordsList += functionG(pwd1, functionG(pwd2, pwd3)) + ",";
+    passwordsList += functionG(pwd1, functionG(pwd2, pwd3)) + ";";
 
     passwordsList += functionG(functionG(pwd1, pwd2), functionG(pwd1, pwd3));
 
@@ -314,20 +313,77 @@ bool chaseTaxi(
     string & outCatchUps
 ) {
     // Complete this function to gain point
-
+    bool caught = false;
     //initialize the map
-    arr[0][0] = 0;
     for (int i = 0; i < 100; i++) {
-        for (int j = 1; j < 100; j++) {
+        for (int j = 0; j < 100; j++) {
             arr[i][j] = -9;
         }
     }
+    arr[0][0] = 0;
 
-    int* currVal = &arr[0][0];
+    int xTaxi = 0;
+    int yTaxi = 0;
+    int currValue = arr[0][0];
 
+    for (int i = 0; i < moves.length(); i++) {
+        if (isInBound(yTaxi, xTaxi, moves[i])) {
+            arr[yTaxi][xTaxi] = 9 + currValue;
+            currValue = arr[yTaxi][xTaxi];
+        }
+    }
 
+    int numberOfPoints = countOccurences(points, "-") + 1;
 
-    return false;
+    int pointsArray[numberOfPoints][3];
+
+    for (int i = 0; i < numberOfPoints; i++) {
+        string strRow = points.substr(1, points.find(",") - 1);
+        string strCol = points.substr(points.find(",") + 1, points.find(")") - points.find(",") - 1);
+        points = points.replace(0, strRow.length() + strCol.length() + 4, "");
+
+        int row = stoi(strRow);
+        int col = stoi(strCol);
+
+        pointsArray[i][0] = row;
+        pointsArray[i][1] = col;
+        
+        if (i == 0) {
+            pointsArray[i][2] = (row + col) * 14;
+        } else {
+            pointsArray[i][2] = (abs(row - pointsArray[i - 1][0]) + abs(col - pointsArray[i - 1][1])) * 14 + pointsArray[i - 1][2];
+        }
+    }
+
+    for (int i = 0; i < numberOfPoints; i++) {
+        int row = pointsArray[i][0];
+        int col = pointsArray[i][1];
+        int time = pointsArray[i][2];
+
+        if (!caught) {
+            if (arr[row][col] != -9) {
+                if (time <= arr[row][col]) {
+                    caught = true;
+                    outCatchUps += "Y";
+                } else {
+                    outCatchUps += "N";
+                }
+            } else {
+                outCatchUps += "N";
+            }
+            outTimes += to_string(time);
+        } else {
+            outTimes += "-";
+            outCatchUps += "-";
+        }
+
+        if (i != numberOfPoints - 1) {
+            outTimes += ";";
+            outCatchUps += ";";
+        }
+    }
+
+    return caught;
 }
 
 string enterLaptop(string tag, string message) {

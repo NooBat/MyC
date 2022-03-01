@@ -73,6 +73,14 @@ int main(int argc, const char * argv[]) {
         cout << "outTimes: " << outTimes << endl;
         cout << "outCatchUps: " << outCatchUps << endl;
 
+        const int PRINT_SIZE = 10;
+        for (int r = 0; r < PRINT_SIZE; ++r) {
+            for (int c = 0; c < PRINT_SIZE; ++c) {
+                cout << arr[r][c] << " ";
+            }
+            cout << endl;
+        }
+
         // Task 3
         string loginInfo = enterLaptop(tag, message);
         cout << loginInfo << endl;
