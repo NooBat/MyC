@@ -5,6 +5,7 @@
 
 #ignore .vscode folder
 .vscode/
+Assignment1-212/tester/
 
 #ignore all executable files
 *.exe
