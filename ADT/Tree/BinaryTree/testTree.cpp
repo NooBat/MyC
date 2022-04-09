@@ -41,6 +41,13 @@ void testTree(BinaryNodeTree<string>& tree)
     tree.inorderTraverse(visit);
     cout << "; should be new eve genesis" << endl;  
     cout << endl << endl;
+
+    cout << "replace(\"new\", \"old\"): returns " << tree.replace("new", "old") << "; should be 1 (true)." << endl;
+    cout << "Inorder traversal: ";
+    tree.inorderTraverse(visit);
+    cout << "; should be old eve genesis" << endl; 
+    cout << "replace(\"new\", \"old\"): returns " << tree.replace("new", "old") << "; should be 0 (false)." << endl;
+    cout << endl << endl;
 }
 
 int main()

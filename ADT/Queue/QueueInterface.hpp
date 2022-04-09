@@ -1,7 +1,7 @@
 #ifndef _QUEUE_INTERFACE
 #define _QUEUE_INTERFACE
 
-#include "/Users/danielnguyen/Repo/C++/ADT/PrecondViolatedException.hpp"
+#include "../PrecondViolatedException.hpp"
 
 template<class T>
 class QueueInterface

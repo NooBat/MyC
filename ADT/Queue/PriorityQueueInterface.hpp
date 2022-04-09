@@ -1,7 +1,7 @@
 #ifndef _PRIORITY_QUEUE_INTERFACE
 #define _PRIORITY_QUEUE_INTERFACE
 
-#include "/Users/danielnguyen/Repo/C++/ADT/PrecondViolatedException.hpp"
+#include "../PrecondViolatedException.hpp"
 
 template<class T>
 class PriorityQueueInterface

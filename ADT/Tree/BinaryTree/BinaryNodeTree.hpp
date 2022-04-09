@@ -2,9 +2,9 @@
 #define _BINARY_NODE_TREE
 
 #include "BinaryTreeInterface.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/Tree/BinaryNode.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/NotFoundException.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/PrecondViolatedException.hpp"
+#include "../BinaryNode.hpp"
+#include "../../NotFoundException.hpp"
+#include "../../PrecondViolatedException.hpp"
 
 template<class T>
 class BinaryNodeTree : public BinaryTreeInterface<T>
@@ -76,6 +76,7 @@ public:
     void clear();
     T getEntry(const T& anEntry) const;
     bool contains(const T& anEntry) const;
+    bool replace(T item, T replacementItem);
 
 //----------------------------------------------------------
 //      Public Traversals Section.

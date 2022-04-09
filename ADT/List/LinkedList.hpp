@@ -4,8 +4,8 @@
 #include<assert.h>
 #include<string>
 #include "ListInterface.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/PrecondViolatedException.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/Node.hpp"
+#include "../PrecondViolatedException.hpp"
+#include "../Node.hpp"
 
 template<class T>
 class LinkedList : public ListInterface<T> 

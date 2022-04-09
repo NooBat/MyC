@@ -2,7 +2,7 @@
 #define _ARRAY_QUEUE
 
 #include "QueueInterface.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/PrecondViolatedException.hpp"
+#include "../PrecondViolatedException.hpp"
 
 const int MAX_QUEUE = 50;
 

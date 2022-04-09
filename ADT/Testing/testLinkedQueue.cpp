@@ -1,5 +1,5 @@
-#include "/Users/danielnguyen/Repo/C++/ADT/Queue/LinkedQueue.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/Queue/SL_PriorityQueue.hpp"
+#include "../Queue/LinkedQueue.hpp"
+#include "../Queue/SL_PriorityQueue.hpp"
 #include<iostream>
 
 using namespace std;

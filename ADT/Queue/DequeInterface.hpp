@@ -1,7 +1,7 @@
 #ifndef _DEQUE_INTERFACE
 #define _DEQUE_INTERFACE
 
-#include "/Users/danielnguyen/Repo/C++/ADT/PrecondViolatedException.hpp"
+#include "../PrecondViolatedException.hpp"
 
 template<class T>
 class DequeInterface

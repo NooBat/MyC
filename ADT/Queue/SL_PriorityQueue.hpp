@@ -2,9 +2,9 @@
 #define _SL_PRIORITY_QUEUE
 
 #include "PriorityQueueInterface.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/List/LinkedSortedList.hpp"
+#include "../List/LinkedSortedList.hpp"
 #include<string>
-#include "/Users/danielnguyen/Repo/C++/ADT/PrecondViolatedException.hpp"
+#include "../PrecondViolatedException.hpp"
 
 using namespace std;
 

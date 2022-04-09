@@ -1,7 +1,7 @@
-#include "/Users/danielnguyen/Repo/C++/ADT/List/LinkedSortedList.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/List/SortedListHasA.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/List/ArrayList.hpp"
-#include "/Users/danielnguyen/Repo/C++/Problems/C12/Ex2.hpp"
+#include "../List/LinkedSortedList.hpp"
+#include "../List/SortedListHasA.hpp"
+#include "../List/ArrayList.hpp"
+#include "../../Problems/C12/Ex2.hpp"
 #include<ctime>
 
 

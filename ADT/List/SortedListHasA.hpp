@@ -3,8 +3,8 @@
 
 #include "SortedListInterface.hpp"
 #include "LinkedList.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/Node.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/PrecondViolatedException.hpp"
+#include "../Node.hpp"
+#include "../PrecondViolatedException.hpp"
 
 using namespace std;
 

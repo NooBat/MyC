@@ -2,7 +2,7 @@
 #define _LINKED_BAG
 
 #include "BagInterface.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/Node.hpp"
+#include "../Node.hpp"
 
 template<class T>
 class LinkedBag : public BagInterface<T> {

@@ -2,8 +2,8 @@
 #define _ARRAY_LIST
 
 #include "ListInterface.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/PrecondViolatedException.hpp"
-#include "/Users/danielnguyen/Repo/C++/Types_of_Sort/merge_sort.cpp"
+#include "../PrecondViolatedException.hpp"
+#include "../../Types_of_Sort/merge_sort.cpp"
 
 using namespace std;
 

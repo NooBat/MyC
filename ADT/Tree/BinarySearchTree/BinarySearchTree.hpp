@@ -1,9 +1,9 @@
 #ifndef _BINARY_SEARCH_TREE
 #define _BINARY_SEARCH_TREE
 
-#include "/Users/danielnguyen/Repo/C++/ADT/Tree/BinaryTree/BinaryTreeInterface.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/Tree/BinaryTree/BinaryNodeTree.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/Tree/BinaryTree/BinaryNodeTree.cpp"
+#include "../BinaryTree/BinaryTreeInterface.hpp"
+#include "../BinaryTree/BinaryNodeTree.hpp"
+#include "../BinaryTree/BinaryNodeTree.cpp"
 #include<string>
 #include<fstream>
 

@@ -2,8 +2,8 @@
 #define _LINKED_QUEUE
 
 #include "QueueInterface.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/PrecondViolatedException.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/Node.hpp"
+#include "../PrecondViolatedException.hpp"
+#include "../Node.hpp"
 #include<string>
 #include<vector>
 #include<vector>

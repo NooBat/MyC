@@ -1,8 +1,8 @@
 #ifndef _ARRAY_SORTED_LIST
 #define _ARRAY_SORTED_LIST
 
-#include "/Users/danielnguyen/Repo/C++/ADT/SortedListInterface.hpp"
-#include "/Users/danielnguyen/Repo/C++/ADT/PrecondViolatedException.hpp"
+#include "../../ADT/List/SortedListInterface.hpp"
+#include "../../ADT/PrecondViolatedException.hpp"
 
 template<class T>
 class ArraySortedList : public SortedListInterface<T>

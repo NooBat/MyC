@@ -114,19 +114,29 @@ BinaryNode<T>* BinaryNodeTree<T>::moveValuesUpTree(BinaryNode<T>* subTreePtr)
 template<class T>
 BinaryNode<T>* BinaryNodeTree<T>::findNode(BinaryNode<T>* treePtr, const T& target, bool& success) const
 {
-    if (!treePtr) return nullptr;
+    if (!treePtr) return treePtr;
+
+    BinaryNode<T>* result = nullptr;
 
     if (treePtr->getItem() == target)
     {
         success = true;
+        result = treePtr;
     }
     else
     {
-        treePtr->setLeftPtr(findNode(treePtr->getLeftPtr(), target, success));
-        treePtr->setRightPtr(findNode(treePtr->getRightPtr(), target, success));
+        result = findNode(treePtr->getLeftPtr(), target, success);
+        if (success) {
+            return result;
+        }
+
+        result = findNode(treePtr->getRightPtr(), target, success);
+        if (success) {
+            return result;
+        }
     }
 
-    return treePtr;
+    return result;
 }
 
 template<class T>
@@ -294,6 +304,21 @@ bool BinaryNodeTree<T>::contains(const T& anEntry) const
     findNode(rootPtr, anEntry, isInTree);
 
     return isInTree;
+}
+
+template<class T>
+bool BinaryNodeTree<T>::replace(T item, T replacementItem)
+{
+    bool found = false;
+    BinaryNode<T>* result = nullptr;
+    result = findNode(rootPtr, item, found);
+
+    if (found) 
+    {
+        result->setItem(replacementItem);
+    }
+
+    return found;
 }
 
 template<class T>
