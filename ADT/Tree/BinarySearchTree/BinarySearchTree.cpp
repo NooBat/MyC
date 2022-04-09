@@ -97,6 +97,7 @@ template<class T>
 BinaryNode<T>* BinarySearchTree<T>::findNode(BinaryNode<T>* treePtr, const T& target) const
 {
     if (!treePtr) return nullptr;
+
     T theItem = treePtr->getItem();
     if (theItem > target) return findNode(treePtr->getLeftPtr(), target);
     else if (theItem < target) return findNode(treePtr->getRightPtr(), target);
@@ -233,15 +234,29 @@ T BinarySearchTree<T>::getEntry(const T& anEntry) const
 template<class T>
 bool BinarySearchTree<T>::contains(const T& anEntry) const
 {
-    if (findNode(rootPtr, anEntry)->getItem() == anEntry) return true;
+    BinaryNode<T>* result = findNode(rootPtr, anEntry);
 
-    return false;
+    if (!result) return false;
+    return true;
 }
 
 template<class T>
 void BinarySearchTree<T>::readTree(T arr[], int n)
 {
     rootPtr = createTree(rootPtr, arr, 0, n - 1);
+}
+
+template<class T>
+bool BinarySearchTree<T>::replace(const T& item, const T& replacementItem) 
+{
+    bool removed = remove(item);
+    if (!removed) return false;
+    else 
+    {
+        add(replacementItem); 
+    }
+
+    return true;
 }
 
 //----------------------------------------------------------

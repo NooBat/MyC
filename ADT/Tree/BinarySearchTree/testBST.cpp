@@ -44,6 +44,13 @@ void testBST(BinarySearchTree<string>& tree)
     tree.inorderTraverse(visit);
     cout << "; should be adam eve new" << endl;  
     cout << endl << endl;
+
+    cout << "replace(\"new\", \"beta\"): returns " << tree.replace("new", "beta") << "; should be 1 (true)." << endl;
+    cout << "Inorder traversal: ";
+    tree.inorderTraverse(visit);
+    cout << "; should be adam beta eve" << endl;   
+    cout << "replace(\"new\", \"genesis\"): returns " << tree.replace("new", "genesis") << "; should be 0 (false)." << endl;
+    cout << endl << endl;
 }
 
 int main()

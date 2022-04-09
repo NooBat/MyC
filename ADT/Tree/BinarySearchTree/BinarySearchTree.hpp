@@ -70,6 +70,7 @@ public:
     T getEntry(const T& anEntry) const;
     bool contains(const T& anEntry) const;
     void readTree(T arr[], int n);
+    bool replace(const T& item, const T& replacementItem);
 
 //----------------------------------------------------------
 //      Public Traversals Section.
