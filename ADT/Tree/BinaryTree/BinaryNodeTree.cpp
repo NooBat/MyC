@@ -1,4 +1,5 @@
 #include "BinaryNodeTree.hpp"
+#include<stack>
 
 using namespace std;
 
@@ -37,6 +38,7 @@ void BinaryNodeTree<T>::destroyTree(BinaryNode<T>* subTreePtr)
     destroyTree(subTreePtr->getLeftPtr());
     destroyTree(subTreePtr->getRightPtr());
     delete subTreePtr;
+    subTreePtr = nullptr;
 }
 
 template<class T>
@@ -153,6 +155,24 @@ BinaryNode<T>* BinaryNodeTree<T>::copyTree(const BinaryNode<T>* treePtr) const
 }
 
 template<class T>
+T BinaryNodeTree<T>::minimaxHelper(BinaryNode<T>* currPtr, const int& level) 
+{
+    if (currPtr->isLeaf()) {
+        return currPtr->getItem();
+    } else if (!currPtr->getLeftPtr()) {
+        return currPtr->getRightPtr()->getItem();
+    } else if (!currPtr->getRightPtr()) {
+        return currPtr->getLeftPtr()->getItem();
+    }
+
+
+    T item1 = minimaxHelper(currPtr->getLeftPtr(), level + 1);
+    T item2 = minimaxHelper(currPtr->getRightPtr(), level + 1);
+
+    return (level % 2 == 0 ? (item1 > item2 ? item1 : item2) : (item1 < item2 ? item1 : item2));
+}
+
+template<class T>
 void BinaryNodeTree<T>::preorder(void visit(T&), BinaryNode<T>* treePtr) const
 {
     if (!treePtr) return;
@@ -183,6 +203,86 @@ void BinaryNodeTree<T>::postorder(void visit(T&), BinaryNode<T>* treePtr) const
     postorder(visit, treePtr->getRightPtr());
     T theItem = treePtr->getItem();
     visit(theItem);
+}
+
+template<class T>
+void BinaryNodeTree<T>::preorderIter(void visit(T&), BinaryNode<T>* treePtr) const 
+{
+    stack< BinaryNode<T>* > nodeS;
+    BinaryNode<T>* current = treePtr;
+
+    while (!nodeS.empty() || current) {
+        while (current) {
+            T theItem = current->getItem();
+            visit(theItem);
+
+            if (current->getRightPtr()) {
+                nodeS.push(current->getRightPtr());
+            }
+
+            current = current->getLeftPtr();
+        }
+
+        if (!nodeS.empty()) {
+            current = nodeS.top();
+            nodeS.pop();
+        }
+    }
+}
+
+template<class T>
+void BinaryNodeTree<T>::inorderIter(void visit(T&), BinaryNode<T>* treePtr) const
+{
+    stack< BinaryNode<T>* > nodeS;
+    BinaryNode<T>* current = treePtr;
+
+    while (!nodeS.empty() || current) {
+        while(current) {
+            nodeS.push(current);
+            current = current->getLeftPtr();
+        }
+        
+        current = nodeS.top();
+        nodeS.pop();
+
+        T theItem = current->getItem();
+        visit(theItem);
+
+        current = current->getRightPtr();
+    }
+}
+
+template<class T>
+void BinaryNodeTree<T>::postorderIter(void visit(T&), BinaryNode<T>* treePtr) const
+{
+    stack< BinaryNode<T>* > st1;
+    stack< BinaryNode<T>* > st2;
+    BinaryNode<T>* current = treePtr;
+
+    if (!current) return;
+
+    st1.push(current);
+
+    while (!st1.empty()) {
+        current = st1.top();
+        st1.pop();
+
+        st2.push(current);
+        if (current->getLeftPtr()) {
+            st1.push(current->getLeftPtr());
+        }
+        if (current->getRightPtr()) {
+            st1.push(current->getRightPtr());
+        }
+    }
+
+    while (!st2.empty()) {
+        current = st2.top();
+        st2.pop();
+
+        T theItem = current->getItem();
+        visit(theItem);
+    }
 }
 
 //----------------------------------------------------------
@@ -307,7 +407,7 @@ bool BinaryNodeTree<T>::contains(const T& anEntry) const
 }
 
 template<class T>
-bool BinaryNodeTree<T>::replace(T item, T replacementItem)
+bool BinaryNodeTree<T>::replace(const T& item, const T& replacementItem)
 {
     bool found = false;
     BinaryNode<T>* result = nullptr;
@@ -322,9 +422,17 @@ bool BinaryNodeTree<T>::replace(T item, T replacementItem)
 }
 
 template<class T>
+bool BinaryNodeTree<T>::minimaximizeTree()
+{
+    minimaxHelper(rootPtr);
+
+    return true;
+}
+
+template<class T>
 void BinaryNodeTree<T>::preorderTraverse(void visit(T&)) const
 {
-    preorder(visit, rootPtr);
+    preorderIter(visit, rootPtr);
 }
 
 template<class T>
@@ -336,7 +444,7 @@ void BinaryNodeTree<T>::inorderTraverse(void visit(T&)) const
 template<class T>
 void BinaryNodeTree<T>::postorderTraverse(void visit(T&)) const
 {
-    postorder(visit, rootPtr);
+    postorderIter(visit, rootPtr);
 }
 
 template<class T>

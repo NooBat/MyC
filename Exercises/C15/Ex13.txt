@@ -27,6 +27,14 @@ minimaximizeTree(Node* ptr, level(default := 0)): int
     {
         return ptr->val
     }
+    else if (ptr->left is nullptr)
+    {
+        return ptr->right->val
+    }
+    else if (ptr->right is nullptr)
+    {
+        return ptr->left->val
+    }
 
     //recursively postorder traverse through the entire tree
     num1 := minimaximizeTree(ptr->left, level + 1)

@@ -55,10 +55,20 @@ public:
     virtual T getEntry(const T& anEntry) const = 0;
 
     /** Tests whether a given entry occurs in this binary tree.
-     * @post The binary search tree is unchanged.
+     * @post The binary tree is unchanged.
      * @param anEntry The entry to find.
      * @return True if the search is successful, otherwise false. */
     virtual bool contains(const T& anEntry) const = 0;
+
+    /** Replace an item in this binary tree with a new item, if exists.
+     * @param item The item to be replaced.
+     * @param replacementItem The replacement item.
+     * @return True if the replacement is successful, otherwise false. */
+    virtual bool replace(const T& item, const T& replacementItem) = 0;
+
+    /** Turn this binary tree into a minimax tree.
+     * @return True if the conversion is successful, otherwise false. */
+    virtual bool minimaximizeTree() = 0;
 
     /** Traverse this binary tree in preorder (inorder, postorder) and
      * calls the function visit for each node.

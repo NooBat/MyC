@@ -45,10 +45,19 @@ protected:
     //the copy.
     BinaryNode<T>* copyTree(const BinaryNode<T>* treePtr) const;
 
+    //Minimaximize helper function, by taking the max or min child
+    //of a parent node.
+    T minimaxHelper(BinaryNode<T>* currPtr, const int& level=0);
+
     //Recursive traversal helper methods:
     void preorder(void visit(T&), BinaryNode<T>* treePtr) const;
     void inorder(void visit(T&), BinaryNode<T>* treePtr) const;
     void postorder(void visit(T&), BinaryNode<T>* treePtr) const;
+
+    //Iterative traversal helper methods:
+    void preorderIter(void visit(T&), BinaryNode<T>* treePtr) const;
+    void inorderIter(void visit(T&), BinaryNode<T>* treePtr) const;
+    void postorderIter(void visit(T&), BinaryNode<T>* treePtr) const;
 
 public:
 //----------------------------------------------------------
@@ -76,7 +85,8 @@ public:
     void clear();
     T getEntry(const T& anEntry) const;
     bool contains(const T& anEntry) const;
-    bool replace(T item, T replacementItem);
+    bool replace(const T& item, const T& replacementItem);
+    bool minimaximizeTree();
 
 //----------------------------------------------------------
 //      Public Traversals Section.
