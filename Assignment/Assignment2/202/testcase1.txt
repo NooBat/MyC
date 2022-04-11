@@ -1,0 +1,5 @@
+4
+PUSH 10 0 H
+TOP
+POP
+TOP

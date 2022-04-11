@@ -1,3 +1,0 @@
-INSERT x number false
-INSERT y string false
-INSERT x string false
