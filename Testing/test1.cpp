@@ -1,116 +1,49 @@
 #include<bits/stdc++.h>
 
-using namespace std;
-
-// int minimumAmplitude1(vector<int>& nums, int k)
-// {
-//     vector<int> maxL(nums.size(), INT_MIN);
-//     vector<int> minL(nums.size(), INT_MAX);
-
-//     maxL[0] = nums[0];
-//     minL[0] = nums[0];
-
-//     for (int i = 1; i < nums.size(); i++)
-//     {
-//         maxL[i] = max(nums[i], maxL[i - 1]);
-//         minL[i] = min(nums[i], minL[i - 1]);
-//     }
-
-//     vector<int> maxR(nums.size(), INT_MIN);
-//     vector<int> minR(nums.size(), INT_MAX);
-
-//     maxR[nums.size() - 1] = nums[nums.size() - 1];
-//     minR[nums.size() - 1] = nums[nums.size() - 1];
-
-//     for (int i = nums.size() - 2; i >= 0; i--)
-//     {
-//         maxR[i] = max(nums[i], maxR[i + 1]);
-//         minR[i] = min(nums[i], minR[i + 1]);
-//     }
-
-//     int result = INT_MAX;
-
-//     for (int i = 0; i < nums.size() - k + 1; i++)
-//     {
-//         int Max = INT_MIN;
-//         int Min = INT_MAX;
-
-//         Max = max(Max, maxL[i]);
-//         Min = min(Min, minL[i]);
-
-//         if (i + k < nums.size())
-//         {
-//             Max = max(Max, maxR[i + k]);
-//             Min = min(Min, minR[i + k]);
-//         }
-
-//         result = min(result, Max - Min);
-//     }
-
-//     return result;
-// }
-
-int minimumAmplitude2(vector<int>& nums, int k) {
-    int n = nums.size();
-    vector<int> maxR(n,-2147483648), minR(n, 2147483647);
-    vector<int> maxL(n, -2147483648), minL(n, 2147483647);
-    maxR[n - 1] = nums[n - 1];
-    minR[n - 1] = nums[n - 1];
-    maxL[0] = nums[0];
-    minL[0] = nums[0];
-    // computing min and max values to the left
-    for (int i = 1; i < n; ++i) {
-        maxL[i] = max(nums[i], maxL[i - 1]);
-        minL[i] = min(nums[i], minL[i - 1]);
-    }
-    // computing min and max values to the right
-    for (int i = n - 2; i >= 0; --i) {
-        maxR[i] = max(nums[i], maxR[i + 1]);
-        minR[i] = min(nums[i], minR[i + 1]);
-    }
-    int res = 2147483647;
-    for (int i = 0; i + k - 1 < n; i++) {
-        int Min = 2147483647, Max = -2147483648;
-        if (i - 1 >= 0) 
-        {
-            Min = min(Min, minL[i - 1]);
-            Max = max(Max, maxL[i - 1]);
+class Solution {
+private:
+    bool isPalindrome(string s) {
+        if (s.length() <= 1) return true;
+        
+        for (int i = 0; i < s.length() / 2; i++) {
+            if (s[i] != s[s.length() - i - 1]) return false;
         }
-        if (i + k < n) 
-        {
-            Min = min(Min, minR[i + k]);
-            Max = max(Max, maxR[i + k]);
+        
+        return true;
+    }
+public:
+    string longestPalindrome(string s) {
+        if (s.length() <= 1) return s;
+        
+        int maxLength = 1;
+        string res;
+        
+        for (int i = 1; i < s.length() - 1; i++) {
+            string temp = s.substr(i, 1);
+            for (int j = i - 1, k = i + 1; j >= 0 && k < s.length(); j--, k++) {
+                temp = s.substr(j, 1) + temp + s.substr(k, 1);
+                
+                if (!isPalindrome(temp)) {
+                    break;
+                } else {
+                    if (temp.length() > maxLength) {
+                        maxLength = temp.length();
+                        res = temp;
+                    }            
+                }
+            }
         }
-        res = min(res, Max - Min);
+        
+        return res;
     }
+};
 
-    return res;
-}
+int main() {
+    string s = "cbbd";
 
-int main()
-{
-    srand(time(NULL));
+    Solution solve;
 
-    int size = 10000000;
-
-    int k = rand() % (size / 10 + 1) + 1;
-    cout << k << endl;
-
-    vector<int> v;
-
-    for (int i = 0; i < size; i++)
-    {
-        v.push_back(rand() % 9999);
-    }
-
-    // cout << minimumAmplitude1(v, k) << endl;
-    clock_t start = clock();
-    cout << minimumAmplitude2(v, k) << endl;
-    clock_t end = clock();
-
-    double time = static_cast<double>(end - start) / CLOCKS_PER_SEC;
-
-    cout << time << endl;
+    cout << solve.longestPalindrome(s);
 
     return 0;
 }
