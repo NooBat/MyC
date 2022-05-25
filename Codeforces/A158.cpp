@@ -13,10 +13,13 @@ int main() {
         cin >> scores[i];
     }
 
+    sort(scores, scores + n, greater<int>());
+
     int toNextRound = 0;
+    int threshold = scores[k];
 
     for (int i = 0; i < n && scores[i] > 0; i++) {
-        if (scores[i] >= scores[k]) {
+        if (scores[i] >= threshold) {
             toNextRound++;
         }
     }
