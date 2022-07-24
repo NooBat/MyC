@@ -14,4 +14,5 @@
 *.plist
 
 #ignore dSYM files
+#ignore test folder
 *.dSYM
